@@ -19,6 +19,7 @@ Every new submission must meet these at review time:
 - **Useful to a stranger:** real data or a working control, and no placeholder text.
 - **Credit:** a name plus a GitHub handle, an X handle, or both.
 - **Prompt:** the prompt used to build the Page, with no private details.
+- **Star:** you starred this repository before opening the pull request.
 
 Encouraged:
 
@@ -31,7 +32,7 @@ Pages that go private or get deleted are removed.
 
 Listing contributions only need to update [`README.md`](./README.md).
 
-1. Before submitting a pull request, please star this repository.
+1. Star this repository before opening your pull request. It is required to get listed.
 2. Build or open your Page in Grok Bot and paste the snippet from the README's "Create your Page and get listed" section.
 3. Make the Page public with the share control on the Page.
 4. Add your entry to the matching README section and remove that section's "No Pages yet" line if yours is the first. You may also add it to Latest Additions.
@@ -41,6 +42,7 @@ Listing contributions only need to update [`README.md`](./README.md).
 
 ````markdown
 - [Title](public page link) - One factual sentence. By Name ([@github](https://github.com/handle), [@x](https://x.com/handle)).
+  Template page: [grokbotpages.com/t/slug/](https://grokbotpages.com/t/slug/).
   <details><summary>Prompt</summary>
 
   ```text
@@ -53,6 +55,7 @@ Listing contributions only need to update [`README.md`](./README.md).
 - A name is required, plus at least one of a GitHub handle or an X handle. Both are fine.
 - The prompt block is required and must contain no private details. The snippet in the README asks Grok Bot to write one.
 - An optional `Inspired by [source](url).` can go before `By`.
+- The `Template page` line links the entry's page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`. The page goes live once the pull request is merged.
 - Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
 
 Sections: Latest Additions, Mission Control, Productivity, Data Analytics, Infrastructure, Agent Orchestration, Bot Management, Payments and Finance, Sales, Marketing, Inbox and Collaboration, Research, Design, Documents and Files, Scheduling and Support.

@@ -237,7 +237,8 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 1. Build or open your Page in Grok Bot.
 2. Paste the snippet below into the same chat.
 3. Make the Page public with the share control on the Page.
-4. Open a pull request that adds your entry to the right section of this README, in the [entry format](#entry-format).
+4. Star [this repository](https://github.com/Agent-Analytics/awesome-grok-bot-pages). A star is required to get listed.
+5. Open a pull request that adds your entry to the right section of this README, in the [entry format](#entry-format).
 
 Before you make a Page public, swap any personal or business data for realistic mock data or public data.
 
@@ -264,6 +265,7 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
 - The Page has real data or a working control, and no placeholder text.
 - The entry credits a name plus a GitHub handle, an X handle, or both.
 - The entry includes the prompt used to build the Page, with no private details.
+- The contributor starred this repository before opening the pull request.
 - The "Made with Grok Bot" backlink footer is strongly requested but not required.
 - Pages that go private or get deleted are removed.
 
@@ -271,6 +273,7 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
 
 ````markdown
 - [Title](public page link) - One factual sentence. By Name ([@github](https://github.com/handle), [@x](https://x.com/handle)).
+  Template page: [grokbotpages.com/t/slug/](https://grokbotpages.com/t/slug/).
   <details><summary>Prompt</summary>
 
   ```text
@@ -283,11 +286,12 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
 - A name is required, plus at least one of a GitHub handle or an X handle. Both are fine.
 - The prompt block is required. Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
 - An optional `Inspired by [source](url).` can go before `By`.
+- The `Template page` line links the entry's page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`. The page goes live once the pull request is merged.
 - Keep the description to one factual sentence about what the Page shows or does.
 
 ## Contributing
 
-Before submitting a pull request, please star this repository.
+Star this repository before opening your pull request. It is required to get listed.
 
 Listing contributions only need to add an entry to `README.md`. New Pages may also appear in Latest Additions. See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full review criteria.
 

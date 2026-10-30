@@ -121,7 +121,7 @@ ${dataBlob(data)}
 }
 
 function getListed() {
-  const steps = d.steps.map((s, i) => i === 3
+  const steps = d.steps.map((s) => s.startsWith('Open a pull request')
     ? `Open a pull request that adds your entry to the right section of the README, in the ${outbound(REPO + '#entry-format', 'entry format', 'how_to')}.`
     : md(s, 'how_to'));
   return `<section class="gl" id="get-listed" aria-labelledby="gl-h"><div><h2 id="gl-h">Get your Page listed</h2>
