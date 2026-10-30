@@ -33,8 +33,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-<!-- pending public link:
-- [Decisions Console](PUBLIC_LINK) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log. Filter, sort, open details and hide items; on your own copy each item gets an Open chat link to the asking bot (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log. Filter, sort, open details and hide items; on your own copy each item gets an Open chat link to the asking bot (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
   ```text
@@ -42,7 +41,6 @@ Newest listings, also shown in their section.
   ```
 
   </details>
--->
 
 - [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
@@ -129,8 +127,7 @@ Mission controls and bot activity.
 
   </details>
 
-<!-- pending public link:
-- [Decisions Console](PUBLIC_LINK) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log. Filter, sort, open details and hide items; on your own copy each item gets an Open chat link to the asking bot (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log. Filter, sort, open details and hide items; on your own copy each item gets an Open chat link to the asking bot (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
   ```text
@@ -138,7 +135,6 @@ Mission controls and bot activity.
   ```
 
   </details>
--->
 
 ## Bot Management
 
