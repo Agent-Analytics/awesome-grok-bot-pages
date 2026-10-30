@@ -9,6 +9,7 @@
 
 - [ ] I starred this repository.
 - [ ] The link opens without signing in.
+- [ ] Public Pages use mock or public data, never personal info.
 - [ ] The Page contains no private data (personal emails, names of private people, account IDs, inbox items, file paths).
 - [ ] The Page follows the Grok Bot Pages content rules.
 - [ ] The Page has real data or a working control, and no placeholder text.

@@ -13,6 +13,7 @@ Awesome Grok Bot Pages lists public Grok Bot Pages that are useful to a stranger
 Every new submission must meet these at review time:
 
 - **Public link:** the Page link opens without signing in.
+- **Mock or public data:** public Pages use mock or public data, never personal info. If your Page shows personal or business data, list a public copy with realistic mock data.
 - **No private data:** no personal emails, names of private people, account IDs, inbox items or file paths.
 - **Content rules:** the Page follows the Grok Bot Pages content rules.
 - **Useful to a stranger:** real data or a working control, and no placeholder text.

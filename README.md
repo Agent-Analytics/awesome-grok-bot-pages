@@ -22,6 +22,8 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 - [Documents and Files](#documents-and-files)
 - [Scheduling and Support](#scheduling-and-support)
 - [Create your Page and get listed](#create-your-page-and-get-listed)
+  - [Need data for a dashboard?](#need-data-for-a-dashboard)
+  - [Example prompt: Site analytics dashboard](#example-prompt-site-analytics-dashboard)
 - [Listing rules](#listing-rules)
 - [Entry format](#entry-format)
 - [Contributing](#contributing)
@@ -43,6 +45,17 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
   </details>
 -->
 
+<!-- pending public link:
+- [Site Analytics Dashboard](PUBLIC_LINK) - One dashboard of daily visits, signups and landing conversion, built from Agent Analytics data (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Page called "Site Analytics Dashboard (example)" with realistic mock data for three fictional sites: acme-notes.app, Acme blog and Acme docs. For each site, show a card with total visits for the last 7 days as a big number, a one-line note comparing this week to the 30-day daily average, and a daily visits line chart over 30 days with a dashed 7-day average. Add a weekly signups columns card and a landing visitors to Start free clicks to signups funnel card. Label every card "Agent Analytics (example data)" and say once in the summary that all data is example data. End with a "Made with Grok Bot" section linking https://agentanalytics.sh and https://github.com/Agent-Analytics/awesome-grok-bot-pages.
+  ```
+
+  </details>
+-->
+
 ## Productivity
 
 Planners, trackers and task boards.
@@ -54,6 +67,19 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 Dashboards and metrics.
 
 No Pages yet. [Add yours](#create-your-page-and-get-listed).
+
+Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanalytics.sh), which has an MCP server (`https://mcp.agentanalytics.sh/mcp`) so Grok Bot can pull real site stats into a Page. [Setup guide](https://docs.agentanalytics.sh/installation/). Any analytics provider is welcome.
+
+<!-- pending public link:
+- [Site Analytics Dashboard](PUBLIC_LINK) - One dashboard of daily visits, signups and landing conversion, built from Agent Analytics data (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Page called "Site Analytics Dashboard (example)" with realistic mock data for three fictional sites: acme-notes.app, Acme blog and Acme docs. For each site, show a card with total visits for the last 7 days as a big number, a one-line note comparing this week to the 30-day daily average, and a daily visits line chart over 30 days with a dashed 7-day average. Add a weekly signups columns card and a landing visitors to Start free clicks to signups funnel card. Label every card "Agent Analytics (example data)" and say once in the summary that all data is example data. End with a "Made with Grok Bot" section linking https://agentanalytics.sh and https://github.com/Agent-Analytics/awesome-grok-bot-pages.
+  ```
+
+  </details>
+-->
 
 ## Infrastructure
 
@@ -133,13 +159,26 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 3. Make the Page public with the share control on the Page.
 4. Open a pull request that adds your entry to the right section of this README, in the [entry format](#entry-format).
 
+Before you make a Page public, swap any personal or business data for realistic mock data or public data.
+
 ```text
-Get this Page ready to list on Awesome Grok Bot Pages. Remove any private details and placeholder text, and check that it works for a stranger with no context. At the bottom, add a "Made with Grok Bot" section with one line: "Listed on Awesome Grok Bot Pages: https://github.com/Agent-Analytics/awesome-grok-bot-pages". Then give me a one-sentence description for the listing and tell me how to make the Page public. Also write a short, reusable prompt that would recreate this Page, without my private details.
+Get this Page ready to list on Awesome Grok Bot Pages. Remove any private details and placeholder text, and check that it works for a stranger with no context. At the bottom, add a "Made with Grok Bot" section with one line: "Listed on Awesome Grok Bot Pages: https://github.com/Agent-Analytics/awesome-grok-bot-pages". Then give me a one-sentence description for the listing and tell me how to make the Page public. If the Page shows personal or business data, make a public copy with realistic mock data instead. Also write a short, reusable prompt that would recreate this Page, without my private details. Then create a routine that refreshes this Page with fresh data on a schedule (for example daily).
+```
+
+### Need data for a dashboard?
+
+[Agent Analytics](https://agentanalytics.sh) has an MCP server (`https://mcp.agentanalytics.sh/mcp`) so Grok Bot can pull real site stats into a Page. See the [setup guide](https://docs.agentanalytics.sh/installation/). Any analytics provider is welcome. Keep the private Page with real data for yourself and list a public copy with mock data.
+
+### Example prompt: Site analytics dashboard
+
+```text
+Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics MCP (https://mcp.agentanalytics.sh/mcp) to pull the last 30 days for each of my sites. For each site, show a card with total visits for the last 7 days as a big number, a one-line note comparing this week to the 30-day daily average, and a daily visits line chart with a dashed 7-day average. Add a weekly signups columns card and a landing visitors to Start free clicks to signups funnel card. Label every card with its data source. Then create a routine that refreshes this Page with fresh data every day at 8:00 AM.
 ```
 
 ## Listing rules
 
 - The link is public and opens without signing in.
+- Public Pages use mock or public data, never personal info.
 - The Page contains no private data: no personal emails, names of private people, account IDs, inbox items or file paths.
 - The Page follows the Grok Bot Pages content rules.
 - The Page has real data or a working control, and no placeholder text.
