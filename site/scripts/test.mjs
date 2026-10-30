@@ -285,22 +285,31 @@ await fire(ap, 'header a[data-track="outbound_clicked"]');
 const headerHref = await ap.getAttribute('header a[data-track="outbound_clicked"]', 'href');
 await expectEvents(ap, [{ name: 'outbound_clicked', props: { target_url: headerHref, target_type: targetType(headerHref), position: 'header' } }], 'header external link fires outbound_clicked only');
 const withRelated = d.entries.find((e) => siblingsOf(e).length > 0);
-await ap.goto(base + `/t/${withRelated.slug}/`, { waitUntil: 'domcontentloaded' });
-await clearAa(ap);
-await fire(ap, 'a.rel');
-await expectEvents(ap, [{ name: 'related_clicked', props: { page_slug: withRelated.slug, target_slug: siblingsOf(withRelated)[0].slug } }], 'related link fires related_clicked only');
-await clearAa(ap);
-await fire(ap, 'figure figcaption a[data-track="template_opened"]');
-await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: withRelated.slug, position: 'caption' } }], 'caption open fires template_opened only');
-await clearAa(ap);
-await ap.evaluate(() => {
-  window.__aaEvents = [];
-  Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: () => Promise.reject(new Error('no')) } });
-  document.execCommand = () => false;
-});
-await ap.click('.codeh [data-copy]');
-await ap.waitForTimeout(150);
-await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: withRelated.slug, position: 'prompt_block', success: false } }], 'failed copy fires prompt_copied success false');
+const detailEntry = withRelated || d.entries[0];
+if (!detailEntry) {
+  console.log('SKIP  related link fires related_clicked only  the list has no entries');
+} else {
+  await ap.goto(base + `/t/${detailEntry.slug}/`, { waitUntil: 'domcontentloaded' });
+  await clearAa(ap);
+  if (withRelated) {
+    await fire(ap, 'a.rel');
+    await expectEvents(ap, [{ name: 'related_clicked', props: { page_slug: withRelated.slug, target_slug: siblingsOf(withRelated)[0].slug } }], 'related link fires related_clicked only');
+  } else {
+    console.log('SKIP  related link fires related_clicked only  no entry shares a category with another, so there is no related link');
+  }
+  await clearAa(ap);
+  await fire(ap, 'figure figcaption a[data-track="template_opened"]');
+  await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: detailEntry.slug, position: 'caption' } }], 'caption open fires template_opened only');
+  await clearAa(ap);
+  await ap.evaluate(() => {
+    window.__aaEvents = [];
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: () => Promise.reject(new Error('no')) } });
+    document.execCommand = () => false;
+  });
+  await ap.click('.codeh [data-copy]');
+  await ap.waitForTimeout(150);
+  await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: detailEntry.slug, position: 'prompt_block', success: false } }], 'failed copy fires prompt_copied success false');
+}
 await ap.close();
 
 // Tracker download held open: landing and clicks queue, then flush in order when aa.track appears.
