@@ -9,6 +9,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 ## Contents
 
 - [Latest Additions](#latest-additions)
+- [Mission Control](#mission-control)
 - [Productivity](#productivity)
 - [Data Analytics](#data-analytics)
 - [Infrastructure](#infrastructure)
@@ -78,6 +79,28 @@ Newest listings, also shown in their section.
 
   </details>
 
+## Mission Control
+
+One screen for what your bots and projects are doing and what waits on you.
+
+- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - One Page showing what each bot is doing, what waits on you, and which routines run next (example data). Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
+
+  ```text
+  Build me a dashboard Page called "Mission Control" that shows what all my bots are doing. Refresh it every hour on weekdays with a routine.
+
+  Layout:
+  1. Top bar: a live clock and 3–5 stat cards for numbers I care about (ask me which ones, then pull them from my connected accounts).
+  2. Left column, "Waiting on me": every open question or approval my bots are waiting on me for, newest first. Each item gets an Open button that jumps straight to that bot's chat, and an eye button that blurs it so I can keep it private on camera.
+  3. Middle, "Activity timeline": tasks my bots finished, newest first, with each bot's picture and a one-line plain-English summary.
+  4. Right column, "Upcoming routines": my scheduled routines with their next run time and which bot owns each one.
+  5. Top of everything "The office": a fun 2D top-down office. Bots that are working sit at desks typing, with a little speech bubble saying what they're on. Idle bots wander around. Add a heatmap of activity by hour for the last 7 days.
+
+  Use only real data from my bots, routines and accounts. If something is missing, show it as empty instead of making it up. Make it dark and clean.
+  ```
+
+  </details>
+
 ## Productivity
 
 Planners, trackers and task boards.
@@ -107,25 +130,7 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 ## Agent Orchestration
 
-Mission controls and bot activity.
-
-- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - One Page showing what each bot is doing, what waits on you, and which routines run next (example data). Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
-  <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
-
-  ```text
-  Build me a dashboard Page called "Mission Control" that shows what all my bots are doing. Refresh it every hour on weekdays with a routine.
-
-  Layout:
-  1. Top bar: a live clock and 3–5 stat cards for numbers I care about (ask me which ones, then pull them from my connected accounts).
-  2. Left column, "Waiting on me": every open question or approval my bots are waiting on me for, newest first. Each item gets an Open button that jumps straight to that bot's chat, and an eye button that blurs it so I can keep it private on camera.
-  3. Middle, "Activity timeline": tasks my bots finished, newest first, with each bot's picture and a one-line plain-English summary.
-  4. Right column, "Upcoming routines": my scheduled routines with their next run time and which bot owns each one.
-  5. Top of everything "The office": a fun 2D top-down office. Bots that are working sit at desks typing, with a little speech bubble saying what they're on. Idle bots wander around. Add a heatmap of activity by hour for the last 7 days.
-
-  Use only real data from my bots, routines and accounts. If something is missing, show it as empty instead of making it up. Make it dark and clean.
-  ```
-
-  </details>
+Decisions your bots are waiting on you for.
 
 - [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log. Filter, sort, open details and hide items; on your own copy each item gets an Open chat link to the asking bot (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>

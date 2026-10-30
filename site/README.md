@@ -14,7 +14,7 @@ npm run serve        # http://localhost:4321
 npm test             # serves dist/, click-tests chips and copy buttons, checks links, runs axe
 ```
 
-The number of checks grows with the README: one per category chip and per entry. With the current 4 entries `npm test` runs 43 checks. `npm test -- <dir>` also writes screenshots to `<dir>` and adds 2 mobile overflow checks (45).
+The number of checks grows with the README: one per category chip and per entry. With the current 4 entries `npm test` runs 45 checks. `npm test -- <dir>` also writes screenshots to `<dir>` and adds 2 mobile overflow checks (47).
 
 When a Page is added or changes:
 

@@ -55,7 +55,7 @@ Listing contributions only need to update [`README.md`](./README.md).
 - An optional `Inspired by [source](url).` can go before `By`.
 - Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
 
-Sections: Latest Additions, Productivity, Data Analytics, Infrastructure, Agent Orchestration, Payments and Finance, Sales, Marketing, Inbox and Collaboration, Research, Design, Documents and Files, Scheduling and Support.
+Sections: Latest Additions, Mission Control, Productivity, Data Analytics, Infrastructure, Agent Orchestration, Bot Management, Payments and Finance, Sales, Marketing, Inbox and Collaboration, Research, Design, Documents and Files, Scheduling and Support.
 
 ## Copy rules
 

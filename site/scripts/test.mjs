@@ -25,13 +25,29 @@ page.on('pageerror', (e) => errors.push(e.message));
 page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
 await page.goto(base + '/', { waitUntil: 'networkidle' });
 const visible = () => page.$$eval('[data-cats]', (els) => els.filter((e) => !e.hidden).length);
+const chipOrder = await page.$$eval('[data-filter]', (els) => els.map((e) => e.getAttribute('data-filter')));
+const mission = d.entries.find((e) => e.slug === 'mission-control');
+const missionDetail = await (await fetch(base + '/t/mission-control/')).text();
+check(
+  'Mission Control is the first category',
+  d.categories[0]?.name === 'Mission Control'
+    && d.categories[0].slug === 'mission-control'
+    && d.categories[1]?.name === 'Productivity'
+    && chipOrder[0] === 'all'
+    && chipOrder[1] === 'mission-control'
+    && mission?.categories[0] === 'Mission Control'
+    && !mission.categories.includes('Agent Orchestration')
+    && missionDetail.includes('href="/#c=mission-control">Mission Control</a>'),
+  chipOrder.slice(0, 3).join(' '),
+);
 check('all templates visible on load', (await visible()) === d.entries.length, `${await visible()} of ${d.entries.length}`);
 for (const c of d.categories) {
   await page.click(`[data-filter="${c.slug}"]`);
   const n = await visible();
   const emptyShown = await page.isVisible('#empty');
   const pressed = await page.getAttribute(`[data-filter="${c.slug}"]`, 'aria-pressed');
-  check(`chip ${c.name}`, n === c.count && emptyShown === (c.count === 0) && pressed === 'true', `${n} cards, empty state ${emptyShown ? 'shown' : 'hidden'}, hash ${new URL(page.url()).hash}`);
+  const hash = new URL(page.url()).hash;
+  check(`chip ${c.name}`, n === c.count && emptyShown === (c.count === 0) && pressed === 'true' && hash === `#c=${c.slug}`, `${n} cards, empty state ${emptyShown ? 'shown' : 'hidden'}, hash ${hash}`);
 }
 await page.click('[data-filter="all"]');
 check('chip All restores', (await visible()) === d.entries.length && (await page.isVisible('[data-all-only]')));
