@@ -1,0 +1,50 @@
+{
+  "decisions-console": {
+    "url": "https://decisions-console-example-cblp.pages.grok.bot/",
+    "captured": "2026-10-30T17:08:11.742Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2967
+    ]
+  },
+  "bot-org-chart": {
+    "url": "https://bot-org-chart-example-ujfc.pages.grok.bot/",
+    "captured": "2026-10-30T17:08:20.849Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2946
+    ]
+  },
+  "mission-control": {
+    "url": "https://mission-control-example-sgmr.pages.grok.bot/",
+    "captured": "2026-10-30T17:08:30.215Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2633
+    ]
+  },
+  "site-analytics-dashboard": {
+    "url": "https://site-analytics-dashboard-example-xahy.pages.grok.bot/",
+    "captured": "2026-10-30T17:08:42.558Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2055
+    ]
+  }
+}
