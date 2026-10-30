@@ -1,5 +1,6 @@
 name: Build site
 
+# Runs on pull requests so a README change that breaks the site fails before merge.
 on:
   pull_request:
   push:
