@@ -53,6 +53,40 @@
     btn.textContent = open ? 'Collapse screenshot' : 'Expand screenshot';
   });
 
+  // Detail screenshots: fixed crop plus Expand, and the 390px capture below 720px.
+  document.querySelectorAll('.viewport').forEach(function (vp) {
+    var img = vp.querySelector('img');
+    if (!img) return;
+    vp.id = 'shot';
+    vp.removeAttribute('tabindex');
+    vp.removeAttribute('role');
+    vp.removeAttribute('aria-label');
+    var src = img.getAttribute('src') || '';
+    var mobile = src.replace(/-full\.webp$/, '-full-mobile.webp');
+    if (mobile !== src) {
+      var picture = document.createElement('picture');
+      var source = document.createElement('source');
+      source.setAttribute('media', '(max-width: 720px)');
+      source.setAttribute('srcset', mobile);
+      var fresh = document.createElement('img');
+      fresh.alt = img.alt;
+      fresh.decoding = 'async';
+      fresh.loading = 'eager';
+      picture.appendChild(source);
+      picture.appendChild(fresh);
+      img.replaceWith(picture);
+      fresh.src = src;
+    }
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'shot-expand';
+    btn.setAttribute('data-expand', '');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'shot');
+    btn.textContent = 'Expand screenshot';
+    vp.insertAdjacentElement('afterend', btn);
+  });
+
   // Category chips
   var chips = document.querySelectorAll('[data-filter]');
   if (!chips.length) return;
