@@ -41,6 +41,24 @@ check(
   chipOrder.slice(0, 3).join(' '),
 );
 check('all templates visible on load', (await visible()) === d.entries.length, `${await visible()} of ${d.entries.length}`);
+const chipGate = await page.$$eval('.chips [data-filter]', (els) => els.map((el) => ({
+  slug: el.getAttribute('data-filter'),
+  empty: el.classList.contains('empty'),
+  hidden: el.parentElement.hidden,
+})));
+const bySlug = Object.fromEntries(chipGate.map((c) => [c.slug, c]));
+const gateMiss = d.categories.filter((c) => {
+  const chip = bySlug[c.slug];
+  if (!chip) return true;
+  const shouldHide = c.count === 0;
+  return chip.empty !== shouldHide || chip.hidden !== shouldHide;
+});
+const missionCat = d.categories.find((c) => c.slug === 'mission-control');
+check(
+  'only zero-page categories are hidden',
+  gateMiss.length === 0 && missionCat?.count === 2 && bySlug['mission-control'] && !bySlug['mission-control'].hidden && !bySlug.all?.hidden,
+  `mission ${missionCat?.count}; ${gateMiss.map((c) => `${c.slug}:${c.count}`).join(' ')}`,
+);
 if (await page.locator('[data-more-cats]').isVisible()) await page.click('[data-more-cats]');
 for (const c of d.categories) {
   await page.click(`[data-filter="${c.slug}"]`);
@@ -325,6 +343,7 @@ await ap.evaluate((slug) => document.querySelector(`a.tag[data-category="${slug}
 await expectEvents(ap, [{ name: 'category_filtered', props: { category: some.slug, results_count: some.count, source: 'link' } }], 'category tag fires one source=link event');
 await clearAa(ap);
 const empty = d.categories.find((c) => c.count === 0);
+if (await ap.locator('[data-more-cats]').isVisible()) await ap.click('[data-more-cats]');
 await ap.click(`[data-filter="${empty.slug}"] b`);
 await expectEvents(ap, [{ name: 'category_filtered', props: { category: empty.slug, results_count: 0, source: 'click' } }], 'chip click fires category_filtered with results_count');
 await ap.click('[data-filter="all"]');

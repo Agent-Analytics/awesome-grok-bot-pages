@@ -133,8 +133,8 @@ pre{margin:0;white-space:pre-wrap;word-break:break-word;font:14px/1.65 var(--mon
 /* responsive */
 @media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:1fr}.feat .shot{border-right:0;border-bottom:1px solid var(--line);aspect-ratio:16/10}.gl{grid-template-columns:1fr;gap:32px}.dbody{grid-template-columns:1fr}}
 @media (max-width:720px){:root{--pad:20px}
- .site-header{padding:16px var(--pad);gap:8px}.wm{font-size:16px;flex:none}
- .site-header nav{gap:8px;font-size:13px;flex:none}
+ .site-header{padding:16px var(--pad);gap:6px}.wm{font-size:16px;flex:none}
+ .site-header nav{gap:6px;font-size:13px;flex:none}
  .site-header nav a{white-space:nowrap}
  .site-header nav a:not(.gh):not([href="/#templates"]):not([href="/#get-listed"]){display:none}
  .gh{padding:6px 10px;flex:none}
