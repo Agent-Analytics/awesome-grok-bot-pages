@@ -128,6 +128,17 @@
     track(name, props);
   });
 
+  document.addEventListener('click', function (ev) {
+    var btn = ev.target.closest('[data-expand]');
+    if (!btn) return;
+    var vp = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!vp) return;
+    var open = !vp.classList.contains('is-expanded');
+    vp.classList.toggle('is-expanded', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Collapse screenshot' : 'Expand screenshot';
+  });
+
   // Category chips
   var chips = document.querySelectorAll('[data-filter]');
   if (!chips.length) return;
@@ -135,6 +146,21 @@
   var empty = document.getElementById('empty');
   var status = document.getElementById('filter-status');
   var labels = document.querySelectorAll('[data-all-only]');
+  var moreBtn = document.querySelector('[data-more-cats]');
+  function setEmptyVisibility(active) {
+    var open = moreBtn && moreBtn.getAttribute('aria-expanded') === 'true';
+    var hiddenLeft = 0;
+    document.querySelectorAll('.chip.empty').forEach(function (c) {
+      var show = open || c === active;
+      c.parentElement.hidden = !show;
+      if (!show) hiddenLeft++;
+    });
+    if (!moreBtn) return;
+    if (open) moreBtn.textContent = 'Show fewer categories';
+    else if (hiddenLeft === 0) { moreBtn.parentElement.hidden = true; return; }
+    else moreBtn.textContent = '+' + hiddenLeft + ' more ' + (hiddenLeft === 1 ? 'category' : 'categories') + ', add the first';
+    moreBtn.parentElement.hidden = false;
+  }
   function apply(cat, push) {
     var shown = 0;
     chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.getAttribute('data-filter') === cat)); });
@@ -143,14 +169,27 @@
       card.hidden = !on; if (on) shown++;
     });
     labels.forEach(function (l) { l.hidden = cat !== 'all'; });
-    var name = cat === 'all' ? '' : document.querySelector('[data-filter="' + cat + '"]').getAttribute('data-name');
+    var active = document.querySelector('[data-filter="' + cat + '"]');
+    var name = cat === 'all' ? '' : active.getAttribute('data-name');
+    setEmptyVisibility(active);
     if (empty) {
       empty.hidden = shown !== 0;
       var n = empty.querySelector('[data-empty-name]'); if (n) n.textContent = name;
     }
     if (status) status.textContent = cat === 'all' ? 'Showing all ' + shown + ' Pages' : 'Showing ' + shown + (shown === 1 ? ' Page' : ' Pages') + ' in ' + name;
     if (push) history.replaceState(null, '', cat === 'all' ? location.pathname : '#c=' + cat);
+    if (!push) {
+      var tpl = document.getElementById('templates');
+      if (tpl) tpl.scrollIntoView({ block: 'start', behavior: 'instant' });
+    }
+    if (active) active.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'instant' });
   }
+  if (moreBtn) moreBtn.addEventListener('click', function () {
+    var open = moreBtn.getAttribute('aria-expanded') !== 'true';
+    moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    setEmptyVisibility(document.querySelector('.chip[aria-pressed="true"]'));
+  });
+  setEmptyVisibility(null);
   chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.getAttribute('data-filter'), true); }); });
   function fromHash() {
     var m = location.hash.match(/^#c=([a-z0-9-]+)$/);

@@ -136,14 +136,15 @@ function home() {
   const [newest, ...rest] = d.entries;
   const chips = [`<li><button type="button" class="chip" data-filter="all" data-name="All" data-track="category_filtered" data-category="all" data-source="click" aria-pressed="true">All <b>${d.entries.length}</b></button></li>`,
     ...d.categories.map((c) => `<li><button type="button" class="chip${c.count ? '' : ' empty'}" data-filter="${c.slug}" data-name="${esc(c.name)}" data-track="category_filtered" data-category="${c.slug}" data-source="click" aria-pressed="false" title="${esc(c.blurb)}">${esc(c.name)} <b>${c.count}</b><span class="sr-only"> ${c.count === 1 ? 'Page' : 'Pages'}</span></button></li>`)].join('');
+  const emptyCount = d.categories.filter((c) => c.count === 0).length;
   const cats = (e) => e.categories.map(catSlug).join(' ');
   const card = (e) => `<li class="card" data-cats="${cats(e)}"><a class="shot" href="/t/${e.slug}/" tabindex="-1" aria-hidden="true">${shotImg(e)}</a><div class="body"><div>${tags(e)}</div>
 <h3><a href="/t/${e.slug}/">${esc(e.title)}</a></h3><p>${esc(e.short)}</p><p class="cr">${creditLine(e)}</p>${aaLine(e)}${actions(e, ' sm', 'grid')}</div></li>`;
   const body = `<section class="hero" aria-labelledby="hero-h"><span class="pill">Grok Bot Pages templates</span><h1 id="hero-h">Copy a <em>Grok Bot Page.</em></h1>
 <p>Every template is a live public Page plus the exact prompt that built it.</p>
-<div class="cta"><a class="btn pri" href="#get-listed">Get your Page listed</a><a class="btn" href="#templates">Browse templates</a></div></section>
+<div class="cta"><a class="btn pri" href="#templates">Browse templates</a><a class="btn" href="#get-listed">Get your Page listed</a></div></section>
 <section class="wrap" id="templates" aria-labelledby="tpl-h"><h2 id="tpl-h" class="sr-only">Templates</h2>
-<ul class="chips" aria-label="Filter templates by category">${chips}</ul>
+<ul class="chips" aria-label="Filter templates by category">${chips}${emptyCount ? `<li hidden><button type="button" class="chip more" data-more-cats aria-expanded="false">+${emptyCount} more ${emptyCount === 1 ? 'category' : 'categories'}, add the first</button></li>` : ''}</ul>
 <p class="status" id="filter-status" aria-live="polite">Showing all ${d.entries.length} Pages</p>
 <p class="lbl" data-all-only>Newest addition</p>
 <article class="feat" data-cats="${cats(newest)}"><a class="shot" href="/t/${newest.slug}/" tabindex="-1" aria-hidden="true">${shotImg(newest, '', true)}</a><div class="body"><div>${tags(newest)}</div>

@@ -9,6 +9,10 @@
     "full": [
       1200,
       2967
+    ],
+    "mobile": [
+      390,
+      6705
     ]
   },
   "bot-org-chart": {
@@ -21,6 +25,10 @@
     "full": [
       1200,
       2946
+    ],
+    "mobile": [
+      390,
+      5059
     ]
   },
   "mission-control": {
@@ -33,6 +41,10 @@
     "full": [
       1200,
       2633
+    ],
+    "mobile": [
+      390,
+      5127
     ]
   },
   "site-analytics-dashboard": {
@@ -45,6 +57,10 @@
     "full": [
       1200,
       2055
+    ],
+    "mobile": [
+      390,
+      4114
     ]
   },
   "side-project-mission-control": {

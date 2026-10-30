@@ -32,7 +32,7 @@ Commit the files in `public/shots/` and `public/og.png`; the build copies them i
 - `scripts/parse.mjs`: README parser. `node scripts/parse.mjs` prints the parsed data.
 - `scripts/build.mjs`: writes `dist/index.html`, `dist/t/<slug>/index.html`, `404.html`, `sitemap.xml`, `robots.txt`, favicons and fonts. Fails if any page contains an em dash.
 - `src/`: `styles.css`, `app.js` (category filter and copy buttons, no dependencies), `favicon.svg`.
-- `public/`: committed screenshots (`shots/<slug>.webp` 960x600 card, `shots/<slug>-full.webp` full Page at 1200px) and `og.png`.
+- `public/`: committed screenshots (`shots/<slug>.webp` 960x600 card, `shots/<slug>-full.webp` full Page at 1200px, `shots/<slug>-full-mobile.webp` full Page captured at 390px) and `og.png`.
 
 ## Hosting
 
