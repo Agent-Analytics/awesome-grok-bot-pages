@@ -1,0 +1,10 @@
+---
+const { segments } = Astro.props;
+---
+{segments.map((segment) => {
+  if (segment.type === 'link') {
+    return <a href={segment.href} target="_blank" rel="noopener noreferrer">{segment.text}</a>;
+  }
+  if (segment.type === 'code') return <code>{segment.value}</code>;
+  return segment.value;
+})}

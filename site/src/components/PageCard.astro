@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+import CopyButton from './CopyButton.astro';
+
+const { page, thumb, variant = 'card', pick = null } = Astro.props;
+const feature = variant === 'feature';
+const detail = `/templates/${page.slug}/`;
+---
+<article
+  class={feature ? 'featured' : 'card'}
+  data-shot={page.slug}
+  data-featured={feature ? '' : undefined}
+  data-category={feature ? undefined : page.categorySlug}
+  data-featured-duplicate={!feature && page.featured ? 'true' : undefined}
+>
+  <a class="th" href={detail}>
+    <Image
+      src={thumb}
+      alt={`${page.title} screenshot`}
+      layout="full-width"
+      fit="cover"
+      position="top"
+      widths={feature ? [640, 960, 1280, 1668] : [480, 720, 960]}
+      sizes={feature ? '(max-width: 800px) 100vw, 760px' : '(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 360px'}
+      priority={feature}
+    />
+  </a>
+  <div class="cb">
+    <div>
+      <a class="tag" href={`/#${page.categorySlug}`}>{page.categoryTitle}</a>
+      {page.exampleData && <span class="ex">Example data</span>}
+    </div>
+    <h3><a href={detail}>{page.title}</a></h3>
+    <p class="desc" title={page.summary}>{page.summary}</p>
+    <p class="cr">
+      {page.inspired && (
+        <>
+          Inspired by <a href={page.inspired.url} target="_blank" rel="noopener noreferrer">{page.inspired.label}</a>
+          {page.inspired.handles.map((handle) => (
+            <a class="handle" href={handle.url} target="_blank" rel="noopener noreferrer">@{handle.handle}</a>
+          ))}
+          <span aria-hidden="true"> · </span>
+        </>
+      )}
+      By <span class="h">{page.author.name}</span>
+      {page.author.handles.map((handle) => (
+        <a class="handle" href={handle.url} target="_blank" rel="noopener noreferrer">@{handle.handle}</a>
+      ))}
+      {page.examplePageBy && (
+        <>
+          <span aria-hidden="true"> · </span>
+          Example Page by <span class="h">{page.examplePageBy.name}</span>
+          {page.examplePageBy.handles.map((handle) => (
+            <a class="handle" href={handle.url} target="_blank" rel="noopener noreferrer">@{handle.handle}</a>
+          ))}
+        </>
+      )}
+    </p>
+    {pick && !feature && (
+      <p class="aa">
+        {pick.text === 'Agent Analytics' ? (
+          <>Data from <a href={pick.href} target="_blank" rel="noopener noreferrer"><b>{pick.text}</b></a>, recommended for dashboard data.</>
+        ) : (
+          <>Maintainers' pick: <a href={pick.href} target="_blank" rel="noopener noreferrer"><b>{pick.text}</b></a></>
+        )}
+      </p>
+    )}
+    {feature && <div class="pv" aria-hidden="true">{page.prompt}</div>}
+    <div class="act">
+      <a class="btn pri" href={page.url} target="_blank" rel="noopener noreferrer">
+        Open Page<span class="vh"> {page.title}</span> <span aria-hidden="true">↗</span>
+      </a>
+      <CopyButton text={page.prompt} />
+    </div>
+  </div>
+</article>

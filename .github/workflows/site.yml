@@ -1,0 +1,44 @@
+name: Build site
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install
+        working-directory: site
+        run: npm ci
+
+      - name: Test catalog parser
+        working-directory: site
+        run: npm test
+
+      - name: Check thumbnails
+        id: thumbs
+        working-directory: site
+        run: node scripts/capture-thumbnails.mjs --missing --check
+        continue-on-error: true
+
+      - name: Capture missing thumbnails
+        if: steps.thumbs.outcome == 'failure'
+        working-directory: site
+        run: |
+          npx playwright install --with-deps chromium
+          node scripts/capture-thumbnails.mjs --missing
+
+      - name: Build
+        working-directory: site
+        run: npm run build

@@ -1,0 +1,25 @@
+---
+const { links } = Astro.props;
+const external = { target: '_blank', rel: 'noopener noreferrer' };
+---
+<footer>
+  <div class="fl">
+    <a class="wm" href="/">grokpages<span>.com</span></a>
+    <p>Templates for Grok Bot Pages, listed from the Awesome Grok Bot Pages repo.</p>
+  </div>
+  <div class="fcols">
+    <div>
+      <h2>Project</h2>
+      <a href={links.repo} {...external}>GitHub repo</a>
+      <a href={links.contributing} {...external}>Contributing guide</a>
+      <a href={links.listingRules} {...external}>Listing rules</a>
+    </div>
+    <div>
+      <h2>Build</h2>
+      <a href={links.grokBot} {...external}>Grok Bot</a>
+      <a href={links.agentAnalytics} {...external}>Agent Analytics</a>
+      <span class="sm">Recommended for dashboard data</span>
+    </div>
+  </div>
+  <p class="fb">Every Page listed is public. List content is <a href={links.license} {...external}>CC0</a>.</p>
+</footer>

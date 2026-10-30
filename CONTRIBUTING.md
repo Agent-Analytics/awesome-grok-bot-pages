@@ -29,7 +29,7 @@ Pages that go private or get deleted are removed.
 
 ## How to add an entry
 
-Listing contributions only need to update [`README.md`](./README.md).
+Listing contributions only need to update [`README.md`](./README.md). The grokpages.com site is generated from that file. You do not edit the site to add a Page.
 
 1. Before submitting a pull request, please star this repository.
 2. Build or open your Page in Grok Bot and paste the snippet from the README's "Create your Page and get listed" section.

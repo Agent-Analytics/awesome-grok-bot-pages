@@ -2,7 +2,7 @@
 
 > A curated list of public Grok Bot Pages: dashboards, trackers, tools and reports built with Grok Bot.
 
-[Contributing](./CONTRIBUTING.md)
+[Contributing](./CONTRIBUTING.md) · [grokpages.com](https://grokpages.com)
 
 Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list collects Pages that anyone can open without signing in and that work for a stranger with no context: real data or a working control, no placeholder text, and no private details. Every entry credits its author and includes the prompt used to build it. Sections follow the Grok Bot plugin categories.
 
@@ -28,6 +28,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 - [Listing rules](#listing-rules)
 - [Entry format](#entry-format)
 - [Contributing](#contributing)
+- [Site](#site)
 
 ## Latest Additions
 
@@ -255,6 +256,10 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
 Before submitting a pull request, please star this repository.
 
 Listing contributions only need to add an entry to `README.md`. New Pages may also appear in Latest Additions. See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full review criteria.
+
+## Site
+
+[grokpages.com](https://grokpages.com) is built from this README. Source and deploy notes are in [`site/`](./site/).
 
 ## License
 

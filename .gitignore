@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+site/public/og/
+playwright-report/
+test-results/
+*.log

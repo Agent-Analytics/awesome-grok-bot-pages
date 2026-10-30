@@ -1,0 +1,208 @@
+---
+import CopyButton from '../components/CopyButton.astro';
+import PageCard from '../components/PageCard.astro';
+import Segments from '../components/Segments.astro';
+import Base from '../layouts/Base.astro';
+import { loadCatalog } from '../lib/catalog.mjs';
+import { thumbnailFor } from '../lib/thumbs.mjs';
+
+const catalog = loadCatalog();
+const categories = new Map(catalog.categories.map((category) => [category.slug, category]));
+const description = 'Every template is a live public Page plus the exact prompt that built it.';
+const picks = catalog.categories.filter((category) => category.maintainersPick);
+
+function pickLink(category) {
+  return category.maintainersPick?.segments.find((segment) => segment.type === 'link') ?? null;
+}
+
+function pickBody(category) {
+  return category.maintainersPick.segments.map((segment, index) => {
+    if (index !== 0 || segment.type !== 'text') return segment;
+    const value = segment.value.replace(/^Maintainers' pick:\s*/, '');
+    const sentence = value ? value.charAt(0).toUpperCase() + value.slice(1) : value;
+    return { ...segment, value: sentence };
+  });
+}
+---
+<Base title="Copy a Grok Bot Page" description={description} ogImage="/og/home.png">
+  <main id="content">
+    <section class="hero">
+      <span class="pill">Grok Bot Pages templates</span>
+      <h1>Copy a <em>Grok Bot Page.</em></h1>
+      <p>{description}</p>
+      <div class="cta">
+        <a class="btn pri" href="#get-listed">Get your Page listed</a>
+        <a class="btn" href="#templates">Browse templates</a>
+      </div>
+    </section>
+
+    <div class="wrap" id="templates">
+      <div class="chips" role="toolbar" aria-label="Filter templates by category">
+        <button type="button" class="chip on" data-filter="all" aria-pressed="true">
+          All <b>{catalog.pages.length}</b>
+        </button>
+        {catalog.categories.map((category) => (
+          <button
+            type="button"
+            id={category.slug}
+            class:list={['chip', { empty: category.empty }]}
+            data-filter={category.slug}
+            data-title={category.title}
+            data-description={category.description}
+            aria-pressed="false"
+          >
+            {category.title} <b>{category.pages.length}</b>
+          </button>
+        ))}
+      </div>
+
+      <p class="vh" aria-live="polite" data-filter-status></p>
+
+      <div id="template-results">
+        {catalog.featuredSlug && (
+          <>
+            <h2 class="lbl" data-all-label>Newest addition</h2>
+            <PageCard
+              variant="feature"
+              page={catalog.bySlug[catalog.featuredSlug]}
+              thumb={thumbnailFor(catalog.featuredSlug)}
+            />
+          </>
+        )}
+
+        <div class="filter-head" data-filter-head hidden>
+          <h2 data-filter-title></h2>
+          <p data-filter-desc></p>
+        </div>
+
+        <h2 class="lbl" data-all-label>All templates</h2>
+        <div class="grid">
+          {catalog.pages.map((page) => (
+            <PageCard
+              page={page}
+              thumb={thumbnailFor(page.slug)}
+              pick={pickLink(categories.get(page.categorySlug))}
+            />
+          ))}
+        </div>
+
+        {catalog.categories.filter((category) => category.empty).map((category) => (
+          <article class="empty-card" data-empty-for={category.slug} hidden>
+            <p class="lbl">{category.title}</p>
+            <h3>No Pages yet.</h3>
+            <p>{category.description}</p>
+            <a class="btn pri" href={catalog.links.contributing} target="_blank" rel="noopener noreferrer">Add yours</a>
+          </article>
+        ))}
+      </div>
+
+      <noscript>
+        <div class="noscript-empty">
+          <h2 class="lbl">No Pages yet</h2>
+          <ul>
+            {catalog.categories.filter((category) => category.empty).map((category) => (
+              <li>
+                <a href={catalog.links.contributing}>{category.title}</a>. {category.description} Add yours.
+              </li>
+            ))}
+          </ul>
+        </div>
+      </noscript>
+
+      {picks.map((category) => (
+        <section class="pick" aria-labelledby={`pick-${category.slug}`}>
+          <h2 class="lbl" id={`pick-${category.slug}`}>Maintainers' pick</h2>
+          <p class="body"><Segments segments={pickBody(category)} /></p>
+        </section>
+      ))}
+    </div>
+
+    <section class="gl" id="get-listed">
+      <div>
+        <h2>Get your Page listed</h2>
+        <ol>
+          {catalog.steps.map((step) => (
+            <li><Segments segments={step} /></li>
+          ))}
+        </ol>
+        {catalog.note && <p class="note">{catalog.note}</p>}
+        <div class="glb">
+          <CopyButton text={catalog.snippet} label="Copy snippet" primary />
+          <a class="btn" href={catalog.links.contributing} target="_blank" rel="noopener noreferrer">Contributing guide</a>
+        </div>
+      </div>
+      <div class="code">
+        <div class="codeh"><span>Snippet</span></div>
+        <pre>{catalog.snippet}</pre>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<script>
+  const main = document.querySelector('main');
+  const chips = [...document.querySelectorAll('[data-filter]')];
+  const cards = [...document.querySelectorAll('.card[data-category]')];
+  const empties = [...document.querySelectorAll('[data-empty-for]')];
+  const featured = document.querySelector('[data-featured]');
+  const allLabels = [...document.querySelectorAll('[data-all-label]')];
+  const filterHead = document.querySelector('[data-filter-head]');
+  const filterTitle = document.querySelector('[data-filter-title]');
+  const filterDesc = document.querySelector('[data-filter-desc]');
+  const status = document.querySelector('[data-filter-status]');
+
+  function filterFromHash() {
+    const hash = location.hash.replace('#', '');
+    if (!hash || hash === 'templates' || hash === 'get-listed' || hash === 'content') return 'all';
+    return chips.some((chip) => chip.dataset.filter === hash) ? hash : 'all';
+  }
+
+  function apply(filter, updateHash) {
+    const all = !filter || filter === 'all';
+    const name = all ? 'all' : filter;
+    if (main) main.dataset.filter = name;
+    main?.classList.toggle('is-filtered', !all);
+
+    for (const chip of chips) {
+      const on = chip.dataset.filter === name;
+      chip.classList.toggle('on', on);
+      chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    for (const card of cards) {
+      const show = all ? card.dataset.featuredDuplicate !== 'true' : card.dataset.category === filter;
+      card.hidden = !show;
+    }
+    let emptyShown = false;
+    for (const empty of empties) {
+      const show = !all && empty.dataset.emptyFor === filter;
+      empty.hidden = !show;
+      if (show) emptyShown = true;
+    }
+    if (featured) featured.hidden = !all;
+    for (const label of allLabels) label.hidden = !all;
+    if (filterHead) {
+      filterHead.hidden = all;
+      const chip = chips.find((item) => item.dataset.filter === filter);
+      if (chip && filterTitle) filterTitle.textContent = chip.dataset.title || '';
+      if (chip && filterDesc) filterDesc.textContent = chip.dataset.description || '';
+      if (emptyShown) filterHead.hidden = true;
+    }
+    const grid = document.querySelector('.grid');
+    if (grid) grid.hidden = emptyShown;
+    if (status && updateHash) {
+      status.textContent = all
+        ? `Showing all ${cards.length} templates`
+        : `Showing ${filterTitle?.textContent || filter}`;
+    }
+    if (updateHash) {
+      const next = all ? '#templates' : `#${filter}`;
+      if (location.hash !== next) history.pushState({ filter: name }, '', next);
+    }
+  }
+
+  for (const chip of chips) {
+    chip.addEventListener('click', () => apply(chip.dataset.filter, true));
+  }
+  window.addEventListener('popstate', () => apply(filterFromHash(), false));
+  apply(filterFromHash(), false);
+</script>

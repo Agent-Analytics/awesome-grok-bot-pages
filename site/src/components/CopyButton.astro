@@ -1,0 +1,67 @@
+---
+import { Buffer } from 'node:buffer';
+
+const { text, label = 'Copy prompt', primary = false } = Astro.props;
+const encoded = Buffer.from(text, 'utf8').toString('base64');
+---
+<button type="button" class:list={['btn', { pri: primary }]} data-copy-b64={encoded} data-label={label}>
+  <span data-copy-label>{label}</span>
+  <span class="vh" aria-live="polite" data-copy-live></span>
+</button>
+<script>
+  const timers = new WeakMap();
+
+  function decode(value) {
+    const binary = atob(value);
+    const bytes = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+    return new TextDecoder().decode(bytes);
+  }
+
+  function copyNow(text) {
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.top = '0';
+    area.style.left = '0';
+    area.style.opacity = '0';
+    document.body.append(area);
+    area.focus();
+    area.select();
+    const ok = document.execCommand('copy');
+    area.remove();
+    return ok;
+  }
+
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    const button = target?.closest('[data-copy-b64]');
+    if (!(button instanceof HTMLButtonElement)) return;
+    const label = button.querySelector('[data-copy-label]');
+    const live = button.querySelector('[data-copy-live]');
+    const original = button.dataset.label || 'Copy';
+    const text = decode(button.dataset.copyB64 || '');
+    const synced = copyNow(text);
+    const show = (message) => {
+      if (label) label.textContent = message;
+      if (live) live.textContent = message;
+      button.classList.toggle('is-copied', message === 'Copied');
+    };
+    show(synced ? 'Copied' : 'Copying');
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(() => show('Copied')).catch(() => {
+        if (!synced) show('Copy failed');
+      });
+    } else if (!synced) {
+      show('Copy failed');
+    }
+    const previous = timers.get(button);
+    if (previous) window.clearTimeout(previous);
+    timers.set(button, window.setTimeout(() => {
+      if (label) label.textContent = original;
+      if (live) live.textContent = '';
+      button.classList.remove('is-copied');
+    }, 2200));
+  });
+</script>

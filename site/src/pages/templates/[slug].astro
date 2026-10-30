@@ -1,0 +1,157 @@
+---
+import { Image } from 'astro:assets';
+import CopyButton from '../../components/CopyButton.astro';
+import Segments from '../../components/Segments.astro';
+import Base from '../../layouts/Base.astro';
+import { initials, loadCatalog, metaDescription } from '../../lib/catalog.mjs';
+import { thumbnailFor } from '../../lib/thumbs.mjs';
+
+export function getStaticPaths() {
+  const catalog = loadCatalog();
+  return catalog.pages.map((page) => ({ params: { slug: page.slug } }));
+}
+
+const catalog = loadCatalog();
+const page = catalog.bySlug[Astro.params.slug];
+if (!page) {
+  throw new Error(`No catalog entry for slug "${Astro.params.slug}".`);
+}
+const category = catalog.categories.find((item) => item.slug === page.categorySlug);
+const related = (category?.pages ?? [])
+  .filter((slug) => slug !== page.slug)
+  .map((slug) => catalog.bySlug[slug]);
+const description = metaDescription(page.summary);
+const entryUrl = `${catalog.links.repo}/blob/main/README.md#L${page.readmeLine}`;
+const promptLinks = page.promptSummary.filter((segment) => segment.type === 'link');
+const howTo = [
+  'Copy the prompt and paste it into a chat with Grok Bot.',
+  'Answer any questions it asks, then let it build the Page from your bots and data.',
+  'Ask for a routine that refreshes the Page on a schedule.',
+  'To share it, ask for a copy with mock data and make that copy public.',
+];
+
+const creditBits = [];
+if (page.inspired) creditBits.push(`Inspired by ${page.inspired.label}.`);
+creditBits.push(`By ${page.author.name}.`);
+if (page.examplePageBy) creditBits.push(`Example Page by ${page.examplePageBy.name}.`);
+
+const people = [page.author];
+if (page.examplePageBy) people.push(page.examplePageBy);
+---
+<Base title={page.title} description={description} ogImage={`/og/${page.slug}.png`}>
+  <main id="content" class="detail">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/#templates">Templates</a>
+      <span aria-hidden="true">/</span>
+      <a href={`/#${page.categorySlug}`}>{page.categoryTitle}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{page.title}</span>
+    </nav>
+
+    <div class="top">
+      <div>
+        <a class="tag" href={`/#${page.categorySlug}`}>{page.categoryTitle}</a>
+        {page.exampleData && <span class="ex">Example data</span>}
+        <h1>{page.title}</h1>
+        <p class="lead">{page.summary}</p>
+      </div>
+      <div class="cta">
+        <CopyButton text={page.prompt} />
+        <a class="btn pri" href={page.url} target="_blank" rel="noopener noreferrer">
+          Open live Page <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <figure class="shot">
+      <figcaption class="chrome">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="url">{page.host}</span>
+      </figcaption>
+      <Image
+        src={thumbnailFor(page.slug)}
+        alt={`${page.title} screenshot`}
+        layout="full-width"
+        widths={[640, 960, 1280, 1668]}
+        sizes="(max-width: 800px) 100vw, 1120px"
+        priority
+      />
+    </figure>
+
+    <div class="body">
+      <div>
+        <h2>Prompt</h2>
+        <div class="code">
+          <div class="codeh">
+            <p class="src"><Segments segments={page.promptSummary} /></p>
+            <CopyButton text={page.prompt} primary />
+          </div>
+          <pre>{page.prompt}</pre>
+        </div>
+        <div class="how">
+          <h2>How to use it</h2>
+          <ol>
+            {howTo.map((step) => <li>{step}</li>)}
+          </ol>
+        </div>
+      </div>
+
+      <aside>
+        <section class="box">
+          <h2>Credit</h2>
+          {people.map((person) => (
+            <div class="per">
+              <div class="av" aria-hidden="true">{initials(person.name)}</div>
+              <div>
+                <b>{person.name}</b>
+                {person.handles.map((handle) => (
+                  <a href={handle.url} target="_blank" rel="noopener noreferrer">@{handle.handle} on {handle.network}</a>
+                ))}
+              </div>
+            </div>
+          ))}
+          <p class="sum">{creditBits.join(' ')}</p>
+        </section>
+
+        <section class="box">
+          <h2>Links</h2>
+          <ul class="links">
+            <li><a href={page.url} target="_blank" rel="noopener noreferrer">Open live Page <span aria-hidden="true">↗</span></a></li>
+            {page.inspired && (
+              <li><a href={page.inspired.url} target="_blank" rel="noopener noreferrer">{page.inspired.label} <span aria-hidden="true">↗</span></a></li>
+            )}
+            {promptLinks.map((link) => (
+              <li><a href={link.href} target="_blank" rel="noopener noreferrer">{link.text} <span aria-hidden="true">↗</span></a></li>
+            ))}
+            <li><a href={entryUrl} target="_blank" rel="noopener noreferrer">Entry on GitHub <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </section>
+
+        {related.length > 0 && (
+          <section class="box">
+            <h2>More in {page.categoryTitle}</h2>
+            {related.map((other) => (
+              <a class="rel" href={`/templates/${other.slug}/`}>
+                <Image
+                  src={thumbnailFor(other.slug)}
+                  alt=""
+                  width={168}
+                  height={104}
+                  layout="fixed"
+                  fit="cover"
+                  position="top"
+                />
+                <span>
+                  <b>{other.title}</b>
+                  <span>{other.summary}</span>
+                </span>
+              </a>
+            ))}
+          </section>
+        )}
+      </aside>
+    </div>
+  </main>
+</Base>
