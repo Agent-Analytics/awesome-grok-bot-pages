@@ -33,8 +33,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-<!-- pending public link:
-- [Bot Org Chart](PUBLIC_LINK) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
   ```text
@@ -42,7 +41,6 @@ Newest listings, also shown in their section.
   ```
 
   </details>
--->
 
 - [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - One Page showing what each bot is doing, what waits on you, and which routines run next (example data). Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
@@ -124,10 +122,7 @@ Mission controls and bot activity.
 
 Org charts, roles and hand-offs between your bots.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
-
-<!-- pending public link:
-- [Bot Org Chart](PUBLIC_LINK) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
   ```text
@@ -135,7 +130,6 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
   ```
 
   </details>
--->
 
 ## Payments and Finance
 
