@@ -14,6 +14,8 @@ npm run serve        # http://localhost:4321
 npm test             # serves dist/, click-tests chips and copy buttons, checks links, runs axe
 ```
 
+The number of checks grows with the README: one per category chip and per entry. With the current 4 entries `npm test` runs 43 checks. `npm test -- <dir>` also writes screenshots to `<dir>` and adds 2 mobile overflow checks (45).
+
 When a Page is added or changes:
 
 ```sh
@@ -34,4 +36,5 @@ Commit the files in `public/shots/` and `public/og.png`; the build copies them i
 
 ## Hosting
 
-Build command `cd site && npm ci && npm run build`, output directory `site/dist`. Pages link with root paths (`/assets/...`, `/t/<slug>/`), so serve it at the domain root.
+Cloudflare Pages, connected by Git to this repo. Every push to `main` deploys; there are no manual deploys. Settings: production branch `main`, root directory `site`, build command `npm ci && npm run build`, output directory `dist`, `NODE_VERSION=22`. Custom domains are grokpages.com and www.grokpages.com; grokbotpages.com and its www redirect (301) to https://grokpages.com with the path and query kept. Pages link with root paths (`/assets/...`, `/t/<slug>/`), so serve it at the domain root.
+
