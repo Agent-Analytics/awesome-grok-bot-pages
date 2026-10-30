@@ -25,8 +25,46 @@
   function announce(msg) { if (live) { live.textContent = ''; setTimeout(function () { live.textContent = msg; }, 30); } }
 
   // window.aa.track is the Agent Analytics snippet API (https://docs.agentanalytics.sh/reference/tracker-js/).
-  // Absent snippet, missing track, and a throwing tracker are all ignored.
+  // The tracker is async, so calls made before it arrives are queued and flushed in order.
+  // A missing snippet, a tracker that never loads, and a throwing tracker are all ignored.
   var TRACK_KEYS = ['page_slug', 'position', 'category', 'source', 'target', 'target_url', 'target_type', 'target_slug'];
+  var pending = [];
+  var PENDING_CAP = 32;
+  var watching = false;
+  var gaveUp = false;
+  var watchTimer = null;
+  function aaReady() { return !!(window.aa && typeof window.aa.track === 'function'); }
+  function flushPending() {
+    if (!aaReady()) return false;
+    var batch = pending;
+    pending = [];
+    for (var i = 0; i < batch.length; i++) {
+      try { window.aa.track(batch[i].name, batch[i].props); } catch (e) {}
+    }
+    return true;
+  }
+  function abandon() {
+    gaveUp = true;
+    pending = [];
+    if (watchTimer) { clearInterval(watchTimer); watchTimer = null; }
+  }
+  function watchAa() {
+    if (watching || gaveUp) return;
+    watching = true;
+    var script = document.querySelector('script[src*="agentanalytics.sh/tracker.js"]');
+    if (script) {
+      script.addEventListener('load', flushPending);
+      script.addEventListener('error', abandon);
+    }
+    var tries = 0;
+    watchTimer = setInterval(function () {
+      if (flushPending() || ++tries >= 100) {
+        clearInterval(watchTimer);
+        watchTimer = null;
+        if (!aaReady()) abandon();
+      }
+    }, 50);
+  }
   function readParams(node) {
     var props = {};
     for (var i = 0; i < TRACK_KEYS.length; i++) {
@@ -37,8 +75,13 @@
     return props;
   }
   function track(name, props) {
+    var body = props || {};
     try {
-      if (window.aa && typeof window.aa.track === 'function') window.aa.track(name, props || {});
+      if (aaReady()) { window.aa.track(name, body); return; }
+      // window.aa without track is unusable. After the wait, further calls no-op.
+      if (window.aa || gaveUp || pending.length >= PENDING_CAP) return;
+      pending.push({ name: name, props: body });
+      watchAa();
     } catch (e) {}
   }
   function visibleCount() { return document.querySelectorAll('[data-cats]:not([hidden])').length; }

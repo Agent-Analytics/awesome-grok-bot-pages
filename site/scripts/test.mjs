@@ -6,6 +6,7 @@ import { createRequire } from 'node:module';
 import { server } from './serve.mjs';
 import { parse } from './parse.mjs';
 import { launch } from './browser.mjs';
+import { targetType } from './build.mjs';
 
 const require = createRequire(import.meta.url);
 const axeSrc = fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
@@ -92,7 +93,7 @@ check('no console or page errors', errors.length === 0, errors.join(' | '));
 
 // Agent Analytics wiring. The tracker request is aborted so a test stub is not replaced
 // by the localhost dev logger, and so the no-global case stays empty.
-const SNIPPET = '<script defer src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>';
+const SNIPPET = '<script async src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>';
 const POS = {
   template_opened: ['featured', 'grid', 'detail_top', 'caption', 'links_box'],
   prompt_copied: ['card', 'detail_top', 'prompt_block'],
@@ -101,15 +102,6 @@ const POS = {
 };
 const entryBySlug = Object.fromEntries(d.entries.map((e) => [e.slug, e]));
 const catSlugs = new Set(d.categories.map((c) => c.slug));
-const targetType = (url) => {
-  let u;
-  try { u = new URL(url); } catch { return 'other'; }
-  if (url.startsWith(d.repo)) return 'repo';
-  const host = u.hostname.replace(/^www\./, '');
-  const segs = u.pathname.split('/').filter(Boolean);
-  if ((host === 'github.com' || host === 'x.com' || host === 'twitter.com') && segs.length <= 1) return 'other';
-  return 'page';
-};
 const siblingsOf = (e) => d.entries.filter((o) => o.slug !== e.slug && o.categories.some((c) => e.categories.includes(c)));
 const readTracks = (pg) => pg.$$eval('[data-track]', (els) => els.map((el) => ({
   event: el.getAttribute('data-track'),
@@ -149,6 +141,10 @@ const seen = { positions: new Set(), types: new Set(), targets: new Set(), sourc
 for (const pathName of paths) {
   const raw = await (await fetch(base + pathName)).text();
   check(`snippet once ${pathName}`, raw.split(SNIPPET).length - 1 === 1 && !raw.includes('aa.set'));
+  if (pathName === '/') {
+    const appAt = raw.indexOf('<script src="/assets/app.js" defer></script>');
+    check('app.js is not blocked on the tracker', appAt !== -1 && appAt < raw.indexOf(SNIPPET));
+  }
   await page.goto(base + pathName, { waitUntil: 'domcontentloaded' });
   const tracks = await readTracks(page);
   const bare = await page.$$eval('a[href]', (els) => els.filter((a) => /^https?:/i.test(a.getAttribute('href') || '') && !a.getAttribute('data-track')).map((a) => a.getAttribute('href')));
@@ -215,7 +211,22 @@ for (const pathName of paths) {
 }
 const needPos = ['template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'snippet_copied:section_button', 'snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'];
 check('every position is used', needPos.every((p) => seen.positions.has(p)), [...seen.positions].sort().join(' '));
-check('outbound target types and get-listed targets', ['repo', 'page', 'other'].every((t) => seen.types.has(t)) && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
+check('outbound target types and get-listed targets', seen.types.has('repo') && seen.types.has('other') && ![...seen.types].some((t) => t !== 'repo' && t !== 'other') && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
+const typeCases = [
+  [d.repo, 'repo'],
+  [d.repo + '#listing-rules', 'repo'],
+  [d.repo + '/edit/main/README.md', 'repo'],
+  ['https://x.ai/bot', 'other'],
+  ['https://agentanalytics.sh', 'other'],
+  ['https://docs.agentanalytics.sh/installation/', 'other'],
+  ['https://www.youtube.com/watch?v=UClMrBShiYc', 'other'],
+  ['https://youtu.be/Nk242TnA7-8', 'other'],
+  ['https://x.com/AlexFinn/status/2115612249826148795', 'other'],
+  ['https://mission-control-example-sgmr.pages.grok.bot/', 'page'],
+  ['https://bot-org-chart-example-ujfc.pages.grok.bot/', 'page'],
+];
+const typeMiss = typeCases.filter(([url, kind]) => targetType(url) !== kind).map(([url, kind]) => `${url} expected ${kind} got ${targetType(url)}`);
+check('targetType is repo, grok page, or other', typeMiss.length === 0, typeMiss.join(' | '));
 
 const barePage = await ctx.newPage();
 const bareErrors = [];
@@ -291,6 +302,22 @@ await ap.click('.codeh [data-copy]');
 await ap.waitForTimeout(150);
 await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: withRelated.slug, position: 'prompt_block', success: false } }], 'failed copy fires prompt_copied success false');
 await ap.close();
+
+// Tracker download held open: landing and clicks queue, then flush in order when aa.track appears.
+const qp = await ctx.newPage();
+let releaseHold;
+const hold = new Promise((resolve) => { releaseHold = resolve; });
+await qp.route('https://api.agentanalytics.sh/**', async (route) => { await hold; await route.abort(); });
+await qp.addInitScript(() => { window.__aaEvents = []; });
+await qp.goto(base + `/#c=${some.slug}`, { waitUntil: 'domcontentloaded' });
+await qp.evaluate(() => { for (var i = 0; i < 40; i++) document.querySelector('[data-filter="all"]').click(); });
+check('events wait while the tracker is still loading', (await aaEvents(qp)).length === 0 && (await qp.evaluate(() => window.aa)) == null);
+await qp.evaluate(() => { window.aa = { track: (name, props) => { window.__aaEvents.push({ name, props }); } }; });
+await qp.waitForTimeout(400);
+const flushed = await aaEvents(qp);
+check('queued landing flushes before later clicks', flushed.length === 32 && flushed[0].name === 'category_filtered' && flushed[0].props.source === 'link' && flushed[0].props.category === some.slug && flushed[0].props.results_count === some.count && flushed[1].props.source === 'click' && flushed[1].props.category === 'all' && flushed[1].props.results_count === d.entries.length && flushed.every((ev, i) => i === 0 || (ev.props.source === 'click' && ev.props.category === 'all')));
+releaseHold();
+await qp.close();
 
 const loadAll = async (pg) => { await pg.evaluate(async () => { document.querySelectorAll('img[loading=lazy]').forEach((i) => { i.loading = 'eager'; }); await Promise.all([...document.images].map((i) => i.decode().catch(() => {}))); }); };
 if (shotDir) {

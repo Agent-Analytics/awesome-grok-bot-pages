@@ -1,6 +1,7 @@
 // Builds dist/ from ../README.md. Run: npm run build
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { parse, slugify } from './parse.mjs';
 
@@ -13,16 +14,14 @@ const d = parse();
 const REPO = d.repo;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-// repo: this list. page: a content URL. other: a social or GitHub profile.
-const targetType = (url) => {
+// repo: this list. page: a hosted Grok Page. other: everything else (profiles, docs, video, product sites).
+export function targetType(url) {
   let u;
   try { u = new URL(url); } catch { return 'other'; }
   if (url.startsWith(REPO)) return 'repo';
-  const host = u.hostname.replace(/^www\./, '');
-  const segs = u.pathname.split('/').filter(Boolean);
-  if ((host === 'github.com' || host === 'x.com' || host === 'twitter.com') && segs.length <= 1) return 'other';
-  return 'page';
-};
+  if (u.hostname.endsWith('.pages.grok.bot')) return 'page';
+  return 'other';
+}
 const trackAttrs = (event, params) => {
   const bits = [`data-track="${event}"`];
   for (const [k, v] of Object.entries(params || {})) {
@@ -113,9 +112,9 @@ ${body}
 <div class="fb">Every Page listed is public and uses mock or public data. List content is CC0 1.0.</div></div></footer>
 <div id="live" class="sr-only" aria-live="polite"></div>
 ${dataBlob(data)}
-<!-- Agent Analytics tracker. page_view is automatic. page_type and page_slug stay on the path (/ home, /t/:slug/ page_detail, /404.html 404): tracker.js sends that page_view before assigning window.aa and does not replay a pre-load queue, so a set() of those fields cannot attach to it. -->
-<script defer src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>
 <script src="/assets/app.js" defer></script>
+<!-- Agent Analytics tracker, async so a slow tracker.js does not delay app.js or DOMContentLoaded. page_view is automatic. Home is / and a template is /t/:slug/. Cloudflare serves this 404 file at the missing path, so that page_view path is the requested URL rather than /404.html, and page_type is not sent: the tracker fires page_view before window.aa exists and does not replay a queue. -->
+<script async src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>
 </body>
 </html>
 `;
@@ -199,6 +198,7 @@ function notFound() {
 }
 
 // ---- write
+async function writeDist() {
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(path.join(dist, 'assets/fonts'), { recursive: true });
 fs.cpSync(path.join(root, 'public'), dist, { recursive: true });
@@ -227,3 +227,6 @@ for (const [p, html] of Object.entries(pages)) {
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', ...d.entries.map((e) => `/t/${e.slug}/`)].map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}\n</urlset>\n`);
 console.log(`Built ${Object.keys(pages).length} pages into dist/ (${d.entries.length} templates, ${d.categories.length} categories)`);
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await writeDist();
