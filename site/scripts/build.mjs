@@ -174,6 +174,7 @@ fs.copyFileSync(path.join(root, 'src/favicon.svg'), path.join(dist, 'favicon.svg
 const fonts = path.join(root, 'node_modules/geist/dist/fonts');
 fs.copyFileSync(path.join(fonts, 'geist-sans/Geist-Variable.woff2'), path.join(dist, 'assets/fonts/Geist-Variable.woff2'));
 fs.copyFileSync(path.join(fonts, 'geist-mono/GeistMono-Variable.woff2'), path.join(dist, 'assets/fonts/GeistMono-Variable.woff2'));
+fs.copyFileSync(path.join(root, 'node_modules/geist/LICENSE.txt'), path.join(dist, 'assets/fonts/LICENSE.txt')); // SIL OFL 1.1 travels with the fonts
 const svg = fs.readFileSync(path.join(root, 'src/favicon.svg'));
 await sharp(svg).resize(32).png().toFile(path.join(dist, 'favicon-32.png'));
 await sharp(svg).resize(180).png().toFile(path.join(dist, 'apple-touch-icon.png'));
