@@ -1,4 +1,4 @@
-// grokpages.com: category filter and copy buttons. No dependencies.
+// grokpages.com: category filter, copy buttons, and Agent Analytics clicks. No dependencies.
 (function () {
   var data = {};
   var el = document.getElementById('site-data');
@@ -24,22 +24,65 @@
   var live = document.getElementById('live');
   function announce(msg) { if (live) { live.textContent = ''; setTimeout(function () { live.textContent = msg; }, 30); } }
 
+  // window.aa.track is the Agent Analytics snippet API (https://docs.agentanalytics.sh/reference/tracker-js/).
+  // Absent snippet, missing track, and a throwing tracker are all ignored.
+  var TRACK_KEYS = ['page_slug', 'position', 'category', 'source', 'target', 'target_url', 'target_type', 'target_slug'];
+  function readParams(node) {
+    var props = {};
+    for (var i = 0; i < TRACK_KEYS.length; i++) {
+      var key = TRACK_KEYS[i];
+      var val = node.getAttribute('data-' + key.replace(/_/g, '-'));
+      if (val !== null && val !== '') props[key] = val;
+    }
+    return props;
+  }
+  function track(name, props) {
+    try {
+      if (window.aa && typeof window.aa.track === 'function') window.aa.track(name, props || {});
+    } catch (e) {}
+  }
+  function visibleCount() { return document.querySelectorAll('[data-cats]:not([hidden])').length; }
+
   document.addEventListener('click', function (ev) {
     var btn = ev.target.closest('[data-copy]');
-    if (!btn) return;
-    var key = btn.getAttribute('data-copy');
-    var text = key === 'snippet' ? data.snippet : (data.prompts || {})[key];
-    if (!text) return;
-    var label = btn.getAttribute('data-label') || btn.textContent;
-    btn.setAttribute('data-label', label);
-    copyText(text).then(function () {
-      btn.textContent = 'Copied'; btn.classList.add('done');
-      announce((key === 'snippet' ? 'Snippet' : 'Prompt') + ' copied to clipboard');
-    }, function () {
-      btn.textContent = 'Press Ctrl+C'; announce('Copy failed. Select the text and copy it manually.');
-    }).then(function () {
-      setTimeout(function () { btn.textContent = label; btn.classList.remove('done'); }, 1800);
-    });
+    if (btn) {
+      var key = btn.getAttribute('data-copy');
+      var text = key === 'snippet' ? data.snippet : (data.prompts || {})[key];
+      if (!text) return;
+      var label = btn.getAttribute('data-label') || btn.textContent;
+      btn.setAttribute('data-label', label);
+      copyText(text).then(function () {
+        btn.textContent = 'Copied'; btn.classList.add('done');
+        announce((key === 'snippet' ? 'Snippet' : 'Prompt') + ' copied to clipboard');
+        return true;
+      }, function () {
+        btn.textContent = 'Press Ctrl+C'; announce('Copy failed. Select the text and copy it manually.');
+        return false;
+      }).then(function (success) {
+        if (btn.getAttribute('data-track')) {
+          var copied = readParams(btn);
+          copied.success = success === true;
+          track(btn.getAttribute('data-track'), copied);
+        }
+        setTimeout(function () { btn.textContent = label; btn.classList.remove('done'); }, 1800);
+      });
+      return;
+    }
+
+    var node = ev.target.closest('[data-track]');
+    if (!node) return;
+    var name = node.getAttribute('data-track');
+    if (!name || node.hasAttribute('data-copy')) return;
+    // source=link is recorded from fromHash after the filter applies (and after a full
+    // navigation to /#c=), so a tag click is not also counted here.
+    if (name === 'category_filtered' && node.getAttribute('data-source') === 'link') return;
+    var props = readParams(node);
+    if (name === 'category_filtered') {
+      props.category = props.category || node.getAttribute('data-filter') || '';
+      props.source = props.source || 'click';
+      props.results_count = visibleCount();
+    }
+    track(name, props);
   });
 
   // Category chips
@@ -68,7 +111,10 @@
   chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.getAttribute('data-filter'), true); }); });
   function fromHash() {
     var m = location.hash.match(/^#c=([a-z0-9-]+)$/);
-    if (m && document.querySelector('[data-filter="' + m[1] + '"]')) apply(m[1], false);
+    if (m && document.querySelector('[data-filter="' + m[1] + '"]')) {
+      apply(m[1], false);
+      track('category_filtered', { category: m[1], results_count: visibleCount(), source: 'link' });
+    }
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();

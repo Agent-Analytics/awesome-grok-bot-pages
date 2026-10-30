@@ -90,6 +90,208 @@ const outline = await page.$eval('[data-filter="sales"]', (e) => getComputedStyl
 check('focus ring on keyboard focus', outline !== 'none', outline);
 check('no console or page errors', errors.length === 0, errors.join(' | '));
 
+// Agent Analytics wiring. The tracker request is aborted so a test stub is not replaced
+// by the localhost dev logger, and so the no-global case stays empty.
+const SNIPPET = '<script defer src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>';
+const POS = {
+  template_opened: ['featured', 'grid', 'detail_top', 'caption', 'links_box'],
+  prompt_copied: ['card', 'detail_top', 'prompt_block'],
+  snippet_copied: ['section_button', 'code_header'],
+  outbound_clicked: ['header', 'footer', 'credit', 'links_box', 'how_to'],
+};
+const entryBySlug = Object.fromEntries(d.entries.map((e) => [e.slug, e]));
+const catSlugs = new Set(d.categories.map((c) => c.slug));
+const targetType = (url) => {
+  let u;
+  try { u = new URL(url); } catch { return 'other'; }
+  if (url.startsWith(d.repo)) return 'repo';
+  const host = u.hostname.replace(/^www\./, '');
+  const segs = u.pathname.split('/').filter(Boolean);
+  if ((host === 'github.com' || host === 'x.com' || host === 'twitter.com') && segs.length <= 1) return 'other';
+  return 'page';
+};
+const siblingsOf = (e) => d.entries.filter((o) => o.slug !== e.slug && o.categories.some((c) => e.categories.includes(c)));
+const readTracks = (pg) => pg.$$eval('[data-track]', (els) => els.map((el) => ({
+  event: el.getAttribute('data-track'),
+  href: el.getAttribute('href'),
+  page_slug: el.getAttribute('data-page-slug'),
+  position: el.getAttribute('data-position'),
+  category: el.getAttribute('data-category'),
+  source: el.getAttribute('data-source'),
+  target: el.getAttribute('data-target'),
+  target_url: el.getAttribute('data-target-url'),
+  target_type: el.getAttribute('data-target-type'),
+  target_slug: el.getAttribute('data-target-slug'),
+  copy: el.getAttribute('data-copy'),
+  filter: el.getAttribute('data-filter'),
+})));
+const aaEvents = (pg) => pg.evaluate(() => window.__aaEvents.slice());
+async function expectEvents(pg, expected, label) {
+  const got = await aaEvents(pg);
+  const ok = got.length === expected.length && expected.every((exp, i) => {
+    const g = got[i];
+    if (!g || g.name !== exp.name) return false;
+    const keys = Object.keys(exp.props).sort();
+    const gotKeys = Object.keys(g.props).sort();
+    return keys.join(',') === gotKeys.join(',') && keys.every((k) => g.props[k] === exp.props[k]);
+  });
+  check(label, ok, JSON.stringify(got));
+}
+const clearAa = (pg) => pg.evaluate(() => { window.__aaEvents = []; });
+const fire = (pg, selector) => pg.evaluate((sel) => {
+  const el = document.querySelector(sel);
+  el.addEventListener('click', (e) => e.preventDefault(), { capture: true });
+  el.click();
+}, selector);
+
+const paths = ['/', ...d.entries.map((e) => `/t/${e.slug}/`), '/404.html'];
+const seen = { positions: new Set(), types: new Set(), targets: new Set(), sources: new Set() };
+for (const pathName of paths) {
+  const raw = await (await fetch(base + pathName)).text();
+  check(`snippet once ${pathName}`, raw.split(SNIPPET).length - 1 === 1 && !raw.includes('aa.set'));
+  await page.goto(base + pathName, { waitUntil: 'domcontentloaded' });
+  const tracks = await readTracks(page);
+  const bare = await page.$$eval('a[href]', (els) => els.filter((a) => /^https?:/i.test(a.getAttribute('href') || '') && !a.getAttribute('data-track')).map((a) => a.getAttribute('href')));
+  const problems = [];
+  if (bare.length) problems.push('untracked ' + bare.join(' '));
+  const detailSlug = pathName.startsWith('/t/') ? pathName.split('/')[2] : '';
+  for (const t of tracks) {
+    if (t.event === 'category_filtered') {
+      seen.sources.add(t.source);
+      if (!['click', 'link'].includes(t.source)) problems.push('bad source ' + t.source);
+      if (t.source === 'click' && (t.category !== t.filter || (t.category !== 'all' && !catSlugs.has(t.category)))) problems.push('chip ' + t.category);
+      if (t.source === 'link' && (!catSlugs.has(t.category) || t.href !== `/#c=${t.category}`)) problems.push('tag ' + t.category);
+    } else if (t.event === 'template_opened') {
+      seen.positions.add('template_opened:' + t.position);
+      const entry = entryBySlug[t.page_slug];
+      if (!POS.template_opened.includes(t.position) || !entry || t.href !== entry.url) problems.push('template ' + t.position + ' ' + t.page_slug);
+    } else if (t.event === 'prompt_copied') {
+      seen.positions.add('prompt_copied:' + t.position);
+      if (!POS.prompt_copied.includes(t.position) || t.copy !== t.page_slug || !entryBySlug[t.page_slug]) problems.push('prompt ' + t.position);
+    } else if (t.event === 'snippet_copied') {
+      seen.positions.add('snippet_copied:' + t.position);
+      if (!POS.snippet_copied.includes(t.position) || t.copy !== 'snippet' || t.page_slug) problems.push('snippet ' + t.position);
+    } else if (t.event === 'get_listed_clicked') {
+      seen.targets.add(t.target);
+      const hrefOk = t.target === 'open_pr' ? (t.href || '').includes('/edit/main/README.md') : t.target === 'contributing' && (t.href || '').includes('/blob/main/CONTRIBUTING.md');
+      if (!hrefOk) problems.push('get_listed ' + t.target + ' ' + t.href);
+    } else if (t.event === 'outbound_clicked') {
+      seen.positions.add('outbound_clicked:' + t.position);
+      seen.types.add(t.target_type);
+      if (!POS.outbound_clicked.includes(t.position) || !['repo', 'page', 'other'].includes(t.target_type)) problems.push('outbound enum ' + t.position + ' ' + t.target_type);
+      if (t.target_url !== t.href || t.target_type !== targetType(t.href)) problems.push('outbound ' + t.href + ' typed ' + t.target_type);
+      if (d.entries.some((e) => e.url === t.href)) problems.push('live page marked outbound ' + t.href);
+    } else if (t.event === 'related_clicked') {
+      if (t.page_slug !== detailSlug || !entryBySlug[t.target_slug] || t.target_slug === t.page_slug || t.href !== `/t/${t.target_slug}/`) problems.push('related ' + t.page_slug + ' -> ' + t.target_slug);
+    } else problems.push('unknown event ' + t.event);
+  }
+  if (pathName === '/') {
+    const chips = tracks.filter((t) => t.event === 'category_filtered' && t.source === 'click');
+    if (chips.length !== d.categories.length + 1) problems.push('chip count ' + chips.length);
+    if (!chips.some((t) => t.category === 'all')) problems.push('missing all chip');
+    const featured = tracks.filter((t) => t.event === 'template_opened' && t.position === 'featured');
+    if (featured.length !== 1 || featured[0].page_slug !== d.entries[0].slug) problems.push('featured');
+    const grid = tracks.filter((t) => t.event === 'template_opened' && t.position === 'grid');
+    if (grid.length !== d.entries.length - 1) problems.push('grid ' + grid.length);
+    if (tracks.filter((t) => t.event === 'prompt_copied' && t.position === 'card').length !== d.entries.length) problems.push('card copies');
+    if (!tracks.some((t) => t.event === 'snippet_copied' && t.position === 'section_button')) problems.push('section_button');
+    if (!tracks.some((t) => t.event === 'snippet_copied' && t.position === 'code_header')) problems.push('code_header');
+    if (tracks.filter((t) => t.event === 'get_listed_clicked' && t.target === 'open_pr').length !== 1) problems.push('open_pr');
+  } else if (detailSlug) {
+    for (const position of ['detail_top', 'caption', 'links_box']) {
+      const n = tracks.filter((t) => t.event === 'template_opened' && t.position === position && t.page_slug === detailSlug).length;
+      if (n !== 1) problems.push(position + ' ' + n);
+    }
+    for (const position of ['detail_top', 'prompt_block']) {
+      if (!tracks.some((t) => t.event === 'prompt_copied' && t.position === position && t.page_slug === detailSlug)) problems.push('copy ' + position);
+    }
+    const related = tracks.filter((t) => t.event === 'related_clicked');
+    if (related.length !== siblingsOf(entryBySlug[detailSlug]).length) problems.push('related count ' + related.length);
+    if (tracks.some((t) => t.event === 'snippet_copied' || t.position === 'featured' || t.position === 'grid' || t.position === 'card')) problems.push('detail has home-only track');
+  } else if (tracks.some((t) => ['template_opened', 'prompt_copied', 'snippet_copied', 'category_filtered', 'related_clicked'].includes(t.event))) {
+    problems.push('404 has page-only events');
+  }
+  check(`data-track wiring ${pathName}`, problems.length === 0, problems.join(' | '));
+}
+const needPos = ['template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'snippet_copied:section_button', 'snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'];
+check('every position is used', needPos.every((p) => seen.positions.has(p)), [...seen.positions].sort().join(' '));
+check('outbound target types and get-listed targets', ['repo', 'page', 'other'].every((t) => seen.types.has(t)) && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
+
+const barePage = await ctx.newPage();
+const bareErrors = [];
+barePage.on('pageerror', (e) => bareErrors.push(e.message));
+await barePage.route('https://api.agentanalytics.sh/**', (route) => route.abort());
+await barePage.goto(base + '/', { waitUntil: 'domcontentloaded' });
+const some = d.categories.find((c) => c.count > 0);
+await barePage.click(`[data-filter="${some.slug}"] b`);
+await barePage.click('.gl .glb [data-copy="snippet"]');
+await barePage.waitForTimeout(150);
+check('handler no-ops without the AA global', bareErrors.length === 0 && (await barePage.evaluate(() => window.aa)) == null && (await barePage.getAttribute(`[data-filter="${some.slug}"]`, 'aria-pressed')) === 'true' && (await barePage.textContent('.gl .glb [data-copy="snippet"]')) === 'Copied');
+await barePage.evaluate(() => { window.aa = {}; });
+await barePage.click('[data-filter="all"]');
+check('handler ignores aa without track', bareErrors.length === 0 && (await barePage.getAttribute('[data-filter="all"]', 'aria-pressed')) === 'true');
+await barePage.evaluate(() => { window.aa = { track: () => { throw new Error('tracker failed'); } }; });
+await barePage.click(`[data-filter="${some.slug}"]`);
+check('throwing tracker does not break the page', bareErrors.length === 0 && (await barePage.getAttribute(`[data-filter="${some.slug}"]`, 'aria-pressed')) === 'true');
+await barePage.close();
+
+const ap = await ctx.newPage();
+await ap.route('https://api.agentanalytics.sh/**', (route) => route.abort());
+await ap.addInitScript(() => {
+  window.__aaEvents = [];
+  window.aa = { track: (name, props) => { window.__aaEvents.push({ name, props }); } };
+});
+await ap.goto(base + `/#c=${some.slug}`, { waitUntil: 'domcontentloaded' });
+await expectEvents(ap, [{ name: 'category_filtered', props: { category: some.slug, results_count: some.count, source: 'link' } }], 'landing #c= fires category_filtered source link');
+await clearAa(ap);
+await ap.click('[data-filter="all"]');
+await expectEvents(ap, [{ name: 'category_filtered', props: { category: 'all', results_count: d.entries.length, source: 'click' } }], 'All chip fires category_filtered source click');
+await clearAa(ap);
+// A DOM click, not Playwright's click: Playwright follows the hash without firing hashchange.
+await ap.evaluate((slug) => document.querySelector(`a.tag[data-category="${slug}"]`).click(), some.slug);
+await expectEvents(ap, [{ name: 'category_filtered', props: { category: some.slug, results_count: some.count, source: 'link' } }], 'category tag fires one source=link event');
+await clearAa(ap);
+const empty = d.categories.find((c) => c.count === 0);
+await ap.click(`[data-filter="${empty.slug}"] b`);
+await expectEvents(ap, [{ name: 'category_filtered', props: { category: empty.slug, results_count: 0, source: 'click' } }], 'chip click fires category_filtered with results_count');
+await ap.click('[data-filter="all"]');
+await clearAa(ap);
+await fire(ap, 'article.feat a[data-track="template_opened"]');
+await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: d.entries[0].slug, position: 'featured' } }], 'featured open fires template_opened only');
+await clearAa(ap);
+await ap.click(`article.feat [data-copy="${d.entries[0].slug}"]`);
+await ap.waitForTimeout(150);
+await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: d.entries[0].slug, position: 'card', success: true } }], 'card copy fires one prompt_copied after success');
+await clearAa(ap);
+await ap.click('.gl .glb [data-copy="snippet"]');
+await ap.waitForTimeout(150);
+await expectEvents(ap, [{ name: 'snippet_copied', props: { position: 'section_button', success: true } }], 'section snippet copy fires snippet_copied');
+await clearAa(ap);
+await fire(ap, '.glb a[data-target="open_pr"]');
+await expectEvents(ap, [{ name: 'get_listed_clicked', props: { target: 'open_pr' } }], 'open pull request fires get_listed_clicked only');
+await clearAa(ap);
+await fire(ap, 'header a[data-track="outbound_clicked"]');
+const headerHref = await ap.getAttribute('header a[data-track="outbound_clicked"]', 'href');
+await expectEvents(ap, [{ name: 'outbound_clicked', props: { target_url: headerHref, target_type: targetType(headerHref), position: 'header' } }], 'header external link fires outbound_clicked only');
+const withRelated = d.entries.find((e) => siblingsOf(e).length > 0);
+await ap.goto(base + `/t/${withRelated.slug}/`, { waitUntil: 'domcontentloaded' });
+await clearAa(ap);
+await fire(ap, 'a.rel');
+await expectEvents(ap, [{ name: 'related_clicked', props: { page_slug: withRelated.slug, target_slug: siblingsOf(withRelated)[0].slug } }], 'related link fires related_clicked only');
+await clearAa(ap);
+await fire(ap, 'figure figcaption a[data-track="template_opened"]');
+await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: withRelated.slug, position: 'caption' } }], 'caption open fires template_opened only');
+await clearAa(ap);
+await ap.evaluate(() => {
+  window.__aaEvents = [];
+  Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: () => Promise.reject(new Error('no')) } });
+  document.execCommand = () => false;
+});
+await ap.click('.codeh [data-copy]');
+await ap.waitForTimeout(150);
+await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: withRelated.slug, position: 'prompt_block', success: false } }], 'failed copy fires prompt_copied success false');
+await ap.close();
+
 const loadAll = async (pg) => { await pg.evaluate(async () => { document.querySelectorAll('img[loading=lazy]').forEach((i) => { i.loading = 'eager'; }); await Promise.all([...document.images].map((i) => i.decode().catch(() => {}))); }); };
 if (shotDir) {
   fs.mkdirSync(shotDir, { recursive: true });
