@@ -33,6 +33,17 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+<!-- pending public link:
+- [Decisions Console](PUBLIC_LINK) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a Grok Bot Page called "Decisions Console" that shows only what needs me. You are my chief of staff: collect every decision my bots are waiting on me for. At the top, show a goal gauge for each of my divisions or main goals, with the goal, today's number, the target and the date. In the middle, show a "Waiting on you" queue ranked by due time, then money at stake, then age. Each item shows the asking bot, the decision in one line, when it is due and how long it has waited, with Approve, Decline and Open buttons. Approve and Decline only mark the item on the Page and never send, post, pay or deploy anything. Open goes to that bot's chat. On the side, list my bots by division with a status dot (working, waiting on me, idle) and a short log of anything waiting over 72 hours. At the bottom, show bots working, waiting on me, cleared today with my streak, and a countdown to the next routine. Use only real data from my bots and routines. If something is missing, show "unknown" instead of guessing. Then create a routine that refreshes this Page every hour on weekdays. If I want to share it, make a separate copy with mock data and label it example data.
+  ```
+
+  </details>
+-->
+
 - [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
@@ -117,6 +128,17 @@ Mission controls and bot activity.
   ```
 
   </details>
+
+<!-- pending public link:
+- [Decisions Console](PUBLIC_LINK) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a Grok Bot Page called "Decisions Console" that shows only what needs me. You are my chief of staff: collect every decision my bots are waiting on me for. At the top, show a goal gauge for each of my divisions or main goals, with the goal, today's number, the target and the date. In the middle, show a "Waiting on you" queue ranked by due time, then money at stake, then age. Each item shows the asking bot, the decision in one line, when it is due and how long it has waited, with Approve, Decline and Open buttons. Approve and Decline only mark the item on the Page and never send, post, pay or deploy anything. Open goes to that bot's chat. On the side, list my bots by division with a status dot (working, waiting on me, idle) and a short log of anything waiting over 72 hours. At the bottom, show bots working, waiting on me, cleared today with my streak, and a countdown to the next routine. Use only real data from my bots and routines. If something is missing, show "unknown" instead of guessing. Then create a routine that refreshes this Page every hour on weekdays. If I want to share it, make a separate copy with mock data and label it example data.
+  ```
+
+  </details>
+-->
 
 ## Bot Management
 
