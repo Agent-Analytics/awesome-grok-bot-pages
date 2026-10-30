@@ -13,6 +13,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 - [Data Analytics](#data-analytics)
 - [Infrastructure](#infrastructure)
 - [Agent Orchestration](#agent-orchestration)
+- [Bot Management](#bot-management)
 - [Payments and Finance](#payments-and-finance)
 - [Sales](#sales)
 - [Marketing](#marketing)
@@ -31,6 +32,17 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 ## Latest Additions
 
 Newest listings, also shown in their section.
+
+<!-- pending public link:
+- [Bot Org Chart](PUBLIC_LINK) - An org chart of your bots: you at the top, lead bots, operator bots, their routines and status, and dashed hand-offs between teams (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Bot Org Chart" that shows my bots as an org chart. Put me at the top, group my bots under 3 lead bots (or under areas if they have no leads), and draw an arrow from each lead to the bots under it. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, a one-line role, its routines with schedule and whether each is on or paused, its status (working, idle or waiting on me), and a link to open its chat. Fill it from my real bots, their descriptions and their routines, and don't invent anything. Add a routine that refreshes the Page every day at 8:00. If I want to share it, make a separate copy with mock bots and mock data, with no names, emails or other personal details, and label it example data.
+  ```
+
+  </details>
+-->
 
 - [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - One Page showing what each bot is doing, what waits on you, and which routines run next (example data). Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
@@ -107,6 +119,23 @@ Mission controls and bot activity.
   ```
 
   </details>
+
+## Bot Management
+
+Org charts, roles and hand-offs between your bots.
+
+No Pages yet. [Add yours](#create-your-page-and-get-listed).
+
+<!-- pending public link:
+- [Bot Org Chart](PUBLIC_LINK) - An org chart of your bots: you at the top, lead bots, operator bots, their routines and status, and dashed hand-offs between teams (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Bot Org Chart" that shows my bots as an org chart. Put me at the top, group my bots under 3 lead bots (or under areas if they have no leads), and draw an arrow from each lead to the bots under it. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, a one-line role, its routines with schedule and whether each is on or paused, its status (working, idle or waiting on me), and a link to open its chat. Fill it from my real bots, their descriptions and their routines, and don't invent anything. Add a routine that refreshes the Page every day at 8:00. If I want to share it, make a separate copy with mock bots and mock data, with no names, emails or other personal details, and label it example data.
+  ```
+
+  </details>
+-->
 
 ## Payments and Finance
 
