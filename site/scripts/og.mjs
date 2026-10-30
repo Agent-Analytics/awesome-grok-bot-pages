@@ -21,7 +21,7 @@ p{font-size:24px;color:#a3a3a3;margin-top:24px;line-height:1.35}
 .r{position:absolute;left:640px;top:56px;width:620px;display:grid;grid-template-columns:1fr 1fr;gap:16px;transform:rotate(-4deg)}
 .r figure{border:1px solid #2a2a2a;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/10;box-shadow:0 20px 40px rgba(0,0,0,.5)}
 .r img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}.r figure:nth-child(2n){transform:translateY(40px)}
-</style></head><body><div class="l"><div class="wm">grokpages<span>.com</span></div><div class="pill">Grok Bot Pages templates</div>
+</style></head><body><div class="l"><div class="wm">grokbotpages<span>.com</span></div><div class="pill">Grok Bot Pages templates</div>
 <h1>Copy a <em>Grok Bot Page.</em></h1><p>Live public Pages plus the exact prompts that built them.</p></div>
 <div class="r">${shots.map((e) => `<figure><img src="${img(e.slug)}"></figure>`).join('')}</div></body></html>`;
 const b = await launch();

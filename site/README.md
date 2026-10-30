@@ -1,6 +1,6 @@
-# grokpages.com site
+# grokbotpages.com site
 
-Static site for [grokpages.com](https://grokpages.com). Everything on it is generated from the repo's `README.md`: categories, entries, credits, prompts and the get-listed snippet. Add or edit an entry in the README and rebuild; there is no separate data file.
+Static site for [grokbotpages.com](https://grokbotpages.com). Everything on it is generated from the repo's `README.md`: categories, entries, credits, prompts and the get-listed snippet. Add or edit an entry in the README and rebuild; there is no separate data file.
 
 ## Build
 
@@ -14,7 +14,7 @@ npm run serve        # http://localhost:4321
 npm test             # serves dist/, click-tests chips and copy buttons, checks links, runs axe
 ```
 
-The number of checks grows with the README: one per category chip and per entry. With the current 5 entries `npm test` runs 84 checks. `npm test -- <dir>` also writes screenshots to `<dir>` and adds 2 mobile overflow checks (86).
+The number of checks grows with the README: one per category chip and per entry, plus 2 domain checks per page. With the current 5 entries `npm test` runs 99 checks. `npm test -- <dir>` also writes screenshots to `<dir>` and adds 2 mobile overflow checks (101).
 
 When a Page is added or changes:
 
@@ -36,5 +36,5 @@ Commit the files in `public/shots/` and `public/og.png`; the build copies them i
 
 ## Hosting
 
-Cloudflare Pages, connected by Git to this repo. Every push to `main` deploys; there are no manual deploys. Settings: production branch `main`, root directory `site`, build command `npm ci && npm run build`, output directory `dist`, `NODE_VERSION=22`. Custom domains are grokpages.com and www.grokpages.com; grokbotpages.com and its www redirect (301) to https://grokpages.com with the path and query kept. Pages link with root paths (`/assets/...`, `/t/<slug>/`), so serve it at the domain root.
+Cloudflare Pages, connected by Git to this repo. Every push to `main` deploys; there are no manual deploys. Settings: production branch `main`, root directory `site`, build command `npm ci && npm run build`, output directory `dist`, `NODE_VERSION=22`. Custom domains are grokbotpages.com and www.grokbotpages.com. grokpages.com and www.grokpages.com redirect (301) to https://grokbotpages.com with the path and query kept, through a Single Redirect rule on the grokpages.com zone. The Agent Analytics project is still named `grokpages.com` (the tracker `data-project`); it is a project id, not the served domain. Pages link with root paths (`/assets/...`, `/t/<slug>/`), so serve it at the domain root.
 

@@ -7,7 +7,7 @@ import { parse, slugify } from './parse.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'dist');
-const SITE = 'https://grokpages.com';
+const SITE = 'https://grokbotpages.com';
 const GROK = 'https://x.ai/bot';
 const AA = 'https://agentanalytics.sh';
 const d = parse();
@@ -83,14 +83,14 @@ function layout({ title, description, pathName, body, data }) {
 <meta name="theme-color" content="#0a0a0a">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="grokpages.com">
+<meta property="og:site_name" content="grokbotpages.com">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${SITE}/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="grokpages.com: Copy a Grok Bot Page, with screenshots of the listed templates">
+<meta property="og:image:alt" content="grokbotpages.com: Copy a Grok Bot Page, with screenshots of the listed templates">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${SITE}/og.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -101,12 +101,12 @@ function layout({ title, description, pathName, body, data }) {
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><a class="wm" href="/" aria-label="grokpages.com home">grokpages<span>.com</span></a>
+<header class="site-header"><a class="wm" href="/" aria-label="grokbotpages.com home">grokbotpages<span>.com</span></a>
 <nav aria-label="Main"><a href="/#templates">Templates</a><a href="/#get-listed">Get listed</a>${outbound(GROK, 'Grok Bot', 'header')}${outbound(REPO, GH + ' GitHub', 'header', 'gh')}</nav></header>
 <main id="main">
 ${body}
 </main>
-<footer class="site-footer"><div class="in"><div><a class="wm" href="/">grokpages<span>.com</span></a><p>Templates for Grok Bot Pages, listed from the Awesome Grok Bot Pages repo.</p></div>
+<footer class="site-footer"><div class="in"><div><a class="wm" href="/">grokbotpages<span>.com</span></a><p>Templates for Grok Bot Pages, listed from the Awesome Grok Bot Pages repo.</p></div>
 <div class="fcols"><div><h2>Project</h2>${outbound(REPO, 'GitHub repo', 'footer')}${ext(REPO + '/blob/main/CONTRIBUTING.md', 'Contributing', '', 'get_listed_clicked', { target: 'contributing' })}${outbound(REPO + '#listing-rules', 'Listing rules', 'footer')}</div>
 <div><h2>Build</h2>${outbound(GROK, 'Grok Bot', 'footer')}${outbound(AA, 'Agent Analytics', 'footer')}<span class="sm">Recommended for dashboard data</span></div></div>
 <div class="fb">Every Page listed is public and uses mock or public data. List content is CC0 1.0.</div></div></footer>
@@ -155,7 +155,7 @@ function home() {
 </section>
 ${getListed()}`;
   return layout({
-    title: 'grokpages.com: Grok Bot Pages templates with their prompts',
+    title: 'grokbotpages.com: Grok Bot Pages templates with their prompts',
     description: `Live public Grok Bot Pages and the exact prompts that built them. ${d.entries.length} templates: ${d.entries.map((e) => e.title).join(', ')}.`,
     pathName: '/', body,
     data: { snippet: d.snippet, prompts: Object.fromEntries(d.entries.map((e) => [e.slug, e.prompt])) },
@@ -188,13 +188,13 @@ ${e.inspired ? `<p>Inspired by ${outbound(e.inspired.source.url, esc(e.inspired.
 <section class="box"><h2>Links</h2><ul>${links.map((l) => `<li>${l}</li>`).join('')}</ul></section>
 ${isAA(e) ? `<section class="box"><h2>Data source</h2><p>${md(d.dashboardNote, 'how_to')}</p></section>` : ''}
 <section class="box"><h2>More in ${esc(cat)}</h2>${related.length ? `<ul>${related.map((o) => `<li><a class="rel" href="/t/${o.slug}/" data-track="related_clicked" data-page-slug="${e.slug}" data-target-slug="${o.slug}"><img src="/shots/${o.slug}.webp" alt="" width="96" height="60" loading="lazy"><span><b>${esc(o.title)}</b><small>${esc(o.inspired ? 'Inspired by ' + o.inspired.source.text.replace(/'s video$/, '') : 'By ' + o.by.map((p) => p.name).join(', '))}</small></span></a></li>`).join('')}</ul>` : `<p>No other Pages in ${esc(cat)} yet. <a href="/#get-listed">Add yours</a>.</p>`}</section></aside></div></div>`;
-  return layout({ title: `${e.title}: Grok Bot Page template | grokpages.com`, description: e.short, pathName: `/t/${e.slug}/`, body,
+  return layout({ title: `${e.title}: Grok Bot Page template | grokbotpages.com`, description: e.short, pathName: `/t/${e.slug}/`, body,
     data: { prompts: { [e.slug]: e.prompt } } });
 }
 
 function notFound() {
-  return layout({ title: 'Page not found | grokpages.com', description: 'This page does not exist.', pathName: '/404.html',
-    body: `<section class="hero"><h1>Not found.</h1><p>That page is not on grokpages.com.</p><div class="cta"><a class="btn pri" href="/">Browse templates</a></div></section>`, data: {} });
+  return layout({ title: 'Page not found | grokbotpages.com', description: 'This page does not exist.', pathName: '/404.html',
+    body: `<section class="hero"><h1>Not found.</h1><p>That page is not on grokbotpages.com.</p><div class="cta"><a class="btn pri" href="/">Browse templates</a></div></section>`, data: {} });
 }
 
 // ---- write

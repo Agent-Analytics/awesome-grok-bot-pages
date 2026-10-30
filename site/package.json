@@ -2,7 +2,7 @@
   "name": "grokpages-site",
   "private": true,
   "type": "module",
-  "description": "Static site for grokpages.com, generated from the Awesome Grok Bot Pages README.",
+  "description": "Static site for grokbotpages.com, generated from the Awesome Grok Bot Pages README.",
   "scripts": {
     "build": "node scripts/build.mjs",
     "shots": "node scripts/shots.mjs",

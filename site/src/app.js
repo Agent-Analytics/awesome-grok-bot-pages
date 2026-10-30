@@ -1,4 +1,4 @@
-// grokpages.com: category filter, copy buttons, and Agent Analytics clicks. No dependencies.
+// grokbotpages.com: category filter, copy buttons, and Agent Analytics clicks. No dependencies.
 (function () {
   var data = {};
   var el = document.getElementById('site-data');

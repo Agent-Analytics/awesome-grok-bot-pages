@@ -107,6 +107,27 @@ const outline = await page.$eval('[data-filter="sales"]', (e) => getComputedStyl
 check('focus ring on keyboard focus', outline !== 'none', outline);
 check('no console or page errors', errors.length === 0, errors.join(' | '));
 
+// Primary domain: canonical, og:url, sitemap and robots point at grokbotpages.com, and no page
+// mentions grokpages.com except the Agent Analytics project id in the tracker snippet.
+const SITE = 'https://grokbotpages.com';
+const dist = path.resolve(import.meta.dirname, '..', 'dist');
+for (const u of ['/', ...d.entries.map((e) => `/t/${e.slug}/`)]) {
+  const html = fs.readFileSync(path.join(dist, u, 'index.html'), 'utf8');
+  const canon = html.match(/<link rel="canonical" href="([^"]+)">/)?.[1];
+  const ogUrl = html.match(/<meta property="og:url" content="([^"]+)">/)?.[1];
+  const ogImg = html.match(/<meta property="og:image" content="([^"]+)">/)?.[1];
+  check(`canonical and og:url on ${SITE} ${u}`, canon === SITE + u && ogUrl === SITE + u && ogImg === SITE + '/og.png', `${canon} ${ogUrl}`);
+  const stray = html.replaceAll('data-project="grokpages.com"', '').match(/grokpages\.com/g);
+  check(`no grokpages.com mention ${u}`, !stray, stray ? `${stray.length} found` : '');
+}
+const sitemap = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
+const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+const wantLocs = ['/', ...d.entries.map((e) => `/t/${e.slug}/`)].map((u) => SITE + u);
+check('sitemap lists every page on grokbotpages.com', JSON.stringify(locs) === JSON.stringify(wantLocs), `${locs.length} urls`);
+check('robots.txt Sitemap line on grokbotpages.com', fs.readFileSync(path.join(dist, 'robots.txt'), 'utf8').includes(`Sitemap: ${SITE}/sitemap.xml`));
+const nf = fs.readFileSync(path.join(dist, '404.html'), 'utf8');
+check('404 title on grokbotpages.com', nf.includes('<title>Page not found | grokbotpages.com</title>'));
+
 // Agent Analytics wiring. The tracker request is aborted so a test stub is not replaced
 // by the localhost dev logger, and so the no-global case stays empty.
 const SNIPPET = '<script async src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>';
