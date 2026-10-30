@@ -32,8 +32,6 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
-
 <!-- pending public link:
 - [Mission Control](PUBLIC_LINK) - One Page showing what each bot is doing, what waits on you, and site traffic. Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
@@ -45,8 +43,7 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
   </details>
 -->
 
-<!-- pending public link:
-- [Site Analytics Dashboard](PUBLIC_LINK) - One dashboard of daily visits, signups and landing conversion, built from Agent Analytics data (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - One dashboard of daily visits, signups and landing conversion, built from Agent Analytics data (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
   ```text
@@ -54,7 +51,6 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
   ```
 
   </details>
--->
 
 ## Productivity
 
@@ -66,12 +62,9 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 Dashboards and metrics.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
-
 Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanalytics.sh), which has an MCP server (`https://mcp.agentanalytics.sh/mcp`) so Grok Bot can pull real site stats into a Page. [Setup guide](https://docs.agentanalytics.sh/installation/). Any analytics provider is welcome.
 
-<!-- pending public link:
-- [Site Analytics Dashboard](PUBLIC_LINK) - One dashboard of daily visits, signups and landing conversion, built from Agent Analytics data (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - One dashboard of daily visits, signups and landing conversion, built from Agent Analytics data (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
   ```text
@@ -79,7 +72,6 @@ Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanal
   ```
 
   </details>
--->
 
 ## Infrastructure
 
