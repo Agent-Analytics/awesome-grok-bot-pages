@@ -34,11 +34,11 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 Newest listings, also shown in their section.
 
 <!-- pending public link:
-- [Bot Org Chart](PUBLIC_LINK) - An org chart of your bots: you at the top, lead bots, operator bots, their routines and status, and dashed hand-offs between teams (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Org Chart](PUBLIC_LINK) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
   ```text
-  Make me a Grok Bot Page called "Bot Org Chart" that shows my bots as an org chart. Put me at the top, group my bots under 3 lead bots (or under areas if they have no leads), and draw an arrow from each lead to the bots under it. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, a one-line role, its routines with schedule and whether each is on or paused, its status (working, idle or waiting on me), and a link to open its chat. Fill it from my real bots, their descriptions and their routines, and don't invent anything. Add a routine that refreshes the Page every day at 8:00. If I want to share it, make a separate copy with mock bots and mock data, with no names, emails or other personal details, and label it example data.
+  Make me a Grok Bot Page called "Bot Org Chart" that shows how my bots are organized. Put me at the top. Under me put my main Grok Bot, labeled "Chief of staff": it is the bot I talk to, and it delegates work to my specialist bots. Draw an arrow from it to each specialist bot. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, in the same shape and color as in my bot list, a one-line role, its routines with schedule and whether each is on or paused, its status (working, idle or waiting on me), and a link to open its chat. Fill it from my real bots, their descriptions and their routines, and don't invent anything. Add a routine that refreshes the Page every day at 8:00. If I want to share it, make a separate copy with mock bots and mock data, with no names, emails or other personal details, and label it example data.
   ```
 
   </details>
@@ -127,11 +127,11 @@ Org charts, roles and hand-offs between your bots.
 No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 <!-- pending public link:
-- [Bot Org Chart](PUBLIC_LINK) - An org chart of your bots: you at the top, lead bots, operator bots, their routines and status, and dashed hand-offs between teams (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Org Chart](PUBLIC_LINK) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
   <details><summary>Prompt</summary>
 
   ```text
-  Make me a Grok Bot Page called "Bot Org Chart" that shows my bots as an org chart. Put me at the top, group my bots under 3 lead bots (or under areas if they have no leads), and draw an arrow from each lead to the bots under it. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, a one-line role, its routines with schedule and whether each is on or paused, its status (working, idle or waiting on me), and a link to open its chat. Fill it from my real bots, their descriptions and their routines, and don't invent anything. Add a routine that refreshes the Page every day at 8:00. If I want to share it, make a separate copy with mock bots and mock data, with no names, emails or other personal details, and label it example data.
+  Make me a Grok Bot Page called "Bot Org Chart" that shows how my bots are organized. Put me at the top. Under me put my main Grok Bot, labeled "Chief of staff": it is the bot I talk to, and it delegates work to my specialist bots. Draw an arrow from it to each specialist bot. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, in the same shape and color as in my bot list, a one-line role, its routines with schedule and whether each is on or paused, its status (working, idle or waiting on me), and a link to open its chat. Fill it from my real bots, their descriptions and their routines, and don't invent anything. Add a routine that refreshes the Page every day at 8:00. If I want to share it, make a separate copy with mock bots and mock data, with no names, emails or other personal details, and label it example data.
   ```
 
   </details>
