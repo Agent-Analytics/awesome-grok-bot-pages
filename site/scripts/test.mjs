@@ -15,6 +15,17 @@ const d = parse();
 await new Promise((r) => server.listen(0, r));
 const base = `http://localhost:${server.address().port}`;
 const b = await launch();
+// Keep every test browser off the live Agent Analytics project: answer api.agentanalytics.sh locally in each context
+// (an empty tracker.js and a 204 for anything else), so nothing reaches production and no load errors are logged.
+// Page-level routes below (stubbed or delayed tracker) still run first.
+const newContext = b.newContext.bind(b);
+b.newContext = async (opts) => {
+  const c = await newContext(opts);
+  await c.route('https://api.agentanalytics.sh/**', (route) => (new URL(route.request().url()).pathname === '/tracker.js'
+    ? route.fulfill({ status: 200, contentType: 'text/javascript', body: '' })
+    : route.fulfill({ status: 204, body: '' })));
+  return c;
+};
 const results = [];
 const check = (name, ok, info = '') => { results.push({ name, ok, info }); console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${info ? '  ' + info : ''}`); };
 
