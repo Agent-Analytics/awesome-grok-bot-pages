@@ -43,6 +43,8 @@ h1,h2,h3,p,ol,figure{margin:0}
 .chip:hover{border-color:#444}
 .chip[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}.chip[aria-pressed=true] b{color:#525252}
 .chip.empty{color:var(--dim);border-style:dashed;border-color:#2e2e2e}.chip.empty b{color:#7a7a7a}
+.chip.empty[aria-pressed=true]{color:var(--bg);border-style:solid}.chip.empty[aria-pressed=true] b{color:#525252}
+.chip.more{color:var(--accent);border-style:dashed;border-color:#3a3a55}.chip.more:hover{color:#fff}
 .status{text-align:center;font:13px var(--mono);color:var(--dim);margin:0 0 40px}
 .lbl{font:12.5px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin:0 0 16px}
 /* cards */
@@ -99,12 +101,18 @@ pre{margin:0;white-space:pre-wrap;word-break:break-word;font:14px/1.65 var(--mon
 .crumb{font-size:14px;color:var(--dim);padding-top:16px}.crumb a{color:var(--fg-2);text-decoration:underline;text-decoration-color:#555;text-underline-offset:3px}.crumb a:hover{color:var(--fg)}.crumb [aria-current]{color:var(--fg)}
 .dtop{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;padding:20px 0 32px}
 .dtop h1{font-size:clamp(38px,5vw,56px);letter-spacing:-.035em;line-height:1.05;margin:14px 0 12px}
-.dtop p{font-size:18px;color:var(--muted);max-width:760px}
+.dtop p{font-size:18px;color:var(--muted);max-width:65ch}
 .frame{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#000}
 .chrome{display:flex;gap:7px;align-items:center;padding:12px 16px;background:var(--panel-2);border-bottom:1px solid var(--line);font:12.5px var(--mono);color:var(--dim)}
 .dot{width:11px;height:11px;border-radius:50%;background:#333}
 .url{margin-left:12px;border:1px solid var(--line);border-radius:6px;padding:3px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.viewport{max-height:820px;overflow:auto}
+.frame picture{display:block}
+.viewport{position:relative;max-height:min(52vh,560px);overflow:hidden}
+.viewport.is-expanded{max-height:none}
+.viewport img{width:100%;height:auto}
+.viewport:not(.is-expanded)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(to bottom,transparent,#000);pointer-events:none}
+.shot-expand{display:flex;width:100%;align-items:center;justify-content:center;padding:11px 16px;border:0;border-top:1px solid var(--line);background:var(--panel-2);color:var(--fg);font:600 13px/1 var(--sans);cursor:pointer}
+.shot-expand:hover{background:#1c1c1c}
 .frame figcaption{padding:10px 16px;font-size:13px;color:var(--dim);border-top:1px solid var(--line)}
 .dbody{display:grid;grid-template-columns:1fr 380px;gap:48px;padding:56px 0 40px}
 .dbody h2{font-size:22px;letter-spacing:-.02em;margin-bottom:14px}
@@ -125,11 +133,15 @@ pre{margin:0;white-space:pre-wrap;word-break:break-word;font:14px/1.65 var(--mon
 /* responsive */
 @media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:1fr}.feat .shot{border-right:0;border-bottom:1px solid var(--line);aspect-ratio:16/10}.gl{grid-template-columns:1fr;gap:32px}.dbody{grid-template-columns:1fr}}
 @media (max-width:720px){:root{--pad:20px}
- .site-header{padding:16px var(--pad)}.site-header nav a:not(.gh){display:none}
+ .site-header{padding:16px var(--pad);gap:8px}.wm{font-size:16px;flex:none}
+ .site-header nav{gap:8px;font-size:13px;flex:none}
+ .site-header nav a{white-space:nowrap}
+ .site-header nav a:not(.gh):not([href="/#templates"]):not([href="/#get-listed"]){display:none}
+ .gh{padding:6px 10px;flex:none}
  .hero{padding:56px var(--pad) 36px}.hero p{font-size:17px}
- .chips{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:none}.chip{flex:none}
+ .chips{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;padding:4px 2px 12px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}.chips::-webkit-scrollbar{display:none}.chip{flex:none}
  .status{text-align:left;margin-bottom:28px}
  .grid{grid-template-columns:1fr}.feat .body{padding:24px}.feat h3{font-size:30px}
  .gl{padding:24px;margin:40px var(--pad) 64px;border-radius:20px}.gl h2{font-size:30px}
  .site-footer .in{grid-template-columns:1fr}.fb{grid-column:1}.fcols{gap:48px}
- .dtop{flex-direction:column;align-items:flex-start}.viewport{max-height:520px}.empty-state{padding:28px}}
+ .dtop{flex-direction:column;align-items:flex-start}.empty-state{padding:28px}}

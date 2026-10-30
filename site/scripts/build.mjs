@@ -103,14 +103,15 @@ function home() {
   const [newest, ...rest] = d.entries;
   const chips = [`<li><button type="button" class="chip" data-filter="all" data-name="All" aria-pressed="true">All <b>${d.entries.length}</b></button></li>`,
     ...d.categories.map((c) => `<li><button type="button" class="chip${c.count ? '' : ' empty'}" data-filter="${c.slug}" data-name="${esc(c.name)}" aria-pressed="false" title="${esc(c.blurb)}">${esc(c.name)} <b>${c.count}</b><span class="sr-only"> ${c.count === 1 ? 'Page' : 'Pages'}</span></button></li>`)].join('');
+  const emptyCount = d.categories.filter((c) => c.count === 0).length;
   const cats = (e) => e.categories.map(catSlug).join(' ');
   const card = (e) => `<li class="card" data-cats="${cats(e)}"><a class="shot" href="/t/${e.slug}/" tabindex="-1" aria-hidden="true">${shotImg(e)}</a><div class="body"><div>${tags(e)}</div>
 <h3><a href="/t/${e.slug}/">${esc(e.title)}</a></h3><p>${esc(e.short)}</p><p class="cr">${creditLine(e)}</p>${aaLine(e)}${actions(e, ' sm')}</div></li>`;
   const body = `<section class="hero" aria-labelledby="hero-h"><span class="pill">Grok Bot Pages templates</span><h1 id="hero-h">Copy a <em>Grok Bot Page.</em></h1>
 <p>Every template is a live public Page plus the exact prompt that built it.</p>
-<div class="cta"><a class="btn pri" href="#get-listed">Get your Page listed</a><a class="btn" href="#templates">Browse templates</a></div></section>
+<div class="cta"><a class="btn pri" href="#templates">Browse templates</a><a class="btn" href="#get-listed">Get your Page listed</a></div></section>
 <section class="wrap" id="templates" aria-labelledby="tpl-h"><h2 id="tpl-h" class="sr-only">Templates</h2>
-<ul class="chips" aria-label="Filter templates by category">${chips}</ul>
+<ul class="chips" aria-label="Filter templates by category">${chips}${emptyCount ? `<li hidden><button type="button" class="chip more" data-more-cats aria-expanded="false">+${emptyCount} more ${emptyCount === 1 ? 'category' : 'categories'}, add the first</button></li>` : ''}</ul>
 <p class="status" id="filter-status" aria-live="polite">Showing all ${d.entries.length} Pages</p>
 <p class="lbl" data-all-only>Newest addition</p>
 <article class="feat" data-cats="${cats(newest)}"><a class="shot" href="/t/${newest.slug}/" tabindex="-1" aria-hidden="true">${shotImg(newest, '', true)}</a><div class="body"><div>${tags(newest)}</div>
@@ -146,7 +147,8 @@ function detail(e) {
 <div class="dtop"><div><div>${tags(e)}</div><h1>${esc(e.title)}</h1><p>${esc(e.description)}</p>${aaLine(e)}</div>
 <div class="cta"><button type="button" class="btn" data-copy="${e.slug}">Copy prompt</button>${ext(e.url, 'Open live Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', 'btn pri')}</div></div>
 <figure class="frame"><div class="chrome" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">${esc(host)}</span></div>
-<div class="viewport" tabindex="0" role="region" aria-label="Full-page screenshot of ${esc(e.title)}, scrollable"><img src="/shots/${e.slug}-full.webp" alt="Full-page screenshot of the ${esc(e.title)} Page in dark mode" loading="eager" decoding="async"></div>
+<div class="viewport" id="shot"><picture><source media="(max-width: 720px)" srcset="/shots/${e.slug}-full-mobile.webp"><img src="/shots/${e.slug}-full.webp" alt="Full-page screenshot of the ${esc(e.title)} Page in dark mode" loading="eager" decoding="async"></picture></div>
+<button type="button" class="shot-expand" data-expand aria-expanded="false" aria-controls="shot">Expand screenshot</button>
 <figcaption>Screenshot of the live Page in dark mode. ${ext(e.url, 'Open the live Page')} to use it.</figcaption></figure>
 <div class="dbody"><div><h2>Prompt</h2><div class="code"><div class="codeh"><span>${e.promptSource ? `By ${esc(e.promptSource.by)}, from ${ext(e.promptSource.url, esc(e.promptSource.text))}` : 'Prompt'}</span><button type="button" class="btn sm" data-copy="${e.slug}">Copy prompt</button></div><pre>${esc(e.prompt)}</pre></div>
 <div class="how"><h2>How to use it</h2><ol><li>Copy the prompt and paste it into a chat with ${ext(GROK, 'Grok Bot')}.</li><li>Swap in your own bots, accounts or data sources where the prompt asks for them.</li><li>If the prompt does not create a refresh routine, ask Grok Bot for one.</li><li>To share your version, make a copy with mock data and make that copy public. Then ${'<a href="/#get-listed">get it listed</a>'}.</li></ol></div></div>
