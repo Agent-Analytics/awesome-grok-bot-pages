@@ -46,6 +46,40 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Project Pages](https://pending.invalid/project-pages/) - One Page per project with its goal, owners, deadline, next actions, decisions, blockers and a log of which bot changed what, plus a Projects index with a weekday heartbeat and a short list of only what is blocked, overdue or needs your decision, each with Copy buttons (example data). Inspired by [Michael Fenech's post on X](https://x.com/Michael_Fenech_/status/2115774649598705774) ([@Michael_Fenech_](https://x.com/Michael_Fenech_)). By Michael Fenech ([@Michael_Fenech_](https://x.com/Michael_Fenech_)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/project-pages/](https://grokbotpages.com/t/project-pages/).
+  <details><summary>Prompt (Michael Fenech, from <a href="https://x.com/Michael_Fenech_/status/2115774649598705774">his post on X</a>)</summary>
+
+  ```text
+  Set up a Page-based project management system for my Grok Bot team.
+
+  1: PROJECT PAGES - Create one Page for each project, containing its goal, current status, next actions, task owners, deadlines, decisions, blockers and an update log showing which Bot changed what.
+
+  2: MASTER INDEX - Create a Projects Page listing every active project, its status and the next action. This becomes my single place to see what's happening across all projects.
+
+  3: READ FIRST, UPDATE LAST - Every Bot must read the relevant project Page before starting work and update that same Page when finished. Never create duplicate Pages. Don't mark work complete without checking the actual result.
+
+  4: SHORT CHATS - Use fresh chats for individual tasks instead of maintaining one enormous project conversation. The Page holds the project history, decisions and context.
+
+  5: DAILY HEARTBEAT - Create one weekday routine per project. Check relevant sources such as email, GitHub, Notion or calendars, verify progress and update the project Page and master index.
+
+  6: EXCEPTION REPORTING - Only notify me when something is blocked, overdue, needs my decision or changes status. Otherwise, keep the Pages updated without interrupting me.
+
+  7: PROJECT CLOSURE - When a project finishes, mark it Closed, record the outcome and lessons learned, and pause its heartbeat routine.
+
+  Never send, purchase, publish or delete anything without my approval. Clearly flag anything unverified.
+
+  Before creating anything, show me the proposed projects, their information sources and the routines you'll establish. Wait for my approval.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a weekday routine at 9 AM that refreshes my Projects Page. Each run, read every open project Page, check its sources (email, GitHub, calendar, docs), rebuild the index with each project's status, next action, owner, deadline and this week's heartbeat, and list only what is blocked, overdue, needs my decision or changed status, each with Copy buttons that hold a reply I paste into this chat. Flag anything you could not verify. Message me only when that list changes.
+  ```
+
+  </details>
 - [Mission Control: Two Lists](https://mission-control-two-lists-example-3z7u.pages.grok.bot/) - Only two lists: what needs your decision, with Copy yes and Copy no buttons and ages that keep ticking, and what is still ongoing and unfinished, plus an eye button that blurs the details for screen sharing (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control-two-lists/](https://grokbotpages.com/t/mission-control-two-lists/).
   <details><summary>Prompt</summary>
@@ -378,6 +412,40 @@ One screen for what your bots and projects are doing and what waits on you.
 
 Planners, trackers and task boards.
 
+- [Project Pages](https://pending.invalid/project-pages/) - One Page per project with its goal, owners, deadline, next actions, decisions, blockers and a log of which bot changed what, plus a Projects index with a weekday heartbeat and a short list of only what is blocked, overdue or needs your decision, each with Copy buttons (example data). Inspired by [Michael Fenech's post on X](https://x.com/Michael_Fenech_/status/2115774649598705774) ([@Michael_Fenech_](https://x.com/Michael_Fenech_)). By Michael Fenech ([@Michael_Fenech_](https://x.com/Michael_Fenech_)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/project-pages/](https://grokbotpages.com/t/project-pages/).
+  <details><summary>Prompt (Michael Fenech, from <a href="https://x.com/Michael_Fenech_/status/2115774649598705774">his post on X</a>)</summary>
+
+  ```text
+  Set up a Page-based project management system for my Grok Bot team.
+
+  1: PROJECT PAGES - Create one Page for each project, containing its goal, current status, next actions, task owners, deadlines, decisions, blockers and an update log showing which Bot changed what.
+
+  2: MASTER INDEX - Create a Projects Page listing every active project, its status and the next action. This becomes my single place to see what's happening across all projects.
+
+  3: READ FIRST, UPDATE LAST - Every Bot must read the relevant project Page before starting work and update that same Page when finished. Never create duplicate Pages. Don't mark work complete without checking the actual result.
+
+  4: SHORT CHATS - Use fresh chats for individual tasks instead of maintaining one enormous project conversation. The Page holds the project history, decisions and context.
+
+  5: DAILY HEARTBEAT - Create one weekday routine per project. Check relevant sources such as email, GitHub, Notion or calendars, verify progress and update the project Page and master index.
+
+  6: EXCEPTION REPORTING - Only notify me when something is blocked, overdue, needs my decision or changes status. Otherwise, keep the Pages updated without interrupting me.
+
+  7: PROJECT CLOSURE - When a project finishes, mark it Closed, record the outcome and lessons learned, and pause its heartbeat routine.
+
+  Never send, purchase, publish or delete anything without my approval. Clearly flag anything unverified.
+
+  Before creating anything, show me the proposed projects, their information sources and the routines you'll establish. Wait for my approval.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a weekday routine at 9 AM that refreshes my Projects Page. Each run, read every open project Page, check its sources (email, GitHub, calendar, docs), rebuild the index with each project's status, next action, owner, deadline and this week's heartbeat, and list only what is blocked, overdue, needs my decision or changed status, each with Copy buttons that hold a reply I paste into this chat. Flag anything you could not verify. Message me only when that list changes.
+  ```
+
+  </details>
 - [Mission Control: Two Lists](https://mission-control-two-lists-example-3z7u.pages.grok.bot/) - Only two lists: what needs your decision, with Copy yes and Copy no buttons and ages that keep ticking, and what is still ongoing and unfinished, plus an eye button that blurs the details for screen sharing (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control-two-lists/](https://grokbotpages.com/t/mission-control-two-lists/).
   <details><summary>Prompt</summary>
