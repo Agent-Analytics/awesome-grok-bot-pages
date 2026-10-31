@@ -1,82 +1,82 @@
 {
   "decisions-console": {
     "url": "https://decisions-console-example-cblp.pages.grok.bot/",
-    "captured": "2026-10-30T17:08:11.742Z",
+    "captured": "2026-10-31T15:56:51.542Z",
     "thumb": [
       960,
       600
     ],
     "full": [
       1200,
-      2967
+      2089
     ],
     "mobile": [
       390,
-      6705
+      5351
     ]
   },
   "bot-org-chart": {
     "url": "https://bot-org-chart-example-ujfc.pages.grok.bot/",
-    "captured": "2026-10-30T18:24:36.947Z",
+    "captured": "2026-10-31T15:57:07.737Z",
     "thumb": [
       960,
       600
     ],
     "full": [
       1200,
-      2946
+      2303
     ],
     "mobile": [
       390,
-      5059
+      4377
     ]
   },
   "mission-control": {
     "url": "https://mission-control-example-sgmr.pages.grok.bot/",
-    "captured": "2026-10-30T17:08:30.215Z",
+    "captured": "2026-10-31T15:57:23.956Z",
     "thumb": [
       960,
       600
     ],
     "full": [
       1200,
-      2633
+      2423
     ],
     "mobile": [
       390,
-      5127
+      4674
     ]
   },
   "site-analytics-dashboard": {
     "url": "https://site-analytics-dashboard-example-xahy.pages.grok.bot/",
-    "captured": "2026-10-30T17:08:42.558Z",
+    "captured": "2026-10-31T15:57:39.988Z",
     "thumb": [
       960,
       600
     ],
     "full": [
       1200,
-      2055
+      2303
     ],
     "mobile": [
       390,
-      4114
+      4849
     ]
   },
   "side-project-mission-control": {
     "url": "https://side-project-mission-control-example-zxug.pages.grok.bot/",
-    "captured": "2026-10-30T19:33:44.521Z",
+    "captured": "2026-10-31T15:56:35.360Z",
     "thumb": [
       960,
       600
     ],
     "full": [
       1200,
-      3368
+      2978
     ],
     "mobile": [
       390,
-      6821
+      6550
     ]
   }
 }
