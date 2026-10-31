@@ -41,6 +41,8 @@ function parseEntries(body) {
     const code = rest.match(/```text\n([\s\S]*?)```/);
     if (!code) throw new Error(`No prompt block for ${title}`);
     const prompt = code[1].split('\n').map((l) => l.replace(/^ {2}/, '')).join('\n').trim();
+    const rcode = rest.match(/<summary>Routine prompt[^<]*<\/summary>\s*```text\n([\s\S]*?)```/);
+    const routine = rcode ? rcode[1].split('\n').map((l) => l.replace(/^ {2}/, '')).join('\n').trim() : null;
     let promptSource = null;
     if (sum) {
       const a = sum[1].match(/^Prompt \(([^,]+), from <a href="([^"]+)">([^<]+)<\/a>\)/);
@@ -63,7 +65,7 @@ function parseEntries(body) {
     const exampleData = /\(example data\)/i.test(desc);
     const description = stripMd(desc).replace(/\s*\(example data\)/i, '').replace(/\s+\./g, '.');
     const short = description.match(/^.*?\.(?=\s|$)/)?.[0] ?? description;
-    entries.push({ title, slug: slugify(title), url, description, short, exampleData, inspired, by, pageBy, prompt, promptSource });
+    entries.push({ title, slug: slugify(title), url, description, short, exampleData, inspired, by, pageBy, prompt, routine, promptSource });
   }
   return entries;
 }

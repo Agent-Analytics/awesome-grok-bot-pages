@@ -36,102 +36,189 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [Command Center](https://pending.invalid/command-center/) - A wide dashboard for when you lose track of what your bots did: a Waiting on me list tagged by action type (approval, yes or no, reply, sign, action) with due items first, a day-by-day timeline filterable by bot, and In progress and Finished tabs (example data). Inspired by [Moritz Kremb's post on X](https://x.com/moritzkremb/status/2114787902932857293) ([@moritzkremb](https://x.com/moritzkremb)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Mission Control: Two Lists](https://pending.invalid/mission-control-two-lists/) - Only two lists: what needs your decision, with Copy yes and Copy no buttons and ages that keep ticking, and what is still ongoing and unfinished, plus an eye button that blurs the details for screen sharing (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mission-control-two-lists/](https://grokbotpages.com/t/mission-control-two-lists/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Mission Control" with two lists only, side by side. Left: "Needs your decision" with a count, every open question one of my bots is waiting on me for, oldest first: the bot, the question in one line, how long ago it asked (keep the age ticking), and working Copy yes and Copy no buttons that copy a message I paste into this chat, showing Copied after a click; if the clipboard is blocked, show the text to select. Right: "Ongoing, unfinished" with a count, every task or routine still running: the bot, the task, a short status like Building, Running or In progress, how long it has been going and the next step. Add an eye button that blurs the item text so I can share my screen. No charts, no animated characters, no other sections. Ask each bot what it waits on me for and what it is still working on, use only real data, show "unknown" instead of guessing, and drop items once I answer them.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Mission Control" Page every hour from 8 AM to 10 PM. Each run, ask every bot what it waits on me for and what is still unfinished, rebuild both lists with the same layout and copy buttons, and drop decisions I already answered. Message me only when a decision has waited more than a day.
+  ```
+
+  </details>
+
+- [Command Center](https://pending.invalid/command-center/) - A kitchen ticket rail for what your bots wait on you for: tagged tickets with due items first, working copy buttons with a ready reply for your main bot chat, a Show why switch, a day-by-day timeline and In progress and Finished tabs (example data). Inspired by [Moritz Kremb's post on X](https://x.com/moritzkremb/status/2114787902932857293) ([@moritzkremb](https://x.com/moritzkremb)). By Moritz Kremb ([@moritzkremb](https://x.com/moritzkremb)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/command-center/](https://grokbotpages.com/t/command-center/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Command Center" so I never lose the overview of what my bots did. You are my chief of staff: ask each of my bots what it is waiting on me for, what it is working on and what it finished, and use their routines and recent runs. Lay it out in three columns. Left: "Waiting on me", each item with the asking bot, one line on what to do, a tag (Due today, Approval, Yes/no, Reply, Sign or Action), due items first, a filter by tag and a "Show why" switch that reveals the reason. Middle: a timeline of bot activity grouped by day, with day tabs that show a count and a filter by bot. Right: "In progress" and "Finished" tabs with a count each. A Page can't answer a bot, so say once that I answer in each bot's chat. Use only real data, and show "unknown" instead of guessing. Then create a routine that refreshes the Page often enough to stay current, for example every two hours while I work. If I want to share it, make a separate copy with mock bots and mock data and label it example data.
+  Build me a wide Grok Bot Page called "Command Center" so I never lose the overview of what my bots did. You are my chief of staff: ask each of my bots what it is waiting on me for, what it is working on and what it finished, and use their routines and recent runs. Show "Waiting on me" as a rail of tickets, each with the asking bot, one line on what to do, a tag (Due today, Approval, Yes/no, Reply, Sign or Action), due items first, a filter by tag and a "Show why" switch that reveals the reason. Give every ticket working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat, and show Copied after a click; if the clipboard is blocked, show the text to select. Below, a timeline of bot activity grouped by day, with day tabs that show a count and a filter by bot, and In progress and Finished tabs with a count each. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Command Center" Page every two hours from 8 AM to 8 PM on weekdays. Each run, ask my bots what they wait on me for, what they are working on and what they finished, rebuild the tickets, timeline and status tabs, keep the layout and copy buttons, and drop tickets I already answered. Only message me if a new ticket is due today.
   ```
 
   </details>
 
-- [Agent Status Board](https://pending.invalid/agent-status-board/) - A card for every bot with its role, whether it needs you, what it needs from you, what it is doing now, its backlog and when it was last active, plus a filter by state and a chart of who is using the most (example data). Inspired by [Ashni's post on X](https://x.com/ashnichrist/status/2112998428456194373) ([@ashnichrist](https://x.com/ashnichrist)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Agent Status Board](https://pending.invalid/agent-status-board/) - A ward board of every bot: a census band that filters by state, one row per bot with what it needs from you and copy buttons for the reply, what it is doing, a Show backlog switch and who used the most of the plan (example data). Inspired by [Ashni's post on X](https://x.com/ashnichrist/status/2112998428456194373) ([@ashnichrist](https://x.com/ashnichrist)). By Ashni ([@ashnichrist](https://x.com/ashnichrist)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/agent-status-board/](https://grokbotpages.com/t/agent-status-board/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Agent Status Board" with one card per bot I have. Each card shows the bot's name and role, a status pill (Needs you, Blocked, Busy or Idle), a "Needs from you" box when it is waiting on me, what it is doing now, its backlog and when it was last active. At the top, show a summary line like "5 need you, 1 blocked, 2 busy, 8 idle" and a filter with those states and a count each, plus a "Show backlog" switch. Below the cards, show which bots used the most of my plan this week, from my plan usage summary. Put bots that need me first. Use only real data from my bots, routines and recent runs, and show "unknown" instead of guessing. Say on the Page that its controls only change the view. Then create a routine that refreshes the Page every hour. If I want to share it, make a separate copy with mock bots and mock data and label it example data.
+  Build me a wide Grok Bot Page called "Agent Status Board" that reads like a ward board for my bots. At the top, a census bar: one strip split by state (Needs you, Blocked, Busy, Idle) with a count each, and tabs with the same counts that filter the board. Then one row per bot, bots that need me first: name and role, a state plate, a "Needs from you" note when it waits on me, what it is doing now, last active, and its backlog behind a "Show backlog" switch. Every row that needs me gets working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat, and shows Copied after a click; if the clipboard is blocked, show the text to select. Below, show which bots used the most of my plan this week, from my plan usage summary. Use only real data from my bots, routines and recent runs, show "unknown" instead of guessing, and say the controls only change the view.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Agent Status Board" Page every hour from 8 AM to 8 PM. Each run, ask every bot for its state, what it needs from me, what it is doing and its backlog, read my plan usage summary, rebuild the board with the same layout and copy buttons, and drop items I already answered. Message me only when a bot turns Blocked.
   ```
 
   </details>
 
-- [Bot Fleet Ops](https://pending.invalid/bot-fleet-ops/) - A morning audit of the whole bot fleet: a red, yellow or green light per bot, how much of the weekly plan is used, a forecast of whether it lasts until the reset, and what to pause, merge or tighten, with what-if switches that update the forecast (example data). Inspired by [Brian Roemmele's Mission Control post on X](https://x.com/BrianRoemmele/status/2111201533971103942) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Fleet Ops](https://pending.invalid/bot-fleet-ops/) - A morning fuel check for the bot fleet: a burn-down of the weekly plan with a projection to the reset, three fixes with Preview switches that move the projection and copy buttons to approve them, and a red, yellow or green light per bot (example data). Inspired by [Brian Roemmele's Mission Control post on X](https://x.com/BrianRoemmele/status/2111201533971103942) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-fleet-ops/](https://grokbotpages.com/t/bot-fleet-ops/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Bot Fleet Ops" that audits all my bots every morning. Start from my plan usage summary: how much of the weekly plan is used, when it resets, and which bots and routines used the most. Show used so far, the pace per day over the last two days, the forecast at the reset as a straight line from that pace, and a forecast light: green under 90%, yellow from 90% to 100%, red over 100%. Give every bot a red, yellow or green light with its share of usage, one line on what it found and a suggested action: Keep, Pause, Merge or Tighten. List the top three fixes with about how much each would save per day, each with a what-if switch that updates the forecast on the Page only; say that nothing changes in my bots until I say yes in chat. Show usage by day as columns. Show every number's source and mark estimates. Then create a routine that rebuilds the Page every weekday morning. If I want to share it, make a separate copy with mock bots and mock numbers and label it example data.
+  Build me a wide Grok Bot Page called "Bot Fleet Ops" that tells me each morning whether my bots will run out of plan before it resets. Read my plan usage summary and every bot's routines and recent runs. Lead with a burn-down chart of plan left by day, the actual line up to now and a dashed projection to the reset, and say plainly on which day it runs out. Then list your recommendations (pause, merge or tighten something), each with what it saves per day, a "Preview" switch that redraws the projection as if I did it, and working copy buttons (Copy yes and Copy no) that copy a message I paste into this chat, showing Copied after a click; if the clipboard is blocked, show the text to select. Below, a fleet table with a red, yellow or green light per bot, its share of the week and one line on why. Use only real data, show "unknown" instead of guessing, and say the switches only change the view.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Bot Fleet Ops" Page every morning at 7 AM. Each run, read my plan usage summary and every bot's recent runs, redraw the burn-down and projection, rebuild the recommendations with their copy buttons and the fleet lights, and keep the layout. Message me only if the projection says the plan runs out before it resets.
   ```
 
   </details>
 
-- [Bot Tune-up Report](https://pending.invalid/bot-tune-up-report/) - A weekly audit of every bot for wasted runs: scheduled checks with nothing to do, retry loops, bloated chats, repeated research, duplicate or idle bots and dropped logins, with ranked fixes and a week-over-week chart (example data). Inspired by [Brian Roemmele's Optimizer post on X](https://x.com/BrianRoemmele/status/2112337968820334676) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Tune-up Report](https://pending.invalid/bot-tune-up-report/) - A weekly work order for your bots: what is failing, what wastes plan and what to tidy, each repair with its fix and copy buttons, a Copy all fixes button, a severity filter and an impact versus effort map (example data). Inspired by [Brian Roemmele's Optimizer post on X](https://x.com/BrianRoemmele/status/2112337968820334676) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-tune-up-report/](https://grokbotpages.com/t/bot-tune-up-report/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Bot Tune-up Report" that audits all my bots and routines for waste. Check for: scheduled checks that wake up with nothing to do, retry loops that repeat the same error, chats so long that every run re-reads them, research that repeats across bots or runs, duplicate or idle bots, and logins or connections that dropped and make runs fail. Show one ranked table of findings with the bot, the check, what you found in one line, the fix, the impact (High, Medium or Low) and about how long the fix takes. Add a filter by check and a "High impact only" switch. Keep this week's counts and show a stacked column chart of findings over the last four weekly audits. Don't change, pause or delete anything; I approve each fix in chat, and say so on the Page. Then create a routine that reruns the audit every Monday morning. If I want to share it, make a separate copy with mock bots and label it example data.
+  Build me a wide Grok Bot Page called "Bot Tune-up Report" that reads like a mechanic's work order for my bots. Inspect every bot: chat length, failing logins or connectors, empty or duplicate bots, routines that do the same job, and what each one costs from my plan usage summary. Put an inspection header on top (when, how many bots, total issues), then one repair line per issue, worst first: the bot, what is wrong, the fix, impact and effort, with a filter by severity. Every repair line gets working copy buttons (Copy yes and Copy no) that copy a message I paste into this chat, plus one "Copy all fixes" button at the end, and each shows Copied after a click; if the clipboard is blocked, show the text to select. Add an impact versus effort chart of the repairs. Use only real data, show "unknown" instead of guessing, and fix nothing until I send the message.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that reruns my "Bot Tune-up Report" every Sunday at 6 PM. Each run, inspect every bot again, rebuild the work order with the same layout and copy buttons, mark repairs I already approved as done, and message me only if a bot is failing.
   ```
 
   </details>
 
-- [Weekly Usage Audit](https://pending.invalid/weekly-usage-audit/) - Where a week of bot usage went, read from your usage export: tokens by bot and day, the biggest runs and whether each led to a decision or just rehashed, fixes with their math, and what a bot can own versus what needs you (example data). Inspired by [Brian Roemmele's usage audit post on X](https://x.com/BrianRoemmele/status/2112249592133935133) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Weekly Usage Audit](https://pending.invalid/weekly-usage-audit/) - Last week's usage itemized like a bill: each bot's share with a verdict (earns it, trim or cut), copy buttons for the trims, a Show the math switch, a bot by day heatmap and the runs that repeat (example data). Inspired by [Brian Roemmele's usage audit post on X](https://x.com/BrianRoemmele/status/2112249592133935133) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/weekly-usage-audit/](https://grokbotpages.com/t/weekly-usage-audit/).
   <details><summary>Prompt</summary>
 
   ```text
-  I'm attaching my usage export. Build me a wide Grok Bot Page called "Weekly Usage Audit" from it. Show total tokens per bot for the week as bars, then a heatmap of bots by day with a switch between tokens and number of runs. Then list the runs worth a look: the biggest runs, runs that repeat without adding anything new, and runs that ended with nothing changed, each marked Decision, Rehash or No change, with a filter by bot. Then a table of fixes to test next week, such as capping sources, skipping recaps when nothing changed, moving hourly checks to on-change or daily, and merging overlapping routines, each with how much it saves and a "Show the math" switch that shows how you got the number. End with two lists: work a bot can own on a schedule, and work that still needs my judgment. Every number must come from the export; mark anything estimated. If I want to share it, make a separate copy with mock bots and mock numbers and label it example data.
+  Build me a wide Grok Bot Page called "Weekly Usage Audit" from the usage export I upload here, laid out like a utility bill. On top, the statement period and the share of my weekly plan used. Then one line per bot, biggest first: runs, average run size and share of the week, with a "Show the math" switch that reveals how each share was worked out, and a verdict on whether the bot earns its keep. Every line with a Cut or Trim verdict gets working copy buttons (Copy yes and Copy no) that copy a message I paste into this chat, and shows Copied after a click; if the clipboard is blocked, show the text to select. Add a heatmap of usage by bot and day, and a list of runs that repeat with the same input. Use only the export and my bots' routines, show "unknown" instead of guessing, and change nothing until I send the message.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that every Monday at 9 AM asks me for last week's usage export, then rebuilds my "Weekly Usage Audit" Page from it with the same layout, verdicts and copy buttons. Message me only if one bot used more than a quarter of the week.
   ```
 
   </details>
 
-- [Bot Activity Dashboard](https://pending.invalid/bot-activity-dashboard/) - One snapshot of every bot, refreshed twice a day: counts for Waiting on me, In progress and Finished, a tab for each with recurring work showing its schedule, and an activity timeline filterable by day and bot (example data). Inspired by [@byalexai's post on X](https://x.com/byalexai/status/2114837470680318365) ([@byalexai](https://x.com/byalexai)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Activity Dashboard](https://pending.invalid/bot-activity-dashboard/) - A morning and evening edition of what your bots did: counts for waiting on you, in progress and finished, tabs for each with copy buttons on what waits on you, and a timeline filterable by day and bot (example data). Inspired by [@byalexai's post on X](https://x.com/byalexai/status/2114837470680318365) ([@byalexai](https://x.com/byalexai)). By [@byalexai](https://x.com/byalexai). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-activity-dashboard/](https://grokbotpages.com/t/bot-activity-dashboard/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a Grok Bot Page called "Bot Activity Dashboard". Ask each of my bots what it is waiting on me for, what it is working on and what it finished, and read their routines and recent runs. At the top, show when the snapshot was taken and when the next refresh is, and three counts: Waiting on me, In progress and Finished. Then tabs for those three with a count each. Waiting items show the bot, what it needs and when it asked. In-progress items that recur show their schedule, like "Daily about 21:30", and when they last ran. Finished items show what was done and when. Below, show an activity timeline with day tabs that show a count and a filter by bot. Say that I answer waiting items in each bot's chat. Use only real data and show "unknown" instead of guessing. Then create a routine that refreshes the Page twice a day, at 9:00 and 21:00. If I want to share it, make a separate copy with mock bots and mock data and label it example data.
+  Build me a Grok Bot Page called "Bot Activity Dashboard" that works like a twice-daily edition of what my bots did. Ask each of my bots what it is waiting on me for, what it is working on and what it finished, and read their routines and recent runs. At the top, show when this edition was taken and when the next one comes, on a small clock. Then tabs for Waiting on me, In progress and Finished, each with a count. Waiting items show the bot, what it needs and when it asked, with working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat and show Copied after a click; if the clipboard is blocked, show the text to select. In-progress items that recur show their schedule, like "Daily about 21:30", and when they last ran. Finished items show what was done and when. Below, an activity timeline with day tabs that show a count and a filter by bot. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Bot Activity Dashboard" Page twice a day, at 9:00 and 21:00. Each run, ask my bots what they wait on me for, what they are working on and what they finished, rebuild the edition with the same layout and copy buttons, and drop items I already answered. Message me only if something new waits on me.
   ```
 
   </details>
 
-- [Bot Crew Office](https://pending.invalid/bot-crew-office/) - An office floor of your bot crew: every bot at a desk with a callsign and live state, a GO or NO-GO list for what needs you that shows the exact reply to paste in that bot's chat, an activity feed and Now, Day, Dusk and Night lighting (example data). Inspired by [Carnage's post on X](https://x.com/0xCarnagee/status/2115623287707381874) ([@0xCarnagee](https://x.com/0xCarnagee)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Crew Office](https://pending.invalid/bot-crew-office/) - An office floor of your bot crew: every bot at a desk with a callsign and a state dot, a GO / NO-GO list with Copy GO and Copy NO-GO buttons, an activity feed, a crew list and Now, Day, Dusk and Night lighting (example data). Inspired by [@0xCarnagee's post on X](https://x.com/0xCarnagee/status/2115623287707381874) ([@0xCarnagee](https://x.com/0xCarnagee)). By [@0xCarnagee](https://x.com/0xCarnagee). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-crew-office/](https://grokbotpages.com/t/bot-crew-office/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Bot Crew Office" that shows my bots as a crew in an office. Give each bot a short callsign and draw it as a desk tile on an office floor, with a colored dot for its state: coding, browsing, in terminal, thinking, needs you, error, done or idle. Add a Now, Day, Dusk and Night switch that changes the office lighting. Next to the office, show a GO / NO-GO list of everything a bot is waiting on me for: the callsign, the question in one line, and GO and NO-GO choices. A Page can't answer a bot, so picking one only shows the exact reply to paste into that bot's chat, and the Page must say nothing is sent. Add an activity feed of the latest events and a crew list with what each bot is doing now. Use only real data from my bots, routines and recent runs. Then create a routine that refreshes the Page every hour while I work. If I want to share it, make a separate copy with mock bots and label it example data.
+  Build me a wide Grok Bot Page called "Bot Crew Office" that shows my bots as a crew in an office. Give each bot a short callsign and draw it as a desk on an office floor plan, with a colored dot for its state: coding, browsing, in terminal, thinking, needs you, error, done or idle, and a legend. Add a Now, Day, Dusk and Night switch that changes the office lighting. Next to the office, a GO / NO-GO list of everything a bot is waiting on me for: the callsign, the question in one line, and working Copy GO and Copy NO-GO buttons that copy the exact message I paste into this chat, showing Copied after a click; if the clipboard is blocked, show the text to select. Add an activity feed of the latest events and a crew list with what each bot is doing now. Use only real data from my bots, routines and recent runs, and say nothing is sent from the Page.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Bot Crew Office" Page every hour from 8 AM to 8 PM. Each run, ask every bot for its state and what it waits on me for, redraw the office and the GO / NO-GO list with the same layout and copy buttons, and drop questions I already answered. Message me only when a bot hits an error.
   ```
 
   </details>
 
-- [My Bots Dashboard](https://pending.invalid/my-bots-dashboard/) - A plain one-page overview of every bot with a section switcher: what needs you (your calls, blocked items and possible duplicate bots), the bots at a glance and by area, today's routines and usage (example data). Inspired by [Emily Nguyen's post on X](https://x.com/emilyntech/status/2113117549890273584) ([@emilyntech](https://x.com/emilyntech)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [My Bots Dashboard](https://pending.invalid/my-bots-dashboard/) - A plain one-page overview of every bot with a section switcher: what needs you with copy buttons for each answer, the bots at a glance and by area, today's routines and usage (example data). Inspired by [Emily Nguyen's post on X](https://x.com/emilyntech/status/2113117549890273584) ([@emilyntech](https://x.com/emilyntech)). By Emily Nguyen ([@emilyntech](https://x.com/emilyntech)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/my-bots-dashboard/](https://grokbotpages.com/t/my-bots-dashboard/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a plain, white Grok Bot Page called "My Bots Dashboard" with a switcher at the top for: All, Needs you, At a glance, Bots by area, Today's routines and Usage. Needs you: a callout like "3 open, 1 blocked", then each item marked "your call", "blocked" (for example a connection that expired) or "review" for a possible duplicate bot, with the bot and one line on what to do. At a glance: number of bots, routines, routines that failed today and possible duplicates. Bots by area: a table of areas like Home, Money, Work and Health with the bots in each. Today's routines: each routine with its time, bot and whether it worked, failed or runs later, and flag routines that overlap. Usage: how much of my weekly plan is used, when it resets and which bots used the most, from my plan usage summary. Use only real data and show "unknown" instead of guessing. Then create a routine that refreshes the Page every morning. If I want to share it, make a separate copy with mock bots and label it example data.
+  Build me a plain, white Grok Bot Page called "My Bots Dashboard" with a switcher at the top for: All, Needs you, At a glance, Bots by area, Today's routines and Usage. Needs you: a line like "3 open, 1 blocked", then each item marked "your call", "blocked" (for example a connection that expired) or "review" for a possible duplicate bot, with the bot, one line on what to do and working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat and show Copied after a click; if the clipboard is blocked, show the text to select. At a glance: one sentence with the number of bots, routines, routines that failed today and possible duplicates. Bots by area: a map of areas like Home, Money, Work and Health sized by how many bots each has, with the bots in each. Today's routines: each routine with its time, bot and whether it worked, failed or runs later, and flag routines that overlap. Usage: how much of my weekly plan is used, when it resets and which bots used the most, from my plan usage summary. Keep it calm: one green accent, no decoration. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "My Bots Dashboard" Page every morning at 8 AM and again at 2 PM. Each run, rebuild every section from my bots, routines and plan usage summary with the same layout and copy buttons, and drop items I already answered. Message me only if a routine failed.
   ```
 
   </details>
 
-- [Mission Board](https://pending.invalid/mission-board/) - A phone-friendly board with what is waiting on you at the top so approvals don't get buried, active missions with progress in the middle and the daily briefs at the bottom (example data). Inspired by [Marcell Hazzard's post on X](https://x.com/Marcellhazzard/status/2115638752030937510) ([@Marcellhazzard](https://x.com/Marcellhazzard)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Mission Board](https://pending.invalid/mission-board/) - A phone-friendly board: what waits on you at the top with big thumb-sized copy buttons and a Due today switch, missions with step progress in the middle and the daily briefs at the bottom (example data). Inspired by [Marcell Hazzard's post on X](https://x.com/Marcellhazzard/status/2115638752030937510) ([@Marcellhazzard](https://x.com/Marcellhazzard)). By Marcell Hazzard ([@Marcellhazzard](https://x.com/Marcellhazzard)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-board/](https://grokbotpages.com/t/mission-board/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a narrow, phone-friendly Grok Bot Page called "Mission Board". At the top, a "Waiting on me" list with a count, so approvals don't get buried: each item shows what to do, which bot asks and when it is due, with today's items marked and a "Due today" switch. Say that I answer each item in that bot's chat. In the middle, my active missions or projects, each with how far along it is and one line on what is next. At the bottom, the daily briefs my bots send me, such as inbox, money and calendar, with a switch between today and yesterday. Collect the list from my bots, so it fills up on its own as they ask for things. Use only real data and show "unknown" instead of guessing. Then create a routine that refreshes the Page every morning and after a bot asks me for something. If I want to share it, make a separate copy with mock data and label it example data.
+  Build me a narrow, phone-friendly Grok Bot Page called "Mission Board" that stacks like phone widgets. At the top, a "Waiting on me" list with a count, so approvals don't get buried: each item shows what to do, which bot asks and when it is due, with today's items marked and a "Due today" switch. Each item gets big, thumb-sized copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat and show Copied after a tap; if the clipboard is blocked, show the text to select. In the middle, my active missions or projects, each with how far along it is in steps and one line on what is next. At the bottom, the daily briefs my bots send me, such as inbox, money and calendar, with a switch between today and yesterday. Collect the list from my bots, so it fills up on its own as they ask for things. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Mission Board" Page every morning at 7 AM and whenever a bot asks me for something. Each run, collect what my bots wait on me for, update missions and briefs with the same layout and copy buttons, and drop items I already answered. Message me only if something is due today.
   ```
 
   </details>
 
-- [Routine Run Board](https://pending.invalid/routine-run-board/) - Every routine on one board, refreshed each morning: when it last ran, whether it worked, its last five runs, and what is waiting on your approval, with filters by result and bot (example data). Inspired by [Vikrant Shukla's post on X](https://x.com/vikrantshukla/status/2113158413186187736) ([@vikrantshukla](https://x.com/vikrantshukla)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Routine Run Board](https://pending.invalid/routine-run-board/) - Every routine on one timetable: schedule, last run, result and a strip of its last 20 runs, approvals with copy buttons, and filters by result and bot (example data). Inspired by [Vikrant Shukla's post on X](https://x.com/vikrantshukla/status/2113158413186187736) ([@vikrantshukla](https://x.com/vikrantshukla)). By Vikrant Shukla ([@vikrantshukla](https://x.com/vikrantshukla)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/routine-run-board/](https://grokbotpages.com/t/routine-run-board/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Routine Run Board" with every routine across all my bots. At the top, show counts: routines, worked, failed and waiting on me. Then a "Waiting on your approval" list with what each routine needs from me, the bot and when it asked, and say that I approve in that bot's chat. Then a table of all routines with the routine, bot, schedule, last run, result (worked, failed, waiting or skipped), its last five runs as symbols, and a note such as why it failed. Add a filter by result with counts and a filter by bot. The app keeps the 20 most recent run records per routine, so also append each morning's results to a run log file and read it for anything older. Use only real data and show "unknown" instead of guessing. Then create a routine that refreshes the Page every morning before I start. If I want to share it, make a separate copy with mock routines and label it example data.
+  Build me a wide Grok Bot Page called "Routine Run Board" that reads like a railway timetable for every routine across all my bots. On top, one line with counts: routines, worked, failed and waiting on me. Then a "Waiting on your approval" list with what each routine needs from me, the bot and when it asked, and working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat and show Copied after a click; if the clipboard is blocked, show the text to select. Then the timetable: routine, bot, schedule, last run, result (worked, failed, waiting or skipped), a strip of its last 20 runs as small squares, and a note such as why it failed, with a filter by result with counts and a filter by bot. The app keeps the 20 most recent run records per routine, so also append each morning's results to a run log file and read it for anything older. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Routine Run Board" Page every morning at 7:30, before I start. Each run, read every routine's recent runs, append them to the run log file, rebuild the timetable and the approval list with the same layout and copy buttons, and drop approvals I already gave. Message me only if a routine failed twice in a row.
   ```
 
   </details>
@@ -232,32 +319,70 @@ One screen for what your bots and projects are doing and what waits on you.
 
 Planners, trackers and task boards.
 
-- [Command Center](https://pending.invalid/command-center/) - A wide dashboard for when you lose track of what your bots did: a Waiting on me list tagged by action type (approval, yes or no, reply, sign, action) with due items first, a day-by-day timeline filterable by bot, and In progress and Finished tabs (example data). Inspired by [Moritz Kremb's post on X](https://x.com/moritzkremb/status/2114787902932857293) ([@moritzkremb](https://x.com/moritzkremb)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Mission Control: Two Lists](https://pending.invalid/mission-control-two-lists/) - Only two lists: what needs your decision, with Copy yes and Copy no buttons and ages that keep ticking, and what is still ongoing and unfinished, plus an eye button that blurs the details for screen sharing (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mission-control-two-lists/](https://grokbotpages.com/t/mission-control-two-lists/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Mission Control" with two lists only, side by side. Left: "Needs your decision" with a count, every open question one of my bots is waiting on me for, oldest first: the bot, the question in one line, how long ago it asked (keep the age ticking), and working Copy yes and Copy no buttons that copy a message I paste into this chat, showing Copied after a click; if the clipboard is blocked, show the text to select. Right: "Ongoing, unfinished" with a count, every task or routine still running: the bot, the task, a short status like Building, Running or In progress, how long it has been going and the next step. Add an eye button that blurs the item text so I can share my screen. No charts, no animated characters, no other sections. Ask each bot what it waits on me for and what it is still working on, use only real data, show "unknown" instead of guessing, and drop items once I answer them.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Mission Control" Page every hour from 8 AM to 10 PM. Each run, ask every bot what it waits on me for and what is still unfinished, rebuild both lists with the same layout and copy buttons, and drop decisions I already answered. Message me only when a decision has waited more than a day.
+  ```
+
+  </details>
+
+- [Command Center](https://pending.invalid/command-center/) - A kitchen ticket rail for what your bots wait on you for: tagged tickets with due items first, working copy buttons with a ready reply for your main bot chat, a Show why switch, a day-by-day timeline and In progress and Finished tabs (example data). Inspired by [Moritz Kremb's post on X](https://x.com/moritzkremb/status/2114787902932857293) ([@moritzkremb](https://x.com/moritzkremb)). By Moritz Kremb ([@moritzkremb](https://x.com/moritzkremb)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/command-center/](https://grokbotpages.com/t/command-center/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Command Center" so I never lose the overview of what my bots did. You are my chief of staff: ask each of my bots what it is waiting on me for, what it is working on and what it finished, and use their routines and recent runs. Lay it out in three columns. Left: "Waiting on me", each item with the asking bot, one line on what to do, a tag (Due today, Approval, Yes/no, Reply, Sign or Action), due items first, a filter by tag and a "Show why" switch that reveals the reason. Middle: a timeline of bot activity grouped by day, with day tabs that show a count and a filter by bot. Right: "In progress" and "Finished" tabs with a count each. A Page can't answer a bot, so say once that I answer in each bot's chat. Use only real data, and show "unknown" instead of guessing. Then create a routine that refreshes the Page often enough to stay current, for example every two hours while I work. If I want to share it, make a separate copy with mock bots and mock data and label it example data.
+  Build me a wide Grok Bot Page called "Command Center" so I never lose the overview of what my bots did. You are my chief of staff: ask each of my bots what it is waiting on me for, what it is working on and what it finished, and use their routines and recent runs. Show "Waiting on me" as a rail of tickets, each with the asking bot, one line on what to do, a tag (Due today, Approval, Yes/no, Reply, Sign or Action), due items first, a filter by tag and a "Show why" switch that reveals the reason. Give every ticket working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat, and show Copied after a click; if the clipboard is blocked, show the text to select. Below, a timeline of bot activity grouped by day, with day tabs that show a count and a filter by bot, and In progress and Finished tabs with a count each. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Command Center" Page every two hours from 8 AM to 8 PM on weekdays. Each run, ask my bots what they wait on me for, what they are working on and what they finished, rebuild the tickets, timeline and status tabs, keep the layout and copy buttons, and drop tickets I already answered. Only message me if a new ticket is due today.
   ```
 
   </details>
 
-- [Bot Activity Dashboard](https://pending.invalid/bot-activity-dashboard/) - One snapshot of every bot, refreshed twice a day: counts for Waiting on me, In progress and Finished, a tab for each with recurring work showing its schedule, and an activity timeline filterable by day and bot (example data). Inspired by [@byalexai's post on X](https://x.com/byalexai/status/2114837470680318365) ([@byalexai](https://x.com/byalexai)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Activity Dashboard](https://pending.invalid/bot-activity-dashboard/) - A morning and evening edition of what your bots did: counts for waiting on you, in progress and finished, tabs for each with copy buttons on what waits on you, and a timeline filterable by day and bot (example data). Inspired by [@byalexai's post on X](https://x.com/byalexai/status/2114837470680318365) ([@byalexai](https://x.com/byalexai)). By [@byalexai](https://x.com/byalexai). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-activity-dashboard/](https://grokbotpages.com/t/bot-activity-dashboard/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a Grok Bot Page called "Bot Activity Dashboard". Ask each of my bots what it is waiting on me for, what it is working on and what it finished, and read their routines and recent runs. At the top, show when the snapshot was taken and when the next refresh is, and three counts: Waiting on me, In progress and Finished. Then tabs for those three with a count each. Waiting items show the bot, what it needs and when it asked. In-progress items that recur show their schedule, like "Daily about 21:30", and when they last ran. Finished items show what was done and when. Below, show an activity timeline with day tabs that show a count and a filter by bot. Say that I answer waiting items in each bot's chat. Use only real data and show "unknown" instead of guessing. Then create a routine that refreshes the Page twice a day, at 9:00 and 21:00. If I want to share it, make a separate copy with mock bots and mock data and label it example data.
+  Build me a Grok Bot Page called "Bot Activity Dashboard" that works like a twice-daily edition of what my bots did. Ask each of my bots what it is waiting on me for, what it is working on and what it finished, and read their routines and recent runs. At the top, show when this edition was taken and when the next one comes, on a small clock. Then tabs for Waiting on me, In progress and Finished, each with a count. Waiting items show the bot, what it needs and when it asked, with working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat and show Copied after a click; if the clipboard is blocked, show the text to select. In-progress items that recur show their schedule, like "Daily about 21:30", and when they last ran. Finished items show what was done and when. Below, an activity timeline with day tabs that show a count and a filter by bot. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Bot Activity Dashboard" Page twice a day, at 9:00 and 21:00. Each run, ask my bots what they wait on me for, what they are working on and what they finished, rebuild the edition with the same layout and copy buttons, and drop items I already answered. Message me only if something new waits on me.
   ```
 
   </details>
 
-- [Mission Board](https://pending.invalid/mission-board/) - A phone-friendly board with what is waiting on you at the top so approvals don't get buried, active missions with progress in the middle and the daily briefs at the bottom (example data). Inspired by [Marcell Hazzard's post on X](https://x.com/Marcellhazzard/status/2115638752030937510) ([@Marcellhazzard](https://x.com/Marcellhazzard)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Mission Board](https://pending.invalid/mission-board/) - A phone-friendly board: what waits on you at the top with big thumb-sized copy buttons and a Due today switch, missions with step progress in the middle and the daily briefs at the bottom (example data). Inspired by [Marcell Hazzard's post on X](https://x.com/Marcellhazzard/status/2115638752030937510) ([@Marcellhazzard](https://x.com/Marcellhazzard)). By Marcell Hazzard ([@Marcellhazzard](https://x.com/Marcellhazzard)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-board/](https://grokbotpages.com/t/mission-board/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a narrow, phone-friendly Grok Bot Page called "Mission Board". At the top, a "Waiting on me" list with a count, so approvals don't get buried: each item shows what to do, which bot asks and when it is due, with today's items marked and a "Due today" switch. Say that I answer each item in that bot's chat. In the middle, my active missions or projects, each with how far along it is and one line on what is next. At the bottom, the daily briefs my bots send me, such as inbox, money and calendar, with a switch between today and yesterday. Collect the list from my bots, so it fills up on its own as they ask for things. Use only real data and show "unknown" instead of guessing. Then create a routine that refreshes the Page every morning and after a bot asks me for something. If I want to share it, make a separate copy with mock data and label it example data.
+  Build me a narrow, phone-friendly Grok Bot Page called "Mission Board" that stacks like phone widgets. At the top, a "Waiting on me" list with a count, so approvals don't get buried: each item shows what to do, which bot asks and when it is due, with today's items marked and a "Due today" switch. Each item gets big, thumb-sized copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat and show Copied after a tap; if the clipboard is blocked, show the text to select. In the middle, my active missions or projects, each with how far along it is in steps and one line on what is next. At the bottom, the daily briefs my bots send me, such as inbox, money and calendar, with a switch between today and yesterday. Collect the list from my bots, so it fills up on its own as they ask for things. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Mission Board" Page every morning at 7 AM and whenever a bot asks me for something. Each run, collect what my bots wait on me for, update missions and briefs with the same layout and copy buttons, and drop items I already answered. Message me only if something is due today.
   ```
 
   </details>
@@ -298,12 +423,19 @@ Decisions your bots are waiting on you for.
 
   </details>
 
-- [Bot Crew Office](https://pending.invalid/bot-crew-office/) - An office floor of your bot crew: every bot at a desk with a callsign and live state, a GO or NO-GO list for what needs you that shows the exact reply to paste in that bot's chat, an activity feed and Now, Day, Dusk and Night lighting (example data). Inspired by [Carnage's post on X](https://x.com/0xCarnagee/status/2115623287707381874) ([@0xCarnagee](https://x.com/0xCarnagee)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Crew Office](https://pending.invalid/bot-crew-office/) - An office floor of your bot crew: every bot at a desk with a callsign and a state dot, a GO / NO-GO list with Copy GO and Copy NO-GO buttons, an activity feed, a crew list and Now, Day, Dusk and Night lighting (example data). Inspired by [@0xCarnagee's post on X](https://x.com/0xCarnagee/status/2115623287707381874) ([@0xCarnagee](https://x.com/0xCarnagee)). By [@0xCarnagee](https://x.com/0xCarnagee). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-crew-office/](https://grokbotpages.com/t/bot-crew-office/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Bot Crew Office" that shows my bots as a crew in an office. Give each bot a short callsign and draw it as a desk tile on an office floor, with a colored dot for its state: coding, browsing, in terminal, thinking, needs you, error, done or idle. Add a Now, Day, Dusk and Night switch that changes the office lighting. Next to the office, show a GO / NO-GO list of everything a bot is waiting on me for: the callsign, the question in one line, and GO and NO-GO choices. A Page can't answer a bot, so picking one only shows the exact reply to paste into that bot's chat, and the Page must say nothing is sent. Add an activity feed of the latest events and a crew list with what each bot is doing now. Use only real data from my bots, routines and recent runs. Then create a routine that refreshes the Page every hour while I work. If I want to share it, make a separate copy with mock bots and label it example data.
+  Build me a wide Grok Bot Page called "Bot Crew Office" that shows my bots as a crew in an office. Give each bot a short callsign and draw it as a desk on an office floor plan, with a colored dot for its state: coding, browsing, in terminal, thinking, needs you, error, done or idle, and a legend. Add a Now, Day, Dusk and Night switch that changes the office lighting. Next to the office, a GO / NO-GO list of everything a bot is waiting on me for: the callsign, the question in one line, and working Copy GO and Copy NO-GO buttons that copy the exact message I paste into this chat, showing Copied after a click; if the clipboard is blocked, show the text to select. Add an activity feed of the latest events and a crew list with what each bot is doing now. Use only real data from my bots, routines and recent runs, and say nothing is sent from the Page.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Bot Crew Office" Page every hour from 8 AM to 8 PM. Each run, ask every bot for its state and what it waits on me for, redraw the office and the GO / NO-GO list with the same layout and copy buttons, and drop questions I already answered. Message me only when a bot hits an error.
   ```
 
   </details>
@@ -322,62 +454,104 @@ Org charts, roles and hand-offs between your bots.
 
   </details>
 
-- [Agent Status Board](https://pending.invalid/agent-status-board/) - A card for every bot with its role, whether it needs you, what it needs from you, what it is doing now, its backlog and when it was last active, plus a filter by state and a chart of who is using the most (example data). Inspired by [Ashni's post on X](https://x.com/ashnichrist/status/2112998428456194373) ([@ashnichrist](https://x.com/ashnichrist)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Agent Status Board](https://pending.invalid/agent-status-board/) - A ward board of every bot: a census band that filters by state, one row per bot with what it needs from you and copy buttons for the reply, what it is doing, a Show backlog switch and who used the most of the plan (example data). Inspired by [Ashni's post on X](https://x.com/ashnichrist/status/2112998428456194373) ([@ashnichrist](https://x.com/ashnichrist)). By Ashni ([@ashnichrist](https://x.com/ashnichrist)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/agent-status-board/](https://grokbotpages.com/t/agent-status-board/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Agent Status Board" with one card per bot I have. Each card shows the bot's name and role, a status pill (Needs you, Blocked, Busy or Idle), a "Needs from you" box when it is waiting on me, what it is doing now, its backlog and when it was last active. At the top, show a summary line like "5 need you, 1 blocked, 2 busy, 8 idle" and a filter with those states and a count each, plus a "Show backlog" switch. Below the cards, show which bots used the most of my plan this week, from my plan usage summary. Put bots that need me first. Use only real data from my bots, routines and recent runs, and show "unknown" instead of guessing. Say on the Page that its controls only change the view. Then create a routine that refreshes the Page every hour. If I want to share it, make a separate copy with mock bots and mock data and label it example data.
+  Build me a wide Grok Bot Page called "Agent Status Board" that reads like a ward board for my bots. At the top, a census bar: one strip split by state (Needs you, Blocked, Busy, Idle) with a count each, and tabs with the same counts that filter the board. Then one row per bot, bots that need me first: name and role, a state plate, a "Needs from you" note when it waits on me, what it is doing now, last active, and its backlog behind a "Show backlog" switch. Every row that needs me gets working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat, and shows Copied after a click; if the clipboard is blocked, show the text to select. Below, show which bots used the most of my plan this week, from my plan usage summary. Use only real data from my bots, routines and recent runs, show "unknown" instead of guessing, and say the controls only change the view.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Agent Status Board" Page every hour from 8 AM to 8 PM. Each run, ask every bot for its state, what it needs from me, what it is doing and its backlog, read my plan usage summary, rebuild the board with the same layout and copy buttons, and drop items I already answered. Message me only when a bot turns Blocked.
   ```
 
   </details>
 
-- [Bot Fleet Ops](https://pending.invalid/bot-fleet-ops/) - A morning audit of the whole bot fleet: a red, yellow or green light per bot, how much of the weekly plan is used, a forecast of whether it lasts until the reset, and what to pause, merge or tighten, with what-if switches that update the forecast (example data). Inspired by [Brian Roemmele's Mission Control post on X](https://x.com/BrianRoemmele/status/2111201533971103942) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Fleet Ops](https://pending.invalid/bot-fleet-ops/) - A morning fuel check for the bot fleet: a burn-down of the weekly plan with a projection to the reset, three fixes with Preview switches that move the projection and copy buttons to approve them, and a red, yellow or green light per bot (example data). Inspired by [Brian Roemmele's Mission Control post on X](https://x.com/BrianRoemmele/status/2111201533971103942) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-fleet-ops/](https://grokbotpages.com/t/bot-fleet-ops/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Bot Fleet Ops" that audits all my bots every morning. Start from my plan usage summary: how much of the weekly plan is used, when it resets, and which bots and routines used the most. Show used so far, the pace per day over the last two days, the forecast at the reset as a straight line from that pace, and a forecast light: green under 90%, yellow from 90% to 100%, red over 100%. Give every bot a red, yellow or green light with its share of usage, one line on what it found and a suggested action: Keep, Pause, Merge or Tighten. List the top three fixes with about how much each would save per day, each with a what-if switch that updates the forecast on the Page only; say that nothing changes in my bots until I say yes in chat. Show usage by day as columns. Show every number's source and mark estimates. Then create a routine that rebuilds the Page every weekday morning. If I want to share it, make a separate copy with mock bots and mock numbers and label it example data.
+  Build me a wide Grok Bot Page called "Bot Fleet Ops" that tells me each morning whether my bots will run out of plan before it resets. Read my plan usage summary and every bot's routines and recent runs. Lead with a burn-down chart of plan left by day, the actual line up to now and a dashed projection to the reset, and say plainly on which day it runs out. Then list your recommendations (pause, merge or tighten something), each with what it saves per day, a "Preview" switch that redraws the projection as if I did it, and working copy buttons (Copy yes and Copy no) that copy a message I paste into this chat, showing Copied after a click; if the clipboard is blocked, show the text to select. Below, a fleet table with a red, yellow or green light per bot, its share of the week and one line on why. Use only real data, show "unknown" instead of guessing, and say the switches only change the view.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Bot Fleet Ops" Page every morning at 7 AM. Each run, read my plan usage summary and every bot's recent runs, redraw the burn-down and projection, rebuild the recommendations with their copy buttons and the fleet lights, and keep the layout. Message me only if the projection says the plan runs out before it resets.
   ```
 
   </details>
 
-- [Bot Tune-up Report](https://pending.invalid/bot-tune-up-report/) - A weekly audit of every bot for wasted runs: scheduled checks with nothing to do, retry loops, bloated chats, repeated research, duplicate or idle bots and dropped logins, with ranked fixes and a week-over-week chart (example data). Inspired by [Brian Roemmele's Optimizer post on X](https://x.com/BrianRoemmele/status/2112337968820334676) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Tune-up Report](https://pending.invalid/bot-tune-up-report/) - A weekly work order for your bots: what is failing, what wastes plan and what to tidy, each repair with its fix and copy buttons, a Copy all fixes button, a severity filter and an impact versus effort map (example data). Inspired by [Brian Roemmele's Optimizer post on X](https://x.com/BrianRoemmele/status/2112337968820334676) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-tune-up-report/](https://grokbotpages.com/t/bot-tune-up-report/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Bot Tune-up Report" that audits all my bots and routines for waste. Check for: scheduled checks that wake up with nothing to do, retry loops that repeat the same error, chats so long that every run re-reads them, research that repeats across bots or runs, duplicate or idle bots, and logins or connections that dropped and make runs fail. Show one ranked table of findings with the bot, the check, what you found in one line, the fix, the impact (High, Medium or Low) and about how long the fix takes. Add a filter by check and a "High impact only" switch. Keep this week's counts and show a stacked column chart of findings over the last four weekly audits. Don't change, pause or delete anything; I approve each fix in chat, and say so on the Page. Then create a routine that reruns the audit every Monday morning. If I want to share it, make a separate copy with mock bots and label it example data.
+  Build me a wide Grok Bot Page called "Bot Tune-up Report" that reads like a mechanic's work order for my bots. Inspect every bot: chat length, failing logins or connectors, empty or duplicate bots, routines that do the same job, and what each one costs from my plan usage summary. Put an inspection header on top (when, how many bots, total issues), then one repair line per issue, worst first: the bot, what is wrong, the fix, impact and effort, with a filter by severity. Every repair line gets working copy buttons (Copy yes and Copy no) that copy a message I paste into this chat, plus one "Copy all fixes" button at the end, and each shows Copied after a click; if the clipboard is blocked, show the text to select. Add an impact versus effort chart of the repairs. Use only real data, show "unknown" instead of guessing, and fix nothing until I send the message.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that reruns my "Bot Tune-up Report" every Sunday at 6 PM. Each run, inspect every bot again, rebuild the work order with the same layout and copy buttons, mark repairs I already approved as done, and message me only if a bot is failing.
   ```
 
   </details>
 
-- [Weekly Usage Audit](https://pending.invalid/weekly-usage-audit/) - Where a week of bot usage went, read from your usage export: tokens by bot and day, the biggest runs and whether each led to a decision or just rehashed, fixes with their math, and what a bot can own versus what needs you (example data). Inspired by [Brian Roemmele's usage audit post on X](https://x.com/BrianRoemmele/status/2112249592133935133) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Weekly Usage Audit](https://pending.invalid/weekly-usage-audit/) - Last week's usage itemized like a bill: each bot's share with a verdict (earns it, trim or cut), copy buttons for the trims, a Show the math switch, a bot by day heatmap and the runs that repeat (example data). Inspired by [Brian Roemmele's usage audit post on X](https://x.com/BrianRoemmele/status/2112249592133935133) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/weekly-usage-audit/](https://grokbotpages.com/t/weekly-usage-audit/).
   <details><summary>Prompt</summary>
 
   ```text
-  I'm attaching my usage export. Build me a wide Grok Bot Page called "Weekly Usage Audit" from it. Show total tokens per bot for the week as bars, then a heatmap of bots by day with a switch between tokens and number of runs. Then list the runs worth a look: the biggest runs, runs that repeat without adding anything new, and runs that ended with nothing changed, each marked Decision, Rehash or No change, with a filter by bot. Then a table of fixes to test next week, such as capping sources, skipping recaps when nothing changed, moving hourly checks to on-change or daily, and merging overlapping routines, each with how much it saves and a "Show the math" switch that shows how you got the number. End with two lists: work a bot can own on a schedule, and work that still needs my judgment. Every number must come from the export; mark anything estimated. If I want to share it, make a separate copy with mock bots and mock numbers and label it example data.
+  Build me a wide Grok Bot Page called "Weekly Usage Audit" from the usage export I upload here, laid out like a utility bill. On top, the statement period and the share of my weekly plan used. Then one line per bot, biggest first: runs, average run size and share of the week, with a "Show the math" switch that reveals how each share was worked out, and a verdict on whether the bot earns its keep. Every line with a Cut or Trim verdict gets working copy buttons (Copy yes and Copy no) that copy a message I paste into this chat, and shows Copied after a click; if the clipboard is blocked, show the text to select. Add a heatmap of usage by bot and day, and a list of runs that repeat with the same input. Use only the export and my bots' routines, show "unknown" instead of guessing, and change nothing until I send the message.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that every Monday at 9 AM asks me for last week's usage export, then rebuilds my "Weekly Usage Audit" Page from it with the same layout, verdicts and copy buttons. Message me only if one bot used more than a quarter of the week.
   ```
 
   </details>
 
-- [My Bots Dashboard](https://pending.invalid/my-bots-dashboard/) - A plain one-page overview of every bot with a section switcher: what needs you (your calls, blocked items and possible duplicate bots), the bots at a glance and by area, today's routines and usage (example data). Inspired by [Emily Nguyen's post on X](https://x.com/emilyntech/status/2113117549890273584) ([@emilyntech](https://x.com/emilyntech)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [My Bots Dashboard](https://pending.invalid/my-bots-dashboard/) - A plain one-page overview of every bot with a section switcher: what needs you with copy buttons for each answer, the bots at a glance and by area, today's routines and usage (example data). Inspired by [Emily Nguyen's post on X](https://x.com/emilyntech/status/2113117549890273584) ([@emilyntech](https://x.com/emilyntech)). By Emily Nguyen ([@emilyntech](https://x.com/emilyntech)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/my-bots-dashboard/](https://grokbotpages.com/t/my-bots-dashboard/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a plain, white Grok Bot Page called "My Bots Dashboard" with a switcher at the top for: All, Needs you, At a glance, Bots by area, Today's routines and Usage. Needs you: a callout like "3 open, 1 blocked", then each item marked "your call", "blocked" (for example a connection that expired) or "review" for a possible duplicate bot, with the bot and one line on what to do. At a glance: number of bots, routines, routines that failed today and possible duplicates. Bots by area: a table of areas like Home, Money, Work and Health with the bots in each. Today's routines: each routine with its time, bot and whether it worked, failed or runs later, and flag routines that overlap. Usage: how much of my weekly plan is used, when it resets and which bots used the most, from my plan usage summary. Use only real data and show "unknown" instead of guessing. Then create a routine that refreshes the Page every morning. If I want to share it, make a separate copy with mock bots and label it example data.
+  Build me a plain, white Grok Bot Page called "My Bots Dashboard" with a switcher at the top for: All, Needs you, At a glance, Bots by area, Today's routines and Usage. Needs you: a line like "3 open, 1 blocked", then each item marked "your call", "blocked" (for example a connection that expired) or "review" for a possible duplicate bot, with the bot, one line on what to do and working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat and show Copied after a click; if the clipboard is blocked, show the text to select. At a glance: one sentence with the number of bots, routines, routines that failed today and possible duplicates. Bots by area: a map of areas like Home, Money, Work and Health sized by how many bots each has, with the bots in each. Today's routines: each routine with its time, bot and whether it worked, failed or runs later, and flag routines that overlap. Usage: how much of my weekly plan is used, when it resets and which bots used the most, from my plan usage summary. Keep it calm: one green accent, no decoration. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "My Bots Dashboard" Page every morning at 8 AM and again at 2 PM. Each run, rebuild every section from my bots, routines and plan usage summary with the same layout and copy buttons, and drop items I already answered. Message me only if a routine failed.
   ```
 
   </details>
 
-- [Routine Run Board](https://pending.invalid/routine-run-board/) - Every routine on one board, refreshed each morning: when it last ran, whether it worked, its last five runs, and what is waiting on your approval, with filters by result and bot (example data). Inspired by [Vikrant Shukla's post on X](https://x.com/vikrantshukla/status/2113158413186187736) ([@vikrantshukla](https://x.com/vikrantshukla)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Routine Run Board](https://pending.invalid/routine-run-board/) - Every routine on one timetable: schedule, last run, result and a strip of its last 20 runs, approvals with copy buttons, and filters by result and bot (example data). Inspired by [Vikrant Shukla's post on X](https://x.com/vikrantshukla/status/2113158413186187736) ([@vikrantshukla](https://x.com/vikrantshukla)). By Vikrant Shukla ([@vikrantshukla](https://x.com/vikrantshukla)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/routine-run-board/](https://grokbotpages.com/t/routine-run-board/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Routine Run Board" with every routine across all my bots. At the top, show counts: routines, worked, failed and waiting on me. Then a "Waiting on your approval" list with what each routine needs from me, the bot and when it asked, and say that I approve in that bot's chat. Then a table of all routines with the routine, bot, schedule, last run, result (worked, failed, waiting or skipped), its last five runs as symbols, and a note such as why it failed. Add a filter by result with counts and a filter by bot. The app keeps the 20 most recent run records per routine, so also append each morning's results to a run log file and read it for anything older. Use only real data and show "unknown" instead of guessing. Then create a routine that refreshes the Page every morning before I start. If I want to share it, make a separate copy with mock routines and label it example data.
+  Build me a wide Grok Bot Page called "Routine Run Board" that reads like a railway timetable for every routine across all my bots. On top, one line with counts: routines, worked, failed and waiting on me. Then a "Waiting on your approval" list with what each routine needs from me, the bot and when it asked, and working copy buttons (Copy yes and Copy no, or one short ready reply) that copy a message I paste into this chat and show Copied after a click; if the clipboard is blocked, show the text to select. Then the timetable: routine, bot, schedule, last run, result (worked, failed, waiting or skipped), a strip of its last 20 runs as small squares, and a note such as why it failed, with a filter by result with counts and a filter by bot. The app keeps the 20 most recent run records per routine, so also append each morning's results to a run log file and read it for anything older. Use only real data and show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Routine Run Board" Page every morning at 7:30, before I start. Each run, read every routine's recent runs, append them to the run log file, rebuild the timetable and the approval list with the same layout and copy buttons, and drop approvals I already gave. Message me only if a routine failed twice in a row.
   ```
 
   </details>
@@ -479,11 +653,19 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
   ```
 
   </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  A prompt for a routine that keeps the Page updated.
+  ```
+
+  </details>
 ````
 
 - A name is required, plus at least one of a GitHub handle or an X handle. Both are fine.
 - The prompt block is required. Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
 - An optional `Inspired by [source](url).` can go before `By`.
+- An optional `Routine prompt (optional)` block can follow the prompt block, in the same format, with a prompt for a routine that keeps the Page updated.
 - The `Template page` line links the entry's page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`. The page goes live once the pull request is merged.
 - Keep the description to one factual sentence about what the Page shows or does.
 
