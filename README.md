@@ -46,7 +46,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [Mission Control: Two Lists](https://pending.invalid/mission-control-two-lists/) - Only two lists: what needs your decision, with Copy yes and Copy no buttons and ages that keep ticking, and what is still ongoing and unfinished, plus an eye button that blurs the details for screen sharing (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Mission Control: Two Lists](https://mission-control-two-lists-example-3z7u.pages.grok.bot/) - Only two lists: what needs your decision, with Copy yes and Copy no buttons and ages that keep ticking, and what is still ongoing and unfinished, plus an eye button that blurs the details for screen sharing (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control-two-lists/](https://grokbotpages.com/t/mission-control-two-lists/).
   <details><summary>Prompt</summary>
 
@@ -63,7 +63,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Command Center](https://pending.invalid/command-center/) - A kitchen ticket rail for what your bots wait on you for: tagged tickets with due items first, working copy buttons with a ready reply for your main bot chat, a Show why switch, a day-by-day timeline and In progress and Finished tabs (example data). Inspired by [Moritz Kremb's post on X](https://x.com/moritzkremb/status/2114787902932857293) ([@moritzkremb](https://x.com/moritzkremb)). By Moritz Kremb ([@moritzkremb](https://x.com/moritzkremb)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Command Center](https://command-center-example-it3x.pages.grok.bot/) - A kitchen ticket rail for what your bots wait on you for: tagged tickets with due items first, working copy buttons with a ready reply for your main bot chat, a Show why switch, a day-by-day timeline and In progress and Finished tabs (example data). Inspired by [Moritz Kremb's post on X](https://x.com/moritzkremb/status/2114787902932857293) ([@moritzkremb](https://x.com/moritzkremb)). By Moritz Kremb ([@moritzkremb](https://x.com/moritzkremb)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/command-center/](https://grokbotpages.com/t/command-center/).
   <details><summary>Prompt</summary>
 
@@ -80,7 +80,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Agent Status Board](https://pending.invalid/agent-status-board/) - A ward board of every bot: a census band that filters by state, one row per bot with what it needs from you and copy buttons for the reply, what it is doing, a Show backlog switch and who used the most of the plan (example data). Inspired by [Ashni's post on X](https://x.com/ashnichrist/status/2112998428456194373) ([@ashnichrist](https://x.com/ashnichrist)). By Ashni ([@ashnichrist](https://x.com/ashnichrist)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Agent Status Board](https://agent-status-board-example-aeo2.pages.grok.bot/) - A ward board of every bot: a census band that filters by state, one row per bot with what it needs from you and copy buttons for the reply, what it is doing, a Show backlog switch and who used the most of the plan (example data). Inspired by [Ashni's post on X](https://x.com/ashnichrist/status/2112998428456194373) ([@ashnichrist](https://x.com/ashnichrist)). By Ashni ([@ashnichrist](https://x.com/ashnichrist)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/agent-status-board/](https://grokbotpages.com/t/agent-status-board/).
   <details><summary>Prompt</summary>
 
@@ -97,7 +97,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Bot Fleet Ops](https://pending.invalid/bot-fleet-ops/) - A morning fuel check for the bot fleet: a burn-down of the weekly plan with a projection to the reset, three fixes with Preview switches that move the projection and copy buttons to approve them, and a red, yellow or green light per bot (example data). Inspired by [Brian Roemmele's Mission Control post on X](https://x.com/BrianRoemmele/status/2111201533971103942) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Fleet Ops](https://bot-fleet-ops-example-udcj.pages.grok.bot/) - A morning fuel check for the bot fleet: a burn-down of the weekly plan with a projection to the reset, three fixes with Preview switches that move the projection and copy buttons to approve them, and a red, yellow or green light per bot (example data). Inspired by [Brian Roemmele's Mission Control post on X](https://x.com/BrianRoemmele/status/2111201533971103942) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-fleet-ops/](https://grokbotpages.com/t/bot-fleet-ops/).
   <details><summary>Prompt</summary>
 
@@ -114,7 +114,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Bot Tune-up Report](https://pending.invalid/bot-tune-up-report/) - A weekly work order for your bots: what is failing, what wastes plan and what to tidy, each repair with its fix and copy buttons, a Copy all fixes button, a severity filter and an impact versus effort map (example data). Inspired by [Brian Roemmele's Optimizer post on X](https://x.com/BrianRoemmele/status/2112337968820334676) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Tune-up Report](https://bot-tune-up-report-example-wls2.pages.grok.bot/) - A weekly work order for your bots: what is failing, what wastes plan and what to tidy, each repair with its fix and copy buttons, a Copy all fixes button, a severity filter and an impact versus effort map (example data). Inspired by [Brian Roemmele's Optimizer post on X](https://x.com/BrianRoemmele/status/2112337968820334676) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-tune-up-report/](https://grokbotpages.com/t/bot-tune-up-report/).
   <details><summary>Prompt</summary>
 
@@ -131,7 +131,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Weekly Usage Audit](https://pending.invalid/weekly-usage-audit/) - Last week's usage itemized like a bill: each bot's share with a verdict (earns it, trim or cut), copy buttons for the trims, a Show the math switch, a bot by day heatmap and the runs that repeat (example data). Inspired by [Brian Roemmele's usage audit post on X](https://x.com/BrianRoemmele/status/2112249592133935133) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Weekly Usage Audit](https://weekly-usage-audit-example-7eoy.pages.grok.bot/) - Last week's usage itemized like a bill: each bot's share with a verdict (earns it, trim or cut), copy buttons for the trims, a Show the math switch, a bot by day heatmap and the runs that repeat (example data). Inspired by [Brian Roemmele's usage audit post on X](https://x.com/BrianRoemmele/status/2112249592133935133) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/weekly-usage-audit/](https://grokbotpages.com/t/weekly-usage-audit/).
   <details><summary>Prompt</summary>
 
@@ -148,7 +148,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Bot Activity Dashboard](https://pending.invalid/bot-activity-dashboard/) - A morning and evening edition of what your bots did: counts for waiting on you, in progress and finished, tabs for each with copy buttons on what waits on you, and a timeline filterable by day and bot (example data). Inspired by [@byalexai's post on X](https://x.com/byalexai/status/2114837470680318365) ([@byalexai](https://x.com/byalexai)). By [@byalexai](https://x.com/byalexai). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Activity Dashboard](https://bot-activity-dashboard-example-m3yc.pages.grok.bot/) - A morning and evening edition of what your bots did: counts for waiting on you, in progress and finished, tabs for each with copy buttons on what waits on you, and a timeline filterable by day and bot (example data). Inspired by [@byalexai's post on X](https://x.com/byalexai/status/2114837470680318365) ([@byalexai](https://x.com/byalexai)). By [@byalexai](https://x.com/byalexai). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-activity-dashboard/](https://grokbotpages.com/t/bot-activity-dashboard/).
   <details><summary>Prompt</summary>
 
@@ -165,7 +165,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Bot Crew Office](https://pending.invalid/bot-crew-office/) - An office floor of your bot crew: every bot at a desk with a callsign and a state dot, a GO / NO-GO list with Copy GO and Copy NO-GO buttons, an activity feed, a crew list and Now, Day, Dusk and Night lighting (example data). Inspired by [@0xCarnagee's post on X](https://x.com/0xCarnagee/status/2115623287707381874) ([@0xCarnagee](https://x.com/0xCarnagee)). By [@0xCarnagee](https://x.com/0xCarnagee). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Crew Office](https://bot-crew-office-example-pw33.pages.grok.bot/) - An office floor of your bot crew: every bot at a desk with a callsign and a state dot, a GO / NO-GO list with Copy GO and Copy NO-GO buttons, an activity feed, a crew list and Now, Day, Dusk and Night lighting (example data). Inspired by [@0xCarnagee's post on X](https://x.com/0xCarnagee/status/2115623287707381874) ([@0xCarnagee](https://x.com/0xCarnagee)). By [@0xCarnagee](https://x.com/0xCarnagee). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-crew-office/](https://grokbotpages.com/t/bot-crew-office/).
   <details><summary>Prompt</summary>
 
@@ -182,7 +182,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [My Bots Dashboard](https://pending.invalid/my-bots-dashboard/) - A plain one-page overview of every bot with a section switcher: what needs you with copy buttons for each answer, the bots at a glance and by area, today's routines and usage (example data). Inspired by [Emily Nguyen's post on X](https://x.com/emilyntech/status/2113117549890273584) ([@emilyntech](https://x.com/emilyntech)). By Emily Nguyen ([@emilyntech](https://x.com/emilyntech)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [My Bots Dashboard](https://bots-dashboard-example-ctaz.pages.grok.bot/) - A plain one-page overview of every bot with a section switcher: what needs you with copy buttons for each answer, the bots at a glance and by area, today's routines and usage (example data). Inspired by [Emily Nguyen's post on X](https://x.com/emilyntech/status/2113117549890273584) ([@emilyntech](https://x.com/emilyntech)). By Emily Nguyen ([@emilyntech](https://x.com/emilyntech)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/my-bots-dashboard/](https://grokbotpages.com/t/my-bots-dashboard/).
   <details><summary>Prompt</summary>
 
@@ -199,7 +199,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Mission Board](https://pending.invalid/mission-board/) - A phone-friendly board: what waits on you at the top with big thumb-sized copy buttons and a Due today switch, missions with step progress in the middle and the daily briefs at the bottom (example data). Inspired by [Marcell Hazzard's post on X](https://x.com/Marcellhazzard/status/2115638752030937510) ([@Marcellhazzard](https://x.com/Marcellhazzard)). By Marcell Hazzard ([@Marcellhazzard](https://x.com/Marcellhazzard)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Mission Board](https://mission-board-example-6745.pages.grok.bot/) - A phone-friendly board: what waits on you at the top with big thumb-sized copy buttons and a Due today switch, missions with step progress in the middle and the daily briefs at the bottom (example data). Inspired by [Marcell Hazzard's post on X](https://x.com/Marcellhazzard/status/2115638752030937510) ([@Marcellhazzard](https://x.com/Marcellhazzard)). By Marcell Hazzard ([@Marcellhazzard](https://x.com/Marcellhazzard)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-board/](https://grokbotpages.com/t/mission-board/).
   <details><summary>Prompt</summary>
 
@@ -216,7 +216,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Routine Run Board](https://pending.invalid/routine-run-board/) - Every routine on one timetable: schedule, last run, result and a strip of its last 20 runs, approvals with copy buttons, and filters by result and bot (example data). Inspired by [Vikrant Shukla's post on X](https://x.com/vikrantshukla/status/2113158413186187736) ([@vikrantshukla](https://x.com/vikrantshukla)). By Vikrant Shukla ([@vikrantshukla](https://x.com/vikrantshukla)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Routine Run Board](https://routine-run-board-example-e6f6.pages.grok.bot/) - Every routine on one timetable: schedule, last run, result and a strip of its last 20 runs, approvals with copy buttons, and filters by result and bot (example data). Inspired by [Vikrant Shukla's post on X](https://x.com/vikrantshukla/status/2113158413186187736) ([@vikrantshukla](https://x.com/vikrantshukla)). By Vikrant Shukla ([@vikrantshukla](https://x.com/vikrantshukla)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/routine-run-board/](https://grokbotpages.com/t/routine-run-board/).
   <details><summary>Prompt</summary>
 
@@ -378,7 +378,7 @@ One screen for what your bots and projects are doing and what waits on you.
 
 Planners, trackers and task boards.
 
-- [Mission Control: Two Lists](https://pending.invalid/mission-control-two-lists/) - Only two lists: what needs your decision, with Copy yes and Copy no buttons and ages that keep ticking, and what is still ongoing and unfinished, plus an eye button that blurs the details for screen sharing (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Mission Control: Two Lists](https://mission-control-two-lists-example-3z7u.pages.grok.bot/) - Only two lists: what needs your decision, with Copy yes and Copy no buttons and ages that keep ticking, and what is still ongoing and unfinished, plus an eye button that blurs the details for screen sharing (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control-two-lists/](https://grokbotpages.com/t/mission-control-two-lists/).
   <details><summary>Prompt</summary>
 
@@ -395,7 +395,7 @@ Planners, trackers and task boards.
 
   </details>
 
-- [Command Center](https://pending.invalid/command-center/) - A kitchen ticket rail for what your bots wait on you for: tagged tickets with due items first, working copy buttons with a ready reply for your main bot chat, a Show why switch, a day-by-day timeline and In progress and Finished tabs (example data). Inspired by [Moritz Kremb's post on X](https://x.com/moritzkremb/status/2114787902932857293) ([@moritzkremb](https://x.com/moritzkremb)). By Moritz Kremb ([@moritzkremb](https://x.com/moritzkremb)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Command Center](https://command-center-example-it3x.pages.grok.bot/) - A kitchen ticket rail for what your bots wait on you for: tagged tickets with due items first, working copy buttons with a ready reply for your main bot chat, a Show why switch, a day-by-day timeline and In progress and Finished tabs (example data). Inspired by [Moritz Kremb's post on X](https://x.com/moritzkremb/status/2114787902932857293) ([@moritzkremb](https://x.com/moritzkremb)). By Moritz Kremb ([@moritzkremb](https://x.com/moritzkremb)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/command-center/](https://grokbotpages.com/t/command-center/).
   <details><summary>Prompt</summary>
 
@@ -412,7 +412,7 @@ Planners, trackers and task boards.
 
   </details>
 
-- [Bot Activity Dashboard](https://pending.invalid/bot-activity-dashboard/) - A morning and evening edition of what your bots did: counts for waiting on you, in progress and finished, tabs for each with copy buttons on what waits on you, and a timeline filterable by day and bot (example data). Inspired by [@byalexai's post on X](https://x.com/byalexai/status/2114837470680318365) ([@byalexai](https://x.com/byalexai)). By [@byalexai](https://x.com/byalexai). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Activity Dashboard](https://bot-activity-dashboard-example-m3yc.pages.grok.bot/) - A morning and evening edition of what your bots did: counts for waiting on you, in progress and finished, tabs for each with copy buttons on what waits on you, and a timeline filterable by day and bot (example data). Inspired by [@byalexai's post on X](https://x.com/byalexai/status/2114837470680318365) ([@byalexai](https://x.com/byalexai)). By [@byalexai](https://x.com/byalexai). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-activity-dashboard/](https://grokbotpages.com/t/bot-activity-dashboard/).
   <details><summary>Prompt</summary>
 
@@ -429,7 +429,7 @@ Planners, trackers and task boards.
 
   </details>
 
-- [Mission Board](https://pending.invalid/mission-board/) - A phone-friendly board: what waits on you at the top with big thumb-sized copy buttons and a Due today switch, missions with step progress in the middle and the daily briefs at the bottom (example data). Inspired by [Marcell Hazzard's post on X](https://x.com/Marcellhazzard/status/2115638752030937510) ([@Marcellhazzard](https://x.com/Marcellhazzard)). By Marcell Hazzard ([@Marcellhazzard](https://x.com/Marcellhazzard)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Mission Board](https://mission-board-example-6745.pages.grok.bot/) - A phone-friendly board: what waits on you at the top with big thumb-sized copy buttons and a Due today switch, missions with step progress in the middle and the daily briefs at the bottom (example data). Inspired by [Marcell Hazzard's post on X](https://x.com/Marcellhazzard/status/2115638752030937510) ([@Marcellhazzard](https://x.com/Marcellhazzard)). By Marcell Hazzard ([@Marcellhazzard](https://x.com/Marcellhazzard)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-board/](https://grokbotpages.com/t/mission-board/).
   <details><summary>Prompt</summary>
 
@@ -496,7 +496,7 @@ Decisions your bots are waiting on you for.
 
   </details>
 
-- [Bot Crew Office](https://pending.invalid/bot-crew-office/) - An office floor of your bot crew: every bot at a desk with a callsign and a state dot, a GO / NO-GO list with Copy GO and Copy NO-GO buttons, an activity feed, a crew list and Now, Day, Dusk and Night lighting (example data). Inspired by [@0xCarnagee's post on X](https://x.com/0xCarnagee/status/2115623287707381874) ([@0xCarnagee](https://x.com/0xCarnagee)). By [@0xCarnagee](https://x.com/0xCarnagee). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Crew Office](https://bot-crew-office-example-pw33.pages.grok.bot/) - An office floor of your bot crew: every bot at a desk with a callsign and a state dot, a GO / NO-GO list with Copy GO and Copy NO-GO buttons, an activity feed, a crew list and Now, Day, Dusk and Night lighting (example data). Inspired by [@0xCarnagee's post on X](https://x.com/0xCarnagee/status/2115623287707381874) ([@0xCarnagee](https://x.com/0xCarnagee)). By [@0xCarnagee](https://x.com/0xCarnagee). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-crew-office/](https://grokbotpages.com/t/bot-crew-office/).
   <details><summary>Prompt</summary>
 
@@ -534,7 +534,7 @@ Org charts, roles and hand-offs between your bots.
 
   </details>
 
-- [Agent Status Board](https://pending.invalid/agent-status-board/) - A ward board of every bot: a census band that filters by state, one row per bot with what it needs from you and copy buttons for the reply, what it is doing, a Show backlog switch and who used the most of the plan (example data). Inspired by [Ashni's post on X](https://x.com/ashnichrist/status/2112998428456194373) ([@ashnichrist](https://x.com/ashnichrist)). By Ashni ([@ashnichrist](https://x.com/ashnichrist)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Agent Status Board](https://agent-status-board-example-aeo2.pages.grok.bot/) - A ward board of every bot: a census band that filters by state, one row per bot with what it needs from you and copy buttons for the reply, what it is doing, a Show backlog switch and who used the most of the plan (example data). Inspired by [Ashni's post on X](https://x.com/ashnichrist/status/2112998428456194373) ([@ashnichrist](https://x.com/ashnichrist)). By Ashni ([@ashnichrist](https://x.com/ashnichrist)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/agent-status-board/](https://grokbotpages.com/t/agent-status-board/).
   <details><summary>Prompt</summary>
 
@@ -551,7 +551,7 @@ Org charts, roles and hand-offs between your bots.
 
   </details>
 
-- [Bot Fleet Ops](https://pending.invalid/bot-fleet-ops/) - A morning fuel check for the bot fleet: a burn-down of the weekly plan with a projection to the reset, three fixes with Preview switches that move the projection and copy buttons to approve them, and a red, yellow or green light per bot (example data). Inspired by [Brian Roemmele's Mission Control post on X](https://x.com/BrianRoemmele/status/2111201533971103942) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Fleet Ops](https://bot-fleet-ops-example-udcj.pages.grok.bot/) - A morning fuel check for the bot fleet: a burn-down of the weekly plan with a projection to the reset, three fixes with Preview switches that move the projection and copy buttons to approve them, and a red, yellow or green light per bot (example data). Inspired by [Brian Roemmele's Mission Control post on X](https://x.com/BrianRoemmele/status/2111201533971103942) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-fleet-ops/](https://grokbotpages.com/t/bot-fleet-ops/).
   <details><summary>Prompt</summary>
 
@@ -568,7 +568,7 @@ Org charts, roles and hand-offs between your bots.
 
   </details>
 
-- [Bot Tune-up Report](https://pending.invalid/bot-tune-up-report/) - A weekly work order for your bots: what is failing, what wastes plan and what to tidy, each repair with its fix and copy buttons, a Copy all fixes button, a severity filter and an impact versus effort map (example data). Inspired by [Brian Roemmele's Optimizer post on X](https://x.com/BrianRoemmele/status/2112337968820334676) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Tune-up Report](https://bot-tune-up-report-example-wls2.pages.grok.bot/) - A weekly work order for your bots: what is failing, what wastes plan and what to tidy, each repair with its fix and copy buttons, a Copy all fixes button, a severity filter and an impact versus effort map (example data). Inspired by [Brian Roemmele's Optimizer post on X](https://x.com/BrianRoemmele/status/2112337968820334676) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-tune-up-report/](https://grokbotpages.com/t/bot-tune-up-report/).
   <details><summary>Prompt</summary>
 
@@ -585,7 +585,7 @@ Org charts, roles and hand-offs between your bots.
 
   </details>
 
-- [Weekly Usage Audit](https://pending.invalid/weekly-usage-audit/) - Last week's usage itemized like a bill: each bot's share with a verdict (earns it, trim or cut), copy buttons for the trims, a Show the math switch, a bot by day heatmap and the runs that repeat (example data). Inspired by [Brian Roemmele's usage audit post on X](https://x.com/BrianRoemmele/status/2112249592133935133) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Weekly Usage Audit](https://weekly-usage-audit-example-7eoy.pages.grok.bot/) - Last week's usage itemized like a bill: each bot's share with a verdict (earns it, trim or cut), copy buttons for the trims, a Show the math switch, a bot by day heatmap and the runs that repeat (example data). Inspired by [Brian Roemmele's usage audit post on X](https://x.com/BrianRoemmele/status/2112249592133935133) ([@BrianRoemmele](https://x.com/BrianRoemmele)). By Brian Roemmele ([@BrianRoemmele](https://x.com/BrianRoemmele)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/weekly-usage-audit/](https://grokbotpages.com/t/weekly-usage-audit/).
   <details><summary>Prompt</summary>
 
@@ -602,7 +602,7 @@ Org charts, roles and hand-offs between your bots.
 
   </details>
 
-- [My Bots Dashboard](https://pending.invalid/my-bots-dashboard/) - A plain one-page overview of every bot with a section switcher: what needs you with copy buttons for each answer, the bots at a glance and by area, today's routines and usage (example data). Inspired by [Emily Nguyen's post on X](https://x.com/emilyntech/status/2113117549890273584) ([@emilyntech](https://x.com/emilyntech)). By Emily Nguyen ([@emilyntech](https://x.com/emilyntech)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [My Bots Dashboard](https://bots-dashboard-example-ctaz.pages.grok.bot/) - A plain one-page overview of every bot with a section switcher: what needs you with copy buttons for each answer, the bots at a glance and by area, today's routines and usage (example data). Inspired by [Emily Nguyen's post on X](https://x.com/emilyntech/status/2113117549890273584) ([@emilyntech](https://x.com/emilyntech)). By Emily Nguyen ([@emilyntech](https://x.com/emilyntech)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/my-bots-dashboard/](https://grokbotpages.com/t/my-bots-dashboard/).
   <details><summary>Prompt</summary>
 
@@ -619,7 +619,7 @@ Org charts, roles and hand-offs between your bots.
 
   </details>
 
-- [Routine Run Board](https://pending.invalid/routine-run-board/) - Every routine on one timetable: schedule, last run, result and a strip of its last 20 runs, approvals with copy buttons, and filters by result and bot (example data). Inspired by [Vikrant Shukla's post on X](https://x.com/vikrantshukla/status/2113158413186187736) ([@vikrantshukla](https://x.com/vikrantshukla)). By Vikrant Shukla ([@vikrantshukla](https://x.com/vikrantshukla)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Routine Run Board](https://routine-run-board-example-e6f6.pages.grok.bot/) - Every routine on one timetable: schedule, last run, result and a strip of its last 20 runs, approvals with copy buttons, and filters by result and bot (example data). Inspired by [Vikrant Shukla's post on X](https://x.com/vikrantshukla/status/2113158413186187736) ([@vikrantshukla](https://x.com/vikrantshukla)). By Vikrant Shukla ([@vikrantshukla](https://x.com/vikrantshukla)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/routine-run-board/](https://grokbotpages.com/t/routine-run-board/).
   <details><summary>Prompt</summary>
 

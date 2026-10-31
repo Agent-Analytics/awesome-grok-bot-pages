@@ -132,6 +132,10 @@ const hrefs = new Set();
 for (const u of ['/', ...d.entries.map((e) => `/t/${e.slug}/`)]) {
   await page.goto(base + u, { waitUntil: 'networkidle' });
   (await page.$$eval('a[href], img[src], link[href], script[src], source[srcset]', (els) => els.map((e) => e.getAttribute('href') || e.getAttribute('src') || e.getAttribute('srcset')))).forEach((h) => hrefs.add(h));
+  // Lazy images below the fold only load once scrolled into view, so bring each into view first.
+  for (const img of await page.$$('img[loading="lazy"]')) { await img.scrollIntoViewIfNeeded(); await page.waitForTimeout(40); }
+  await page.waitForFunction(() => [...document.images].every((i) => i.complete), null, { timeout: 10000 }).catch(() => {});
+  await page.evaluate(() => window.scrollTo(0, 0));
   const broken = await page.$$eval('img', (imgs) => imgs.filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.src));
   check(`images load ${u}`, broken.length === 0, broken.join(' '));
   const txt = await page.content();
