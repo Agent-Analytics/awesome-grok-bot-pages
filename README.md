@@ -223,37 +223,58 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Side Project Mission Control](https://side-project-mission-control-example-zxug.pages.grok.bot/) - One screen for a solo builder running a product with bots: site and deploy status, today's key numbers, a shipping queue, bot activity and a ranked list of what needs you (example data). Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Side Project Mission Control](https://side-project-mission-control-example-zxug.pages.grok.bot/) - One screen for a solo builder running a product with bots: site, deploy, PR and error status, a ranked Needs you list with two copy buttons per item for the reply, key numbers with sparklines, a shipping queue and bot activity (example data). Inspired by [Alex Finn's Mission Control post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/side-project-mission-control/](https://grokbotpages.com/t/side-project-mission-control/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Side Project Mission Control" for the product I run with my bots. Use whatever I have connected: GitHub (or my git host) for open PRs, the last deploy and CI, my analytics (for example the Agent Analytics MCP) for visits, signups and clicks on my main call-to-action, my uptime or error tracker if I have one, and my bots and routines for the activity feed. At the top, show a status strip: is the site up, the last deploy and whether it passed, open PRs with how many wait on me or fail CI, and new errors in the last 24 hours. Then show today's key numbers (visits, signups, CTA clicks) with a sparkline each, today's value and the change against the 7-day average, with a switch between 14 days and 24 hours and a hover readout. Then a "Needs you" list ranked by urgency: each item says which bot asks, what to do in one line, where to do it, about how long it takes, a Why toggle, and a "Hide here" button that only hides it on the Page (say so next to it); add a sort for most urgent or quickest first. Then a shipping queue in three columns, In review, Blocked and Done this week, with an area filter, a Show done toggle and a Details toggle per item. End with a bot activity feed filterable by bot. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty. Then create a routine that refreshes the Page every weekday morning.
+  Build me a wide Grok Bot Page called "Side Project Mission Control" for the product I run with my bots. Use whatever I have connected: GitHub (or my git host) for open PRs, the last deploy and CI, my analytics (for example the Agent Analytics MCP) for visits, signups and clicks on my main call-to-action, my uptime or error tracker if I have one, and my bots and routines for the activity feed. At the top, a status strip: is the site up, the last deploy and whether it passed, open PRs with how many wait on me or fail CI, and new errors in the last 24 hours. Then a "Needs you" list ranked by urgency: which bot asks, what to do in one line, where to do it and about how long it takes, a Why toggle, and two working copy buttons per item that copy a ready reply for that bot (for example Copy yes and Copy no), showing Copied after a click and the text to select if the clipboard is blocked. Add a sort for most urgent or quickest first. Then today's key numbers (visits, signups, CTA clicks) with a sparkline each and the change against the 7-day average, with a 14 days or 24 hours switch and a hover readout. Then a shipping queue in three columns, In review, Blocked and Done this week, with an area filter, a Show done toggle and a Details toggle per item. End with a bot activity feed I can filter by bot. Every control must really work; no buttons that do nothing. Anything not connected shows as empty instead of a guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Side Project Mission Control" Page every weekday at 8:30 AM. Each run, pull fresh status, numbers, PRs and bot activity, ask each bot what it needs from me, rebuild the Page with the same layout and copy buttons, and drop items I already handled. Message me only if the site is down or a deploy failed.
   ```
 
   </details>
 
-- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log. Filter, sort, open details and hide items; on your own copy each item gets an Open chat link to the asking bot (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots wait on you for, ranked by due time, money at stake and age, each with Copy yes and Copy no buttons, plus division goal gauges, a bot roster, a 72-hour stale log and what you cleared today (example data). Inspired by [Jordan Rafealov's post on X](https://x.com/JordanRafealov/status/2116152545274147218) and [his video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/decisions-console/](https://grokbotpages.com/t/decisions-console/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a Grok Bot Page called "Decisions Console" that shows only what needs me. You are my chief of staff: collect every decision my bots are waiting on me for. At the top, show a goal gauge for each of my divisions or main goals, with the goal, today's number, the target and the date. In the middle, show a "Waiting on you" queue ranked by due time, then money at stake, then age. Each item shows the asking bot, the decision in one line, when it is due and how long it has waited. Give each item an "Open chat" link to the asking bot: a plain <a> with target="_top" and href grokbot://app/v1/agent?id=<that bot's id>. Also give it a Details toggle with the reason and the source, and a "Mark done" button. A Page can't answer a bot, so Mark done only hides the item on the Page, and the Page must say so next to the buttons. Add a filter by division and a sort by due time, age or money. On the side, list my bots by division with a status dot (working, waiting on me, idle) and a short log of anything waiting over 72 hours. At the bottom, show bots working, waiting on me, cleared today with my streak, and a countdown to the next routine. Use only real data from my bots and routines. If something is missing, show "unknown" instead of guessing. Then create a routine that refreshes this Page every hour on weekdays. If I want to share it, make a separate copy with mock data and label it example data.
+  Build me a wide Grok Bot Page called "Decisions Console" that shows only what needs me. You are my chief of staff: collect every decision my bots are waiting on me for. At the top, show a goal gauge for each of my divisions or main goals, with the goal, today's number, the target and the date. In the middle, a "Waiting on you" queue ranked by due time, then money at stake, then age. Each item shows the asking bot, the decision in one line, when it is due, how long it has waited and the money at stake, a Details toggle with the reason, and working Copy yes and Copy no buttons that copy a ready reply for that bot, showing Copied after a click and the text to select if the clipboard is blocked. Add a "Mark done" button that only hides the item on the Page, and say so next to it. Add a filter by division and a sort by due time, age or money. On the side, list my bots by division with a status dot (working, waiting on me, idle), a short log of anything waiting over 72 hours, and what I cleared today. At the bottom, show bots working, waiting on me, cleared today and a countdown to the next refresh. Use only real data from my bots and routines. If something is missing, show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Decisions Console" Page every hour on weekdays from 8 AM to 7 PM. Each run, ask every bot what decisions it waits on me for, rebuild the queue, gauges and roster with the same layout and copy buttons, move answered decisions to Cleared today, and message me only when a decision is due within an hour or has waited over 72 hours.
   ```
 
   </details>
 
-- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - A blueprint org chart of your bots: you at the top, Grok Bot as the chief of staff, the specialists it delegates to with status dots and dashed hand-offs, clickable bot cards with routines, and what waits on you with Copy yes and Copy no buttons (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-org-chart/](https://grokbotpages.com/t/bot-org-chart/).
   <details><summary>Prompt</summary>
 
   ```text
-  Make me a Grok Bot Page called "Bot Org Chart" that shows how my bots are organized. Put me at the top. Under me put my main Grok Bot, labeled "Chief of staff": it is the bot I talk to, and it delegates work to my specialist bots. Draw an arrow from it to each specialist bot. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, in the same shape and color as in my bot list, a one-line role, its routines with schedule and whether each is on or paused, its status (working, idle or waiting on me), and an Open chat link: a plain <a> with target="_top" and href grokbot://app/v1/agent?id=<that bot's id>. Fill it from my real bots, their descriptions and their routines, and don't invent anything. Add a routine that refreshes the Page every day at 8:00. If I want to share it, make a separate copy with mock bots and mock data, with no names, emails or other personal details, and label it example data.
+  Make me a wide Grok Bot Page called "Bot Org Chart" that shows how my bots are organized. Put me at the top. Under me put my main Grok Bot, labeled "Chief of staff": it is the bot I talk to, and it delegates work to my specialist bots. Draw an arrow from it to each specialist. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, a one-line role, its routines with their schedule, and its status (working, idle or waiting on me). Clicking a bot in the chart highlights its card. For every bot that waits on me, add a "Waiting on you" row with the question and working Copy yes and Copy no buttons that copy a ready reply for that bot, showing Copied after a click and the text to select if the clipboard is blocked. Fill it from my real bots, their descriptions and their routines, and don't invent anything.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Bot Org Chart" Page every day at 8:00 AM. Each run, read my bots, their descriptions, routines and statuses, ask which ones wait on me, and rebuild the chart, the hand-offs, the bot cards and the Waiting on you rows with the same layout and copy buttons. Only message me if a bot was added or removed.
   ```
 
   </details>
 
-- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - One Page showing what each bot is doing, what waits on you, and which routines run next (example data). Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - A dark, clean night office of your bots: working bots at desks with a speech bubble, idle bots in the lounge, a live clock with stat cards, what waits on you with Copy yes and Copy no buttons and an eye button that blurs each item, an activity timeline, upcoming routines and an activity heatmap (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) and [his video](https://youtu.be/Nk242TnA7-8) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control/](https://grokbotpages.com/t/mission-control/).
   <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
 
@@ -271,13 +292,27 @@ Newest listings, also shown in their section.
   ```
 
   </details>
+  <details><summary>Routine prompt (optional)</summary>
 
-- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - One dashboard of daily visits, signups and landing conversion, built from Agent Analytics data (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  ```text
+  Create a routine that refreshes my "Mission Control" Page every hour on weekdays from 8 AM to 8 PM. Each run, ask every bot what it is working on, what it finished and what it waits on me for, then rebuild the office, the three columns, the stat cards and the activity heatmap with the same layout. Drop questions I already answered. Message me only when something has waited on me for more than a day.
+  ```
+
+  </details>
+
+- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - A one-page analytics report from Agent Analytics: headline visits, signups and conversion, daily visits per site with a 7-day average and a site switch, weekly signups, a landing to signup funnel and suggested next steps with Copy yes and Copy no buttons (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/site-analytics-dashboard/](https://grokbotpages.com/t/site-analytics-dashboard/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Page called "Site Analytics Dashboard (example)" with realistic mock data for three fictional sites: acme-notes.app, Acme blog and Acme docs. For each site, show a card with total visits for the last 7 days as a big number, a one-line note comparing this week to the 30-day daily average, and a daily visits line chart over 30 days with a dashed 7-day average. Add a weekly signups columns card and a landing visitors to Start free clicks to signups funnel card. Label every card "Agent Analytics (example data)" and say once in the summary that all data is example data. End with a "Why Agent Analytics for this dashboard" section of 3 or 4 bullets taken from the agentanalytics.sh landing page, a "How to make this Page" section of steps (connect the Agent Analytics MCP, paste the prompt, ask for a daily refresh routine, share a mock-data copy), and a "Links" section of link cards for Agent Analytics (https://agentanalytics.sh), Grok Bot (https://x.ai/bot), Awesome Grok Bot Pages (https://github.com/Agent-Analytics/awesome-grok-bot-pages) and the setup guide (https://docs.agentanalytics.sh/installation/).
+  Build me a wide Grok Bot Page called "Site Analytics Dashboard" from my Agent Analytics data for the last 30 days. Connect the Agent Analytics MCP server at https://mcp.agentanalytics.sh/mcp first if it isn't connected. Start with one row of headline numbers: visits in the last 7 days across my sites with the change on the week before, signups in the last 30 days, and landing to call-to-action conversion. Then, per site, 7-day visits as a big number, a one-line note in plain English and a daily visits line with a dashed 7-day average, with a switch to show one site or all of them. Then a weekly signups chart and a landing, call-to-action click, signup funnel. End with up to 3 suggested next steps based on the numbers, each with working Copy yes and Copy no buttons that copy a ready reply for my bot, showing Copied after a click and the text to select if the clipboard is blocked. Use only real numbers; show "no data" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Site Analytics Dashboard" Page every day at 8:00 AM with fresh Agent Analytics data for the last 30 days, keeping the same layout, charts and copy buttons, and updating the suggested next steps. Message me only if visits or signups drop more than 30% against the 7-day average.
   ```
 
   </details>
@@ -286,7 +321,7 @@ Newest listings, also shown in their section.
 
 One screen for what your bots and projects are doing and what waits on you.
 
-- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - One Page showing what each bot is doing, what waits on you, and which routines run next (example data). Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - A dark, clean night office of your bots: working bots at desks with a speech bubble, idle bots in the lounge, a live clock with stat cards, what waits on you with Copy yes and Copy no buttons and an eye button that blurs each item, an activity timeline, upcoming routines and an activity heatmap (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) and [his video](https://youtu.be/Nk242TnA7-8) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control/](https://grokbotpages.com/t/mission-control/).
   <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
 
@@ -304,13 +339,27 @@ One screen for what your bots and projects are doing and what waits on you.
   ```
 
   </details>
+  <details><summary>Routine prompt (optional)</summary>
 
-- [Side Project Mission Control](https://side-project-mission-control-example-zxug.pages.grok.bot/) - One screen for a solo builder running a product with bots: site and deploy status, today's key numbers, a shipping queue, bot activity and a ranked list of what needs you (example data). Inspired by [Alex Finn's video](https://youtu.be/Nk242TnA7-8). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+  ```text
+  Create a routine that refreshes my "Mission Control" Page every hour on weekdays from 8 AM to 8 PM. Each run, ask every bot what it is working on, what it finished and what it waits on me for, then rebuild the office, the three columns, the stat cards and the activity heatmap with the same layout. Drop questions I already answered. Message me only when something has waited on me for more than a day.
+  ```
+
+  </details>
+
+- [Side Project Mission Control](https://side-project-mission-control-example-zxug.pages.grok.bot/) - One screen for a solo builder running a product with bots: site, deploy, PR and error status, a ranked Needs you list with two copy buttons per item for the reply, key numbers with sparklines, a shipping queue and bot activity (example data). Inspired by [Alex Finn's Mission Control post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/side-project-mission-control/](https://grokbotpages.com/t/side-project-mission-control/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Grok Bot Page called "Side Project Mission Control" for the product I run with my bots. Use whatever I have connected: GitHub (or my git host) for open PRs, the last deploy and CI, my analytics (for example the Agent Analytics MCP) for visits, signups and clicks on my main call-to-action, my uptime or error tracker if I have one, and my bots and routines for the activity feed. At the top, show a status strip: is the site up, the last deploy and whether it passed, open PRs with how many wait on me or fail CI, and new errors in the last 24 hours. Then show today's key numbers (visits, signups, CTA clicks) with a sparkline each, today's value and the change against the 7-day average, with a switch between 14 days and 24 hours and a hover readout. Then a "Needs you" list ranked by urgency: each item says which bot asks, what to do in one line, where to do it, about how long it takes, a Why toggle, and a "Hide here" button that only hides it on the Page (say so next to it); add a sort for most urgent or quickest first. Then a shipping queue in three columns, In review, Blocked and Done this week, with an area filter, a Show done toggle and a Details toggle per item. End with a bot activity feed filterable by bot. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty. Then create a routine that refreshes the Page every weekday morning.
+  Build me a wide Grok Bot Page called "Side Project Mission Control" for the product I run with my bots. Use whatever I have connected: GitHub (or my git host) for open PRs, the last deploy and CI, my analytics (for example the Agent Analytics MCP) for visits, signups and clicks on my main call-to-action, my uptime or error tracker if I have one, and my bots and routines for the activity feed. At the top, a status strip: is the site up, the last deploy and whether it passed, open PRs with how many wait on me or fail CI, and new errors in the last 24 hours. Then a "Needs you" list ranked by urgency: which bot asks, what to do in one line, where to do it and about how long it takes, a Why toggle, and two working copy buttons per item that copy a ready reply for that bot (for example Copy yes and Copy no), showing Copied after a click and the text to select if the clipboard is blocked. Add a sort for most urgent or quickest first. Then today's key numbers (visits, signups, CTA clicks) with a sparkline each and the change against the 7-day average, with a 14 days or 24 hours switch and a hover readout. Then a shipping queue in three columns, In review, Blocked and Done this week, with an area filter, a Show done toggle and a Details toggle per item. End with a bot activity feed I can filter by bot. Every control must really work; no buttons that do nothing. Anything not connected shows as empty instead of a guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Side Project Mission Control" Page every weekday at 8:30 AM. Each run, pull fresh status, numbers, PRs and bot activity, ask each bot what it needs from me, rebuild the Page with the same layout and copy buttons, and drop items I already handled. Message me only if the site is down or a deploy failed.
   ```
 
   </details>
@@ -393,12 +442,19 @@ Dashboards and metrics.
 
 Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanalytics.sh), which has an MCP server (`https://mcp.agentanalytics.sh/mcp`) so Grok Bot can pull real site stats into a Page. [Setup guide](https://docs.agentanalytics.sh/installation/). Any analytics provider is welcome.
 
-- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - One dashboard of daily visits, signups and landing conversion, built from Agent Analytics data (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - A one-page analytics report from Agent Analytics: headline visits, signups and conversion, daily visits per site with a 7-day average and a site switch, weekly signups, a landing to signup funnel and suggested next steps with Copy yes and Copy no buttons (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/site-analytics-dashboard/](https://grokbotpages.com/t/site-analytics-dashboard/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a wide Page called "Site Analytics Dashboard (example)" with realistic mock data for three fictional sites: acme-notes.app, Acme blog and Acme docs. For each site, show a card with total visits for the last 7 days as a big number, a one-line note comparing this week to the 30-day daily average, and a daily visits line chart over 30 days with a dashed 7-day average. Add a weekly signups columns card and a landing visitors to Start free clicks to signups funnel card. Label every card "Agent Analytics (example data)" and say once in the summary that all data is example data. End with a "Why Agent Analytics for this dashboard" section of 3 or 4 bullets taken from the agentanalytics.sh landing page, a "How to make this Page" section of steps (connect the Agent Analytics MCP, paste the prompt, ask for a daily refresh routine, share a mock-data copy), and a "Links" section of link cards for Agent Analytics (https://agentanalytics.sh), Grok Bot (https://x.ai/bot), Awesome Grok Bot Pages (https://github.com/Agent-Analytics/awesome-grok-bot-pages) and the setup guide (https://docs.agentanalytics.sh/installation/).
+  Build me a wide Grok Bot Page called "Site Analytics Dashboard" from my Agent Analytics data for the last 30 days. Connect the Agent Analytics MCP server at https://mcp.agentanalytics.sh/mcp first if it isn't connected. Start with one row of headline numbers: visits in the last 7 days across my sites with the change on the week before, signups in the last 30 days, and landing to call-to-action conversion. Then, per site, 7-day visits as a big number, a one-line note in plain English and a daily visits line with a dashed 7-day average, with a switch to show one site or all of them. Then a weekly signups chart and a landing, call-to-action click, signup funnel. End with up to 3 suggested next steps based on the numbers, each with working Copy yes and Copy no buttons that copy a ready reply for my bot, showing Copied after a click and the text to select if the clipboard is blocked. Use only real numbers; show "no data" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Site Analytics Dashboard" Page every day at 8:00 AM with fresh Agent Analytics data for the last 30 days, keeping the same layout, charts and copy buttons, and updating the suggested next steps. Message me only if visits or signups drop more than 30% against the 7-day average.
   ```
 
   </details>
@@ -413,12 +469,19 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 Decisions your bots are waiting on you for.
 
-- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots are waiting on you for, ranked by due time, money at stake and age, with division goal gauges, a bot roster and a stale-items log. Filter, sort, open details and hide items; on your own copy each item gets an Open chat link to the asking bot (example data). Inspired by [Jordan Rafealov's video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots wait on you for, ranked by due time, money at stake and age, each with Copy yes and Copy no buttons, plus division goal gauges, a bot roster, a 72-hour stale log and what you cleared today (example data). Inspired by [Jordan Rafealov's post on X](https://x.com/JordanRafealov/status/2116152545274147218) and [his video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/decisions-console/](https://grokbotpages.com/t/decisions-console/).
   <details><summary>Prompt</summary>
 
   ```text
-  Build me a Grok Bot Page called "Decisions Console" that shows only what needs me. You are my chief of staff: collect every decision my bots are waiting on me for. At the top, show a goal gauge for each of my divisions or main goals, with the goal, today's number, the target and the date. In the middle, show a "Waiting on you" queue ranked by due time, then money at stake, then age. Each item shows the asking bot, the decision in one line, when it is due and how long it has waited. Give each item an "Open chat" link to the asking bot: a plain <a> with target="_top" and href grokbot://app/v1/agent?id=<that bot's id>. Also give it a Details toggle with the reason and the source, and a "Mark done" button. A Page can't answer a bot, so Mark done only hides the item on the Page, and the Page must say so next to the buttons. Add a filter by division and a sort by due time, age or money. On the side, list my bots by division with a status dot (working, waiting on me, idle) and a short log of anything waiting over 72 hours. At the bottom, show bots working, waiting on me, cleared today with my streak, and a countdown to the next routine. Use only real data from my bots and routines. If something is missing, show "unknown" instead of guessing. Then create a routine that refreshes this Page every hour on weekdays. If I want to share it, make a separate copy with mock data and label it example data.
+  Build me a wide Grok Bot Page called "Decisions Console" that shows only what needs me. You are my chief of staff: collect every decision my bots are waiting on me for. At the top, show a goal gauge for each of my divisions or main goals, with the goal, today's number, the target and the date. In the middle, a "Waiting on you" queue ranked by due time, then money at stake, then age. Each item shows the asking bot, the decision in one line, when it is due, how long it has waited and the money at stake, a Details toggle with the reason, and working Copy yes and Copy no buttons that copy a ready reply for that bot, showing Copied after a click and the text to select if the clipboard is blocked. Add a "Mark done" button that only hides the item on the Page, and say so next to it. Add a filter by division and a sort by due time, age or money. On the side, list my bots by division with a status dot (working, waiting on me, idle), a short log of anything waiting over 72 hours, and what I cleared today. At the bottom, show bots working, waiting on me, cleared today and a countdown to the next refresh. Use only real data from my bots and routines. If something is missing, show "unknown" instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Decisions Console" Page every hour on weekdays from 8 AM to 7 PM. Each run, ask every bot what decisions it waits on me for, rebuild the queue, gauges and roster with the same layout and copy buttons, move answered decisions to Cleared today, and message me only when a decision is due within an hour or has waited over 72 hours.
   ```
 
   </details>
@@ -444,12 +507,19 @@ Decisions your bots are waiting on you for.
 
 Org charts, roles and hand-offs between your bots.
 
-- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - An org chart of your bots: you at the top, Grok Bot as the chief of staff you talk to, the specialist bots it delegates to, their routines and status, and dashed hand-offs between them (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)).
+- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - A blueprint org chart of your bots: you at the top, Grok Bot as the chief of staff, the specialists it delegates to with status dots and dashed hand-offs, clickable bot cards with routines, and what waits on you with Copy yes and Copy no buttons (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-org-chart/](https://grokbotpages.com/t/bot-org-chart/).
   <details><summary>Prompt</summary>
 
   ```text
-  Make me a Grok Bot Page called "Bot Org Chart" that shows how my bots are organized. Put me at the top. Under me put my main Grok Bot, labeled "Chief of staff": it is the bot I talk to, and it delegates work to my specialist bots. Draw an arrow from it to each specialist bot. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, in the same shape and color as in my bot list, a one-line role, its routines with schedule and whether each is on or paused, its status (working, idle or waiting on me), and an Open chat link: a plain <a> with target="_top" and href grokbot://app/v1/agent?id=<that bot's id>. Fill it from my real bots, their descriptions and their routines, and don't invent anything. Add a routine that refreshes the Page every day at 8:00. If I want to share it, make a separate copy with mock bots and mock data, with no names, emails or other personal details, and label it example data.
+  Make me a wide Grok Bot Page called "Bot Org Chart" that shows how my bots are organized. Put me at the top. Under me put my main Grok Bot, labeled "Chief of staff": it is the bot I talk to, and it delegates work to my specialist bots. Draw an arrow from it to each specialist. Draw a dashed line between two bots only where one really hands work to the other, and list those hand-offs under the chart. Give each bot a simple blob avatar with two eyes, a one-line role, its routines with their schedule, and its status (working, idle or waiting on me). Clicking a bot in the chart highlights its card. For every bot that waits on me, add a "Waiting on you" row with the question and working Copy yes and Copy no buttons that copy a ready reply for that bot, showing Copied after a click and the text to select if the clipboard is blocked. Fill it from my real bots, their descriptions and their routines, and don't invent anything.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine that refreshes my "Bot Org Chart" Page every day at 8:00 AM. Each run, read my bots, their descriptions, routines and statuses, ask which ones wait on me, and rebuild the chart, the hand-offs, the bot cards and the Waiting on you rows with the same layout and copy buttons. Only message me if a bot was added or removed.
   ```
 
   </details>
