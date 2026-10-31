@@ -1,3 +1,13 @@
+<p align="center">
+  <a href="https://grokbotpages.com/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.png">
+      <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.png">
+      <img alt="A fanned hand of example Grok Bot Pages, with Mission Control: Two Lists in front" src="assets/hero-light.png" width="100%">
+    </picture>
+  </a>
+</p>
+
 # Awesome Grok Bot Pages [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 > A curated list of public Grok Bot Pages: dashboards, trackers, tools and reports built with Grok Bot.
@@ -223,7 +233,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Side Project Mission Control](https://side-project-mission-control-example-zxug.pages.grok.bot/) - One screen for a solo builder running a product with bots: site, deploy, PR and error status, a ranked Needs you list with two copy buttons per item for the reply, key numbers with sparklines, a shipping queue and bot activity (example data). Inspired by [Alex Finn's Mission Control post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Side Project Mission Control](https://side-project-mission-control-example-zxug.pages.grok.bot/) - One screen for a solo builder running a product with bots: site, deploy, PR and error status, a ranked Needs you list with two copy buttons per item for the reply, key numbers with sparklines, a shipping queue and bot activity (example data). Inspired by [Alex Finn's Mission Control post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/side-project-mission-control/](https://grokbotpages.com/t/side-project-mission-control/).
   <details><summary>Prompt</summary>
 
@@ -240,7 +250,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots wait on you for, ranked by due time, money at stake and age, each with Copy yes and Copy no buttons, plus division goal gauges, a bot roster, a 72-hour stale log and what you cleared today (example data). Inspired by [Jordan Rafealov's post on X](https://x.com/JordanRafealov/status/2116152545274147218) and [his video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots wait on you for, ranked by due time, money at stake and age, each with Copy yes and Copy no buttons, plus division goal gauges, a bot roster, a 72-hour stale log and what you cleared today (example data). Inspired by [Jordan Rafealov's post on X](https://x.com/JordanRafealov/status/2116152545274147218) ([@JordanRafealov](https://x.com/JordanRafealov)). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/decisions-console/](https://grokbotpages.com/t/decisions-console/).
   <details><summary>Prompt</summary>
 
@@ -257,7 +267,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - A blueprint org chart of your bots: you at the top, Grok Bot as the chief of staff, the specialists it delegates to with status dots and dashed hand-offs, clickable bot cards with routines, and what waits on you with Copy yes and Copy no buttons (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - A blueprint org chart of your bots: you at the top, Grok Bot as the chief of staff, the specialists it delegates to with status dots and dashed hand-offs, clickable bot cards with routines, and what waits on you with Copy yes and Copy no buttons (example data). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-org-chart/](https://grokbotpages.com/t/bot-org-chart/).
   <details><summary>Prompt</summary>
 
@@ -274,7 +284,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - A dark, clean night office of your bots: working bots at desks with a speech bubble, idle bots in the lounge, a live clock with stat cards, what waits on you with Copy yes and Copy no buttons and an eye button that blurs each item, an activity timeline, upcoming routines and an activity heatmap (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) and [his video](https://youtu.be/Nk242TnA7-8) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - A dark, clean night office of your bots: working bots at desks with a speech bubble, idle bots in the lounge, a live clock with stat cards, what waits on you with Copy yes and Copy no buttons and an eye button that blurs each item, an activity timeline, upcoming routines and an activity heatmap (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control/](https://grokbotpages.com/t/mission-control/).
   <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
 
@@ -300,7 +310,7 @@ Newest listings, also shown in their section.
 
   </details>
 
-- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - A one-page analytics report from Agent Analytics: headline visits, signups and conversion, daily visits per site with a 7-day average and a site switch, weekly signups, a landing to signup funnel and suggested next steps with Copy yes and Copy no buttons (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - A one-page analytics report from Agent Analytics: headline visits, signups and conversion, daily visits per site with a 7-day average and a site switch, weekly signups, a landing to signup funnel and suggested next steps with Copy yes and Copy no buttons (example data). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/site-analytics-dashboard/](https://grokbotpages.com/t/site-analytics-dashboard/).
   <details><summary>Prompt</summary>
 
@@ -321,7 +331,7 @@ Newest listings, also shown in their section.
 
 One screen for what your bots and projects are doing and what waits on you.
 
-- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - A dark, clean night office of your bots: working bots at desks with a speech bubble, idle bots in the lounge, a live clock with stat cards, what waits on you with Copy yes and Copy no buttons and an eye button that blurs each item, an activity timeline, upcoming routines and an activity heatmap (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) and [his video](https://youtu.be/Nk242TnA7-8) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - A dark, clean night office of your bots: working bots at desks with a speech bubble, idle bots in the lounge, a live clock with stat cards, what waits on you with Copy yes and Copy no buttons and an eye button that blurs each item, an activity timeline, upcoming routines and an activity heatmap (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control/](https://grokbotpages.com/t/mission-control/).
   <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
 
@@ -347,7 +357,7 @@ One screen for what your bots and projects are doing and what waits on you.
 
   </details>
 
-- [Side Project Mission Control](https://side-project-mission-control-example-zxug.pages.grok.bot/) - One screen for a solo builder running a product with bots: site, deploy, PR and error status, a ranked Needs you list with two copy buttons per item for the reply, key numbers with sparklines, a shipping queue and bot activity (example data). Inspired by [Alex Finn's Mission Control post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Side Project Mission Control](https://side-project-mission-control-example-zxug.pages.grok.bot/) - One screen for a solo builder running a product with bots: site, deploy, PR and error status, a ranked Needs you list with two copy buttons per item for the reply, key numbers with sparklines, a shipping queue and bot activity (example data). Inspired by [Alex Finn's Mission Control post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/side-project-mission-control/](https://grokbotpages.com/t/side-project-mission-control/).
   <details><summary>Prompt</summary>
 
@@ -442,7 +452,7 @@ Dashboards and metrics.
 
 Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanalytics.sh), which has an MCP server (`https://mcp.agentanalytics.sh/mcp`) so Grok Bot can pull real site stats into a Page. [Setup guide](https://docs.agentanalytics.sh/installation/). Any analytics provider is welcome.
 
-- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - A one-page analytics report from Agent Analytics: headline visits, signups and conversion, daily visits per site with a 7-day average and a site switch, weekly signups, a landing to signup funnel and suggested next steps with Copy yes and Copy no buttons (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Site Analytics Dashboard](https://site-analytics-dashboard-example-xahy.pages.grok.bot/) - A one-page analytics report from Agent Analytics: headline visits, signups and conversion, daily visits per site with a 7-day average and a site switch, weekly signups, a landing to signup funnel and suggested next steps with Copy yes and Copy no buttons (example data). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/site-analytics-dashboard/](https://grokbotpages.com/t/site-analytics-dashboard/).
   <details><summary>Prompt</summary>
 
@@ -469,7 +479,7 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 Decisions your bots are waiting on you for.
 
-- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots wait on you for, ranked by due time, money at stake and age, each with Copy yes and Copy no buttons, plus division goal gauges, a bot roster, a 72-hour stale log and what you cleared today (example data). Inspired by [Jordan Rafealov's post on X](https://x.com/JordanRafealov/status/2116152545274147218) and [his video](https://www.youtube.com/watch?v=UClMrBShiYc) ([@JordanRafealov](https://x.com/JordanRafealov)). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots wait on you for, ranked by due time, money at stake and age, each with Copy yes and Copy no buttons, plus division goal gauges, a bot roster, a 72-hour stale log and what you cleared today (example data). Inspired by [Jordan Rafealov's post on X](https://x.com/JordanRafealov/status/2116152545274147218) ([@JordanRafealov](https://x.com/JordanRafealov)). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/decisions-console/](https://grokbotpages.com/t/decisions-console/).
   <details><summary>Prompt</summary>
 
@@ -507,7 +517,7 @@ Decisions your bots are waiting on you for.
 
 Org charts, roles and hand-offs between your bots.
 
-- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - A blueprint org chart of your bots: you at the top, Grok Bot as the chief of staff, the specialists it delegates to with status dots and dashed hand-offs, clickable bot cards with routines, and what waits on you with Copy yes and Copy no buttons (example data). By Danny Shmueli ([@dannyshmueli](https://github.com/dannyshmueli)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - A blueprint org chart of your bots: you at the top, Grok Bot as the chief of staff, the specialists it delegates to with status dots and dashed hand-offs, clickable bot cards with routines, and what waits on you with Copy yes and Copy no buttons (example data). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-org-chart/](https://grokbotpages.com/t/bot-org-chart/).
   <details><summary>Prompt</summary>
 
