@@ -108,8 +108,18 @@ const emptyContrast = await page.evaluate(() => {
 });
 check('selected empty chip contrast', emptyContrast.pressed === 'true' && emptyContrast.visible && emptyContrast.empty && emptyContrast.text >= 4.5 && emptyContrast.count >= 4.5, `text ${emptyContrast.text.toFixed(2)}:1 ${emptyContrast.fg} on ${emptyContrast.bg}, count ${emptyContrast.count.toFixed(2)}:1 ${emptyContrast.cfg}`);
 await page.goto(base + '/', { waitUntil: 'networkidle' });
-// copy buttons
+// copy buttons. A creator showcase with no shared prompt has no copy button.
+const showcase = d.entries.find((e) => e.slug === 'news-pulse-docs');
+check(
+  'News Pulse Docs is a Research creator showcase without a prompt',
+  showcase?.prompt == null && showcase?.categories.includes('Research') && d.entries[0]?.slug === 'news-pulse-docs' && showcase?.by?.[0]?.name === 'Robert Scoble',
+  showcase ? `${showcase.categories.join(',')} prompt=${showcase.prompt}` : 'missing',
+);
 for (const e of d.entries) {
+  if (!e.prompt) {
+    check(`no copy button ${e.slug}`, (await page.locator(`[data-copy="${e.slug}"]`).count()) === 0);
+    continue;
+  }
   await page.evaluate(() => navigator.clipboard.writeText(''));
   await page.click(`[data-cats] [data-copy="${e.slug}"]`);
   await page.waitForTimeout(150);
@@ -155,6 +165,13 @@ await page.goto(base + '/t/mission-control/', { waitUntil: 'networkidle' });
 await page.click('.codeh [data-copy="mission-control"]');
 await page.waitForTimeout(150);
 check('detail page copy prompt', (await page.evaluate(() => navigator.clipboard.readText())) === d.entries.find((e) => e.slug === 'mission-control').prompt);
+await page.goto(base + '/t/news-pulse-docs/', { waitUntil: 'networkidle' });
+const unshared = await page.locator('.dbody .code pre').first().innerText();
+check(
+  "creator showcase detail says the creator hasn't shared the prompt",
+  unshared === "The creator hasn't shared the prompt." && (await page.locator('[data-copy="news-pulse-docs"]').count()) === 0,
+  unshared,
+);
 // keyboard focus visible on a chip
 await page.goto(base + '/', { waitUntil: 'networkidle' });
 if (await page.locator('[data-more-cats]').isVisible()) await page.click('[data-more-cats]');
@@ -284,7 +301,7 @@ for (const pathName of paths) {
     if (featured.length !== 1 || featured[0].page_slug !== d.entries[0].slug) problems.push('featured');
     const grid = tracks.filter((t) => t.event === 'template_opened' && t.position === 'grid');
     if (grid.length !== d.entries.length - 1) problems.push('grid ' + grid.length);
-    if (tracks.filter((t) => t.event === 'prompt_copied' && t.position === 'card').length !== d.entries.length) problems.push('card copies');
+    if (tracks.filter((t) => t.event === 'prompt_copied' && t.position === 'card').length !== d.entries.filter((e) => e.prompt).length) problems.push('card copies');
     if (!tracks.some((t) => t.event === 'snippet_copied' && t.position === 'section_button')) problems.push('section_button');
     if (!tracks.some((t) => t.event === 'snippet_copied' && t.position === 'code_header')) problems.push('code_header');
     if (tracks.filter((t) => t.event === 'get_listed_clicked' && t.target === 'open_pr').length !== 1) problems.push('open_pr');
@@ -293,8 +310,12 @@ for (const pathName of paths) {
       const n = tracks.filter((t) => t.event === 'template_opened' && t.position === position && t.page_slug === detailSlug).length;
       if (n !== 1) problems.push(position + ' ' + n);
     }
-    for (const position of ['detail_top', 'prompt_block']) {
-      if (!tracks.some((t) => t.event === 'prompt_copied' && t.position === position && t.page_slug === detailSlug)) problems.push('copy ' + position);
+    if (entryBySlug[detailSlug].prompt) {
+      for (const position of ['detail_top', 'prompt_block']) {
+        if (!tracks.some((t) => t.event === 'prompt_copied' && t.position === position && t.page_slug === detailSlug)) problems.push('copy ' + position);
+      }
+    } else if (tracks.some((t) => t.event === 'prompt_copied')) {
+      problems.push('unshared prompt has a copy button');
     }
     const related = tracks.filter((t) => t.event === 'related_clicked');
     if (related.length !== siblingsOf(entryBySlug[detailSlug]).length) problems.push('related count ' + related.length);
@@ -366,9 +387,10 @@ await clearAa(ap);
 await fire(ap, 'article.feat a[data-track="template_opened"]');
 await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: d.entries[0].slug, position: 'featured' } }], 'featured open fires template_opened only');
 await clearAa(ap);
-await ap.click(`article.feat [data-copy="${d.entries[0].slug}"]`);
+const copied = d.entries.find((e) => e.prompt);
+await ap.click(`[data-copy="${copied.slug}"]`);
 await ap.waitForTimeout(150);
-await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: d.entries[0].slug, position: 'card', success: true } }], 'card copy fires one prompt_copied after success');
+await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: copied.slug, position: 'card', success: true } }], 'card copy fires one prompt_copied after success');
 await clearAa(ap);
 await ap.click('.gl .glb [data-copy="snippet"]');
 await ap.waitForTimeout(150);
@@ -380,7 +402,7 @@ await clearAa(ap);
 await fire(ap, 'header a[data-track="outbound_clicked"]');
 const headerHref = await ap.getAttribute('header a[data-track="outbound_clicked"]', 'href');
 await expectEvents(ap, [{ name: 'outbound_clicked', props: { target_url: headerHref, target_type: targetType(headerHref), position: 'header' } }], 'header external link fires outbound_clicked only');
-const withRelated = d.entries.find((e) => siblingsOf(e).length > 0);
+const withRelated = d.entries.find((e) => e.prompt && siblingsOf(e).length > 0);
 const detailEntry = withRelated || d.entries[0];
 if (!detailEntry) {
   console.log('SKIP  related link fires related_clicked only  the list has no entries');

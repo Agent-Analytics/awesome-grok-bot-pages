@@ -39,8 +39,8 @@ function parseEntries(body) {
     const [, title, url, line, rest] = m;
     const sum = rest.match(/<summary>([\s\S]*?)<\/summary>/);
     const code = rest.match(/```text\n([\s\S]*?)```/);
-    if (!code) throw new Error(`No prompt block for ${title}`);
-    const prompt = code[1].split('\n').map((l) => l.replace(/^ {2}/, '')).join('\n').trim();
+    // A creator showcase omits the prompt block when the creator never shared one.
+    const prompt = code ? code[1].split('\n').map((l) => l.replace(/^ {2}/, '')).join('\n').trim() : null;
     const rcode = rest.match(/<summary>Routine prompt[^<]*<\/summary>\s*```text\n([\s\S]*?)```/);
     const routine = rcode ? rcode[1].split('\n').map((l) => l.replace(/^ {2}/, '')).join('\n').trim() : null;
     let promptSource = null;
@@ -49,16 +49,16 @@ function parseEntries(body) {
       if (a) promptSource = { by: a[1].trim(), url: a[2], text: a[3] };
     }
     // split the entry line into description, Inspired by, By, Example Page by
-    const marks = [...line.matchAll(/(?:^|\.\s)(Inspired by |By |Example Page by )/g)];
+    const marks = [...line.matchAll(/(?:^|\.\s)(Inspired by |Shared in |By |Example Page by )/g)];
     const desc = (marks.length ? line.slice(0, marks[0].index + 1) : line).trim();
     let inspired = null, by = [], pageBy = null;
     marks.forEach((mk, i) => {
       const start = mk.index + mk[0].length;
       const end = i + 1 < marks.length ? marks[i + 1].index + 1 : line.length;
       const seg = line.slice(start, end).trim().replace(/\.$/, '');
-      if (mk[1] === 'Inspired by ') {
+      if (mk[1] === 'Inspired by ' || mk[1] === 'Shared in ') {
         const links = mdLinks(seg);
-        inspired = { source: links[0], handles: links.slice(1).map(handleOf) };
+        inspired = { source: links[0], handles: links.slice(1).map(handleOf), label: mk[1].trim() };
       } else if (mk[1] === 'By ') by = seg.split(/\),\s*(?=[A-Z])/).map((s, j, a) => person(j < a.length - 1 ? s + ')' : s));
       else pageBy = person(seg);
     });

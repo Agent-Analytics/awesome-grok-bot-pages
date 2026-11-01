@@ -350,5 +350,21 @@
       390,
       2860
     ]
+  },
+  "news-pulse-docs": {
+    "url": "https://news-pulse-docs-4g7j.pages.grok.bot/",
+    "captured": "2026-11-01T16:14:44.231Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      16310
+    ],
+    "mobile": [
+      390,
+      10819
+    ]
   }
 }
