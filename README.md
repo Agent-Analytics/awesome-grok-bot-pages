@@ -46,8 +46,15 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [News Pulse Docs](https://news-pulse-docs-4g7j.pages.grok.bot/) - A link hub for hourly news digests across 20 topic pulses plus a Top 20 Right Now, from world news and AI to robotics, neuroscience and EVs, each with a Latest edition and full Archive as a Google Doc and PDF, an RSS feed per pulse and an open JSON API (live public data). Shared in [Robert Scoble's post on X](https://x.com/Scobleizer/status/2116623281797370154). By Robert Scoble ([@Scobleizer](https://x.com/Scobleizer)).
-  Template page: [grokbotpages.com/t/news-pulse-docs/](https://grokbotpages.com/t/news-pulse-docs/).
+- [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "News Pulse" from public X posts. Topics: AI, Robotics, Tesla & EV and World News (swap in 3 to 5 topics of your own). For each topic, find the most important stories from the last 3 days, posted by news outlets, companies and well-known public figures, never private individuals. Each story gets a short headline in your own words, a one-line why it matters, the source account, when it was posted, its engagement (likes, reposts, replies and views) and a link to the original X post. Keep everything on the Page itself: no links out except to the X posts. Never invent a post, number or quote. At the top, four numbers: stories, accounts, total engagement and how long ago the newest post went up, then one line on the most engaged story. Then a Top 10 right now across all topics with a Top 5 or Top 10 switch, a timeline of when each story broke, and the topic pulses with a topic switch that shows counts. Add a time window switch (6 hours, 24 hours, 3 days) that updates every number, count and list, and a sort for Most engaged, Newest and Most viewed. Label the Page "Live X data as of" the time you pulled it. Every control must really work on the Page; no buttons that do nothing. A topic with nothing in the window says so instead of a guess. Then create a routine that rebuilds the Page every 3 hours.
+  ```
+
+  </details>
 
 - [Revenue, last week](https://revenue-last-week-example-4v3c.pages.grok.bot/) - Booked revenue against plan by segment for last week, with the deals that slipped and why (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/revenue-last-week/](https://grokbotpages.com/t/revenue-last-week/).
@@ -755,8 +762,15 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 Explainers and sourced reports.
 
-- [News Pulse Docs](https://news-pulse-docs-4g7j.pages.grok.bot/) - A link hub for hourly news digests across 20 topic pulses plus a Top 20 Right Now, from world news and AI to robotics, neuroscience and EVs, each with a Latest edition and full Archive as a Google Doc and PDF, an RSS feed per pulse and an open JSON API (live public data). Shared in [Robert Scoble's post on X](https://x.com/Scobleizer/status/2116623281797370154). By Robert Scoble ([@Scobleizer](https://x.com/Scobleizer)).
-  Template page: [grokbotpages.com/t/news-pulse-docs/](https://grokbotpages.com/t/news-pulse-docs/).
+- [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "News Pulse" from public X posts. Topics: AI, Robotics, Tesla & EV and World News (swap in 3 to 5 topics of your own). For each topic, find the most important stories from the last 3 days, posted by news outlets, companies and well-known public figures, never private individuals. Each story gets a short headline in your own words, a one-line why it matters, the source account, when it was posted, its engagement (likes, reposts, replies and views) and a link to the original X post. Keep everything on the Page itself: no links out except to the X posts. Never invent a post, number or quote. At the top, four numbers: stories, accounts, total engagement and how long ago the newest post went up, then one line on the most engaged story. Then a Top 10 right now across all topics with a Top 5 or Top 10 switch, a timeline of when each story broke, and the topic pulses with a topic switch that shows counts. Add a time window switch (6 hours, 24 hours, 3 days) that updates every number, count and list, and a sort for Most engaged, Newest and Most viewed. Label the Page "Live X data as of" the time you pulled it. Every control must really work on the Page; no buttons that do nothing. A topic with nothing in the window says so instead of a guess. Then create a routine that rebuilds the Page every 3 hours.
+  ```
+
+  </details>
 
 - [Competitor watch](https://competitor-watch-example-bvhl.pages.grok.bot/) - Every price change and launch from 5 competitors, checked daily against their own pages (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/competitor-watch/](https://grokbotpages.com/t/competitor-watch/).
@@ -836,7 +850,7 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
 - The Page follows the Grok Bot Pages content rules.
 - The Page has real data or a working control, and no placeholder text.
 - The entry credits a name plus a GitHub handle, an X handle, or both.
-- The entry includes the prompt used to build the Page, with no private details. A creator showcase whose creator has not shared a prompt is listed without a Prompt block, and its page says the creator hasn't shared the prompt.
+- The entry includes the prompt used to build the Page, with no private details.
 - The contributor starred this repository before opening the pull request.
 - The "Made with Grok Bot" backlink footer is strongly requested but not required.
 - Pages that go private or get deleted are removed.
@@ -863,7 +877,7 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
 ````
 
 - A name is required, plus at least one of a GitHub handle or an X handle. Both are fine.
-- The prompt block is required, except for a creator showcase whose creator has not shared a prompt. Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
+- The prompt block is required. Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
 - An optional `Inspired by [source](url).` can go before `By`.
 - An optional `Routine prompt (optional)` block can follow the prompt block, in the same format, with a prompt for a routine that keeps the Page updated.
 - The `Template page` line links the entry's page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`. The page goes live once the pull request is merged.

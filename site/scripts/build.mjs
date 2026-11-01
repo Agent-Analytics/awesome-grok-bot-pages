@@ -59,7 +59,7 @@ const handles = (hs) => hs.map((h) => outbound(h.url, esc(h.handle), 'credit')).
 const personInline = (p) => `${esc(p.name)}${p.handles.length ? ' ' + handles(p.handles) : ''}`;
 function creditLine(e) {
   const parts = [];
-  if (e.inspired) parts.push(`${esc(e.inspired.label || 'Inspired by')} ${outbound(e.inspired.source.url, esc(e.inspired.source.text), 'credit')}${e.inspired.handles.length ? ' (' + handles(e.inspired.handles) + ')' : ''}`);
+  if (e.inspired) parts.push(`Inspired by ${outbound(e.inspired.source.url, esc(e.inspired.source.text), 'credit')}${e.inspired.handles.length ? ' (' + handles(e.inspired.handles) + ')' : ''}`);
   if (e.by.length) parts.push('By ' + e.by.map(personInline).join(', '));
   if (e.pageBy) parts.push('Example Page by ' + personInline(e.pageBy));
   return parts.join(' · ');
@@ -67,7 +67,7 @@ function creditLine(e) {
 const tags = (e) => e.categories.map((c) => `<a class="tag" href="/#c=${catSlug(c)}" data-track="category_filtered" data-category="${catSlug(c)}" data-source="link">${esc(c)}</a>`).join(' ') + (e.exampleData ? '<span class="ex">Example data</span>' : '');
 const aaLine = (e) => (isAA(e) ? `<p class="aa">Data from ${outbound(AA, 'Agent Analytics', 'credit')}, recommended for dashboard data.</p>` : '');
 const shotImg = (e, cls = '', eager = false) => `<img src="/shots/${e.slug}.webp" width="960" height="600" alt="Screenshot of the ${esc(e.title)} Page"${eager ? '' : ' loading="lazy"'} decoding="async"${cls ? ` class="${cls}"` : ''}>`;
-const actions = (e, sm, livePosition) => `<div class="act">${liveLink(e, 'Open Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', livePosition, 'btn pri' + sm)}${e.prompt ? copyButton(e.slug, 'card', 'Copy prompt', 'btn' + sm) : ''}<a class="btn ghost${sm}" href="/t/${e.slug}/">Details<span class="sr-only"> for ${esc(e.title)}</span></a></div>`;
+const actions = (e, sm, livePosition) => `<div class="act">${liveLink(e, 'Open Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', livePosition, 'btn pri' + sm)}${copyButton(e.slug, 'card', 'Copy prompt', 'btn' + sm)}<a class="btn ghost${sm}" href="/t/${e.slug}/">Details<span class="sr-only"> for ${esc(e.title)}</span></a></div>`;
 const dataBlob = (obj) => `<script type="application/json" id="site-data">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 
 function layout({ title, description, pathName, body, data }) {
@@ -148,7 +148,7 @@ function home() {
 <p class="lbl" data-all-only>Newest addition</p>
 <article class="feat" data-cats="${cats(newest)}"><a class="shot" href="/t/${newest.slug}/" tabindex="-1" aria-hidden="true">${shotImg(newest, '', true)}</a><div class="body"><div>${tags(newest)}</div>
 <h3><a href="/t/${newest.slug}/">${esc(newest.title)}</a></h3><p>${esc(newest.short)}</p><p class="cr">${creditLine(newest)}</p>${aaLine(newest)}
-${newest.prompt ? `<div class="pv" aria-hidden="true">${esc(newest.prompt)}</div>` : ''}${actions(newest, '', 'featured')}</div></article>
+<div class="pv" aria-hidden="true">${esc(newest.prompt)}</div>${actions(newest, '', 'featured')}</div></article>
 <p class="lbl" data-all-only>All templates</p>
 <ul class="grid">${rest.map(card).join('')}</ul>
 <div class="empty-state" id="empty" hidden><p>No Pages in <strong data-empty-name></strong> yet.</p><a class="btn pri" href="#get-listed">Add yours</a></div>
@@ -158,7 +158,7 @@ ${getListed()}`;
     title: 'grokbotpages.com: Grok Bot Pages templates with their prompts',
     description: `Live public Grok Bot Pages and the exact prompts that built them. ${d.entries.length} templates: ${d.entries.map((e) => e.title).join(', ')}.`,
     pathName: '/', body,
-    data: { snippet: d.snippet, prompts: Object.fromEntries(d.entries.filter((e) => e.prompt).map((e) => [e.slug, e.prompt])) },
+    data: { snippet: d.snippet, prompts: Object.fromEntries(d.entries.map((e) => [e.slug, e.prompt])) },
   });
 }
 
@@ -177,19 +177,19 @@ function detail(e) {
   const body = `<div class="wrap">
 <nav class="crumb" aria-label="Breadcrumb"><a href="/">Templates</a> / <a href="/#c=${catSlug(cat)}">${esc(cat)}</a> / <span aria-current="page">${esc(e.title)}</span></nav>
 <div class="dtop"><div><div>${tags(e)}</div><h1>${esc(e.title)}</h1><p>${esc(e.description)}</p>${aaLine(e)}</div>
-<div class="cta">${e.prompt ? copyButton(e.slug, 'detail_top', 'Copy prompt', 'btn') : ''}${liveLink(e, 'Open live Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', 'detail_top', 'btn pri')}</div></div>
+<div class="cta">${copyButton(e.slug, 'detail_top', 'Copy prompt', 'btn')}${liveLink(e, 'Open live Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', 'detail_top', 'btn pri')}</div></div>
 <figure class="frame"><div class="chrome" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">${esc(host)}</span></div>
 <div class="viewport" tabindex="0" role="region" aria-label="Full-page screenshot of ${esc(e.title)}, scrollable"><img src="/shots/${e.slug}-full.webp" alt="Full-page screenshot of the ${esc(e.title)} Page in dark mode" loading="eager" decoding="async"></div>
 <figcaption>Screenshot of the live Page in dark mode. ${liveLink(e, 'Open the live Page', 'caption')} to use it.</figcaption></figure>
-<div class="dbody"><div>${e.prompt ? `<h2>Prompt</h2><div class="code"><div class="codeh"><span>${e.promptSource ? `By ${esc(e.promptSource.by)}, from ${outbound(e.promptSource.url, esc(e.promptSource.text), 'credit')}` : 'Prompt'}</span>${copyButton(e.slug, 'prompt_block', 'Copy prompt', 'btn sm')}</div><pre>${esc(e.prompt)}</pre></div>` : `<h2>Prompt</h2><div class="code"><div class="codeh"><span>Prompt</span></div><pre>The creator hasn't shared the prompt.</pre></div>`}${e.routine ? `<h2>Routine prompt (optional)</h2><div class="code"><div class="codeh"><span>Keeps the Page updated</span></div><pre>${esc(e.routine)}</pre></div>` : ''}
-<div class="how"><h2>How to use it</h2><ol>${e.prompt ? `<li>Copy the prompt and paste it into a chat with ${outbound(GROK, 'Grok Bot', 'how_to')}.</li><li>Swap in your own bots, accounts or data sources where the prompt asks for them.</li><li>If the prompt does not create a refresh routine, ask Grok Bot for one.</li>` : `<li>Open the live Page. The creator hasn't shared the prompt.</li><li>To build your own, ask ${outbound(GROK, 'Grok Bot', 'how_to')}.</li>`}<li>To share your version, make a copy with mock data and make that copy public. Then ${'<a href="/#get-listed">get it listed</a>'}.</li></ol></div></div>
+<div class="dbody"><div><h2>Prompt</h2><div class="code"><div class="codeh"><span>${e.promptSource ? `By ${esc(e.promptSource.by)}, from ${outbound(e.promptSource.url, esc(e.promptSource.text), 'credit')}` : 'Prompt'}</span>${copyButton(e.slug, 'prompt_block', 'Copy prompt', 'btn sm')}</div><pre>${esc(e.prompt)}</pre></div>${e.routine ? `<h2>Routine prompt (optional)</h2><div class="code"><div class="codeh"><span>Keeps the Page updated</span></div><pre>${esc(e.routine)}</pre></div>` : ''}
+<div class="how"><h2>How to use it</h2><ol><li>Copy the prompt and paste it into a chat with ${outbound(GROK, 'Grok Bot', 'how_to')}.</li><li>Swap in your own bots, accounts or data sources where the prompt asks for them.</li><li>If the prompt does not create a refresh routine, ask Grok Bot for one.</li><li>To share your version, make a copy with mock data and make that copy public. Then ${'<a href="/#get-listed">get it listed</a>'}.</li></ol></div></div>
 <aside aria-label="About this template"><section class="box"><h2>Credit</h2>${people.map(([p, role]) => `<div class="per"><div class="av" aria-hidden="true">${initials(p.name)}</div><div><b>${esc(p.name)}</b><small>${role}</small>${p.handles.map((h) => outbound(h.url, `${esc(h.handle)} on ${h.platform}`, 'credit')).join('')}</div></div>`).join('')}
-${e.inspired ? `<p>${esc(e.inspired.label || 'Inspired by')} ${outbound(e.inspired.source.url, esc(e.inspired.source.text), 'credit')}${e.inspired.handles.length ? ' (' + handles(e.inspired.handles) + ')' : ''}.</p>` : ''}</section>
+${e.inspired ? `<p>Inspired by ${outbound(e.inspired.source.url, esc(e.inspired.source.text), 'credit')}${e.inspired.handles.length ? ' (' + handles(e.inspired.handles) + ')' : ''}.</p>` : ''}</section>
 <section class="box"><h2>Links</h2><ul>${links.map((l) => `<li>${l}</li>`).join('')}</ul></section>
 ${isAA(e) ? `<section class="box"><h2>Data source</h2><p>${md(d.dashboardNote, 'how_to')}</p></section>` : ''}
-<section class="box"><h2>More in ${esc(cat)}</h2>${related.length ? `<ul>${related.map((o) => `<li><a class="rel" href="/t/${o.slug}/" data-track="related_clicked" data-page-slug="${e.slug}" data-target-slug="${o.slug}"><img src="/shots/${o.slug}.webp" alt="" width="96" height="60" loading="lazy"><span><b>${esc(o.title)}</b><small>${esc(o.inspired ? `${o.inspired.label || 'Inspired by'} ${o.inspired.source.text.replace(/'s video$/, '')}` : 'By ' + o.by.map((p) => p.name).join(', '))}</small></span></a></li>`).join('')}</ul>` : `<p>No other Pages in ${esc(cat)} yet. <a href="/#get-listed">Add yours</a>.</p>`}</section></aside></div></div>`;
+<section class="box"><h2>More in ${esc(cat)}</h2>${related.length ? `<ul>${related.map((o) => `<li><a class="rel" href="/t/${o.slug}/" data-track="related_clicked" data-page-slug="${e.slug}" data-target-slug="${o.slug}"><img src="/shots/${o.slug}.webp" alt="" width="96" height="60" loading="lazy"><span><b>${esc(o.title)}</b><small>${esc(o.inspired ? 'Inspired by ' + o.inspired.source.text.replace(/'s video$/, '') : 'By ' + o.by.map((p) => p.name).join(', '))}</small></span></a></li>`).join('')}</ul>` : `<p>No other Pages in ${esc(cat)} yet. <a href="/#get-listed">Add yours</a>.</p>`}</section></aside></div></div>`;
   return layout({ title: `${e.title}: Grok Bot Page template | grokbotpages.com`, description: e.short, pathName: `/t/${e.slug}/`, body,
-    data: e.prompt ? { prompts: { [e.slug]: e.prompt } } : { prompts: {} } });
+    data: { prompts: { [e.slug]: e.prompt } } });
 }
 
 function notFound() {

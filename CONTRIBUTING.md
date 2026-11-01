@@ -18,7 +18,7 @@ Every new submission must meet these at review time:
 - **Content rules:** the Page follows the Grok Bot Pages content rules.
 - **Useful to a stranger:** real data or a working control, and no placeholder text.
 - **Credit:** a name plus a GitHub handle, an X handle, or both.
-- **Prompt:** the prompt used to build the Page, with no private details. A creator showcase whose creator has not shared a prompt is listed without a Prompt block.
+- **Prompt:** the prompt used to build the Page, with no private details.
 - **Star:** you starred this repository before opening the pull request.
 
 Encouraged:
@@ -53,7 +53,7 @@ Listing contributions only need to update [`README.md`](./README.md).
 ````
 
 - A name is required, plus at least one of a GitHub handle or an X handle. Both are fine.
-- The prompt block is required and must contain no private details, except for a creator showcase whose creator has not shared a prompt. The snippet in the README asks Grok Bot to write one.
+- The prompt block is required and must contain no private details. The snippet in the README asks Grok Bot to write one.
 - An optional `Inspired by [source](url).` can go before `By`.
 - The `Template page` line links the entry's page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`. The page goes live once the pull request is merged.
 - Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
