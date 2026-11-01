@@ -8,6 +8,8 @@ import { parse, slugify } from './parse.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'dist');
 const SITE = 'https://grokbotpages.com';
+// Default set when the README has no featured flag. Two Lists and News Pulse stay in front.
+export const FEATURED_SLUGS = ['mission-control-two-lists', 'news-pulse', 'morning-brief'];
 const GROK = 'https://x.ai/bot';
 const AA = 'https://agentanalytics.sh';
 const d = parse();
@@ -36,11 +38,16 @@ const ext = (url, text, cls = '', event = '', params = null) => {
   return `<a href="${esc(url)}"${clsAttr}${track} target="_blank" rel="noopener">${text}</a>`;
 };
 const outbound = (url, text, position, cls = '') => ext(url, text, cls, 'outbound_clicked', { target_url: url, target_type: targetType(url), position });
-const liveLink = (e, text, position, cls = '') => ext(e.url, text, cls, 'template_opened', { page_slug: e.slug, position });
-const copyButton = (slug, position, label, cls) => {
+const liveLink = (e, text, position, cls = '') => ext(e.url, text, cls, 'template_opened', { page_slug: e.slug, position, category: catSlug(e.categories[0]) });
+const copyButton = (slug, position, label, cls, extra) => {
   const event = slug === 'snippet' ? 'snippet_copied' : 'prompt_copied';
+  const params = { position, ...(extra || {}) };
+  if (event === 'prompt_copied') {
+    const entry = d.entries.find((x) => x.slug === slug);
+    if (entry && entry.categories[0]) params.category = catSlug(entry.categories[0]);
+  }
   const slugAttr = slug === 'snippet' ? '' : ` data-page-slug="${esc(slug)}"`;
-  return `<button type="button" class="${cls}" data-copy="${esc(slug)}" data-track="${event}"${slugAttr} data-position="${position}">${label}</button>`;
+  return `<button type="button" class="${cls}" data-copy="${esc(slug)}" ${trackAttrs(event, params)}${slugAttr}>${label}</button>`;
 };
 // Minimal inline markdown: links and code. Relative #anchors point at the README on GitHub.
 const md = (s, position) => esc(s)
@@ -70,7 +77,7 @@ const shotImg = (e, cls = '', eager = false) => `<img src="/shots/${e.slug}.webp
 const actions = (e, sm, livePosition) => `<div class="act">${liveLink(e, 'Open Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', livePosition, 'btn pri' + sm)}${copyButton(e.slug, 'card', 'Copy prompt', 'btn' + sm)}<a class="btn ghost${sm}" href="/t/${e.slug}/">Details<span class="sr-only"> for ${esc(e.title)}</span></a></div>`;
 const dataBlob = (obj) => `<script type="application/json" id="site-data">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 
-function layout({ title, description, pathName, body, data }) {
+function layout({ title, description, pathName, body, data, head = '' }) {
   const url = SITE + pathName;
   return `<!doctype html>
 <html lang="en">
@@ -80,7 +87,7 @@ function layout({ title, description, pathName, body, data }) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${url}">
-<meta name="theme-color" content="#0a0a0a">
+${head}<meta name="theme-color" content="#0a0a0a">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="grokbotpages.com">
@@ -112,7 +119,7 @@ ${body}
 <div class="fb">Every Page listed is public and uses mock or public data. List content is CC0 1.0.</div></div></footer>
 <div id="live" class="sr-only" aria-live="polite"></div>
 ${dataBlob(data)}
-<script src="/assets/app.js" defer></script>
+<script type="module" src="/assets/app.js"></script>
 <!-- Agent Analytics tracker, async so a slow tracker.js does not delay app.js or DOMContentLoaded. page_view is automatic. Home is / and a template is /t/:slug/. Cloudflare serves this 404 file at the missing path, so that page_view path is the requested URL rather than /404.html, and page_type is not sent: the tracker fires page_view before window.aa exists and does not replay a queue. -->
 <script async src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>
 </body>
@@ -132,6 +139,88 @@ function getListed() {
 <div class="code"><div class="codeh"><span>Snippet</span>${copyButton('snippet', 'code_header', 'Copy', 'btn sm')}</div><pre>${esc(d.snippet)}</pre></div></section>`;
 }
 
+function featuredPages() {
+  const pages = FEATURED_SLUGS.map((slug) => d.entries.find((e) => e.slug === slug)).filter(Boolean);
+  const cards = pages.map((e) => `<li class="pick"><a class="shot" href="/t/${e.slug}/" tabindex="-1" aria-hidden="true">${shotImg(e, '', true)}</a><div class="body"><h3><a href="/t/${e.slug}/">${esc(e.title)}</a></h3><p>${esc(e.short)}</p><div class="act"><a class="btn sm pri" href="/t/${e.slug}/">Open<span class="sr-only"> ${esc(e.title)}</span></a>${copyButton(e.slug, 'home_featured', 'Copy prompt', 'btn sm', { location: 'home_featured' })}</div></div></li>`).join('');
+  return `<section class="featured" id="featured" aria-labelledby="featured-h"><div class="featured-h"><h2 id="featured-h">Featured Pages</h2><p>Open a Page, or copy the prompt.</p></div><ul class="pick-grid">${cards}</ul></section>`;
+}
+
+function personPlain(p) {
+  const handles = p.handles.map((h) => h.handle).filter(Boolean);
+  return handles.length ? `${p.name} (${handles.join(', ')})` : p.name;
+}
+function creditPlain(e) {
+  const parts = [];
+  if (e.inspired && e.inspired.source) {
+    const handles = e.inspired.handles.map((h) => h.handle).filter(Boolean);
+    parts.push(`Inspired by ${e.inspired.source.text}${handles.length ? ` (${handles.join(', ')})` : ''}`);
+  }
+  if (e.by.length) parts.push('By ' + e.by.map(personPlain).join(', '));
+  if (e.pageBy) parts.push('Example Page by ' + personPlain(e.pageBy));
+  if (e.promptSource) parts.push(`Prompt by ${e.promptSource.by} (${e.promptSource.url})`);
+  return parts.join('. ');
+}
+function personLd(p) {
+  const node = { '@type': 'Person', name: p.name };
+  if (p.handles[0] && p.handles[0].url) node.url = p.handles[0].url;
+  return node;
+}
+export function pageRecord(e) {
+  return {
+    slug: e.slug,
+    title: e.title,
+    category: e.categories[0],
+    description: e.description,
+    url: `${SITE}/t/${e.slug}/`,
+    prompt: e.prompt,
+    routine_prompt: e.routine || null,
+  };
+}
+function jsonLd(e) {
+  const authors = (e.by.length ? e.by : (e.pageBy ? [e.pageBy] : [])).map(personLd);
+  const node = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: e.title,
+    description: e.description,
+    url: `${SITE}/t/${e.slug}/`,
+    text: e.prompt,
+    encodingFormat: 'text/markdown',
+    associatedMedia: { '@type': 'MediaObject', contentUrl: `${SITE}/t/${e.slug}/prompt.md`, encodingFormat: 'text/markdown' },
+  };
+  if (authors.length === 1) node.author = authors[0];
+  else if (authors.length) node.author = authors;
+  if (e.pageBy) node.creator = personLd(e.pageBy);
+  const credit = creditPlain(e);
+  if (credit) node.creditText = credit;
+  return JSON.stringify(node).replace(/</g, '\\u003c');
+}
+function promptMarkdown(e) {
+  const credit = creditPlain(e);
+  const page = `${SITE}/t/${e.slug}/`;
+  const source = credit ? `Source: ${page} ${credit}.` : `Source: ${page}`;
+  const lines = [`# ${e.title}`, '', source, '', '## Prompt', '', e.prompt.trim()];
+  if (e.routine) lines.push('', '## Routine prompt', '', e.routine.trim());
+  return lines.join('\n') + '\n';
+}
+function llmsTxt() {
+  const lines = [
+    '# grokbotpages.com',
+    '',
+    'Live public Grok Bot Pages and the prompts that built them.',
+    'Each line is one Page: title, description, page URL, prompt URL.',
+    '',
+  ];
+  for (const e of d.entries) {
+    const page = `${SITE}/t/${e.slug}/`;
+    lines.push(`- ${e.title}: ${e.description.replace(/\s+/g, ' ')} ${page} ${page}prompt.md`);
+  }
+  return lines.join('\n') + '\n';
+}
+function assertNoEm(text, name) {
+  if (String(text).includes('\u2014')) throw new Error(`Em dash found in ${name}`);
+}
+
 function home() {
   const [newest, ...rest] = d.entries;
   const chips = [`<li><button type="button" class="chip" data-filter="all" data-name="All" data-track="category_filtered" data-category="all" data-source="click" aria-pressed="true">All <b>${d.entries.length}</b></button></li>`,
@@ -142,6 +231,7 @@ function home() {
   const body = `<section class="hero" aria-labelledby="hero-h"><span class="pill">Grok Bot Pages templates</span><h1 id="hero-h">Copy a <em>Grok Bot Page.</em></h1>
 <p>Every template is a live public Page plus the exact prompt that built it.</p>
 <div class="cta"><a class="btn pri" href="#templates">Browse templates</a><a class="btn" href="#get-listed">Get your Page listed</a></div></section>
+${featuredPages()}
 <section class="wrap" id="templates" aria-labelledby="tpl-h"><h2 id="tpl-h" class="sr-only">Templates</h2>
 <ul class="chips" aria-label="Filter templates by category">${chips}${(() => { const n = d.categories.filter((c) => c.count === 0).length; return n ? `<li hidden><button type="button" class="chip more" data-more-cats aria-expanded="false">+${n} more ${n === 1 ? 'category' : 'categories'}, add the first</button></li>` : ''; })()}</ul>
 <p class="status" id="filter-status" aria-live="polite">Showing all ${d.entries.length} Pages</p>
@@ -181,7 +271,7 @@ function detail(e) {
 <figure class="frame"><div class="chrome" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">${esc(host)}</span></div>
 <div class="viewport" tabindex="0" role="region" aria-label="Full-page screenshot of ${esc(e.title)}, scrollable"><img src="/shots/${e.slug}-full.webp" alt="Full-page screenshot of the ${esc(e.title)} Page in dark mode" loading="eager" decoding="async"></div>
 <figcaption>Screenshot of the live Page in dark mode. ${liveLink(e, 'Open the live Page', 'caption')} to use it.</figcaption></figure>
-<div class="dbody"><div><h2>Prompt</h2><div class="code"><div class="codeh"><span>${e.promptSource ? `By ${esc(e.promptSource.by)}, from ${outbound(e.promptSource.url, esc(e.promptSource.text), 'credit')}` : 'Prompt'}</span>${copyButton(e.slug, 'prompt_block', 'Copy prompt', 'btn sm')}</div><pre>${esc(e.prompt)}</pre></div>${e.routine ? `<h2>Routine prompt (optional)</h2><div class="code"><div class="codeh"><span>Keeps the Page updated</span></div><pre>${esc(e.routine)}</pre></div>` : ''}
+<div class="dbody"><div><h2>Prompt</h2><div class="code"><div class="codeh"><span>${e.promptSource ? `By ${esc(e.promptSource.by)}, from ${outbound(e.promptSource.url, esc(e.promptSource.text), 'credit')}` : 'Prompt'}</span>${copyButton(e.slug, 'prompt_block', 'Copy prompt', 'btn sm')}</div><pre id="prompt">${esc(e.prompt)}</pre></div>${e.routine ? `<h2>Routine prompt (optional)</h2><div class="code"><div class="codeh"><span>Keeps the Page updated</span></div><pre id="routine-prompt">${esc(e.routine)}</pre></div>` : ''}
 <div class="how"><h2>How to use it</h2><ol><li>Copy the prompt and paste it into a chat with ${outbound(GROK, 'Grok Bot', 'how_to')}.</li><li>Swap in your own bots, accounts or data sources where the prompt asks for them.</li><li>If the prompt does not create a refresh routine, ask Grok Bot for one.</li><li>To share your version, make a copy with mock data and make that copy public. Then ${'<a href="/#get-listed">get it listed</a>'}.</li></ol></div></div>
 <aside aria-label="About this template"><section class="box"><h2>Credit</h2>${people.map(([p, role]) => `<div class="per"><div class="av" aria-hidden="true">${initials(p.name)}</div><div><b>${esc(p.name)}</b><small>${role}</small>${p.handles.map((h) => outbound(h.url, `${esc(h.handle)} on ${h.platform}`, 'credit')).join('')}</div></div>`).join('')}
 ${e.inspired ? `<p>Inspired by ${outbound(e.inspired.source.url, esc(e.inspired.source.text), 'credit')}${e.inspired.handles.length ? ' (' + handles(e.inspired.handles) + ')' : ''}.</p>` : ''}</section>
@@ -189,6 +279,7 @@ ${e.inspired ? `<p>Inspired by ${outbound(e.inspired.source.url, esc(e.inspired.
 ${isAA(e) ? `<section class="box"><h2>Data source</h2><p>${md(d.dashboardNote, 'how_to')}</p></section>` : ''}
 <section class="box"><h2>More in ${esc(cat)}</h2>${related.length ? `<ul>${related.map((o) => `<li><a class="rel" href="/t/${o.slug}/" data-track="related_clicked" data-page-slug="${e.slug}" data-target-slug="${o.slug}"><img src="/shots/${o.slug}.webp" alt="" width="96" height="60" loading="lazy"><span><b>${esc(o.title)}</b><small>${esc(o.inspired ? 'Inspired by ' + o.inspired.source.text.replace(/'s video$/, '') : 'By ' + o.by.map((p) => p.name).join(', '))}</small></span></a></li>`).join('')}</ul>` : `<p>No other Pages in ${esc(cat)} yet. <a href="/#get-listed">Add yours</a>.</p>`}</section></aside></div></div>`;
   return layout({ title: `${e.title}: Grok Bot Page template | grokbotpages.com`, description: e.short, pathName: `/t/${e.slug}/`, body,
+    head: `<link rel="alternate" type="text/markdown" href="prompt.md">\n<script type="application/ld+json">${jsonLd(e)}</script>\n`,
     data: { prompts: { [e.slug]: e.prompt } } });
 }
 
@@ -204,6 +295,7 @@ fs.mkdirSync(path.join(dist, 'assets/fonts'), { recursive: true });
 fs.cpSync(path.join(root, 'public'), dist, { recursive: true });
 fs.copyFileSync(path.join(root, 'src/styles.css'), path.join(dist, 'assets/styles.css'));
 fs.copyFileSync(path.join(root, 'src/app.js'), path.join(dist, 'assets/app.js'));
+fs.copyFileSync(path.join(root, 'src/utm.js'), path.join(dist, 'assets/utm.js'));
 fs.copyFileSync(path.join(root, 'src/favicon.svg'), path.join(dist, 'favicon.svg'));
 const fonts = path.join(root, 'node_modules/geist/dist/fonts');
 fs.copyFileSync(path.join(fonts, 'geist-sans/Geist-Variable.woff2'), path.join(dist, 'assets/fonts/Geist-Variable.woff2'));
@@ -220,12 +312,24 @@ if (missing.length) console.warn('Missing screenshots, run npm run shots:', miss
 const pages = { 'index.html': home(), '404.html': notFound() };
 for (const e of d.entries) pages[`t/${e.slug}/index.html`] = detail(e);
 for (const [p, html] of Object.entries(pages)) {
-  if (html.includes('\u2014')) throw new Error(`Em dash found in ${p}`);
+  assertNoEm(html, p);
   fs.mkdirSync(path.dirname(path.join(dist, p)), { recursive: true });
   fs.writeFileSync(path.join(dist, p), html);
 }
+const llms = llmsTxt();
+const promptsJson = JSON.stringify(d.entries.map(pageRecord), null, 2) + '\n';
+assertNoEm(llms, 'llms.txt');
+assertNoEm(promptsJson, 'prompts.json');
+fs.writeFileSync(path.join(dist, 'llms.txt'), llms);
+fs.writeFileSync(path.join(dist, 'prompts.json'), promptsJson);
+for (const e of d.entries) {
+  const md = promptMarkdown(e);
+  assertNoEm(md, `t/${e.slug}/prompt.md`);
+  fs.writeFileSync(path.join(dist, 't', e.slug, 'prompt.md'), md);
+}
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
-fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', ...d.entries.map((e) => `/t/${e.slug}/`)].map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}\n</urlset>\n`);
+const locs = ['/', '/llms.txt', '/prompts.json', ...d.entries.map((e) => `/t/${e.slug}/`)];
+fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locs.map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}\n</urlset>\n`);
 console.log(`Built ${Object.keys(pages).length} pages into dist/ (${d.entries.length} templates, ${d.categories.length} categories)`);
 }
 

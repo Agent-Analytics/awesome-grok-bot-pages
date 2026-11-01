@@ -4,9 +4,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { server } from './serve.mjs';
-import { parse } from './parse.mjs';
+import { parse, slugify } from './parse.mjs';
 import { launch } from './browser.mjs';
-import { targetType } from './build.mjs';
+import { targetType, FEATURED_SLUGS } from './build.mjs';
+import { captureUtm, withUtm, UTM_STORAGE_KEY } from '../src/utm.js';
 
 const require = createRequire(import.meta.url);
 const axeSrc = fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
@@ -28,6 +29,32 @@ b.newContext = async (opts) => {
 };
 const results = [];
 const check = (name, ok, info = '') => { results.push({ name, ok, info }); console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${info ? '  ' + info : ''}`); };
+const cat = (entry) => slugify(entry.categories[0]);
+
+function memoryStorage(initial) {
+  const m = new Map(Object.entries(initial || {}));
+  return {
+    getItem: (k) => (m.has(k) ? m.get(k) : null),
+    setItem: (k, v) => { m.set(k, String(v)); },
+  };
+}
+const utmStore = memoryStorage();
+const utmFirst = captureUtm('?utm_source=x&utm_campaign=test&utm_medium=email', utmStore);
+check('utm capture stores source and campaign', utmFirst.utm_source === 'x' && utmFirst.utm_campaign === 'test' && utmFirst.utm_medium === undefined && utmStore.getItem(UTM_STORAGE_KEY).includes('"utm_campaign":"test"'));
+const utmKept = captureUtm('', utmStore);
+check('utm capture persists for a later page', utmKept.utm_source === 'x' && utmKept.utm_campaign === 'test' && utmStore.getItem(UTM_STORAGE_KEY).includes('"utm_source":"x"'));
+const utmMerged = captureUtm('?utm_source=y', utmStore);
+check('utm capture updates a field and keeps the other', utmMerged.utm_source === 'y' && utmMerged.utm_campaign === 'test');
+const utmEmpty = memoryStorage();
+check('utm capture ignores a landing with no utm', Object.keys(captureUtm('?ref=home', utmEmpty)).length === 0 && utmEmpty.getItem(UTM_STORAGE_KEY) === null);
+const utmBad = memoryStorage({ [UTM_STORAGE_KEY]: '{' });
+check('utm capture survives bad session json', captureUtm('?utm_source=x', utmBad).utm_source === 'x');
+const utmProps = { page_slug: 'news-pulse', category: 'research', position: 'card' };
+const utmEvent = withUtm('prompt_copied', utmProps, { utm_source: 'x', utm_campaign: 'test' });
+check('withUtm adds source and campaign on prompt_copied', utmEvent.utm_source === 'x' && utmEvent.utm_campaign === 'test' && utmEvent.category === 'research' && utmEvent.page_slug === 'news-pulse' && utmProps.utm_source === undefined);
+check('withUtm adds the same fields on template_opened', withUtm('template_opened', { page_slug: 'news-pulse', category: 'research' }, { utm_source: 'x', utm_campaign: 'test' }).utm_campaign === 'test');
+check('withUtm leaves other events alone', withUtm('category_filtered', { category: 'all' }, { utm_source: 'x' }).utm_source === undefined);
+check('withUtm omits empty session values', withUtm('template_opened', { page_slug: 'a' }, {}).utm_source === undefined && withUtm('prompt_copied', { page_slug: 'a' }, { utm_source: 'x' }).utm_campaign === undefined);
 
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, permissions: ['clipboard-read', 'clipboard-write'] });
 const page = await ctx.newPage();
@@ -116,6 +143,15 @@ for (const e of d.entries) {
   const clip = await page.evaluate(() => navigator.clipboard.readText());
   check(`copy prompt ${e.slug}`, clip === e.prompt, `${clip.length} chars`);
 }
+for (const slug of FEATURED_SLUGS) {
+  await page.evaluate(() => navigator.clipboard.writeText(''));
+  await page.click(`#featured [data-copy="${slug}"]`);
+  await page.waitForTimeout(150);
+  const clip = await page.evaluate(() => navigator.clipboard.readText());
+  const entry = d.entries.find((e) => e.slug === slug);
+  const label = await page.textContent(`#featured [data-copy="${slug}"]`);
+  check(`featured copy ${slug}`, clip === entry.prompt && label === 'Copied', `${clip.length} chars ${label}`);
+}
 await page.click('.gl .glb [data-copy="snippet"]');
 await page.waitForTimeout(150);
 check('copy snippet', (await page.evaluate(() => navigator.clipboard.readText())) === d.snippet);
@@ -163,6 +199,13 @@ await page.keyboard.press('Enter');
 check('chip works from keyboard', (await page.getAttribute('[data-filter="sales"]', 'aria-pressed')) === 'true');
 const outline = await page.$eval('[data-filter="sales"]', (e) => getComputedStyle(e).outlineStyle);
 check('focus ring on keyboard focus', outline !== 'none', outline);
+await page.evaluate(() => navigator.clipboard.writeText(''));
+await page.focus('#featured [data-copy="news-pulse"]');
+const featOutline = await page.$eval('#featured [data-copy="news-pulse"]', (e) => getComputedStyle(e).outlineStyle);
+const newsPulse = d.entries.find((e) => e.slug === 'news-pulse');
+await page.keyboard.press('Enter');
+await page.waitForTimeout(150);
+check('featured copy works from keyboard', featOutline !== 'none' && (await page.evaluate(() => navigator.clipboard.readText())) === newsPulse.prompt && (await page.textContent('#featured [data-copy="news-pulse"]')) === 'Copied', featOutline);
 check('no console or page errors', errors.length === 0, errors.join(' | '));
 
 // Primary domain: canonical, og:url, sitemap and robots point at grokbotpages.com, and no page
@@ -180,18 +223,86 @@ for (const u of ['/', ...d.entries.map((e) => `/t/${e.slug}/`)]) {
 }
 const sitemap = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-const wantLocs = ['/', ...d.entries.map((e) => `/t/${e.slug}/`)].map((u) => SITE + u);
+const wantLocs = ['/', '/llms.txt', '/prompts.json', ...d.entries.map((e) => `/t/${e.slug}/`)].map((u) => SITE + u);
 check('sitemap lists every page on grokbotpages.com', JSON.stringify(locs) === JSON.stringify(wantLocs), `${locs.length} urls`);
 check('robots.txt Sitemap line on grokbotpages.com', fs.readFileSync(path.join(dist, 'robots.txt'), 'utf8').includes(`Sitemap: ${SITE}/sitemap.xml`));
 const nf = fs.readFileSync(path.join(dist, '404.html'), 'utf8');
 check('404 title on grokbotpages.com', nf.includes('<title>Page not found | grokbotpages.com</title>'));
+
+const llms = fs.readFileSync(path.join(dist, 'llms.txt'), 'utf8');
+const llmsMiss = d.entries.filter((e) => {
+  const pageUrl = `${SITE}/t/${e.slug}/`;
+  return !llms.includes(e.title) || !llms.includes(e.description) || !llms.includes(pageUrl) || !llms.includes(`${pageUrl}prompt.md`);
+});
+check('llms.txt lists every page', llms.startsWith('# grokbotpages.com\n') && !llms.includes('\u2014') && llmsMiss.length === 0, llmsMiss.map((e) => e.slug).join(' '));
+const promptRows = JSON.parse(fs.readFileSync(path.join(dist, 'prompts.json'), 'utf8'));
+const promptKeys = ['slug', 'title', 'category', 'description', 'url', 'prompt', 'routine_prompt'];
+const promptBad = [];
+if (!Array.isArray(promptRows) || promptRows.length !== d.entries.length) promptBad.push('length');
+for (const e of d.entries) {
+  const row = Array.isArray(promptRows) ? promptRows.find((p) => p.slug === e.slug) : null;
+  if (!row) { promptBad.push('missing ' + e.slug); continue; }
+  const keys = Object.keys(row);
+  if (keys.length !== promptKeys.length || !promptKeys.every((k) => keys.includes(k))) promptBad.push('keys ' + e.slug);
+  if (row.title !== e.title || row.category !== e.categories[0] || row.description !== e.description || row.url !== `${SITE}/t/${e.slug}/` || row.prompt !== e.prompt) promptBad.push('fields ' + e.slug);
+  if (row.routine_prompt !== (e.routine || null)) promptBad.push('routine ' + e.slug);
+}
+check('prompts.json shape', promptBad.length === 0, promptBad.join(' '));
+const homeHtml = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
+const featHtml = homeHtml.split('id="featured"')[1]?.split('id="templates"')[0] || '';
+const featBad = [];
+if (!homeHtml.includes('id="featured"') || !featHtml.includes('Featured Pages') || !featHtml.includes('Open a Page, or copy the prompt.')) featBad.push('section');
+if ((featHtml.match(/data-location="home_featured"/g) || []).length !== FEATURED_SLUGS.length) featBad.push('location count');
+for (const slug of FEATURED_SLUGS) {
+  if (!featHtml.includes(`href="/t/${slug}/"`)) featBad.push('open ' + slug);
+  if (!featHtml.includes(`data-copy="${slug}"`) || !featHtml.includes('data-track="prompt_copied"')) featBad.push('copy ' + slug);
+  if (!featHtml.includes(`/shots/${slug}.webp`)) featBad.push('shot ' + slug);
+}
+check('featured section markup', featBad.length === 0 && FEATURED_SLUGS.every((slug) => d.entries.some((e) => e.slug === slug)), featBad.join(' '));
+function ldNames(node) {
+  return [].concat(node.author || [], node.creator || []).map((p) => (p && typeof p === 'object' ? p.name : p)).filter(Boolean);
+}
+for (const e of d.entries) {
+  const problems = [];
+  const html = fs.readFileSync(path.join(dist, 't', e.slug, 'index.html'), 'utf8');
+  if ((html.match(/id="prompt"/g) || []).length !== 1) problems.push('id=prompt');
+  if ((html.match(/id="routine-prompt"/g) || []).length !== (e.routine ? 1 : 0)) problems.push('routine id');
+  if (!html.includes('<link rel="alternate" type="text/markdown" href="prompt.md">')) problems.push('alternate');
+  const ld = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  if (!ld) problems.push('json-ld missing');
+  else {
+    try {
+      const data = JSON.parse(ld[1]);
+      const creditName = (e.by[0] || e.pageBy || {}).name;
+      const ok = data['@context'] === 'https://schema.org' && data['@type'] === 'CreativeWork' && data.name === e.title && data.description === e.description && data.url === `${SITE}/t/${e.slug}/` && data.text === e.prompt && (!creditName || ldNames(data).includes(creditName));
+      if (!ok) problems.push('json-ld fields');
+    } catch (err) { problems.push('json-ld parse'); }
+  }
+  const mdPath = path.join(dist, 't', e.slug, 'prompt.md');
+  if (!fs.existsSync(mdPath)) problems.push('prompt.md missing');
+  else {
+    const md = fs.readFileSync(mdPath, 'utf8');
+    if (!md.startsWith(`# ${e.title}\n`)) problems.push('title');
+    if (!md.includes(`${SITE}/t/${e.slug}/`)) problems.push('source');
+    if (!md.includes(e.prompt)) problems.push('prompt body');
+    if (e.routine) {
+      if (!md.includes('## Routine prompt\n') || !md.includes(e.routine)) problems.push('routine section');
+    } else if (md.includes('## Routine prompt')) problems.push('unexpected routine');
+    if (md.includes('\u2014')) problems.push('em dash');
+  }
+  check(`agent prompt ${e.slug}`, problems.length === 0, problems.join(', '));
+}
+const mdRes = await fetch(base + '/t/mission-control/prompt.md');
+check('prompt.md is served as markdown', mdRes.status === 200 && (mdRes.headers.get('content-type') || '').includes('markdown'));
+const promptsRes = await fetch(base + '/prompts.json');
+check('prompts.json is served', promptsRes.status === 200 && (promptsRes.headers.get('content-type') || '').includes('json'));
 
 // Agent Analytics wiring. The tracker request is aborted so a test stub is not replaced
 // by the localhost dev logger, and so the no-global case stays empty.
 const SNIPPET = '<script async src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>';
 const POS = {
   template_opened: ['featured', 'grid', 'detail_top', 'caption', 'links_box'],
-  prompt_copied: ['card', 'detail_top', 'prompt_block'],
+  prompt_copied: ['card', 'detail_top', 'prompt_block', 'home_featured'],
   snippet_copied: ['section_button', 'code_header'],
   outbound_clicked: ['header', 'footer', 'credit', 'links_box', 'how_to'],
 };
@@ -203,6 +314,7 @@ const readTracks = (pg) => pg.$$eval('[data-track]', (els) => els.map((el) => ({
   href: el.getAttribute('href'),
   page_slug: el.getAttribute('data-page-slug'),
   position: el.getAttribute('data-position'),
+  location: el.getAttribute('data-location'),
   category: el.getAttribute('data-category'),
   source: el.getAttribute('data-source'),
   target: el.getAttribute('data-target'),
@@ -237,7 +349,7 @@ for (const pathName of paths) {
   const raw = await (await fetch(base + pathName)).text();
   check(`snippet once ${pathName}`, raw.split(SNIPPET).length - 1 === 1 && !raw.includes('aa.set'));
   if (pathName === '/') {
-    const appAt = raw.indexOf('<script src="/assets/app.js" defer></script>');
+    const appAt = raw.indexOf('<script type="module" src="/assets/app.js"></script>');
     check('app.js is not blocked on the tracker', appAt !== -1 && appAt < raw.indexOf(SNIPPET));
   }
   await page.goto(base + pathName, { waitUntil: 'domcontentloaded' });
@@ -256,9 +368,14 @@ for (const pathName of paths) {
       seen.positions.add('template_opened:' + t.position);
       const entry = entryBySlug[t.page_slug];
       if (!POS.template_opened.includes(t.position) || !entry || t.href !== entry.url) problems.push('template ' + t.position + ' ' + t.page_slug);
+      if (!entry || t.category !== slugify(entry.categories[0])) problems.push('template category ' + t.page_slug + ' ' + t.category);
     } else if (t.event === 'prompt_copied') {
       seen.positions.add('prompt_copied:' + t.position);
-      if (!POS.prompt_copied.includes(t.position) || t.copy !== t.page_slug || !entryBySlug[t.page_slug]) problems.push('prompt ' + t.position);
+      const entry = entryBySlug[t.page_slug];
+      if (!POS.prompt_copied.includes(t.position) || t.copy !== t.page_slug || !entry) problems.push('prompt ' + t.position);
+      if (!entry || t.category !== slugify(entry.categories[0])) problems.push('prompt category ' + t.page_slug + ' ' + t.category);
+      if (t.position === 'home_featured' && t.location !== 'home_featured') problems.push('home featured location');
+      if (t.position !== 'home_featured' && t.location) problems.push('unexpected location ' + t.location);
     } else if (t.event === 'snippet_copied') {
       seen.positions.add('snippet_copied:' + t.position);
       if (!POS.snippet_copied.includes(t.position) || t.copy !== 'snippet' || t.page_slug) problems.push('snippet ' + t.position);
@@ -285,6 +402,8 @@ for (const pathName of paths) {
     const grid = tracks.filter((t) => t.event === 'template_opened' && t.position === 'grid');
     if (grid.length !== d.entries.length - 1) problems.push('grid ' + grid.length);
     if (tracks.filter((t) => t.event === 'prompt_copied' && t.position === 'card').length !== d.entries.length) problems.push('card copies');
+    const picks = tracks.filter((t) => t.event === 'prompt_copied' && t.position === 'home_featured');
+    if (picks.length !== FEATURED_SLUGS.length || !FEATURED_SLUGS.every((slug) => picks.some((t) => t.page_slug === slug && t.location === 'home_featured'))) problems.push('home featured ' + picks.map((t) => t.page_slug).join(','));
     if (!tracks.some((t) => t.event === 'snippet_copied' && t.position === 'section_button')) problems.push('section_button');
     if (!tracks.some((t) => t.event === 'snippet_copied' && t.position === 'code_header')) problems.push('code_header');
     if (tracks.filter((t) => t.event === 'get_listed_clicked' && t.target === 'open_pr').length !== 1) problems.push('open_pr');
@@ -298,13 +417,13 @@ for (const pathName of paths) {
     }
     const related = tracks.filter((t) => t.event === 'related_clicked');
     if (related.length !== siblingsOf(entryBySlug[detailSlug]).length) problems.push('related count ' + related.length);
-    if (tracks.some((t) => t.event === 'snippet_copied' || t.position === 'featured' || t.position === 'grid' || t.position === 'card')) problems.push('detail has home-only track');
+    if (tracks.some((t) => t.event === 'snippet_copied' || t.position === 'featured' || t.position === 'grid' || t.position === 'card' || t.position === 'home_featured')) problems.push('detail has home-only track');
   } else if (tracks.some((t) => ['template_opened', 'prompt_copied', 'snippet_copied', 'category_filtered', 'related_clicked'].includes(t.event))) {
     problems.push('404 has page-only events');
   }
   check(`data-track wiring ${pathName}`, problems.length === 0, problems.join(' | '));
 }
-const needPos = ['template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'snippet_copied:section_button', 'snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'];
+const needPos = ['template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'snippet_copied:section_button', 'snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'];
 check('every position is used', needPos.every((p) => seen.positions.has(p)), [...seen.positions].sort().join(' '));
 check('outbound target types and get-listed targets', seen.types.has('repo') && seen.types.has('other') && ![...seen.types].some((t) => t !== 'repo' && t !== 'other') && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
 const typeCases = [
@@ -364,11 +483,16 @@ await expectEvents(ap, [{ name: 'category_filtered', props: { category: empty.sl
 await ap.click('[data-filter="all"]');
 await clearAa(ap);
 await fire(ap, 'article.feat a[data-track="template_opened"]');
-await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: d.entries[0].slug, position: 'featured' } }], 'featured open fires template_opened only');
+await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: d.entries[0].slug, position: 'featured', category: cat(d.entries[0]) } }], 'featured open fires template_opened only');
 await clearAa(ap);
 await ap.click(`article.feat [data-copy="${d.entries[0].slug}"]`);
 await ap.waitForTimeout(150);
-await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: d.entries[0].slug, position: 'card', success: true } }], 'card copy fires one prompt_copied after success');
+await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: d.entries[0].slug, position: 'card', category: cat(d.entries[0]), success: true } }], 'card copy fires one prompt_copied after success');
+await clearAa(ap);
+const featuredEntry = d.entries.find((e) => e.slug === 'mission-control-two-lists');
+await ap.click('#featured [data-copy="mission-control-two-lists"]');
+await ap.waitForTimeout(150);
+await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: 'mission-control-two-lists', position: 'home_featured', location: 'home_featured', category: cat(featuredEntry), success: true } }], 'featured home copy fires prompt_copied with location');
 await clearAa(ap);
 await ap.click('.gl .glb [data-copy="snippet"]');
 await ap.waitForTimeout(150);
@@ -395,7 +519,7 @@ if (!detailEntry) {
   }
   await clearAa(ap);
   await fire(ap, 'figure figcaption a[data-track="template_opened"]');
-  await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: detailEntry.slug, position: 'caption' } }], 'caption open fires template_opened only');
+  await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: detailEntry.slug, position: 'caption', category: cat(detailEntry) } }], 'caption open fires template_opened only');
   await clearAa(ap);
   await ap.evaluate(() => {
     window.__aaEvents = [];
@@ -404,9 +528,33 @@ if (!detailEntry) {
   });
   await ap.click('.codeh [data-copy]');
   await ap.waitForTimeout(150);
-  await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: detailEntry.slug, position: 'prompt_block', success: false } }], 'failed copy fires prompt_copied success false');
+  await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: detailEntry.slug, position: 'prompt_block', category: cat(detailEntry), success: false } }], 'failed copy fires prompt_copied success false');
 }
 await ap.close();
+
+const utmPage = await ctx.newPage();
+await utmPage.route('https://api.agentanalytics.sh/**', (route) => route.abort());
+await utmPage.addInitScript(() => {
+  window.__aaEvents = [];
+  window.aa = { track: (name, props) => { window.__aaEvents.push({ name, props }); } };
+});
+await utmPage.goto(base + '/?utm_source=x&utm_campaign=test', { waitUntil: 'domcontentloaded' });
+await utmPage.click('#featured a.btn.pri[href="/t/news-pulse/"]');
+await utmPage.waitForURL(/\/t\/news-pulse\/$/);
+await utmPage.click('.codeh [data-copy="news-pulse"]');
+await utmPage.waitForTimeout(150);
+await utmPage.evaluate(() => {
+  const a = document.querySelector('.dtop a[data-track="template_opened"]');
+  a.addEventListener('click', (e) => e.preventDefault(), true);
+  a.click();
+});
+const utmEvents = await aaEvents(utmPage);
+const newsEntry = d.entries.find((e) => e.slug === 'news-pulse');
+const copiedEv = utmEvents.find((ev) => ev.name === 'prompt_copied');
+const openedEv = utmEvents.find((ev) => ev.name === 'template_opened');
+check('utm survives navigation onto prompt_copied', !!copiedEv && copiedEv.props.utm_source === 'x' && copiedEv.props.utm_campaign === 'test' && copiedEv.props.category === cat(newsEntry) && copiedEv.props.page_slug === 'news-pulse' && copiedEv.props.success === true, JSON.stringify(copiedEv));
+check('utm survives navigation onto template_opened', !!openedEv && openedEv.props.utm_source === 'x' && openedEv.props.utm_campaign === 'test' && openedEv.props.category === cat(newsEntry) && openedEv.props.page_slug === 'news-pulse' && openedEv.props.position === 'detail_top', JSON.stringify(openedEv));
+await utmPage.close();
 
 // Tracker download held open: landing and clicks queue, then flush in order when aa.track appears.
 const qp = await ctx.newPage();

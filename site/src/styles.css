@@ -36,6 +36,22 @@ h1,h2,h3,p,ol,figure{margin:0}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,#fff,#9d9de6);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{font-size:20px;color:var(--muted);max-width:640px;margin:0 auto}
 .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px;position:relative}
+/* featured pages, directly under the hero */
+.featured{padding:0 var(--pad) 40px;max-width:1440px;margin:0 auto}
+.featured-h{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:0 0 16px}
+.featured-h h2{font-size:22px;letter-spacing:-.02em;line-height:1.2}
+.featured-h p{font-size:15px;color:var(--muted)}
+.pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0}
+.pick{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel);display:flex;flex-direction:column;min-width:0}
+.pick .shot{aspect-ratio:auto;height:150px;width:100%;border-bottom:1px solid var(--line)}
+.pick .shot img{object-position:left top}
+.pick .body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0;flex:1}
+.pick .btn:focus-visible{outline-offset:2px}
+.pick h3{font-size:18px;letter-spacing:-.02em;line-height:1.25;margin:0;min-width:0}
+.pick h3 a{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pick p{font-size:14.5px;line-height:1.35;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pick .act{flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
+.pick .btn{height:34px;min-height:34px;padding:0 14px;font-size:13.5px;line-height:1}
 /* chips */
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:8px 0 16px;list-style:none;margin:0}
 .chip{position:relative;white-space:nowrap;font:500 13.5px/1 var(--sans);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:#e5e5e5;cursor:pointer}
@@ -138,7 +154,15 @@ pre{margin:0;white-space:pre-wrap;word-break:break-word;font:14px/1.65 var(--mon
  .site-header nav a{white-space:nowrap}
  .site-header nav a:not(.gh):not([href="/#templates"]):not([href="/#get-listed"]){display:none}
  .gh{padding:6px 10px;flex:none}
- .hero{padding:56px var(--pad) 36px}.hero p{font-size:17px}
+ .hero{padding:40px var(--pad) 20px}.hero p{font-size:17px}
+ .featured{padding:0 var(--pad) 28px}
+ .featured-h{margin-bottom:12px}
+ .pick-grid{grid-template-columns:1fr;gap:12px}
+ .pick{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:stretch}
+ .pick .shot{height:100%;min-height:124px;border-bottom:0;border-right:1px solid var(--line)}
+ .pick h3{font-size:16px}
+ .pick h3 a{white-space:normal}
+ .pick .body{padding:12px 12px 12px 14px}
  .chips{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;padding:4px 2px 12px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}.chips::-webkit-scrollbar{display:none}.chip{flex:none}
  .status{text-align:left;margin-bottom:28px}
  .grid{grid-template-columns:1fr}.feat .body{padding:24px}.feat h3{font-size:30px}
