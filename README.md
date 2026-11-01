@@ -46,6 +46,16 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "News Pulse" from public X posts. Topics: AI, Robotics, Tesla & EV and World News (swap in 3 to 5 topics of your own). For each topic, find the most important stories from the last 3 days, posted by news outlets, companies and well-known public figures, never private individuals. Each story gets a short headline in your own words, a one-line why it matters, the source account, when it was posted, its engagement (likes, reposts, replies and views) and a link to the original X post. Keep everything on the Page itself: no links out except to the X posts. Never invent a post, number or quote. At the top, four numbers: stories, accounts, total engagement and how long ago the newest post went up, then one line on the most engaged story. Then a Top 10 right now across all topics with a Top 5 or Top 10 switch, a timeline of when each story broke, and the topic pulses with a topic switch that shows counts. Add a time window switch (6 hours, 24 hours, 3 days) that updates every number, count and list, and a sort for Most engaged, Newest and Most viewed. Label the Page "Live X data as of" the time you pulled it. Every control must really work on the Page; no buttons that do nothing. A topic with nothing in the window says so instead of a guess. Then create a routine that rebuilds the Page every 3 hours.
+  ```
+
+  </details>
+
 - [Revenue, last week](https://revenue-last-week-example-4v3c.pages.grok.bot/) - Booked revenue against plan by segment for last week, with the deals that slipped and why (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/revenue-last-week/](https://grokbotpages.com/t/revenue-last-week/).
   <details><summary>Prompt</summary>
@@ -751,6 +761,16 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 ## Research
 
 Explainers and sourced reports.
+
+- [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "News Pulse" from public X posts. Topics: AI, Robotics, Tesla & EV and World News (swap in 3 to 5 topics of your own). For each topic, find the most important stories from the last 3 days, posted by news outlets, companies and well-known public figures, never private individuals. Each story gets a short headline in your own words, a one-line why it matters, the source account, when it was posted, its engagement (likes, reposts, replies and views) and a link to the original X post. Keep everything on the Page itself: no links out except to the X posts. Never invent a post, number or quote. At the top, four numbers: stories, accounts, total engagement and how long ago the newest post went up, then one line on the most engaged story. Then a Top 10 right now across all topics with a Top 5 or Top 10 switch, a timeline of when each story broke, and the topic pulses with a topic switch that shows counts. Add a time window switch (6 hours, 24 hours, 3 days) that updates every number, count and list, and a sort for Most engaged, Newest and Most viewed. Label the Page "Live X data as of" the time you pulled it. Every control must really work on the Page; no buttons that do nothing. A topic with nothing in the window says so instead of a guess. Then create a routine that rebuilds the Page every 3 hours.
+  ```
+
+  </details>
 
 - [Competitor watch](https://competitor-watch-example-bvhl.pages.grok.bot/) - Every price change and launch from 5 competitors, checked daily against their own pages (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/competitor-watch/](https://grokbotpages.com/t/competitor-watch/).
