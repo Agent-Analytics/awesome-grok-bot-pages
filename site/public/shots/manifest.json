@@ -254,5 +254,101 @@
       390,
       2809
     ]
+  },
+  "revenue-last-week": {
+    "url": "https://revenue-last-week-example-4v3c.pages.grok.bot/",
+    "captured": "2026-11-01T15:34:55.142Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      1921
+    ],
+    "mobile": [
+      390,
+      3100
+    ]
+  },
+  "q4-forecast-and-pipeline": {
+    "url": "https://q4-forecast-and-pipeline-example-xahm.pages.grok.bot/",
+    "captured": "2026-11-01T15:35:11.241Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2318
+    ],
+    "mobile": [
+      390,
+      3841
+    ]
+  },
+  "morning-brief": {
+    "url": "https://morning-brief-example-x6tk.pages.grok.bot/",
+    "captured": "2026-11-01T15:35:27.926Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2503
+    ],
+    "mobile": [
+      390,
+      4035
+    ]
+  },
+  "board-memo-october": {
+    "url": "https://board-memo-october-example-o6rx.pages.grok.bot/",
+    "captured": "2026-11-01T15:35:45.090Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      1873
+    ],
+    "mobile": [
+      390,
+      3563
+    ]
+  },
+  "expense-policy": {
+    "url": "https://expense-policy-example-ilde.pages.grok.bot/",
+    "captured": "2026-11-01T15:36:01.488Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2020
+    ],
+    "mobile": [
+      390,
+      4400
+    ]
+  },
+  "competitor-watch": {
+    "url": "https://competitor-watch-example-bvhl.pages.grok.bot/",
+    "captured": "2026-11-01T15:36:17.424Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      1617
+    ],
+    "mobile": [
+      390,
+      2860
+    ]
   }
 }

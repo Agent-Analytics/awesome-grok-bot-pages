@@ -60,7 +60,7 @@ const personInline = (p) => `${esc(p.name)}${p.handles.length ? ' ' + handles(p.
 function creditLine(e) {
   const parts = [];
   if (e.inspired) parts.push(`Inspired by ${outbound(e.inspired.source.url, esc(e.inspired.source.text), 'credit')}${e.inspired.handles.length ? ' (' + handles(e.inspired.handles) + ')' : ''}`);
-  parts.push('By ' + e.by.map(personInline).join(', '));
+  if (e.by.length) parts.push('By ' + e.by.map(personInline).join(', '));
   if (e.pageBy) parts.push('Example Page by ' + personInline(e.pageBy));
   return parts.join(' · ');
 }
