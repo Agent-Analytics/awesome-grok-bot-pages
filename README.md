@@ -46,6 +46,76 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "News Pulse" from public X posts. Topics: AI, Robotics, Tesla & EV and World News (swap in 3 to 5 topics of your own). For each topic, find the most important stories from the last 3 days, posted by news outlets, companies and well-known public figures, never private individuals. Each story gets a short headline in your own words, a one-line why it matters, the source account, when it was posted, its engagement (likes, reposts, replies and views) and a link to the original X post. Keep everything on the Page itself: no links out except to the X posts. Never invent a post, number or quote. At the top, four numbers: stories, accounts, total engagement and how long ago the newest post went up, then one line on the most engaged story. Then a Top 10 right now across all topics with a Top 5 or Top 10 switch, a timeline of when each story broke, and the topic pulses with a topic switch that shows counts. Add a time window switch (6 hours, 24 hours, 3 days) that updates every number, count and list, and a sort for Most engaged, Newest and Most viewed. Label the Page "Live X data as of" the time you pulled it. Every control must really work on the Page; no buttons that do nothing. A topic with nothing in the window says so instead of a guess. Then create a routine that rebuilds the Page every 3 hours.
+  ```
+
+  </details>
+
+- [Revenue, last week](https://revenue-last-week-example-4v3c.pages.grok.bot/) - Booked revenue against plan by segment for last week, with the deals that slipped and why (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/revenue-last-week/](https://grokbotpages.com/t/revenue-last-week/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Revenue, last week" from my CRM or billing system and my sales plan. At the top, four numbers: booked last week, the plan for the week, the difference against plan in percent, and how many deals slipped, then a one-line takeaway of what carried the week and what slipped. Add a segment switch (All, Enterprise, Mid-market, SMB) that updates every number, the chart and the list. Then a weekly booked vs. plan chart for the last 7 weeks with a Show plan toggle and a hover or tap readout. Then the deals that slipped out of last week: account, segment, amount, owner, the new close week and a Why toggle, with a sort by largest first or soonest new date. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rebuilds the Page every Monday at 8:00 AM.
+  ```
+
+  </details>
+
+- [Q4 Forecast & Pipeline](https://q4-forecast-and-pipeline-example-xahm.pages.grok.bot/) - Q4 commit against target, the pace needed to close the gap, and every deal stuck for 14 days or more (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/q4-forecast-and-pipeline/](https://grokbotpages.com/t/q4-forecast-and-pipeline/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Q4 Forecast & Pipeline" from my CRM. At the top, four numbers: the Q4 target, what is committed, the open pipeline, and how many deals have had no stage change or logged activity for 14 days or more, then a one-line takeaway with the percent of target committed and the weeks left. Then a week-by-week chart of committed revenue against the target line for the 13 weeks of the quarter, with a Show needed pace toggle that draws the pace needed to reach target and a hover or tap readout. Then the deals to watch: name, amount, stage, owner, close date and days since the last change, with a NEW tag on deals added this week and a stuck flag on every deal at 14 days or more. Add a stage filter with counts, a Stuck 14+ days only toggle, a sort by largest or longest without a change, and a Details toggle per deal. The stuck count at the top must match the flagged deals in the list. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that refreshes the Page every hour during work hours so it stays live.
+  ```
+
+  </details>
+
+- [Morning brief](https://morning-brief-example-x6tk.pages.grok.bot/) - Your day ready by 7:00: meetings, the emails that need you, your focus time and the one thing most likely to slip (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/morning-brief/](https://grokbotpages.com/t/morning-brief/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Morning brief" from my calendar and email. At the top, four numbers: meetings today, emails that need me, focus time (free blocks of 30 minutes or more) and how many things are at risk of slipping. Then call out the one thing most likely to slip today, why, the one step that saves it, and a working copy button with a ready message for that step. Then my day as a strip from first meeting to last and an agenda below it: each meeting with time, who is in it and what to prep, which I can open by tapping it, with a Show free time toggle for lunch, gaps and focus blocks. Then the emails that need me, grouped as Reply today, This week and Read only with counts, each with the sender, subject and the ask in one line. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rebuilds the Page every weekday so it is ready by 7:00 AM.
+  ```
+
+  </details>
+
+- [Board memo, October](https://board-memo-october-example-o6rx.pages.grok.bot/) - The monthly board update drafted from ARR, growth, burn and runway, marked as a draft and never sent (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/board-memo-october/](https://grokbotpages.com/t/board-memo-october/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Board memo" for last month, from my billing, bank or accounting, and CRM. At the top, four numbers: ARR, month-over-month growth, net burn and runway in months, then a 6-month ARR chart. Then draft the monthly board update from those numbers only: a one-line summary, Numbers, What went well, What did not, and Asks. Mark it clearly as DRAFT, NEVER SENT. Add a Full or Short switch, a Show sources toggle that tags every number with where it came from, and a working Copy draft button that copies the version on screen. Never send, schedule or share the memo; I copy it myself. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess, and a number you cannot source stays out of the memo. Then create a routine that redrafts the Page on the 1st of every month at 8:00 AM.
+  ```
+
+  </details>
+
+- [Expense policy](https://expense-policy-example-ilde.pages.grok.bot/) - An expense policy Page that rewrites itself when a rule changes in Slack, with the message behind every change (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/expense-policy/](https://grokbotpages.com/t/expense-policy/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Expense policy" that holds our current expense policy as numbered sections, written in plain words. Watch the #ops-policy channel in Slack. When a message there changes a rule, rewrite only the section it touches, and show the message that caused it: who posted it, when, and the exact words. At the top, four numbers: rewrites so far, readers this month, stale lines (rules on the Page that no longer match Slack) and the average minutes from Slack message to Page update. Add a search box that filters the sections, a Highlight last change toggle that shows the old value struck through next to the new one, a Copy policy button, and a change log with a Details toggle on every entry showing before and after. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess, and never invent a rule nobody posted. Then create a routine that updates the Page whenever a new message in #ops-policy changes a rule, plus a daily check at 9:00 AM for anything missed.
+  ```
+
+  </details>
+
+- [Competitor watch](https://competitor-watch-example-bvhl.pages.grok.bot/) - Every price change and launch from 5 competitors, checked daily against their own pages (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/competitor-watch/](https://grokbotpages.com/t/competitor-watch/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Competitor watch" that tracks these 5 companies: [list them with their websites]. Check each one's pricing page, changelog and blog every day. At the top, four numbers: companies tracked, price moves, launches and the time of the last check, then one line saying what matters most. Then one row per company with the plan I care about, its price before and after, the change in percent, and a Details toggle with what changed in plain words, the exact source page, and a 30-day price line. Add a filter for All, Price moves, Launches and No change with counts, and a sort for Biggest change, Newest and A to Z. Only report a change you saw on the company's own page, and link to it. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rechecks all 5 every day at 6:00 AM.
+  ```
+
+  </details>
+
 - [Project Pages](https://pending.invalid/project-pages/) - One Page per project with its goal, owners, deadline, next actions, decisions, blockers and a log of which bot changed what, plus a Projects index with a weekday heartbeat and a short list of only what is blocked, overdue or needs your decision, each with Copy buttons (example data). Inspired by [Michael Fenech's post on X](https://x.com/Michael_Fenech_/status/2115774649598705774) ([@Michael_Fenech_](https://x.com/Michael_Fenech_)). By Michael Fenech ([@Michael_Fenech_](https://x.com/Michael_Fenech_)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/project-pages/](https://grokbotpages.com/t/project-pages/).
   <details><summary>Prompt (Michael Fenech, from <a href="https://x.com/Michael_Fenech_/status/2115774649598705774">his post on X</a>)</summary>
@@ -412,6 +482,16 @@ One screen for what your bots and projects are doing and what waits on you.
 
 Planners, trackers and task boards.
 
+- [Morning brief](https://morning-brief-example-x6tk.pages.grok.bot/) - Your day ready by 7:00: meetings, the emails that need you, your focus time and the one thing most likely to slip (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/morning-brief/](https://grokbotpages.com/t/morning-brief/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Morning brief" from my calendar and email. At the top, four numbers: meetings today, emails that need me, focus time (free blocks of 30 minutes or more) and how many things are at risk of slipping. Then call out the one thing most likely to slip today, why, the one step that saves it, and a working copy button with a ready message for that step. Then my day as a strip from first meeting to last and an agenda below it: each meeting with time, who is in it and what to prep, which I can open by tapping it, with a Show free time toggle for lunch, gaps and focus blocks. Then the emails that need me, grouped as Reply today, This week and Read only with counts, each with the sender, subject and the ask in one line. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rebuilds the Page every weekday so it is ready by 7:00 AM.
+  ```
+
+  </details>
+
 - [Project Pages](https://pending.invalid/project-pages/) - One Page per project with its goal, owners, deadline, next actions, decisions, blockers and a log of which bot changed what, plus a Projects index with a weekday heartbeat and a short list of only what is blocked, overdue or needs your decision, each with Copy buttons (example data). Inspired by [Michael Fenech's post on X](https://x.com/Michael_Fenech_/status/2115774649598705774) ([@Michael_Fenech_](https://x.com/Michael_Fenech_)). By Michael Fenech ([@Michael_Fenech_](https://x.com/Michael_Fenech_)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/project-pages/](https://grokbotpages.com/t/project-pages/).
   <details><summary>Prompt (Michael Fenech, from <a href="https://x.com/Michael_Fenech_/status/2115774649598705774">his post on X</a>)</summary>
@@ -714,7 +794,25 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 Pipelines and CRM views.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [Revenue, last week](https://revenue-last-week-example-4v3c.pages.grok.bot/) - Booked revenue against plan by segment for last week, with the deals that slipped and why (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/revenue-last-week/](https://grokbotpages.com/t/revenue-last-week/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Revenue, last week" from my CRM or billing system and my sales plan. At the top, four numbers: booked last week, the plan for the week, the difference against plan in percent, and how many deals slipped, then a one-line takeaway of what carried the week and what slipped. Add a segment switch (All, Enterprise, Mid-market, SMB) that updates every number, the chart and the list. Then a weekly booked vs. plan chart for the last 7 weeks with a Show plan toggle and a hover or tap readout. Then the deals that slipped out of last week: account, segment, amount, owner, the new close week and a Why toggle, with a sort by largest first or soonest new date. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rebuilds the Page every Monday at 8:00 AM.
+  ```
+
+  </details>
+
+- [Q4 Forecast & Pipeline](https://q4-forecast-and-pipeline-example-xahm.pages.grok.bot/) - Q4 commit against target, the pace needed to close the gap, and every deal stuck for 14 days or more (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/q4-forecast-and-pipeline/](https://grokbotpages.com/t/q4-forecast-and-pipeline/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Q4 Forecast & Pipeline" from my CRM. At the top, four numbers: the Q4 target, what is committed, the open pipeline, and how many deals have had no stage change or logged activity for 14 days or more, then a one-line takeaway with the percent of target committed and the weeks left. Then a week-by-week chart of committed revenue against the target line for the 13 weeks of the quarter, with a Show needed pace toggle that draws the pace needed to reach target and a hover or tap readout. Then the deals to watch: name, amount, stage, owner, close date and days since the last change, with a NEW tag on deals added this week and a stuck flag on every deal at 14 days or more. Add a stage filter with counts, a Stuck 14+ days only toggle, a sort by largest or longest without a change, and a Details toggle per deal. The stuck count at the top must match the flagged deals in the list. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that refreshes the Page every hour during work hours so it stays live.
+  ```
+
+  </details>
 
 ## Marketing
 
@@ -732,7 +830,25 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 Explainers and sourced reports.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "News Pulse" from public X posts. Topics: AI, Robotics, Tesla & EV and World News (swap in 3 to 5 topics of your own). For each topic, find the most important stories from the last 3 days, posted by news outlets, companies and well-known public figures, never private individuals. Each story gets a short headline in your own words, a one-line why it matters, the source account, when it was posted, its engagement (likes, reposts, replies and views) and a link to the original X post. Keep everything on the Page itself: no links out except to the X posts. Never invent a post, number or quote. At the top, four numbers: stories, accounts, total engagement and how long ago the newest post went up, then one line on the most engaged story. Then a Top 10 right now across all topics with a Top 5 or Top 10 switch, a timeline of when each story broke, and the topic pulses with a topic switch that shows counts. Add a time window switch (6 hours, 24 hours, 3 days) that updates every number, count and list, and a sort for Most engaged, Newest and Most viewed. Label the Page "Live X data as of" the time you pulled it. Every control must really work on the Page; no buttons that do nothing. A topic with nothing in the window says so instead of a guess. Then create a routine that rebuilds the Page every 3 hours.
+  ```
+
+  </details>
+
+- [Competitor watch](https://competitor-watch-example-bvhl.pages.grok.bot/) - Every price change and launch from 5 competitors, checked daily against their own pages (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/competitor-watch/](https://grokbotpages.com/t/competitor-watch/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Competitor watch" that tracks these 5 companies: [list them with their websites]. Check each one's pricing page, changelog and blog every day. At the top, four numbers: companies tracked, price moves, launches and the time of the last check, then one line saying what matters most. Then one row per company with the plan I care about, its price before and after, the change in percent, and a Details toggle with what changed in plain words, the exact source page, and a 30-day price line. Add a filter for All, Price moves, Launches and No change with counts, and a sort for Biggest change, Newest and A to Z. Only report a change you saw on the company's own page, and link to it. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rechecks all 5 every day at 6:00 AM.
+  ```
+
+  </details>
 
 ## Design
 
@@ -744,7 +860,25 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 
 Memos and doc summaries.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [Board memo, October](https://board-memo-october-example-o6rx.pages.grok.bot/) - The monthly board update drafted from ARR, growth, burn and runway, marked as a draft and never sent (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/board-memo-october/](https://grokbotpages.com/t/board-memo-october/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Board memo" for last month, from my billing, bank or accounting, and CRM. At the top, four numbers: ARR, month-over-month growth, net burn and runway in months, then a 6-month ARR chart. Then draft the monthly board update from those numbers only: a one-line summary, Numbers, What went well, What did not, and Asks. Mark it clearly as DRAFT, NEVER SENT. Add a Full or Short switch, a Show sources toggle that tags every number with where it came from, and a working Copy draft button that copies the version on screen. Never send, schedule or share the memo; I copy it myself. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess, and a number you cannot source stays out of the memo. Then create a routine that redrafts the Page on the 1st of every month at 8:00 AM.
+  ```
+
+  </details>
+
+- [Expense policy](https://expense-policy-example-ilde.pages.grok.bot/) - An expense policy Page that rewrites itself when a rule changes in Slack, with the message behind every change (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
+  Template page: [grokbotpages.com/t/expense-policy/](https://grokbotpages.com/t/expense-policy/).
+  <details><summary>Prompt</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Expense policy" that holds our current expense policy as numbered sections, written in plain words. Watch the #ops-policy channel in Slack. When a message there changes a rule, rewrite only the section it touches, and show the message that caused it: who posted it, when, and the exact words. At the top, four numbers: rewrites so far, readers this month, stale lines (rules on the Page that no longer match Slack) and the average minutes from Slack message to Page update. Add a search box that filters the sections, a Highlight last change toggle that shows the old value struck through next to the new one, a Copy policy button, and a change log with a Details toggle on every entry showing before and after. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess, and never invent a rule nobody posted. Then create a routine that updates the Page whenever a new message in #ops-policy changes a rule, plus a daily check at 9:00 AM for anything missed.
+  ```
+
+  </details>
 
 ## Scheduling and Support
 
