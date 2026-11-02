@@ -1,5 +1,8 @@
 // grokbotpages.com: category filter, copy buttons, and Agent Analytics clicks. No dependencies.
+import { captureUtm, withUtm } from './utm.js';
 (function () {
+  var utm = {};
+  try { utm = captureUtm(location.search, window.sessionStorage) || {}; } catch (e) { utm = {}; }
   var data = {};
   var el = document.getElementById('site-data');
   if (el) { try { data = JSON.parse(el.textContent); } catch (e) {} }
@@ -27,7 +30,7 @@
   // window.aa.track is the Agent Analytics snippet API (https://docs.agentanalytics.sh/reference/tracker-js/).
   // The tracker is async, so calls made before it arrives are queued and flushed in order.
   // A missing snippet, a tracker that never loads, and a throwing tracker are all ignored.
-  var TRACK_KEYS = ['page_slug', 'position', 'category', 'source', 'target', 'target_url', 'target_type', 'target_slug'];
+  var TRACK_KEYS = ['page_slug', 'position', 'location', 'category', 'source', 'target', 'target_url', 'target_type', 'target_slug'];
   var pending = [];
   var PENDING_CAP = 32;
   var watching = false;
@@ -75,7 +78,7 @@
     return props;
   }
   function track(name, props) {
-    var body = props || {};
+    var body = withUtm(name, props || {}, utm);
     try {
       if (aaReady()) { window.aa.track(name, body); return; }
       // window.aa without track is unusable. After the wait, further calls no-op.
