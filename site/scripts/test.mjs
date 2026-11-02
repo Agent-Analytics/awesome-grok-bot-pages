@@ -427,7 +427,7 @@ for (const pathName of paths) {
 const expectFeat = !FEATURED_SLUGS.includes(d.entries[0].slug);
 const needPos = [expectFeat && 'template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'snippet_copied:section_button', 'snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'].filter(Boolean);
 check('every position is used', needPos.every((p) => seen.positions.has(p)), [...seen.positions].sort().join(' '));
-check('outbound target types and get-listed targets', seen.types.has('repo') && seen.types.has('other') && ![...seen.types].some((t) => t !== 'repo' && t !== 'other') && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
+check('outbound target types and get-listed targets', seen.types.has('repo') && seen.types.has('other') && [...seen.types].every((t) => t === 'repo' || t === 'other' || t === 'page') && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
 const typeCases = [
   [d.repo, 'repo'],
   [d.repo + '#listing-rules', 'repo'],
