@@ -74,7 +74,7 @@ function creditLine(e) {
 const tags = (e) => e.categories.map((c) => `<a class="tag" href="/#c=${catSlug(c)}" data-track="category_filtered" data-category="${catSlug(c)}" data-source="link">${esc(c)}</a>`).join(' ') + (e.exampleData ? '<span class="ex">Example data</span>' : '');
 const aaLine = (e) => (isAA(e) ? `<p class="aa">Data from ${outbound(AA, 'Agent Analytics', 'credit')}, recommended for dashboard data.</p>` : '');
 const shotImg = (e, cls = '', eager = false) => `<img src="/shots/${e.slug}.webp" width="960" height="600" alt="Screenshot of the ${esc(e.title)} Page"${eager ? '' : ' loading="lazy"'} decoding="async"${cls ? ` class="${cls}"` : ''}>`;
-const actions = (e, sm, livePosition) => `<div class="act">${liveLink(e, 'Open Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', livePosition, 'btn pri' + sm)}${copyButton(e.slug, 'card', 'Copy prompt', 'btn' + sm)}<a class="btn ghost${sm}" href="/t/${e.slug}/">Details<span class="sr-only"> for ${esc(e.title)}</span></a></div>`;
+const actions = (e, sm, livePosition) => `<div class="act">${liveLink(e, 'Open live Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', livePosition, 'btn pri' + sm)}${copyButton(e.slug, 'card', 'Copy prompt', 'btn' + sm)}<a class="btn ghost${sm}" href="/t/${e.slug}/">View<span class="sr-only"> ${esc(e.title)} template</span></a></div>`;
 const dataBlob = (obj) => `<script type="application/json" id="site-data">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 
 function layout({ title, description, pathName, body, data, head = '' }) {
@@ -141,8 +141,8 @@ function getListed() {
 
 function featuredPages() {
   const pages = FEATURED_SLUGS.map((slug) => d.entries.find((e) => e.slug === slug)).filter(Boolean);
-  const cards = pages.map((e) => `<li class="pick"><a class="shot" href="/t/${e.slug}/" tabindex="-1" aria-hidden="true">${shotImg(e, '', true)}</a><div class="body"><h3><a href="/t/${e.slug}/">${esc(e.title)}</a></h3><p>${esc(e.short)}</p><div class="act"><a class="btn sm pri" href="/t/${e.slug}/">Open<span class="sr-only"> ${esc(e.title)}</span></a>${copyButton(e.slug, 'home_featured', 'Copy prompt', 'btn sm', { location: 'home_featured' })}</div></div></li>`).join('');
-  return `<section class="featured" id="featured" aria-labelledby="featured-h"><div class="featured-h"><h2 id="featured-h">Featured Pages</h2><p>Open a Page, or copy the prompt.</p></div><ul class="pick-grid">${cards}</ul></section>`;
+  const cards = pages.map((e) => `<li class="pick"><a class="shot" href="/t/${e.slug}/" tabindex="-1" aria-hidden="true">${shotImg(e, '', true)}</a><div class="body"><h3><a href="/t/${e.slug}/">${esc(e.title)}</a></h3><p>${esc(e.short)}</p><div class="act"><a class="btn sm pri" href="/t/${e.slug}/">View<span class="sr-only"> ${esc(e.title)} template</span></a>${copyButton(e.slug, 'home_featured', 'Copy prompt', 'btn sm', { location: 'home_featured' })}</div></div></li>`).join('');
+  return `<section class="featured" id="featured" aria-labelledby="featured-h"><div class="featured-h"><h2 id="featured-h">Featured Pages</h2><p>View a Page, or copy its prompt.</p></div><ul class="pick-grid">${cards}</ul></section>`;
 }
 
 function personPlain(p) {
@@ -222,24 +222,26 @@ function assertNoEm(text, name) {
 }
 
 function home() {
-  const [newest, ...rest] = d.entries;
+  const newestIsFeatured = FEATURED_SLUGS.includes(d.entries[0].slug);
+  const newest = newestIsFeatured ? null : d.entries[0];
+  const rest = newestIsFeatured ? d.entries : d.entries.slice(1);
   const chips = [`<li><button type="button" class="chip" data-filter="all" data-name="All" data-track="category_filtered" data-category="all" data-source="click" aria-pressed="true">All <b>${d.entries.length}</b></button></li>`,
     ...d.categories.map((c) => `<li><button type="button" class="chip${c.count ? '' : ' empty'}" data-filter="${c.slug}" data-name="${esc(c.name)}" data-track="category_filtered" data-category="${c.slug}" data-source="click" aria-pressed="false" title="${esc(c.blurb)}">${esc(c.name)} <b>${c.count}</b><span class="sr-only"> ${c.count === 1 ? 'Page' : 'Pages'}</span></button></li>`)].join('');
   const cats = (e) => e.categories.map(catSlug).join(' ');
   const card = (e) => `<li class="card" data-cats="${cats(e)}"><a class="shot" href="/t/${e.slug}/" tabindex="-1" aria-hidden="true">${shotImg(e)}</a><div class="body"><div>${tags(e)}</div>
 <h3><a href="/t/${e.slug}/">${esc(e.title)}</a></h3><p>${esc(e.short)}</p><p class="cr">${creditLine(e)}</p>${aaLine(e)}${actions(e, ' sm', 'grid')}</div></li>`;
-  const body = `<section class="hero" aria-labelledby="hero-h"><span class="pill">Grok Bot Pages templates</span><h1 id="hero-h">Copy a <em>Grok Bot Page.</em></h1>
+  const feat = newest ? `<article class="feat" data-cats="${cats(newest)}"><a class="shot" href="/t/${newest.slug}/" tabindex="-1" aria-hidden="true">${shotImg(newest, '', true)}</a><div class="body"><div>${tags(newest)}</div>
+<h3><a href="/t/${newest.slug}/">${esc(newest.title)}</a></h3><p>${esc(newest.short)}</p><p class="cr">${creditLine(newest)}</p>${aaLine(newest)}
+<div class="pv" aria-hidden="true">${esc(newest.prompt)}</div>${actions(newest, '', 'featured')}</div></article>` : '';
+  const body = `<section class="hero" aria-labelledby="hero-h"><h1 id="hero-h">Copy a <em>Grok Bot Page.</em></h1>
 <p>Every template is a live public Page plus the exact prompt that built it.</p>
 <div class="cta"><a class="btn pri" href="#templates">Browse templates</a><a class="btn" href="#get-listed">Get your Page listed</a></div></section>
 ${featuredPages()}
-<section class="wrap" id="templates" aria-labelledby="tpl-h"><h2 id="tpl-h" class="sr-only">Templates</h2>
-<ul class="chips" aria-label="Filter templates by category">${chips}${(() => { const n = d.categories.filter((c) => c.count === 0).length; return n ? `<li hidden><button type="button" class="chip more" data-more-cats aria-expanded="false">+${n} more ${n === 1 ? 'category' : 'categories'}, add the first</button></li>` : ''; })()}</ul>
+<section class="wrap" id="templates" aria-labelledby="tpl-h">
+<ul class="chips" aria-label="Filter templates by category">${chips}${(() => { const n = d.categories.filter((c) => c.count === 0).length; return n ? `<li hidden><button type="button" class="chip more" data-more-cats aria-expanded="false">Show ${n} empty ${n === 1 ? 'category' : 'categories'}</button></li>` : ''; })()}</ul>
 <p class="status" id="filter-status" aria-live="polite">Showing all ${d.entries.length} Pages</p>
-<p class="lbl" data-all-only>Newest addition</p>
-<article class="feat" data-cats="${cats(newest)}"><a class="shot" href="/t/${newest.slug}/" tabindex="-1" aria-hidden="true">${shotImg(newest, '', true)}</a><div class="body"><div>${tags(newest)}</div>
-<h3><a href="/t/${newest.slug}/">${esc(newest.title)}</a></h3><p>${esc(newest.short)}</p><p class="cr">${creditLine(newest)}</p>${aaLine(newest)}
-<div class="pv" aria-hidden="true">${esc(newest.prompt)}</div>${actions(newest, '', 'featured')}</div></article>
-<p class="lbl" data-all-only>All templates</p>
+${feat}
+<h2 id="tpl-h" class="tpl-h">All templates</h2>
 <ul class="grid">${rest.map(card).join('')}</ul>
 <div class="empty-state" id="empty" hidden><p>No Pages in <strong data-empty-name></strong> yet.</p><a class="btn pri" href="#get-listed">Add yours</a></div>
 </section>
@@ -267,11 +269,11 @@ function detail(e) {
   const body = `<div class="wrap">
 <nav class="crumb" aria-label="Breadcrumb"><a href="/">Templates</a> / <a href="/#c=${catSlug(cat)}">${esc(cat)}</a> / <span aria-current="page">${esc(e.title)}</span></nav>
 <div class="dtop"><div><div>${tags(e)}</div><h1>${esc(e.title)}</h1><p>${esc(e.description)}</p>${aaLine(e)}</div>
-<div class="cta">${copyButton(e.slug, 'detail_top', 'Copy prompt', 'btn')}${liveLink(e, 'Open live Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', 'detail_top', 'btn pri')}</div></div>
+<div class="cta">${liveLink(e, 'Open live Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', 'detail_top', 'btn pri')}${copyButton(e.slug, 'detail_top', 'Copy prompt', 'btn')}</div></div>
 <figure class="frame"><div class="chrome" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">${esc(host)}</span></div>
 <div class="viewport" tabindex="0" role="region" aria-label="Full-page screenshot of ${esc(e.title)}, scrollable"><img src="/shots/${e.slug}-full.webp" alt="Full-page screenshot of the ${esc(e.title)} Page in dark mode" loading="eager" decoding="async"></div>
 <figcaption>Screenshot of the live Page in dark mode. ${liveLink(e, 'Open the live Page', 'caption')} to use it.</figcaption></figure>
-<div class="dbody"><div><h2>Prompt</h2><div class="code"><div class="codeh"><span>${e.promptSource ? `By ${esc(e.promptSource.by)}, from ${outbound(e.promptSource.url, esc(e.promptSource.text), 'credit')}` : 'Prompt'}</span>${copyButton(e.slug, 'prompt_block', 'Copy prompt', 'btn sm')}</div><pre id="prompt">${esc(e.prompt)}</pre></div>${e.routine ? `<h2>Routine prompt (optional)</h2><div class="code"><div class="codeh"><span>Keeps the Page updated</span></div><pre id="routine-prompt">${esc(e.routine)}</pre></div>` : ''}
+<div class="dbody"><div><h2>Prompt</h2><div class="code"><div class="codeh"><span>${e.promptSource ? `By ${esc(e.promptSource.by)}, from ${outbound(e.promptSource.url, esc(e.promptSource.text), 'credit')}` : 'Paste into Grok Bot'}</span>${copyButton(e.slug, 'prompt_block', 'Copy prompt', 'btn sm')}</div><pre id="prompt">${esc(e.prompt)}</pre></div>${e.routine ? `<h2>Routine prompt (optional)</h2><div class="code"><div class="codeh"><span>Keeps the Page updated</span></div><pre id="routine-prompt">${esc(e.routine)}</pre></div>` : ''}
 <div class="how"><h2>How to use it</h2><ol><li>Copy the prompt and paste it into a chat with ${outbound(GROK, 'Grok Bot', 'how_to')}.</li><li>Swap in your own bots, accounts or data sources where the prompt asks for them.</li><li>If the prompt does not create a refresh routine, ask Grok Bot for one.</li><li>To share your version, make a copy with mock data and make that copy public. Then ${'<a href="/#get-listed">get it listed</a>'}.</li></ol></div></div>
 <aside aria-label="About this template"><section class="box"><h2>Credit</h2>${people.map(([p, role]) => `<div class="per"><div class="av" aria-hidden="true">${initials(p.name)}</div><div><b>${esc(p.name)}</b><small>${role}</small>${p.handles.map((h) => outbound(h.url, `${esc(h.handle)} on ${h.platform}`, 'credit')).join('')}</div></div>`).join('')}
 ${e.inspired ? `<p>Inspired by ${outbound(e.inspired.source.url, esc(e.inspired.source.text), 'credit')}${e.inspired.handles.length ? ' (' + handles(e.inspired.handles) + ')' : ''}.</p>` : ''}</section>

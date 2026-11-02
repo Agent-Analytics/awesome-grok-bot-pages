@@ -107,7 +107,7 @@ for (const c of d.categories) {
   check(`chip ${c.name}`, n === c.count && emptyShown === (c.count === 0) && pressed === 'true' && hash === `#c=${c.slug}`, `${n} cards, empty state ${emptyShown ? 'shown' : 'hidden'}, hash ${hash}`);
 }
 await page.click('[data-filter="all"]');
-check('chip All restores', (await visible()) === d.entries.length && (await page.isVisible('[data-all-only]')));
+check('chip All restores', (await visible()) === d.entries.length);
 // deep link
 await page.goto(base + '/#c=agent-orchestration', { waitUntil: 'networkidle' });
 check('deep link #c=agent-orchestration', (await visible()) === d.categories.find((c) => c.slug === 'agent-orchestration').count);
@@ -251,7 +251,7 @@ check('prompts.json shape', promptBad.length === 0, promptBad.join(' '));
 const homeHtml = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 const featHtml = homeHtml.split('id="featured"')[1]?.split('id="templates"')[0] || '';
 const featBad = [];
-if (!homeHtml.includes('id="featured"') || !featHtml.includes('Featured Pages') || !featHtml.includes('Open a Page, or copy the prompt.')) featBad.push('section');
+if (!homeHtml.includes('id="featured"') || !featHtml.includes('Featured Pages') || !featHtml.includes('View a Page, or copy its prompt.')) featBad.push('section');
 if ((featHtml.match(/data-location="home_featured"/g) || []).length !== FEATURED_SLUGS.length) featBad.push('location count');
 for (const slug of FEATURED_SLUGS) {
   if (!featHtml.includes(`href="/t/${slug}/"`)) featBad.push('open ' + slug);
@@ -398,9 +398,10 @@ for (const pathName of paths) {
     if (chips.length !== d.categories.length + 1) problems.push('chip count ' + chips.length);
     if (!chips.some((t) => t.category === 'all')) problems.push('missing all chip');
     const featured = tracks.filter((t) => t.event === 'template_opened' && t.position === 'featured');
-    if (featured.length !== 1 || featured[0].page_slug !== d.entries[0].slug) problems.push('featured');
+    const expectFeat = !FEATURED_SLUGS.includes(d.entries[0].slug);
+    if (expectFeat ? (featured.length !== 1 || featured[0].page_slug !== d.entries[0].slug) : featured.length !== 0) problems.push('featured');
     const grid = tracks.filter((t) => t.event === 'template_opened' && t.position === 'grid');
-    if (grid.length !== d.entries.length - 1) problems.push('grid ' + grid.length);
+    if (grid.length !== (expectFeat ? d.entries.length - 1 : d.entries.length)) problems.push('grid ' + grid.length);
     if (tracks.filter((t) => t.event === 'prompt_copied' && t.position === 'card').length !== d.entries.length) problems.push('card copies');
     const picks = tracks.filter((t) => t.event === 'prompt_copied' && t.position === 'home_featured');
     if (picks.length !== FEATURED_SLUGS.length || !FEATURED_SLUGS.every((slug) => picks.some((t) => t.page_slug === slug && t.location === 'home_featured'))) problems.push('home featured ' + picks.map((t) => t.page_slug).join(','));
@@ -423,7 +424,8 @@ for (const pathName of paths) {
   }
   check(`data-track wiring ${pathName}`, problems.length === 0, problems.join(' | '));
 }
-const needPos = ['template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'snippet_copied:section_button', 'snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'];
+const expectFeat = !FEATURED_SLUGS.includes(d.entries[0].slug);
+const needPos = [expectFeat && 'template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'snippet_copied:section_button', 'snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'].filter(Boolean);
 check('every position is used', needPos.every((p) => seen.positions.has(p)), [...seen.positions].sort().join(' '));
 check('outbound target types and get-listed targets', seen.types.has('repo') && seen.types.has('other') && ![...seen.types].some((t) => t !== 'repo' && t !== 'other') && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
 const typeCases = [
@@ -482,12 +484,22 @@ await ap.click(`[data-filter="${empty.slug}"] b`);
 await expectEvents(ap, [{ name: 'category_filtered', props: { category: empty.slug, results_count: 0, source: 'click' } }], 'chip click fires category_filtered with results_count');
 await ap.click('[data-filter="all"]');
 await clearAa(ap);
-await fire(ap, 'article.feat a[data-track="template_opened"]');
-await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: d.entries[0].slug, position: 'featured', category: cat(d.entries[0]) } }], 'featured open fires template_opened only');
-await clearAa(ap);
-await ap.click(`article.feat [data-copy="${d.entries[0].slug}"]`);
-await ap.waitForTimeout(150);
-await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: d.entries[0].slug, position: 'card', category: cat(d.entries[0]), success: true } }], 'card copy fires one prompt_copied after success');
+if (expectFeat) {
+  await fire(ap, 'article.feat a[data-track="template_opened"]');
+  await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: d.entries[0].slug, position: 'featured', category: cat(d.entries[0]) } }], 'featured open fires template_opened only');
+  await clearAa(ap);
+  await ap.click(`article.feat [data-copy="${d.entries[0].slug}"]`);
+  await ap.waitForTimeout(150);
+  await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: d.entries[0].slug, position: 'card', category: cat(d.entries[0]), success: true } }], 'card copy fires one prompt_copied after success');
+} else {
+  const slug = d.entries[0].slug;
+  await fire(ap, `.grid [data-cats] a[data-track="template_opened"][data-page-slug="${slug}"]`);
+  await expectEvents(ap, [{ name: 'template_opened', props: { page_slug: slug, position: 'grid', category: cat(d.entries[0]) } }], 'grid open fires template_opened only');
+  await clearAa(ap);
+  await ap.click(`.grid [data-copy="${slug}"]`);
+  await ap.waitForTimeout(150);
+  await expectEvents(ap, [{ name: 'prompt_copied', props: { page_slug: slug, position: 'card', category: cat(d.entries[0]), success: true } }], 'card copy fires one prompt_copied after success');
+}
 await clearAa(ap);
 const featuredEntry = d.entries.find((e) => e.slug === 'mission-control-two-lists');
 await ap.click('#featured [data-copy="mission-control-two-lists"]');
@@ -613,7 +625,7 @@ const navAt390 = await mNavPage.evaluate(() => {
     return { t: a.textContent.trim(), display: s.display, w: Math.round(r.width), h: Math.round(r.height), left: Math.round(r.left), right: Math.round(r.right) };
   });
   const vw = document.documentElement.clientWidth;
-  const ok = box.every((a) => a && a.display !== 'none' && a.w > 8 && a.h > 8 && a.h < 28 && a.left >= 0 && a.right <= vw + 1);
+  const ok = box.every((a) => a && a.display !== 'none' && a.w > 8 && a.h > 8 && a.h <= 40 && a.left >= 0 && a.right <= vw + 1);
   return { ok, box, overflow: document.documentElement.scrollWidth > vw };
 });
 check('mobile nav links visible at 390px', navAt390.ok && !navAt390.overflow, JSON.stringify(navAt390.box));

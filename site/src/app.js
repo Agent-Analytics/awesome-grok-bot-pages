@@ -195,7 +195,7 @@ import { captureUtm, withUtm } from './utm.js';
     if (!moreBtn) return;
     if (open) moreBtn.textContent = 'Show fewer categories';
     else if (hiddenLeft === 0) { moreBtn.parentElement.hidden = true; return; }
-    else moreBtn.textContent = '+' + hiddenLeft + ' more ' + (hiddenLeft === 1 ? 'category' : 'categories') + ', add the first';
+    else moreBtn.textContent = 'Show ' + hiddenLeft + ' empty ' + (hiddenLeft === 1 ? 'category' : 'categories');
     moreBtn.parentElement.hidden = false;
   }
   function apply(cat, push) {
