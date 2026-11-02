@@ -46,6 +46,16 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Agent Office](https://pending.invalid/agent-office/) - An office floor of 10 agents making a video series, each desk showing its status and current task with steps, what needs you with Copy reply buttons, a team list with filters, an episode pipeline and an activity feed (example data). Inspired by [Filipe Flores's post on X](https://x.com/ofilipeflores/status/2116360547767644433) ([@ofilipeflores](https://x.com/ofilipeflores)). Based on his Page [Escritório das Frutinhas](https://escritorio-das-frutinhas-fix7.pages.grok.bot/); he shared no prompt, so the prompt is written from the Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/agent-office/](https://grokbotpages.com/t/agent-office/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Agent Office" that shows my team of AI agents as an office, working on my content series [name the series and where it posts, for example a short fruit-character drama on TikTok]. Give each agent a character, a desk on an office floor plan and a role (for example ideas, script, storyboard, voices, editing, captions, thumbnails, scheduling, quality check). At the top, four numbers: agents working, agents that need me, agents free, and episodes in progress. On the floor plan, mark each agent's status with a shape and a word (Exploring, Writing, Creating, Polishing, Thinking, Needs you, Done, Resting) and let me tap a desk to see that agent's current task: the task name, the step it is on out of how many, a timeline of its steps with times, and what it made. Then a Needs you list: each item names the agent, the question in one line, why it needs me, and a Copy reply button with a ready answer; the Page itself never approves or sends anything. Then the episode pipeline from Idea to Script, Storyboard, Voices, Edit, Ready and Posted, with counts per stage and each episode's title, stage and owner. End with an activity feed of what each agent did, newest first, with a filter by agent. Add a status filter with counts and a sort for Needs you first or A to Z. Every control must really work on the Page; no buttons that do nothing. Show only work my agents really did; anything not connected shows as empty instead of a guess. Then create a routine that refreshes the Page every hour while my agents are working.
+  ```
+
+  </details>
+
 - [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
   <details><summary>Prompt</summary>
@@ -626,6 +636,16 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 ## Agent Orchestration
 
 Decisions your bots are waiting on you for.
+
+- [Agent Office](https://pending.invalid/agent-office/) - An office floor of 10 agents making a video series, each desk showing its status and current task with steps, what needs you with Copy reply buttons, a team list with filters, an episode pipeline and an activity feed (example data). Inspired by [Filipe Flores's post on X](https://x.com/ofilipeflores/status/2116360547767644433) ([@ofilipeflores](https://x.com/ofilipeflores)). Based on his Page [Escritório das Frutinhas](https://escritorio-das-frutinhas-fix7.pages.grok.bot/); he shared no prompt, so the prompt is written from the Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/agent-office/](https://grokbotpages.com/t/agent-office/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Agent Office" that shows my team of AI agents as an office, working on my content series [name the series and where it posts, for example a short fruit-character drama on TikTok]. Give each agent a character, a desk on an office floor plan and a role (for example ideas, script, storyboard, voices, editing, captions, thumbnails, scheduling, quality check). At the top, four numbers: agents working, agents that need me, agents free, and episodes in progress. On the floor plan, mark each agent's status with a shape and a word (Exploring, Writing, Creating, Polishing, Thinking, Needs you, Done, Resting) and let me tap a desk to see that agent's current task: the task name, the step it is on out of how many, a timeline of its steps with times, and what it made. Then a Needs you list: each item names the agent, the question in one line, why it needs me, and a Copy reply button with a ready answer; the Page itself never approves or sends anything. Then the episode pipeline from Idea to Script, Storyboard, Voices, Edit, Ready and Posted, with counts per stage and each episode's title, stage and owner. End with an activity feed of what each agent did, newest first, with a filter by agent. Add a status filter with counts and a sort for Needs you first or A to Z. Every control must really work on the Page; no buttons that do nothing. Show only work my agents really did; anything not connected shows as empty instead of a guess. Then create a routine that refreshes the Page every hour while my agents are working.
+  ```
+
+  </details>
 
 - [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots wait on you for, ranked by due time, money at stake and age, each with Copy yes and Copy no buttons, plus division goal gauges, a bot roster, a 72-hour stale log and what you cleared today (example data). Inspired by [Jordan Rafealov's post on X](https://x.com/JordanRafealov/status/2116152545274147218) ([@JordanRafealov](https://x.com/JordanRafealov)). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/decisions-console/](https://grokbotpages.com/t/decisions-console/).
