@@ -46,6 +46,16 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Cheapest Power Hours](https://pending.invalid/cheapest-power-hours/) - A year of half-hourly power prices for one region: when the cheapest four hours start by season, an hourly price chart with a month picker, start times per month, and what one 30 kWh charge costs when timed well or badly (example data). Inspired by [Octomiser's post on X](https://x.com/octomiser/status/2117563839130620225) ([@octomiser](https://x.com/octomiser)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/cheapest-power-hours/](https://grokbotpages.com/t/cheapest-power-hours/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Cheapest Power Hours" from a year of half-hourly electricity prices for [your region and tariff, for example London on Octopus Agile], from [start date] to [end date]. For each day, find the cheapest unbroken four-hour run and note when it started. At the top, four numbers with the exact counts: winter days (November to February) whose cheapest 4 hours started overnight, spring and summer days (April to August) whose cheapest 4 hours started late morning to midday, days whose cheapest 4 hours touched 16:00 to 19:00, and negative-price half-hours. Then an hourly bar chart of the average price per clock hour with a month picker, so I can flip between winter and summer. Then a stacked chart of overnight, midday and other start times per month. Then a cost calculator: one 30 kWh load in the cheapest 4 hours against 17:00 to 21:00, per month. Then a short "What to do" list by season with a Copy button on each tip. Use pence per kWh including VAT, label every chart, and say which numbers are measured and which are explanation. Every control must really work on the Page.
+  ```
+
+  </details>
+
 - [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
   <details><summary>Prompt</summary>
@@ -613,6 +623,16 @@ Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanal
 
   ```text
   Create a routine that refreshes my "Site Analytics Dashboard" Page every day at 8:00 AM with fresh Agent Analytics data for the last 30 days, keeping the same layout, charts and copy buttons, and updating the suggested next steps. Message me only if visits or signups drop more than 30% against the 7-day average.
+  ```
+
+  </details>
+
+- [Cheapest Power Hours](https://pending.invalid/cheapest-power-hours/) - A year of half-hourly power prices for one region: when the cheapest four hours start by season, an hourly price chart with a month picker, start times per month, and what one 30 kWh charge costs when timed well or badly (example data). Inspired by [Octomiser's post on X](https://x.com/octomiser/status/2117563839130620225) ([@octomiser](https://x.com/octomiser)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/cheapest-power-hours/](https://grokbotpages.com/t/cheapest-power-hours/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Cheapest Power Hours" from a year of half-hourly electricity prices for [your region and tariff, for example London on Octopus Agile], from [start date] to [end date]. For each day, find the cheapest unbroken four-hour run and note when it started. At the top, four numbers with the exact counts: winter days (November to February) whose cheapest 4 hours started overnight, spring and summer days (April to August) whose cheapest 4 hours started late morning to midday, days whose cheapest 4 hours touched 16:00 to 19:00, and negative-price half-hours. Then an hourly bar chart of the average price per clock hour with a month picker, so I can flip between winter and summer. Then a stacked chart of overnight, midday and other start times per month. Then a cost calculator: one 30 kWh load in the cheapest 4 hours against 17:00 to 21:00, per month. Then a short "What to do" list by season with a Copy button on each tip. Use pence per kWh including VAT, label every chart, and say which numbers are measured and which are explanation. Every control must really work on the Page.
   ```
 
   </details>
