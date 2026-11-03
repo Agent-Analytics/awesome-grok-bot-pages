@@ -46,6 +46,16 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Morning Gazette](https://pending.invalid/morning-gazette/) - A daily morning newspaper in 1920s pastiche: masthead with edition and price, a front-page lead with teasers, world wire, society notes from your own calendar, good news, an almanac and classifieds, with a Copy button on every story (example data). Inspired by [inuzaku1's post on X](https://x.com/johnathanfarri5/status/2117006262160543820) ([@johnathanfarri5](https://x.com/johnathanfarri5)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/morning-gazette/](https://grokbotpages.com/t/morning-gazette/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a Grok Bot Page called "The Morning Gazette": a daily morning newspaper written as a 1920s pastiche. Newsprint look in plain black and white, a masthead with the paper's name, edition, date, volume and price, and an "On this page" index. Sections: A1 Front Page (one lead story from today's news with a headline, deck and dateline, plus three teasers), A2 The World and Wire (four short wire items), Society and Amusements (notes and events from my own calendar and group chats, only what I approve), Glad Tidings (good news only), a light Scandal Sheet (public, mild, nothing about private people), The Almanac (weather, sunrise, one fortune), The Board of Trade (one business item) and Classifieds. Write in a wry 1920s voice, but keep every fact true and link each story to its source. Add a Copy button on each story so I can share it. Light on scandal. No em dashes.
+  ```
+
+  </details>
+
 - [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
   <details><summary>Prompt</summary>
@@ -590,6 +600,16 @@ Planners, trackers and task boards.
 
   ```text
   Create a routine that refreshes my "Mission Board" Page every morning at 7 AM and whenever a bot asks me for something. Each run, collect what my bots wait on me for, update missions and briefs with the same layout and copy buttons, and drop items I already answered. Message me only if something is due today.
+  ```
+
+  </details>
+
+- [Morning Gazette](https://pending.invalid/morning-gazette/) - A daily morning newspaper in 1920s pastiche: masthead with edition and price, a front-page lead with teasers, world wire, society notes from your own calendar, good news, an almanac and classifieds, with a Copy button on every story (example data). Inspired by [inuzaku1's post on X](https://x.com/johnathanfarri5/status/2117006262160543820) ([@johnathanfarri5](https://x.com/johnathanfarri5)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/morning-gazette/](https://grokbotpages.com/t/morning-gazette/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a Grok Bot Page called "The Morning Gazette": a daily morning newspaper written as a 1920s pastiche. Newsprint look in plain black and white, a masthead with the paper's name, edition, date, volume and price, and an "On this page" index. Sections: A1 Front Page (one lead story from today's news with a headline, deck and dateline, plus three teasers), A2 The World and Wire (four short wire items), Society and Amusements (notes and events from my own calendar and group chats, only what I approve), Glad Tidings (good news only), a light Scandal Sheet (public, mild, nothing about private people), The Almanac (weather, sunrise, one fortune), The Board of Trade (one business item) and Classifieds. Write in a wry 1920s voice, but keep every fact true and link each story to its source. Add a Copy button on each story so I can share it. Light on scandal. No em dashes.
   ```
 
   </details>
