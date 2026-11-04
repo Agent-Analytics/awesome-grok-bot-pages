@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Dinners and Groceries](https://pending.invalid/dinners-and-groceries/) - This week's 5 dinners with a grocery checklist grouped by aisle that you can tick off, with a count of what is left and a Copy button for the remaining list (example data). Inspired by [BotTutorialsDaily's post on X](https://x.com/BotTutorials/status/2116610235012157813) ([@BotTutorials](https://x.com/BotTutorials)). Prompt quoted word for word from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/dinners-and-groceries/](https://grokbotpages.com/t/dinners-and-groceries/).
+  <details><summary>Prompt (BotTutorialsDaily, quoted from <a href="https://x.com/BotTutorials/status/2116610235012157813">their post on X</a>)</summary>
+
+  ```text
+  Make me a Page with this week's 5 dinners and a grocery checklist I can tick off.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my dinners Page: every Sunday at 10:00, plan next week's 5 dinners, rebuild the grocery checklist from them, and keep the layout the same. When I tell you what I bought, tick it off on the Page.
+  ```
+
+  </details>
+
 - [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
   <details><summary>Prompt</summary>
@@ -590,6 +607,23 @@ Planners, trackers and task boards.
 
   ```text
   Create a routine that refreshes my "Mission Board" Page every morning at 7 AM and whenever a bot asks me for something. Each run, collect what my bots wait on me for, update missions and briefs with the same layout and copy buttons, and drop items I already answered. Message me only if something is due today.
+  ```
+
+  </details>
+
+- [Dinners and Groceries](https://pending.invalid/dinners-and-groceries/) - This week's 5 dinners with a grocery checklist grouped by aisle that you can tick off, with a count of what is left and a Copy button for the remaining list (example data). Inspired by [BotTutorialsDaily's post on X](https://x.com/BotTutorials/status/2116610235012157813) ([@BotTutorials](https://x.com/BotTutorials)). Prompt quoted word for word from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/dinners-and-groceries/](https://grokbotpages.com/t/dinners-and-groceries/).
+  <details><summary>Prompt (BotTutorialsDaily, quoted from <a href="https://x.com/BotTutorials/status/2116610235012157813">their post on X</a>)</summary>
+
+  ```text
+  Make me a Page with this week's 5 dinners and a grocery checklist I can tick off.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my dinners Page: every Sunday at 10:00, plan next week's 5 dinners, rebuild the grocery checklist from them, and keep the layout the same. When I tell you what I bought, tick it off on the Page.
   ```
 
   </details>
