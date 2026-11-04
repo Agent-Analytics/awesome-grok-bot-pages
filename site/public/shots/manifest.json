@@ -366,5 +366,21 @@
       390,
       6527
     ]
+  },
+  "ship-velocity": {
+    "url": "https://ship-velocity-example-jbus.pages.grok.bot/",
+    "captured": "2026-11-04T19:32:47.972Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2345
+    ],
+    "mobile": [
+      390,
+      4705
+    ]
   }
 }
