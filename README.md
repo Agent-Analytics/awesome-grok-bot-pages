@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Ship Velocity" for [repo or team]. At the top: merged PRs last month, growth since [start month], active contributors, and how many tracked timings got faster. Then a monthly column chart of merged PRs from [start month] to now, with a switch to show contributors and PRs per contributor. Then before and after cards for each performance timing I track ([for example cold launch, relaunch, first paint, typing latency median and p90]): the old value, the new value, the % change, and a dashed budget line (one frame, 16.7 ms, for typing; [my launch budget] for startup). Put any timing that got slower or is over its budget first. Use merged PR counts from GitHub for [repo] and timings from [benchmark source]. Say where each number comes from, and leave a metric out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Ship Velocity" Page: on the 1st of each month at 09:00, add last month's merged PRs and contributors from GitHub, read the latest benchmark results, update the before and after cards, and keep the layout the same. If a timing got slower or went over its budget, put it first and tell me.
+  ```
+
+  </details>
+
 - [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
   <details><summary>Prompt</summary>
@@ -613,6 +630,23 @@ Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanal
 
   ```text
   Create a routine that refreshes my "Site Analytics Dashboard" Page every day at 8:00 AM with fresh Agent Analytics data for the last 30 days, keeping the same layout, charts and copy buttons, and updating the suggested next steps. Message me only if visits or signups drop more than 30% against the 7-day average.
+  ```
+
+  </details>
+
+- [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Ship Velocity" for [repo or team]. At the top: merged PRs last month, growth since [start month], active contributors, and how many tracked timings got faster. Then a monthly column chart of merged PRs from [start month] to now, with a switch to show contributors and PRs per contributor. Then before and after cards for each performance timing I track ([for example cold launch, relaunch, first paint, typing latency median and p90]): the old value, the new value, the % change, and a dashed budget line (one frame, 16.7 ms, for typing; [my launch budget] for startup). Put any timing that got slower or is over its budget first. Use merged PR counts from GitHub for [repo] and timings from [benchmark source]. Say where each number comes from, and leave a metric out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Ship Velocity" Page: on the 1st of each month at 09:00, add last month's merged PRs and contributors from GitHub, read the latest benchmark results, update the before and after cards, and keep the layout the same. If a timing got slower or went over its budget, put it first and tell me.
   ```
 
   </details>
