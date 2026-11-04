@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Teach Me This](https://pending.invalid/teach-me-this/) - A one-topic lesson from a post or link: a 3 to 5 step lesson plan, explain-it-back questions with Copy buttons, a quiz you reveal one answer at a time, and a spaced review schedule (example data). Inspired by [Daniel Endara's post on X](https://x.com/danielendara/status/2116936574168416621) ([@danielendara](https://x.com/danielendara)). Sensei bot template: [x.ai/bot/wUPzZYJGLoY859G420jxh](https://x.ai/bot/wUPzZYJGLoY859G420jxh). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/teach-me-this/](https://grokbotpages.com/t/teach-me-this/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  When I say "teach me this" with a post, a link or a topic, make a short lesson Grok Bot Page about it. Start with one sentence on what it is and a link to the source. Then a lesson plan of 3 to 5 steps, one concept at a time, each with a plain explanation and one example. Then "Explain it back": one question per step that I answer in my own words, with a Copy button so I can paste my answer to you and you check it. Then a 5-question quiz with answers I can reveal one at a time. End with a review schedule (tomorrow, in 3 days, in a week), each with a Copy button for the review prompt. Keep each step short and never invent facts the source does not support.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine: every morning at 08:00, check my lesson Pages for reviews due today, and send me one line per lesson with the Page link and the first review question.
+  ```
+
+  </details>
+
 - [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
   <details><summary>Prompt</summary>
@@ -846,6 +863,23 @@ Explainers and sourced reports.
 
   ```text
   Build me a wide Grok Bot Page called "Competitor watch" that tracks these 5 companies: [list them with their websites]. Check each one's pricing page, changelog and blog every day. At the top, four numbers: companies tracked, price moves, launches and the time of the last check, then one line saying what matters most. Then one row per company with the plan I care about, its price before and after, the change in percent, and a Details toggle with what changed in plain words, the exact source page, and a 30-day price line. Add a filter for All, Price moves, Launches and No change with counts, and a sort for Biggest change, Newest and A to Z. Only report a change you saw on the company's own page, and link to it. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rechecks all 5 every day at 6:00 AM.
+  ```
+
+  </details>
+
+- [Teach Me This](https://pending.invalid/teach-me-this/) - A one-topic lesson from a post or link: a 3 to 5 step lesson plan, explain-it-back questions with Copy buttons, a quiz you reveal one answer at a time, and a spaced review schedule (example data). Inspired by [Daniel Endara's post on X](https://x.com/danielendara/status/2116936574168416621) ([@danielendara](https://x.com/danielendara)). Sensei bot template: [x.ai/bot/wUPzZYJGLoY859G420jxh](https://x.ai/bot/wUPzZYJGLoY859G420jxh). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/teach-me-this/](https://grokbotpages.com/t/teach-me-this/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  When I say "teach me this" with a post, a link or a topic, make a short lesson Grok Bot Page about it. Start with one sentence on what it is and a link to the source. Then a lesson plan of 3 to 5 steps, one concept at a time, each with a plain explanation and one example. Then "Explain it back": one question per step that I answer in my own words, with a Copy button so I can paste my answer to you and you check it. Then a 5-question quiz with answers I can reveal one at a time. End with a review schedule (tomorrow, in 3 days, in a week), each with a Copy button for the review prompt. Keep each step short and never invent facts the source does not support.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine: every morning at 08:00, check my lesson Pages for reviews due today, and send me one line per lesson with the Page link and the first review question.
   ```
 
   </details>
