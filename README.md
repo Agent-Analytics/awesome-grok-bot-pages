@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Repo Patterns Brief](https://pending.invalid/repo-patterns-brief/) - A research brief on outside repos for your agent fleet: the 5 patterns to adopt first with source links, fit and effort, filters by agent and effort, Copy task buttons, risks to copy as ideas only, and one decision with Copy yes and Copy no (example data). Inspired by [Mike Gannotti's post on X](https://x.com/MichaelGannotti/status/2117232268150190355) ([@MichaelGannotti](https://x.com/MichaelGannotti)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/repo-patterns-brief/](https://grokbotpages.com/t/repo-patterns-brief/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Go through [repo links] and write it up as a Grok Bot Page called "[Topic]: patterns for our agent fleet". At the top: what the repos are, their licence, and the 5 patterns you would bring to my agents first. For each pattern: a one-line name, what it does, where it appears in the repo (file path and link), which of my agents it fits, effort (small, medium, large), and a Copy button with a short task I can paste to the agent that would adopt it. Add a filter by agent and by effort. Then a Risks section: what we should copy as ideas rather than run as code, and why. Then gaps, such as missing tests. End with one question for me with Copy yes and Copy no. Only cite what is in the repos.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my patterns Page: every Monday at 09:00, check the repos for new commits, add or update patterns that changed with the commit link, and mark any pattern we have adopted. Keep the layout the same.
+  ```
+
+  </details>
+
 - [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).
   <details><summary>Prompt</summary>
@@ -846,6 +863,23 @@ Explainers and sourced reports.
 
   ```text
   Build me a wide Grok Bot Page called "Competitor watch" that tracks these 5 companies: [list them with their websites]. Check each one's pricing page, changelog and blog every day. At the top, four numbers: companies tracked, price moves, launches and the time of the last check, then one line saying what matters most. Then one row per company with the plan I care about, its price before and after, the change in percent, and a Details toggle with what changed in plain words, the exact source page, and a 30-day price line. Add a filter for All, Price moves, Launches and No change with counts, and a sort for Biggest change, Newest and A to Z. Only report a change you saw on the company's own page, and link to it. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rechecks all 5 every day at 6:00 AM.
+  ```
+
+  </details>
+
+- [Repo Patterns Brief](https://pending.invalid/repo-patterns-brief/) - A research brief on outside repos for your agent fleet: the 5 patterns to adopt first with source links, fit and effort, filters by agent and effort, Copy task buttons, risks to copy as ideas only, and one decision with Copy yes and Copy no (example data). Inspired by [Mike Gannotti's post on X](https://x.com/MichaelGannotti/status/2117232268150190355) ([@MichaelGannotti](https://x.com/MichaelGannotti)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/repo-patterns-brief/](https://grokbotpages.com/t/repo-patterns-brief/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Go through [repo links] and write it up as a Grok Bot Page called "[Topic]: patterns for our agent fleet". At the top: what the repos are, their licence, and the 5 patterns you would bring to my agents first. For each pattern: a one-line name, what it does, where it appears in the repo (file path and link), which of my agents it fits, effort (small, medium, large), and a Copy button with a short task I can paste to the agent that would adopt it. Add a filter by agent and by effort. Then a Risks section: what we should copy as ideas rather than run as code, and why. Then gaps, such as missing tests. End with one question for me with Copy yes and Copy no. Only cite what is in the repos.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my patterns Page: every Monday at 09:00, check the repos for new commits, add or update patterns that changed with the commit link, and mark any pattern we have adopted. Keep the layout the same.
   ```
 
   </details>
