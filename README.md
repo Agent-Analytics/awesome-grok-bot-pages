@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Kaspa L1 Venues](https://pending.invalid/kaspa-l1-venues/) - A curated, filterable directory of example projects building on Kaspa L1, KCC-20, covenants, SilverScript and Argent, with category filters, status pills, link cards and Copy buttons for add-venue notes (example data). Inspired by [GoonBoyCrypto's post on X](https://x.com/GoonBoyCrypto/status/2118674632446513524) ([@GoonBoyCrypto](https://x.com/GoonBoyCrypto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/kaspa-l1-venues/](https://grokbotpages.com/t/kaspa-l1-venues/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Kaspa L1 Venues": a curated, filterable directory of projects building on Kaspa L1, KCC-20, covenants, SilverScript or Argent. At the top: total venues, how many on mainnet, how many on testnet, and how many categories. Then filter pills by category and by status (mainnet, testnet). For each venue: name, one-line what it does, category, status pill, a link card, and a Copy button with a short "add venue" note I can paste back to you. Use only example invented venues labelled as example data, not real project claims. Inspired by a 54-venue list Page. End with one question for me with Copy yes and Copy no.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Kaspa L1 Venues" Page: every Friday at 09:00, ask me for any new venues, add the ones I confirm with status and category, and keep the filters and Copy buttons the same.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -880,6 +897,23 @@ Explainers and sourced reports.
 
   ```text
   Build me a wide Grok Bot Page called "Competitor watch" that tracks these 5 companies: [list them with their websites]. Check each one's pricing page, changelog and blog every day. At the top, four numbers: companies tracked, price moves, launches and the time of the last check, then one line saying what matters most. Then one row per company with the plan I care about, its price before and after, the change in percent, and a Details toggle with what changed in plain words, the exact source page, and a 30-day price line. Add a filter for All, Price moves, Launches and No change with counts, and a sort for Biggest change, Newest and A to Z. Only report a change you saw on the company's own page, and link to it. Every control must really work on the Page; no buttons that do nothing. Anything not connected shows as empty instead of a guess. Then create a routine that rechecks all 5 every day at 6:00 AM.
+  ```
+
+  </details>
+
+- [Kaspa L1 Venues](https://pending.invalid/kaspa-l1-venues/) - A curated, filterable directory of example projects building on Kaspa L1, KCC-20, covenants, SilverScript and Argent, with category filters, status pills, link cards and Copy buttons for add-venue notes (example data). Inspired by [GoonBoyCrypto's post on X](https://x.com/GoonBoyCrypto/status/2118674632446513524) ([@GoonBoyCrypto](https://x.com/GoonBoyCrypto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/kaspa-l1-venues/](https://grokbotpages.com/t/kaspa-l1-venues/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Kaspa L1 Venues": a curated, filterable directory of projects building on Kaspa L1, KCC-20, covenants, SilverScript or Argent. At the top: total venues, how many on mainnet, how many on testnet, and how many categories. Then filter pills by category and by status (mainnet, testnet). For each venue: name, one-line what it does, category, status pill, a link card, and a Copy button with a short "add venue" note I can paste back to you. Use only example invented venues labelled as example data, not real project claims. Inspired by a 54-venue list Page. End with one question for me with Copy yes and Copy no.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Kaspa L1 Venues" Page: every Friday at 09:00, ask me for any new venues, add the ones I confirm with status and category, and keep the filters and Copy buttons the same.
   ```
 
   </details>
