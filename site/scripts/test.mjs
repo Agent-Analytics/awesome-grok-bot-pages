@@ -111,13 +111,13 @@ check('chip All restores', (await visible()) === d.entries.length);
 // deep link
 await page.goto(base + '/#c=agent-orchestration', { waitUntil: 'networkidle' });
 check('deep link #c=agent-orchestration', (await visible()) === d.categories.find((c) => c.slug === 'agent-orchestration').count);
-await page.goto(base + '/#c=design', { waitUntil: 'networkidle' });
+await page.goto(base + '/#c=infrastructure', { waitUntil: 'networkidle' });
 const emptyContrast = await page.evaluate(() => {
   const lin = (c) => { const x = c / 255; return x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; };
   const L = (rgb) => 0.2126 * lin(rgb[0]) + 0.7152 * lin(rgb[1]) + 0.0722 * lin(rgb[2]);
   const parse = (c) => c.match(/[\d.]+/g).slice(0, 3).map(Number);
   const ratio = (fg, bg) => { const a = L(parse(fg)); const b = L(parse(bg)); return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05); };
-  const chip = document.querySelector('[data-filter="design"]');
+  const chip = document.querySelector('[data-filter="infrastructure"]');
   const cs = getComputedStyle(chip);
   const count = getComputedStyle(chip.querySelector('b'));
   const bg = cs.backgroundColor;
