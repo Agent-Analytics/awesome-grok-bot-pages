@@ -55,6 +55,11 @@ check('withUtm adds source and campaign on prompt_copied', utmEvent.utm_source =
 check('withUtm adds the same fields on template_opened', withUtm('template_opened', { page_slug: 'news-pulse', category: 'research' }, { utm_source: 'x', utm_campaign: 'test' }).utm_campaign === 'test');
 check('withUtm leaves other events alone', withUtm('category_filtered', { category: 'all' }, { utm_source: 'x' }).utm_source === undefined);
 check('withUtm omits empty session values', withUtm('template_opened', { page_slug: 'a' }, {}).utm_source === undefined && withUtm('prompt_copied', { page_slug: 'a' }, { utm_source: 'x' }).utm_campaign === undefined);
+const entryBare = withUtm('entry_snippet_copied', { schema_version: 1, snippet: 'readme_entry', position: 'section_button', success: true }, { utm_source: 'x', utm_campaign: 'test' });
+const viewBare = withUtm('listing_instructions_viewed', { schema_version: 1, instructions: 'pull_request_steps' }, { utm_source: 'x', utm_campaign: 'test' });
+const listedBare = withUtm('get_listed_clicked', { target: 'open_pr' }, { utm_source: 'x', utm_campaign: 'test' });
+const snippetBare = withUtm('snippet_copied', { position: 'section_button', success: true }, { utm_source: 'x', utm_campaign: 'test' });
+check('withUtm leaves contributor events free of explicit utm', entryBare.utm_source === undefined && entryBare.utm_campaign === undefined && entryBare.schema_version === 1 && viewBare.utm_source === undefined && viewBare.instructions === 'pull_request_steps' && listedBare.utm_source === undefined && Object.keys(listedBare).join() === 'target' && snippetBare.utm_source === undefined && snippetBare.success === true);
 
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, permissions: ['clipboard-read', 'clipboard-write'] });
 const page = await ctx.newPage();
@@ -156,6 +161,12 @@ await page.click('.gl .glb [data-copy="snippet"]');
 await page.waitForTimeout(150);
 check('copy snippet', (await page.evaluate(() => navigator.clipboard.readText())) === d.snippet);
 check('button shows Copied', (await page.textContent('.gl .glb [data-copy="snippet"]')) === 'Copied');
+await page.evaluate(() => navigator.clipboard.writeText(''));
+await page.click('.gl .glb [data-copy="entry"]');
+await page.waitForTimeout(180);
+check('copy readme entry', (await page.evaluate(() => navigator.clipboard.readText())) === d.entry && d.entry.startsWith('- [Title](public page link)') && d.entry.includes('Routine prompt (optional)'));
+check('readme entry button shows Copied', (await page.textContent('.gl .glb [data-copy="entry"]')) === 'Copied');
+check('readme entry copy is announced', (await page.textContent('#live')) === 'README entry copied to clipboard');
 // fallback path: no Clipboard API
 const p2 = await ctx.newPage();
 await p2.addInitScript(() => { Object.defineProperty(navigator, 'clipboard', { value: undefined }); });
@@ -249,6 +260,8 @@ for (const e of d.entries) {
 }
 check('prompts.json shape', promptBad.length === 0, promptBad.join(' '));
 const homeHtml = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
+const siteData = JSON.parse(homeHtml.match(/<script type="application\/json" id="site-data">([\s\S]*?)<\/script>/)[1]);
+check('home publishes the readme entry template', siteData.entry === d.entry && siteData.snippet === d.snippet && siteData.entry.startsWith('- [Title](public page link)') && siteData.entry.includes('Routine prompt (optional)') && !siteData.entry.includes('\u2014'));
 const featHtml = homeHtml.split('id="featured"')[1]?.split('id="templates"')[0] || '';
 const featBad = [];
 if (!homeHtml.includes('id="featured"') || !featHtml.includes('Featured Pages') || !featHtml.includes('View a Page, or copy its prompt.')) featBad.push('section');
@@ -304,6 +317,7 @@ const POS = {
   template_opened: ['featured', 'grid', 'detail_top', 'caption', 'links_box'],
   prompt_copied: ['card', 'detail_top', 'prompt_block', 'home_featured'],
   snippet_copied: ['section_button', 'code_header'],
+  entry_snippet_copied: ['section_button', 'code_header'],
   outbound_clicked: ['header', 'footer', 'credit', 'links_box', 'how_to'],
 };
 const entryBySlug = Object.fromEntries(d.entries.map((e) => [e.slug, e]));
@@ -323,6 +337,8 @@ const readTracks = (pg) => pg.$$eval('[data-track]', (els) => els.map((el) => ({
   target_slug: el.getAttribute('data-target-slug'),
   copy: el.getAttribute('data-copy'),
   filter: el.getAttribute('data-filter'),
+  snippet: el.getAttribute('data-snippet'),
+  instructions: el.getAttribute('data-instructions'),
 })));
 const aaEvents = (pg) => pg.evaluate(() => window.__aaEvents.slice());
 async function expectEvents(pg, expected, label) {
@@ -378,11 +394,16 @@ for (const pathName of paths) {
       if (t.position !== 'home_featured' && t.location) problems.push('unexpected location ' + t.location);
     } else if (t.event === 'snippet_copied') {
       seen.positions.add('snippet_copied:' + t.position);
-      if (!POS.snippet_copied.includes(t.position) || t.copy !== 'snippet' || t.page_slug) problems.push('snippet ' + t.position);
+      if (!POS.snippet_copied.includes(t.position) || t.copy !== 'snippet' || t.page_slug || t.snippet) problems.push('snippet ' + t.position);
+    } else if (t.event === 'entry_snippet_copied') {
+      seen.positions.add('entry_snippet_copied:' + t.position);
+      if (!POS.entry_snippet_copied.includes(t.position) || t.copy !== 'entry' || t.snippet !== 'readme_entry' || t.page_slug || t.instructions) problems.push('entry ' + t.position);
+    } else if (t.event === 'listing_instructions_viewed') {
+      if (t.instructions !== 'pull_request_steps' || t.href || t.snippet || t.page_slug) problems.push('instructions ' + t.instructions);
     } else if (t.event === 'get_listed_clicked') {
       seen.targets.add(t.target);
-      const hrefOk = t.target === 'open_pr' ? (t.href || '').includes('/edit/main/README.md') : t.target === 'contributing' && (t.href || '').includes('/blob/main/CONTRIBUTING.md');
-      if (!hrefOk) problems.push('get_listed ' + t.target + ' ' + t.href);
+      const hrefOk = t.target === 'open_pr' ? (t.href || '').endsWith('/edit/main/README.md') : t.target === 'contributing' && (t.href || '').endsWith('/blob/main/CONTRIBUTING.md');
+      if (!hrefOk || t.snippet || t.instructions) problems.push('get_listed ' + t.target + ' ' + t.href);
     } else if (t.event === 'outbound_clicked') {
       seen.positions.add('outbound_clicked:' + t.position);
       seen.types.add(t.target_type);
@@ -407,7 +428,21 @@ for (const pathName of paths) {
     if (picks.length !== FEATURED_SLUGS.length || !FEATURED_SLUGS.every((slug) => picks.some((t) => t.page_slug === slug && t.location === 'home_featured'))) problems.push('home featured ' + picks.map((t) => t.page_slug).join(','));
     if (!tracks.some((t) => t.event === 'snippet_copied' && t.position === 'section_button')) problems.push('section_button');
     if (!tracks.some((t) => t.event === 'snippet_copied' && t.position === 'code_header')) problems.push('code_header');
+    if (!tracks.some((t) => t.event === 'entry_snippet_copied' && t.position === 'section_button' && t.snippet === 'readme_entry')) problems.push('entry section_button');
+    if (!tracks.some((t) => t.event === 'entry_snippet_copied' && t.position === 'code_header' && t.snippet === 'readme_entry')) problems.push('entry code_header');
+    if (tracks.filter((t) => t.event === 'listing_instructions_viewed').length !== 1) problems.push('instructions');
     if (tracks.filter((t) => t.event === 'get_listed_clicked' && t.target === 'open_pr').length !== 1) problems.push('open_pr');
+    if (tracks.filter((t) => t.event === 'get_listed_clicked' && t.target === 'contributing').length !== 2) problems.push('contributing count');
+    const editor = tracks.find((t) => t.event === 'get_listed_clicked' && t.target === 'open_pr');
+    if (!editor || editor.href !== `${d.repo}/edit/main/README.md`) problems.push('editor href ' + editor?.href);
+    const editorLabel = await page.evaluate(() => {
+      const a = document.querySelector('.glb a[data-target="open_pr"]');
+      const clone = a.cloneNode(true);
+      clone.querySelectorAll('.sr-only').forEach((n) => n.remove());
+      return { visible: clone.textContent.trim(), full: a.textContent.replace(/\s+/g, ' ').trim() };
+    });
+    if (editorLabel.visible !== 'Edit README on GitHub') problems.push('editor label ' + editorLabel.visible);
+    if (!editorLabel.full.includes('Submitting the pull request happens on GitHub')) problems.push('editor caveat');
   } else if (detailSlug) {
     for (const position of ['detail_top', 'caption', 'links_box']) {
       const n = tracks.filter((t) => t.event === 'template_opened' && t.position === position && t.page_slug === detailSlug).length;
@@ -418,14 +453,14 @@ for (const pathName of paths) {
     }
     const related = tracks.filter((t) => t.event === 'related_clicked');
     if (related.length !== siblingsOf(entryBySlug[detailSlug]).length) problems.push('related count ' + related.length);
-    if (tracks.some((t) => t.event === 'snippet_copied' || t.position === 'featured' || t.position === 'grid' || t.position === 'card' || t.position === 'home_featured')) problems.push('detail has home-only track');
-  } else if (tracks.some((t) => ['template_opened', 'prompt_copied', 'snippet_copied', 'category_filtered', 'related_clicked'].includes(t.event))) {
+    if (tracks.some((t) => t.event === 'snippet_copied' || t.event === 'entry_snippet_copied' || t.event === 'listing_instructions_viewed' || t.position === 'featured' || t.position === 'grid' || t.position === 'card' || t.position === 'home_featured')) problems.push('detail has home-only track');
+  } else if (tracks.some((t) => ['template_opened', 'prompt_copied', 'snippet_copied', 'entry_snippet_copied', 'listing_instructions_viewed', 'category_filtered', 'related_clicked'].includes(t.event))) {
     problems.push('404 has page-only events');
   }
   check(`data-track wiring ${pathName}`, problems.length === 0, problems.join(' | '));
 }
 const expectFeat = !FEATURED_SLUGS.includes(d.entries[0].slug);
-const needPos = [expectFeat && 'template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'snippet_copied:section_button', 'snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'].filter(Boolean);
+const needPos = [expectFeat && 'template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'snippet_copied:section_button', 'snippet_copied:code_header', 'entry_snippet_copied:section_button', 'entry_snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'].filter(Boolean);
 check('every position is used', needPos.every((p) => seen.positions.has(p)), [...seen.positions].sort().join(' '));
 check('outbound target types and get-listed targets', seen.types.has('repo') && seen.types.has('other') && ![...seen.types].some((t) => t !== 'repo' && t !== 'other') && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
 const typeCases = [
@@ -510,8 +545,45 @@ await ap.click('.gl .glb [data-copy="snippet"]');
 await ap.waitForTimeout(150);
 await expectEvents(ap, [{ name: 'snippet_copied', props: { position: 'section_button', success: true } }], 'section snippet copy fires snippet_copied');
 await clearAa(ap);
+await ap.click('.gl .glb [data-copy="entry"]');
+await ap.waitForTimeout(180);
+await expectEvents(ap, [{ name: 'entry_snippet_copied', props: { schema_version: 1, snippet: 'readme_entry', position: 'section_button', success: true } }], 'section entry copy fires entry_snippet_copied once');
+check('entry event carries no template or personal text', !(await aaEvents(ap)).some((ev) => JSON.stringify(ev).includes('public page link') || JSON.stringify(ev).includes('github.com/handle')));
+await clearAa(ap);
+await ap.click('.gl-codes [data-copy="entry"]');
+await ap.waitForTimeout(180);
+await expectEvents(ap, [{ name: 'entry_snippet_copied', props: { schema_version: 1, snippet: 'readme_entry', position: 'code_header', success: true } }], 'code header entry copy fires entry_snippet_copied once');
+await clearAa(ap);
+await ap.focus('#pr-steps summary');
+await ap.keyboard.press('Enter');
+await ap.waitForTimeout(50);
+const prFocus = await ap.$eval('#pr-steps summary', (e) => ({ outline: getComputedStyle(e).outlineStyle, visible: e.matches(':focus-visible'), active: document.activeElement === e }));
+await expectEvents(ap, [{ name: 'listing_instructions_viewed', props: { schema_version: 1, instructions: 'pull_request_steps' } }], 'opening instructions fires listing_instructions_viewed once');
+check('instructions summary keeps a focus ring', prFocus.outline !== 'none' && prFocus.visible && prFocus.active, JSON.stringify(prFocus));
+await clearAa(ap);
+await ap.click('#pr-steps summary');
+await ap.waitForTimeout(50);
+await expectEvents(ap, [], 'closing instructions fires nothing');
+await ap.click('#pr-steps summary');
+await ap.waitForTimeout(50);
+await expectEvents(ap, [], 'opening instructions again fires nothing');
+await clearAa(ap);
 await fire(ap, '.glb a[data-target="open_pr"]');
-await expectEvents(ap, [{ name: 'get_listed_clicked', props: { target: 'open_pr' } }], 'open pull request fires get_listed_clicked only');
+await expectEvents(ap, [{ name: 'get_listed_clicked', props: { target: 'open_pr' } }], 'README editor fires get_listed_clicked target open_pr only');
+await clearAa(ap);
+await fire(ap, '.glb a[data-target="contributing"]');
+await expectEvents(ap, [{ name: 'get_listed_clicked', props: { target: 'contributing' } }], 'contributing guide fires get_listed_clicked target contributing only');
+await clearAa(ap);
+await ap.waitForFunction(() => document.querySelector('.gl-codes [data-copy="entry"]').textContent === 'Copy');
+await ap.evaluate(() => {
+  Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: () => Promise.reject(new Error('no')) } });
+  document.execCommand = () => false;
+});
+await ap.click('.gl-codes [data-copy="entry"]');
+await ap.waitForTimeout(180);
+await expectEvents(ap, [{ name: 'entry_snippet_copied', props: { schema_version: 1, snippet: 'readme_entry', position: 'code_header', success: false } }], 'failed entry copy fires entry_snippet_copied success false');
+check('failed entry copy asks for the keyboard', (await ap.textContent('.gl-codes [data-copy="entry"]')) === 'Press Ctrl+C');
+check('failed entry copy is announced', (await ap.textContent('#live')) === 'Copy failed. Select the text and copy it manually.');
 await clearAa(ap);
 await fire(ap, 'header a[data-track="outbound_clicked"]');
 const headerHref = await ap.getAttribute('header a[data-track="outbound_clicked"]', 'href');
@@ -551,6 +623,20 @@ await utmPage.addInitScript(() => {
   window.aa = { track: (name, props) => { window.__aaEvents.push({ name, props }); } };
 });
 await utmPage.goto(base + '/?utm_source=x&utm_campaign=test', { waitUntil: 'domcontentloaded' });
+await utmPage.click('.gl .glb [data-copy="entry"]');
+await utmPage.waitForTimeout(180);
+await utmPage.click('#pr-steps summary');
+await utmPage.waitForTimeout(50);
+await utmPage.evaluate(() => {
+  const a = document.querySelector('.glb a[data-target="open_pr"]');
+  a.addEventListener('click', (e) => e.preventDefault(), true);
+  a.click();
+});
+const contribEvents = await aaEvents(utmPage);
+const entryEv = contribEvents.find((ev) => ev.name === 'entry_snippet_copied');
+const viewEv = contribEvents.find((ev) => ev.name === 'listing_instructions_viewed');
+const prEv = contribEvents.find((ev) => ev.name === 'get_listed_clicked');
+check('utm session does not attach utm to contributor events', !!entryEv && entryEv.props.schema_version === 1 && entryEv.props.success === true && entryEv.props.utm_source === undefined && entryEv.props.utm_campaign === undefined && !!viewEv && viewEv.props.schema_version === 1 && viewEv.props.instructions === 'pull_request_steps' && viewEv.props.utm_source === undefined && !!prEv && Object.keys(prEv.props).join(',') === 'target' && prEv.props.target === 'open_pr', JSON.stringify(contribEvents));
 await utmPage.click('#featured a.btn.pri[href="/t/news-pulse/"]');
 await utmPage.waitForURL(/\/t\/news-pulse\/$/);
 await utmPage.click('.codeh [data-copy="news-pulse"]');
@@ -629,6 +715,26 @@ const navAt390 = await mNavPage.evaluate(() => {
   return { ok, box, overflow: document.documentElement.scrollWidth > vw };
 });
 check('mobile nav links visible at 390px', navAt390.ok && !navAt390.overflow, JSON.stringify(navAt390.box));
+const gl390 = await mNavPage.evaluate(() => {
+  const gl = document.getElementById('get-listed');
+  gl.scrollIntoView();
+  const vw = document.documentElement.clientWidth;
+  const buttons = [...gl.querySelectorAll('.glb .btn, .glb a.btn')].map((a) => {
+    const b = a.getBoundingClientRect();
+    const clone = a.cloneNode(true);
+    clone.querySelectorAll('.sr-only').forEach((n) => n.remove());
+    return { t: clone.textContent.trim(), left: Math.round(b.left), right: Math.round(b.right), h: Math.round(b.height), w: Math.round(b.width) };
+  });
+  const summary = document.querySelector('#pr-steps summary').getBoundingClientRect();
+  return {
+    overflow: document.documentElement.scrollWidth > vw + 1,
+    buttons,
+    off: buttons.filter((b) => b.left < -1 || b.right > vw + 1 || b.h < 32 || b.w < 24),
+    summary: { h: Math.round(summary.height), w: Math.round(summary.width), left: Math.round(summary.left), right: Math.round(summary.right) },
+    vw,
+  };
+});
+check('get listed controls fit at 390px', gl390.overflow === false && gl390.off.length === 0 && gl390.summary.h >= 32 && gl390.summary.left >= 0 && gl390.summary.right <= gl390.vw + 1, JSON.stringify(gl390));
 await mNavPage.goto(base + '/t/mission-control/', { waitUntil: 'networkidle' });
 const mobileShot = await mNavPage.evaluate(() => {
   const img = document.querySelector('.viewport img');
