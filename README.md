@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [AI Spend Tracker](https://pending.invalid/ai-spend-tracker/) - An AI spend tracker across keys and bots: monthly spend, budgets, alerts, auto-stop drafts with Copy, provider filters and a spend-over-time sparkline (example data). Inspired by [Luke's post on X](https://x.com/ImLukeF/status/2118205861420245411) ([@ImLukeF](https://x.com/ImLukeF)) and [Burnrate](https://github.com/ImLukeF/burnrate). No Page prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ai-spend-tracker/](https://grokbotpages.com/t/ai-spend-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "AI Spend Tracker" for personal Grok Bot and API spend across every key and bot. At the top: spend this month, budget left, keys over alert, and whether auto-stop is armed. Then filter pills by provider (all, Anthropic, OpenAI, OpenRouter, xAI). Then a spend-over-time sparkline. Then a breakdown table by provider with share and Copy note. Then Budgets with threshold, forecast, and Copy alert text. Then Keys and bots with spend, status (ok, alert, stopped) and Copy stop / Copy restore notes that I paste myself. Use only example invented spend data. Inspired by the idea of budgets, alerts and optional auto-stop. End with Links to any open-source spend tool I name.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "AI Spend Tracker" Page: every morning at 08:00, refresh spend by key and bot for the current month, update budgets and alert states, and keep auto-stop notes as drafts I paste myself. Stay quiet when nothing changed.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -647,6 +664,23 @@ Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanal
 
   ```text
   Create a routine for my "Ship Velocity" Page: on the 1st of each month at 09:00, add last month's merged PRs and contributors from GitHub, read the latest benchmark results, update the before and after cards, and keep the layout the same. If a timing got slower or went over its budget, put it first and tell me.
+  ```
+
+  </details>
+
+- [AI Spend Tracker](https://pending.invalid/ai-spend-tracker/) - An AI spend tracker across keys and bots: monthly spend, budgets, alerts, auto-stop drafts with Copy, provider filters and a spend-over-time sparkline (example data). Inspired by [Luke's post on X](https://x.com/ImLukeF/status/2118205861420245411) ([@ImLukeF](https://x.com/ImLukeF)) and [Burnrate](https://github.com/ImLukeF/burnrate). No Page prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ai-spend-tracker/](https://grokbotpages.com/t/ai-spend-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "AI Spend Tracker" for personal Grok Bot and API spend across every key and bot. At the top: spend this month, budget left, keys over alert, and whether auto-stop is armed. Then filter pills by provider (all, Anthropic, OpenAI, OpenRouter, xAI). Then a spend-over-time sparkline. Then a breakdown table by provider with share and Copy note. Then Budgets with threshold, forecast, and Copy alert text. Then Keys and bots with spend, status (ok, alert, stopped) and Copy stop / Copy restore notes that I paste myself. Use only example invented spend data. Inspired by the idea of budgets, alerts and optional auto-stop. End with Links to any open-source spend tool I name.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "AI Spend Tracker" Page: every morning at 08:00, refresh spend by key and bot for the current month, update budgets and alert states, and keep auto-stop notes as drafts I paste myself. Stay quiet when nothing changed.
   ```
 
   </details>
