@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [SpaceX Launch Tracker](https://pending.invalid/spacex-launch-tracker/) - A SpaceX launch tracker aimed at East Coast north-of-Florida visibility: heads-up slips, upcoming windows with Copy alert, visibility filters and past visible passes (example data). Inspired by [Lowcountry EV's post on X](https://x.com/lowcountryev/status/2118747492497891670) ([@lowcountryev](https://x.com/lowcountryev)). No prompt was shared and no original pages.grok.bot link was posted, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/spacex-launch-tracker/](https://grokbotpages.com/t/spacex-launch-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "SpaceX Launch Tracker" for launches that might be visible from the East Coast north of Florida (example: Beaufort SC). At the top: next launch name, window in local time, pad, and whether it is visible from my house. Then a Heads-up card with the latest slip or window change and a Copy heads-up button. Then Upcoming launches with filter pills (all, visible, west coast, east coast), each row with mission, window, pad, visibility note, and Copy alert. Then a Past visible passes list. Use only example invented launch data. End with one question: keep alerting me when a launch may pass my house, with Copy yes and Copy no.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "SpaceX Launch Tracker" Page: twice a day, check SpaceX launches for window slips and whether any pass may be visible from my East Coast house north of Florida, refresh the Heads-up card and Upcoming list, and stay quiet when nothing changed.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -918,7 +935,22 @@ Memos and doc summaries.
 
 Calendars and tickets.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [SpaceX Launch Tracker](https://pending.invalid/spacex-launch-tracker/) - A SpaceX launch tracker aimed at East Coast north-of-Florida visibility: heads-up slips, upcoming windows with Copy alert, visibility filters and past visible passes (example data). Inspired by [Lowcountry EV's post on X](https://x.com/lowcountryev/status/2118747492497891670) ([@lowcountryev](https://x.com/lowcountryev)). No prompt was shared and no original pages.grok.bot link was posted, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/spacex-launch-tracker/](https://grokbotpages.com/t/spacex-launch-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "SpaceX Launch Tracker" for launches that might be visible from the East Coast north of Florida (example: Beaufort SC). At the top: next launch name, window in local time, pad, and whether it is visible from my house. Then a Heads-up card with the latest slip or window change and a Copy heads-up button. Then Upcoming launches with filter pills (all, visible, west coast, east coast), each row with mission, window, pad, visibility note, and Copy alert. Then a Past visible passes list. Use only example invented launch data. End with one question: keep alerting me when a launch may pass my house, with Copy yes and Copy no.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "SpaceX Launch Tracker" Page: twice a day, check SpaceX launches for window slips and whether any pass may be visible from my East Coast house north of Florida, refresh the Heads-up card and Upcoming list, and stay quiet when nothing changed.
+  ```
+
+  </details>
 
 ## Create your Page and get listed
 
