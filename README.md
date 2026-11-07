@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Grok Bot Activity Dashboard](https://pending.invalid/bot-activity-dashboard/) - A lean cut-back Grok Bot activity dashboard: KPI strip, status filters, per-bot tips with Copy, cutback decisions with Copy yes and Copy keep, and a 7-day activity sparkline (example data). Inspired by [Alan's post on X](https://x.com/alanhoward/status/2118866845562495411) ([@alanhoward](https://x.com/alanhoward)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/bot-activity-dashboard/](https://grokbotpages.com/t/bot-activity-dashboard/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Grok Bot Activity Dashboard" that shows a cut-back view of my bots so usage stays low. At the top: bots tracked, messages this week, estimated usage share, and how many bots are quiet. Then filter pills by status (active, quiet, paused). For each bot: name, one-line job, status, messages this week, and a Copy tip that says how to keep that bot quiet or cut it. Then a Waiting on you list of cutback decisions with Copy yes and Copy keep buttons. Then a 7-day activity sparkline of invented totals. Use only example data labelled as example. Keep the layout lean: no live clocks, no per-hour heatmaps, no auto-refresh chatter.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Grok Bot Activity Dashboard" Page: every Sunday at 09:00, refresh the weekly message counts and quiet-bot tips from my bot list, update the KPI strip, and keep the lean layout the same. Stay quiet when nothing changed.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -814,6 +831,23 @@ Org charts, roles and hand-offs between your bots.
 
   ```text
   Create a routine that refreshes my "Routine Run Board" Page every morning at 7:30, before I start. Each run, read every routine's recent runs, append them to the run log file, rebuild the timetable and the approval list with the same layout and copy buttons, and drop approvals I already gave. Message me only if a routine failed twice in a row.
+  ```
+
+  </details>
+
+- [Grok Bot Activity Dashboard](https://pending.invalid/bot-activity-dashboard/) - A lean cut-back Grok Bot activity dashboard: KPI strip, status filters, per-bot tips with Copy, cutback decisions with Copy yes and Copy keep, and a 7-day activity sparkline (example data). Inspired by [Alan's post on X](https://x.com/alanhoward/status/2118866845562495411) ([@alanhoward](https://x.com/alanhoward)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/bot-activity-dashboard/](https://grokbotpages.com/t/bot-activity-dashboard/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Grok Bot Activity Dashboard" that shows a cut-back view of my bots so usage stays low. At the top: bots tracked, messages this week, estimated usage share, and how many bots are quiet. Then filter pills by status (active, quiet, paused). For each bot: name, one-line job, status, messages this week, and a Copy tip that says how to keep that bot quiet or cut it. Then a Waiting on you list of cutback decisions with Copy yes and Copy keep buttons. Then a 7-day activity sparkline of invented totals. Use only example data labelled as example. Keep the layout lean: no live clocks, no per-hour heatmaps, no auto-refresh chatter.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Grok Bot Activity Dashboard" Page: every Sunday at 09:00, refresh the weekly message counts and quiet-bot tips from my bot list, update the KPI strip, and keep the lean layout the same. Stay quiet when nothing changed.
   ```
 
   </details>
