@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Meeting Prep](https://pending.invalid/meeting-prep/) - A one-page meeting prep sheet: who is coming, last time, open threads and three questions, each with Copy buttons, draft only (example data). Inspired by [Kyle's post on X](https://x.com/kylekane/status/2119114108263956715) ([@kylekane](https://x.com/kylekane)). No prompt was shared and no original pages.grok.bot link was posted, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/meeting-prep/](https://grokbotpages.com/t/meeting-prep/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Meeting Prep": a one-page meeting prep sheet. At the top: meeting title, when, who is coming, and how many open threads. Then Who is this: each person with role, last time we talked, and a one-line reminder. Then Last time: three bullets from the prior meeting. Then Open threads with a Copy note button each. Then Three questions I should ask, each with a Copy question button. Draft only. Show me first; I send and speak myself. Use only example invented meeting data.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Meeting Prep" Page: 30 minutes before each calendar meeting I name, refresh Who is this, Last time, Open threads and Three questions from my notes and last chat. Keep the draft-only rule. Stay quiet when nothing changed.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -607,6 +624,23 @@ Planners, trackers and task boards.
 
   ```text
   Create a routine that refreshes my "Mission Board" Page every morning at 7 AM and whenever a bot asks me for something. Each run, collect what my bots wait on me for, update missions and briefs with the same layout and copy buttons, and drop items I already answered. Message me only if something is due today.
+  ```
+
+  </details>
+
+- [Meeting Prep](https://pending.invalid/meeting-prep/) - A one-page meeting prep sheet: who is coming, last time, open threads and three questions, each with Copy buttons, draft only (example data). Inspired by [Kyle's post on X](https://x.com/kylekane/status/2119114108263956715) ([@kylekane](https://x.com/kylekane)). No prompt was shared and no original pages.grok.bot link was posted, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/meeting-prep/](https://grokbotpages.com/t/meeting-prep/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Meeting Prep": a one-page meeting prep sheet. At the top: meeting title, when, who is coming, and how many open threads. Then Who is this: each person with role, last time we talked, and a one-line reminder. Then Last time: three bullets from the prior meeting. Then Open threads with a Copy note button each. Then Three questions I should ask, each with a Copy question button. Draft only. Show me first; I send and speak myself. Use only example invented meeting data.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Meeting Prep" Page: 30 minutes before each calendar meeting I name, refresh Who is this, Last time, Open threads and Three questions from my notes and last chat. Keep the draft-only rule. Stay quiet when nothing changed.
   ```
 
   </details>
