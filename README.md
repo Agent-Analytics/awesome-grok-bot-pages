@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Game Day Tracker](https://pending.invalid/game-day-tracker/) - A live game tracker for one game: scoreboard with quarter, clock and possession, a drive chart on the field, a filterable play-by-play of big plays, flags, turnovers and injuries, and a halftime note and recap (example data). Inspired by [Trevor's post on X](https://x.com/Trevor3DPrints/status/2119487028232589507) ([@Trevor3DPrints](https://x.com/Trevor3DPrints)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/game-day-tracker/](https://grokbotpages.com/t/game-day-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Game Day Tracker" for one game I name (example: Broncos at Panthers today). At the top: a scoreboard with both teams, the score, quarter, clock and who has the ball. Then a drive chart of the current drive on a field. Then a play-by-play feed of every big play, flag, turnover and injury, newest first, with filters for scoring, flags, turnovers and injuries. Then a halftime note and, after the final whistle, the final score and a short recap. Mark each update with the time it landed. No betting lines.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Game Day Tracker" Page: from kickoff, every 5 minutes, update the scoreboard, drive chart and feed with everything since the last update and send me one short message with the score, quarter, clock and big plays. At halftime send one short note. After the final, send the final score and a recap, then delete this routine.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -918,7 +935,22 @@ Memos and doc summaries.
 
 Calendars and tickets.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [Game Day Tracker](https://pending.invalid/game-day-tracker/) - A live game tracker for one game: scoreboard with quarter, clock and possession, a drive chart on the field, a filterable play-by-play of big plays, flags, turnovers and injuries, and a halftime note and recap (example data). Inspired by [Trevor's post on X](https://x.com/Trevor3DPrints/status/2119487028232589507) ([@Trevor3DPrints](https://x.com/Trevor3DPrints)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/game-day-tracker/](https://grokbotpages.com/t/game-day-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Game Day Tracker" for one game I name (example: Broncos at Panthers today). At the top: a scoreboard with both teams, the score, quarter, clock and who has the ball. Then a drive chart of the current drive on a field. Then a play-by-play feed of every big play, flag, turnover and injury, newest first, with filters for scoring, flags, turnovers and injuries. Then a halftime note and, after the final whistle, the final score and a short recap. Mark each update with the time it landed. No betting lines.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Game Day Tracker" Page: from kickoff, every 5 minutes, update the scoreboard, drive chart and feed with everything since the last update and send me one short message with the score, quarter, clock and big plays. At halftime send one short note. After the final, send the final score and a recap, then delete this routine.
+  ```
+
+  </details>
 
 ## Create your Page and get listed
 
