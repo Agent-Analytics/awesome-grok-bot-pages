@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Mentions and App Rank](https://pending.invalid/mentions-and-app-rank/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page that tracks one app by the numbers (example: Grok Bot). Show the daily count of posts on X that mention it and where it ranked in the App Store each day, for the last 30 days, with a 7, 14 and 30 day switch. Mark the biggest day and the best rank, show the change against the week before, and add a table of the daily numbers. Add a one-line summary of today I can copy. Say where each number comes from.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Mentions and App Rank" Page: every day at 09:00, add yesterday's X post count and App Store rank, update the charts, the week-over-week change and the summary line. Stay quiet unless the rank moves 5 places or posts double.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -852,7 +869,22 @@ Pipelines and CRM views.
 
 Campaigns and growth reports.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [Mentions and App Rank](https://pending.invalid/mentions-and-app-rank/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page that tracks one app by the numbers (example: Grok Bot). Show the daily count of posts on X that mention it and where it ranked in the App Store each day, for the last 30 days, with a 7, 14 and 30 day switch. Mark the biggest day and the best rank, show the change against the week before, and add a table of the daily numbers. Add a one-line summary of today I can copy. Say where each number comes from.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Mentions and App Rank" Page: every day at 09:00, add yesterday's X post count and App Store rank, update the charts, the week-over-week change and the summary line. Stay quiet unless the rank moves 5 places or posts double.
+  ```
+
+  </details>
 
 ## Inbox and Collaboration
 
