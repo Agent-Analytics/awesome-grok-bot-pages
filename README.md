@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Quote Comparison](https://pending.invalid/quote-comparison/) - Three contractor quotes side by side: a cost breakdown chart, a what's-included table with gaps marked, payment terms and warranty, and a short recommendation with questions to send each contractor (example data). Inspired by [Won Oh's post on X](https://x.com/wonoh74/status/2119022319544762560) ([@wonoh74](https://x.com/wonoh74)). Prompt quoted word for word from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/quote-comparison/](https://grokbotpages.com/t/quote-comparison/).
+  <details><summary>Prompt (Won Oh, quoted from <a href="https://x.com/wonoh74/status/2119022319544762560">his post on X</a>)</summary>
+
+  ```text
+  Make a page comparing these three quotes with a table and a short rec.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Quote Comparison" Page: when I send you a new or revised quote, add it to the table, re-check what each quote includes and leaves out, update the short rec, and tell me in one line what changed.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -822,7 +839,22 @@ Org charts, roles and hand-offs between your bots.
 
 Spending, budgets, crypto and legal.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [Quote Comparison](https://pending.invalid/quote-comparison/) - Three contractor quotes side by side: a cost breakdown chart, a what's-included table with gaps marked, payment terms and warranty, and a short recommendation with questions to send each contractor (example data). Inspired by [Won Oh's post on X](https://x.com/wonoh74/status/2119022319544762560) ([@wonoh74](https://x.com/wonoh74)). Prompt quoted word for word from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/quote-comparison/](https://grokbotpages.com/t/quote-comparison/).
+  <details><summary>Prompt (Won Oh, quoted from <a href="https://x.com/wonoh74/status/2119022319544762560">his post on X</a>)</summary>
+
+  ```text
+  Make a page comparing these three quotes with a table and a short rec.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Quote Comparison" Page: when I send you a new or revised quote, add it to the table, re-check what each quote includes and leaves out, update the short rec, and tell me in one line what changed.
+  ```
+
+  </details>
 
 ## Sales
 
