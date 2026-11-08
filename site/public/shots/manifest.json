@@ -382,5 +382,21 @@
       390,
       4705
     ]
+  },
+  "mentions-and-app-rank": {
+    "url": "https://mentions-and-app-rank-example-jsfv.pages.grok.bot/",
+    "captured": "2026-11-08T20:36:06.878Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2149
+    ],
+    "mobile": [
+      390,
+      3478
+    ]
   }
 }

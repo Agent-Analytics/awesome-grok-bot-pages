@@ -360,7 +360,7 @@ const fire = (pg, selector) => pg.evaluate((sel) => {
 }, selector);
 
 const paths = ['/', ...d.entries.map((e) => `/t/${e.slug}/`), '/404.html'];
-const seen = { positions: new Set(), types: new Set(), targets: new Set(), sources: new Set() };
+const seen = { positions: new Set(), types: new Set(), targets: new Set(), sources: new Set(), pageUrls: new Set() };
 for (const pathName of paths) {
   const raw = await (await fetch(base + pathName)).text();
   check(`snippet once ${pathName}`, raw.split(SNIPPET).length - 1 === 1 && !raw.includes('aa.set'));
@@ -407,6 +407,7 @@ for (const pathName of paths) {
     } else if (t.event === 'outbound_clicked') {
       seen.positions.add('outbound_clicked:' + t.position);
       seen.types.add(t.target_type);
+      if (t.target_type === 'page') seen.pageUrls.add(t.href);
       if (!POS.outbound_clicked.includes(t.position) || !['repo', 'page', 'other'].includes(t.target_type)) problems.push('outbound enum ' + t.position + ' ' + t.target_type);
       if (t.target_url !== t.href || t.target_type !== targetType(t.href)) problems.push('outbound ' + t.href + ' typed ' + t.target_type);
       if (d.entries.some((e) => e.url === t.href)) problems.push('live page marked outbound ' + t.href);
@@ -462,7 +463,47 @@ for (const pathName of paths) {
 const expectFeat = !FEATURED_SLUGS.includes(d.entries[0].slug);
 const needPos = [expectFeat && 'template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'snippet_copied:section_button', 'snippet_copied:code_header', 'entry_snippet_copied:section_button', 'entry_snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'].filter(Boolean);
 check('every position is used', needPos.every((p) => seen.positions.has(p)), [...seen.positions].sort().join(' '));
-check('outbound target types and get-listed targets', seen.types.has('repo') && seen.types.has('other') && ![...seen.types].some((t) => t !== 'repo' && t !== 'other') && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
+// A cited original Grok Page is type page. The listed example URL stays template_opened, so it is not an outbound page.
+const allowedOutbound = new Set(['repo', 'page', 'other']);
+check('outbound target types and get-listed targets', seen.types.has('repo') && seen.types.has('other') && [...seen.types].every((t) => allowedOutbound.has(t)) && ['open_pr', 'contributing'].every((t) => seen.targets.has(t)) && ['click', 'link'].every((s) => seen.sources.has(s)));
+const ORIGINAL_PAGE = 'https://tidy-meadow-cmmjbf.pages.grok.bot';
+const mentions = entryBySlug['mentions-and-app-rank'];
+const mentionsHtml = fs.readFileSync(path.join(dist, 't', 'mentions-and-app-rank', 'index.html'), 'utf8');
+const anchors = (html, href) => {
+  const needle = `<a href="${href}"`;
+  const out = [];
+  let from = 0;
+  while (from < html.length) {
+    const at = html.indexOf(needle, from);
+    if (at === -1) break;
+    const end = html.indexOf('>', at);
+    if (end === -1) break;
+    out.push(html.slice(at, end + 1));
+    from = end + 1;
+  }
+  return out;
+};
+const originalAnchors = anchors(mentionsHtml, ORIGINAL_PAGE);
+const listedAnchors = mentions ? anchors(mentionsHtml, mentions.url) : [];
+check('original grok page stays an outbound page credit',
+  !!mentions &&
+  mentions.url === 'https://mentions-and-app-rank-example-jsfv.pages.grok.bot/' &&
+  targetType(ORIGINAL_PAGE) === 'page' &&
+  targetType(mentions.url) === 'page' &&
+  seen.pageUrls.has(ORIGINAL_PAGE) &&
+  !seen.pageUrls.has(mentions.url) &&
+  mentions.inspired?.source?.url === 'https://x.com/CarolinaDill/status/2118072659632115822' &&
+  mentions.inspired.handles.some((h) => h.url === 'https://x.com/CarolinaDill') &&
+  mentions.inspired.handles.some((h) => h.url === ORIGINAL_PAGE) &&
+  mentions.pageBy?.name === 'Awesome Grok Bot Pages' &&
+  originalAnchors.length > 0 &&
+  originalAnchors.every((a) => a.includes('data-track="outbound_clicked"') && a.includes('data-target-type="page"') && a.includes('data-position="credit"')) &&
+  listedAnchors.length > 0 &&
+  listedAnchors.every((a) => a.includes('data-track="template_opened"') && !a.includes('outbound_clicked')) &&
+  mentionsHtml.includes('Carolina Dill') &&
+  mentionsHtml.includes('@CarolinaDill') &&
+  mentionsHtml.includes('Awesome Grok Bot Pages') &&
+  !mentionsHtml.includes('pending.invalid'));
 const typeCases = [
   [d.repo, 'repo'],
   [d.repo + '#listing-rules', 'repo'],
@@ -475,6 +516,8 @@ const typeCases = [
   ['https://x.com/AlexFinn/status/2115612249826148795', 'other'],
   ['https://mission-control-example-sgmr.pages.grok.bot/', 'page'],
   ['https://bot-org-chart-example-ujfc.pages.grok.bot/', 'page'],
+  ['https://tidy-meadow-cmmjbf.pages.grok.bot', 'page'],
+  ['https://mentions-and-app-rank-example-jsfv.pages.grok.bot/', 'page'],
 ];
 const typeMiss = typeCases.filter(([url, kind]) => targetType(url) !== kind).map(([url, kind]) => `${url} expected ${kind} got ${targetType(url)}`);
 check('targetType is repo, grok page, or other', typeMiss.length === 0, typeMiss.join(' | '));
