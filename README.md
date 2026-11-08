@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Spanish Weekly Quiz](https://pending.invalid/spanish-weekly-quiz/) - A 15-question Spanish quiz built from the week's lessons: tap or type answers (accents optional), live score tiles, topic filters, a one-line why for every answer and a Copy button for the ones that tripped you up (example data). Inspired by [Rafal's post on X](https://x.com/rafalmmmmm/status/2118401457816793569) ([@rafalmmmmm](https://x.com/rafalmmmmm)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/spanish-weekly-quiz/](https://grokbotpages.com/t/spanish-weekly-quiz/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Spanish Weekly Quiz" from what I practised with you this week. 15 questions: mostly this week's topics (for example family, colours, hair, age with tener) plus a few old favourites I keep mixing up (for example mi vs me, gusta vs gustan). Mix pick-the-right-option questions with short typed answers, and accept typed answers with or without accents. Show my score as I go, mark each answer right or wrong with a one-line why, and let me filter by topic and reset. At the end, list the ones that tripped me up with a Copy button so I can paste them back to you. Use only this week's words, no new grammar.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Spanish Weekly Quiz" Page: every Friday at 17:00, rewrite the Page with 15 new questions from what I practised this week plus three I missed last time. Keep the same layout and the accent-optional rule. Send me one line when it is ready.
+  ```
+
+  </details>
+
 - [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -607,6 +624,23 @@ Planners, trackers and task boards.
 
   ```text
   Create a routine that refreshes my "Mission Board" Page every morning at 7 AM and whenever a bot asks me for something. Each run, collect what my bots wait on me for, update missions and briefs with the same layout and copy buttons, and drop items I already answered. Message me only if something is due today.
+  ```
+
+  </details>
+
+- [Spanish Weekly Quiz](https://pending.invalid/spanish-weekly-quiz/) - A 15-question Spanish quiz built from the week's lessons: tap or type answers (accents optional), live score tiles, topic filters, a one-line why for every answer and a Copy button for the ones that tripped you up (example data). Inspired by [Rafal's post on X](https://x.com/rafalmmmmm/status/2118401457816793569) ([@rafalmmmmm](https://x.com/rafalmmmmm)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/spanish-weekly-quiz/](https://grokbotpages.com/t/spanish-weekly-quiz/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Spanish Weekly Quiz" from what I practised with you this week. 15 questions: mostly this week's topics (for example family, colours, hair, age with tener) plus a few old favourites I keep mixing up (for example mi vs me, gusta vs gustan). Mix pick-the-right-option questions with short typed answers, and accept typed answers with or without accents. Show my score as I go, mark each answer right or wrong with a one-line why, and let me filter by topic and reset. At the end, list the ones that tripped me up with a Copy button so I can paste them back to you. Use only this week's words, no new grammar.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Spanish Weekly Quiz" Page: every Friday at 17:00, rewrite the Page with 15 new questions from what I practised this week plus three I missed last time. Keep the same layout and the accent-optional rule. Send me one line when it is ready.
   ```
 
   </details>
