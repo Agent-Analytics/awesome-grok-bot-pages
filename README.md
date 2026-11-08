@@ -46,7 +46,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [Mentions and App Rank](https://pending.invalid/mentions-and-app-rank/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Mentions and App Rank](https://mentions-and-app-rank-example-jsfv.pages.grok.bot/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
@@ -869,7 +869,7 @@ Pipelines and CRM views.
 
 Campaigns and growth reports.
 
-- [Mentions and App Rank](https://pending.invalid/mentions-and-app-rank/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Mentions and App Rank](https://mentions-and-app-rank-example-jsfv.pages.grok.bot/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
