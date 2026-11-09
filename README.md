@@ -46,7 +46,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [F2L Cases](https://pending.invalid/f2l-cases/) - Rubik's Cube F2L cases as cards: a cube diagram per case with only the pair in colour, one checked algorithm with move count and a Copy button, group filters, learning and learned marks, and a random case to drill (example data). Inspired by [Nam's post on X](https://x.com/laivietnam91/status/2119654882382950480) ([@laivietnam91](https://x.com/laivietnam91)). The post's video shows Nam's own F2L Page for beginners. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [F2L Cases](https://f2l-cases-example-lrbn.pages.grok.bot/) - Rubik's Cube F2L cases as cards: a cube diagram per case with only the pair in colour, one checked algorithm with move count and a Copy button, group filters, learning and learned marks, and a random case to drill (example data). Inspired by [Nam's post on X](https://x.com/laivietnam91/status/2119654882382950480) ([@laivietnam91](https://x.com/laivietnam91)). The post's video shows Nam's own F2L Page for beginners. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/f2l-cases/](https://grokbotpages.com/t/f2l-cases/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
@@ -817,7 +817,7 @@ One screen for what your bots and projects are doing and what waits on you.
 
 Planners, trackers and task boards.
 
-- [F2L Cases](https://pending.invalid/f2l-cases/) - Rubik's Cube F2L cases as cards: a cube diagram per case with only the pair in colour, one checked algorithm with move count and a Copy button, group filters, learning and learned marks, and a random case to drill (example data). Inspired by [Nam's post on X](https://x.com/laivietnam91/status/2119654882382950480) ([@laivietnam91](https://x.com/laivietnam91)). The post's video shows Nam's own F2L Page for beginners. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [F2L Cases](https://f2l-cases-example-lrbn.pages.grok.bot/) - Rubik's Cube F2L cases as cards: a cube diagram per case with only the pair in colour, one checked algorithm with move count and a Copy button, group filters, learning and learned marks, and a random case to drill (example data). Inspired by [Nam's post on X](https://x.com/laivietnam91/status/2119654882382950480) ([@laivietnam91](https://x.com/laivietnam91)). The post's video shows Nam's own F2L Page for beginners. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/f2l-cases/](https://grokbotpages.com/t/f2l-cases/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 

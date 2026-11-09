@@ -590,5 +590,21 @@
       390,
       4038
     ]
+  },
+  "f2l-cases": {
+    "url": "https://f2l-cases-example-lrbn.pages.grok.bot/",
+    "captured": "2026-11-09T19:52:27.520Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3997
+    ],
+    "mobile": [
+      390,
+      8000
+    ]
   }
 }
