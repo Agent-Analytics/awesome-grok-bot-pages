@@ -591,6 +591,38 @@
       4038
     ]
   },
+  "renewals-and-due-dates": {
+    "url": "https://renewals-and-due-dates-example-yk36.pages.grok.bot/",
+    "captured": "2026-11-09T19:52:27.711Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3033
+    ],
+    "mobile": [
+      390,
+      5406
+    ]
+  },
+  "paycheck-planner": {
+    "url": "https://paycheck-planner-example-lmyd.pages.grok.bot/",
+    "captured": "2026-11-09T19:52:27.332Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2611
+    ],
+    "mobile": [
+      390,
+      4533
+    ]
+  },
   "f2l-cases": {
     "url": "https://f2l-cases-example-lrbn.pages.grok.bot/",
     "captured": "2026-11-09T19:52:27.520Z",
