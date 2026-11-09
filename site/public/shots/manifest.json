@@ -494,5 +494,21 @@
       390,
       4419
     ]
+  },
+  "grok-widgets": {
+    "url": "https://grok-widgets-example-vqhv.pages.grok.bot/",
+    "captured": "2026-11-09T09:00:28.200Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2898
+    ],
+    "mobile": [
+      390,
+      6085
+    ]
   }
 }

@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Grok Widgets](https://grok-widgets-example-vqhv.pages.grok.bot/) - A free gallery of drop-in Page widgets (clocks, weather, crypto and stock tickers, charts, KPI cards, to-do boards) plus dark, neon and glass themes, each with a Copy prompt to add that widget to your Page in one sentence (example data). Inspired by [AbundantAlpha's post on X](https://x.com/AbundantAlpha/status/2116570991019135338) ([@AbundantAlpha](https://x.com/AbundantAlpha)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/grok-widgets/](https://grokbotpages.com/t/grok-widgets/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Grok Widgets": a free gallery of drop-in Page widgets and themes. At the top: how many widgets, how many themes, and a one-line tip that each widget has a Copy prompt. Then filter pills by kind (clocks, weather, tickers, charts, KPI cards, to-do boards) and by theme (dark, neon, glass). For each widget: a short preview with example data, a one-sentence add prompt, and a Copy button so I can paste it into any Page. Include three themes as cards with a Copy theme prompt each. Use only example data. End with Links to the original gallery if I have one.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Grok Widgets" Page: every Monday at 10:00, add any new widget or theme I describe, keep the filters and Copy buttons, and leave the rest of the layout the same.
+  ```
+
+  </details>
+
 - [Teach Me This](https://teach-me-this-example-zk3u.pages.grok.bot/) - A one-topic lesson from a post or link: a 3 to 5 step lesson plan, explain-it-back questions with Copy buttons, a quiz you reveal one answer at a time, and a spaced review schedule (example data). Inspired by [Daniel Endara's post on X](https://x.com/danielendara/status/2116936574168416621) ([@danielendara](https://x.com/danielendara)). Sensei bot template: [x.ai/bot/wUPzZYJGLoY859G420jxh](https://x.ai/bot/wUPzZYJGLoY859G420jxh). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/teach-me-this/](https://grokbotpages.com/t/teach-me-this/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1166,7 +1183,23 @@ Explainers and sourced reports.
 
 Galleries, generative art and games.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [Grok Widgets](https://grok-widgets-example-vqhv.pages.grok.bot/) - A free gallery of drop-in Page widgets (clocks, weather, crypto and stock tickers, charts, KPI cards, to-do boards) plus dark, neon and glass themes, each with a Copy prompt to add that widget to your Page in one sentence (example data). Inspired by [AbundantAlpha's post on X](https://x.com/AbundantAlpha/status/2116570991019135338) ([@AbundantAlpha](https://x.com/AbundantAlpha)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/grok-widgets/](https://grokbotpages.com/t/grok-widgets/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Grok Widgets": a free gallery of drop-in Page widgets and themes. At the top: how many widgets, how many themes, and a one-line tip that each widget has a Copy prompt. Then filter pills by kind (clocks, weather, tickers, charts, KPI cards, to-do boards) and by theme (dark, neon, glass). For each widget: a short preview with example data, a one-sentence add prompt, and a Copy button so I can paste it into any Page. Include three themes as cards with a Copy theme prompt each. Use only example data. End with Links to the original gallery if I have one.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Grok Widgets" Page: every Monday at 10:00, add any new widget or theme I describe, keep the filters and Copy buttons, and leave the rest of the layout the same.
+  ```
+
+  </details>
+
 
 ## Documents and Files
 
