@@ -526,5 +526,21 @@
       390,
       6948
     ]
+  },
+  "ai-visibility-report": {
+    "url": "https://ai-visibility-report-example-bfun.pages.grok.bot/",
+    "captured": "2026-11-09T09:38:25.880Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3312
+    ],
+    "mobile": [
+      390,
+      6601
+    ]
   }
 }

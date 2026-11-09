@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [AI Visibility Report](https://ai-visibility-report-example-bfun.pages.grok.bot/) - A weekly AI visibility report: how often your brand is recommended across ChatGPT, Claude, Perplexity and Gemini, competitor share, cited sources, description accuracy flags, week-over-week change, and a to-do list with Copy buttons (example data). Inspired by [Scott Vayner's post on X](https://x.com/scottvayner/status/2118762594148245689) ([@scottvayner](https://x.com/scottvayner)). No prompt was shared and no original pages.grok.bot link was posted, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ai-visibility-report/](https://grokbotpages.com/t/ai-visibility-report/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "AI Visibility Report" for [brand]. Every week, ask ChatGPT, Claude, Perplexity and Gemini a set of questions my customers actually ask (with web search on), then write the report. At the top: how often I am recommended across the four engines (example %), my top competitor share, cited source pages count, and week-over-week change. Then a per-engine breakdown. Then competitor share. Then the pages the AIs cited. Then description accuracy flags (right, vague, wrong) with Copy fix buttons. Then a to-do list with Copy buttons: get listed on cited pages, write missing pages, fix wrong descriptions. Use only example invented brand data. End with one question for me.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "AI Visibility Report" Page: every Monday at 09:00, re-ask the same customer questions across ChatGPT, Claude, Perplexity and Gemini, update the % and competitor share, refresh cited sources and description flags, and rewrite the to-do list. Keep the layout the same.
+  ```
+
+  </details>
+
 - [Job Search Bot Team](https://job-search-bot-team-example-zhda.pages.grok.bot/) - A timeline and bot roster for a job search run by a Grok Bot team: KPI strip, waiting-on-you items with Copy reply buttons, one-job-per-bot tips, and offer decision cards with Copy yes and Copy decline (example data). Inspired by [Chase's thread on X](https://x.com/CybertruckATX/status/2117436124243308986) ([@CybertruckATX](https://x.com/CybertruckATX)). No prompt was shared, so the prompt is written from the post and tips. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/job-search-bot-team/](https://grokbotpages.com/t/job-search-bot-team/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post and tips)</summary>
@@ -1149,6 +1166,23 @@ Pipelines and CRM views.
 ## Marketing
 
 Campaigns and growth reports.
+
+- [AI Visibility Report](https://ai-visibility-report-example-bfun.pages.grok.bot/) - A weekly AI visibility report: how often your brand is recommended across ChatGPT, Claude, Perplexity and Gemini, competitor share, cited sources, description accuracy flags, week-over-week change, and a to-do list with Copy buttons (example data). Inspired by [Scott Vayner's post on X](https://x.com/scottvayner/status/2118762594148245689) ([@scottvayner](https://x.com/scottvayner)). No prompt was shared and no original pages.grok.bot link was posted, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ai-visibility-report/](https://grokbotpages.com/t/ai-visibility-report/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "AI Visibility Report" for [brand]. Every week, ask ChatGPT, Claude, Perplexity and Gemini a set of questions my customers actually ask (with web search on), then write the report. At the top: how often I am recommended across the four engines (example %), my top competitor share, cited source pages count, and week-over-week change. Then a per-engine breakdown. Then competitor share. Then the pages the AIs cited. Then description accuracy flags (right, vague, wrong) with Copy fix buttons. Then a to-do list with Copy buttons: get listed on cited pages, write missing pages, fix wrong descriptions. Use only example invented brand data. End with one question for me.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "AI Visibility Report" Page: every Monday at 09:00, re-ask the same customer questions across ChatGPT, Claude, Perplexity and Gemini, update the % and competitor share, refresh cited sources and description flags, and rewrite the to-do list. Keep the layout the same.
+  ```
+
+  </details>
 
 - [Mentions and App Rank](https://mentions-and-app-rank-example-jsfv.pages.grok.bot/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
