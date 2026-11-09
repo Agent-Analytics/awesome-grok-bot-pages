@@ -40,13 +40,14 @@ const ext = (url, text, cls = '', event = '', params = null) => {
 const outbound = (url, text, position, cls = '') => ext(url, text, cls, 'outbound_clicked', { target_url: url, target_type: targetType(url), position });
 const liveLink = (e, text, position, cls = '') => ext(e.url, text, cls, 'template_opened', { page_slug: e.slug, position, category: catSlug(e.categories[0]) });
 const copyButton = (slug, position, label, cls, extra) => {
-  const event = slug === 'snippet' ? 'snippet_copied' : 'prompt_copied';
+  const event = slug === 'snippet' ? 'snippet_copied' : slug === 'entry' ? 'entry_snippet_copied' : 'prompt_copied';
   const params = { position, ...(extra || {}) };
+  if (event === 'entry_snippet_copied') params.snippet = 'readme_entry';
   if (event === 'prompt_copied') {
     const entry = d.entries.find((x) => x.slug === slug);
     if (entry && entry.categories[0]) params.category = catSlug(entry.categories[0]);
   }
-  const slugAttr = slug === 'snippet' ? '' : ` data-page-slug="${esc(slug)}"`;
+  const slugAttr = slug === 'snippet' || slug === 'entry' ? '' : ` data-page-slug="${esc(slug)}"`;
   return `<button type="button" class="${cls}" data-copy="${esc(slug)}" ${trackAttrs(event, params)}${slugAttr}>${label}</button>`;
 };
 // Minimal inline markdown: links and code. Relative #anchors point at the README on GitHub.
@@ -131,12 +132,26 @@ function getListed() {
   const steps = d.steps.map((s) => s.startsWith('Open a pull request')
     ? `Open a pull request that adds your entry to the right section of the README, in the ${outbound(REPO + '#entry-format', 'entry format', 'how_to')}.`
     : md(s, 'how_to'));
+  // target=open_pr is the README editor link. The click records outbound intent. GitHub is where the pull request is submitted.
+  const editor = ext(REPO + '/edit/main/README.md', 'Edit README on GitHub<span class="sr-only">. Opens the README editor in a new tab. Submitting the pull request happens on GitHub after you propose the change.</span>', 'btn', 'get_listed_clicked', { target: 'open_pr' });
   return `<section class="gl" id="get-listed" aria-labelledby="gl-h"><div><h2 id="gl-h">Get your Page listed</h2>
 <ol>${steps.map((s) => `<li>${s}</li>`).join('')}</ol>
 <p class="note">${esc(d.notice)}</p>
-<div class="glb">${copyButton('snippet', 'section_button', 'Copy snippet', 'btn pri')}${ext(REPO + '/edit/main/README.md', 'Open a pull request', 'btn', 'get_listed_clicked', { target: 'open_pr' })}${ext(REPO + '/blob/main/CONTRIBUTING.md', 'Contributing guide', 'btn ghost', 'get_listed_clicked', { target: 'contributing' })}</div>
+<details class="pr-help" id="pr-steps" data-track="listing_instructions_viewed" data-instructions="pull_request_steps">
+<summary>View pull request instructions</summary>
+<ol>
+<li>Copy the README entry on this page and replace the placeholders. Leave out private details.</li>
+<li>Star the repository from the link in the steps above. A star is required before the pull request.</li>
+<li>Choose Edit README on GitHub. Sign in if GitHub asks. Without edit access, GitHub asks you to fork the repository before you can propose the change.</li>
+<li>Paste the entry under the matching section heading. When that section says "No Pages yet", remove that line. You can also add the entry under Latest Additions.</li>
+<li>On GitHub, choose Propose changes, then open the pull request and complete its checklist. This page opens the editor. Submitting the pull request happens on GitHub.</li>
+</ol>
+</details>
+<div class="glb">${copyButton('snippet', 'section_button', 'Copy Grok snippet', 'btn pri')}${copyButton('entry', 'section_button', 'Copy README entry', 'btn')}${editor}${ext(REPO + '/blob/main/CONTRIBUTING.md', 'Contributing guide', 'btn ghost', 'get_listed_clicked', { target: 'contributing' })}</div>
+<p class="note" id="pr-note">Edit README on GitHub opens the file editor. Submit the pull request on GitHub after you propose the change.</p>
 <div class="dash"><h3>Need data for a dashboard?</h3><p>${md(d.dashboardNote, 'how_to')}</p></div></div>
-<div class="code"><div class="codeh"><span>Snippet</span>${copyButton('snippet', 'code_header', 'Copy', 'btn sm')}</div><pre>${esc(d.snippet)}</pre></div></section>`;
+<div class="gl-codes"><div class="code"><div class="codeh"><span>Grok snippet</span>${copyButton('snippet', 'code_header', 'Copy', 'btn sm')}</div><pre>${esc(d.snippet)}</pre></div>
+<div class="code"><div class="codeh"><span>README entry</span>${copyButton('entry', 'code_header', 'Copy', 'btn sm')}</div><pre>${esc(d.entry)}</pre></div></div></section>`;
 }
 
 function featuredPages() {
@@ -250,7 +265,7 @@ ${getListed()}`;
     title: 'grokbotpages.com: Grok Bot Pages templates with their prompts',
     description: `Live public Grok Bot Pages and the exact prompts that built them. ${d.entries.length} templates: ${d.entries.map((e) => e.title).join(', ')}.`,
     pathName: '/', body,
-    data: { snippet: d.snippet, prompts: Object.fromEntries(d.entries.map((e) => [e.slug, e.prompt])) },
+    data: { snippet: d.snippet, entry: d.entry, prompts: Object.fromEntries(d.entries.map((e) => [e.slug, e.prompt])) },
   });
 }
 
