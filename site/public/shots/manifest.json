@@ -398,5 +398,21 @@
       390,
       3478
     ]
+  },
+  "morning-mission-control": {
+    "url": "https://morning-mission-control-example-3x24.pages.grok.bot/",
+    "captured": "2026-11-09T08:19:27.012Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      4020
+    ],
+    "mobile": [
+      390,
+      8661
+    ]
   }
 }

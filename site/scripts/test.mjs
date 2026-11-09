@@ -99,7 +99,7 @@ const gateMiss = d.categories.filter((c) => {
 const missionCat = d.categories.find((c) => c.slug === 'mission-control');
 check(
   'only zero-page categories are hidden',
-  gateMiss.length === 0 && missionCat?.count === 2 && bySlug['mission-control'] && !bySlug['mission-control'].hidden && !bySlug.all?.hidden,
+  gateMiss.length === 0 && missionCat?.count === 3 && bySlug['mission-control'] && !bySlug['mission-control'].hidden && !bySlug.all?.hidden,
   `mission ${missionCat?.count}; ${gateMiss.map((c) => `${c.slug}:${c.count}`).join(' ')}`,
 );
 if (await page.locator('[data-more-cats]').isVisible()) await page.click('[data-more-cats]');
