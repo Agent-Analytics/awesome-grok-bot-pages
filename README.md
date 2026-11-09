@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Fight Camp Fuel](https://fight-camp-fuel-example-64la.pages.grok.bot/) - A fight camp nutrition coach: plate photos logged into today against calorie, protein, carb, fat and water targets, a 7-day intake chart with training days that shows under-eating early, the water cut plan to weigh-in, and one fix for tomorrow (example data). Inspired by [Jon Burgess's post on X](https://x.com/JonBurg88715724/status/2116946326034456857) ([@JonBurg88715724](https://x.com/JonBurg88715724)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/fight-camp-fuel/](https://grokbotpages.com/t/fight-camp-fuel/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Be my nutrition coach for fight camp and keep a Grok Bot Page called "Fight Camp Fuel". When I send a photo of a plate, estimate the food, calories and protein, carbs and fat, log it with the time, and update the Page. At the top: today against my targets for calories, protein, carbs, fat and water, and the days left to weigh-in. Then a 7-day chart of calories eaten against target, with training sessions marked, so under-eating shows up early. Then today's meal log, newest first. Then the water cut plan: litres per day for each day to weigh-in and my weight against the target weight. End with one fix for tomorrow, with a Copy button. My targets: [weight, weigh-in date, target weight, training days]. Say when an estimate is unsure. No medical advice beyond food and water.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Fight Camp Fuel" Page: every night at 21:30, close the day, move it into the 7-day chart, write one fix for tomorrow, and update the days left and the water plan. Keep the layout the same. If I logged no meals today, say so instead of guessing.
+  ```
+
+  </details>
+
 - [Dinners and Groceries](https://dinners-and-groceries-example-ei54.pages.grok.bot/) - This week's 5 dinners with a grocery checklist grouped by aisle that you can tick off, with a count of what is left and a Copy button for the remaining list (example data). Inspired by [BotTutorialsDaily's post on X](https://x.com/BotTutorials/status/2116610235012157813) ([@BotTutorials](https://x.com/BotTutorials)). Prompt quoted word for word from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/dinners-and-groceries/](https://grokbotpages.com/t/dinners-and-groceries/).
   <details><summary>Prompt (BotTutorialsDaily, quoted from <a href="https://x.com/BotTutorials/status/2116610235012157813">their post on X</a>)</summary>
@@ -782,6 +799,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Fight Camp Fuel](https://fight-camp-fuel-example-64la.pages.grok.bot/) - A fight camp nutrition coach: plate photos logged into today against calorie, protein, carb, fat and water targets, a 7-day intake chart with training days that shows under-eating early, the water cut plan to weigh-in, and one fix for tomorrow (example data). Inspired by [Jon Burgess's post on X](https://x.com/JonBurg88715724/status/2116946326034456857) ([@JonBurg88715724](https://x.com/JonBurg88715724)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/fight-camp-fuel/](https://grokbotpages.com/t/fight-camp-fuel/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Be my nutrition coach for fight camp and keep a Grok Bot Page called "Fight Camp Fuel". When I send a photo of a plate, estimate the food, calories and protein, carbs and fat, log it with the time, and update the Page. At the top: today against my targets for calories, protein, carbs, fat and water, and the days left to weigh-in. Then a 7-day chart of calories eaten against target, with training sessions marked, so under-eating shows up early. Then today's meal log, newest first. Then the water cut plan: litres per day for each day to weigh-in and my weight against the target weight. End with one fix for tomorrow, with a Copy button. My targets: [weight, weigh-in date, target weight, training days]. Say when an estimate is unsure. No medical advice beyond food and water.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Fight Camp Fuel" Page: every night at 21:30, close the day, move it into the 7-day chart, write one fix for tomorrow, and update the days left and the water plan. Keep the layout the same. If I logged no meals today, say so instead of guessing.
+  ```
+
+  </details>
 
 - [Dinners and Groceries](https://dinners-and-groceries-example-ei54.pages.grok.bot/) - This week's 5 dinners with a grocery checklist grouped by aisle that you can tick off, with a count of what is left and a Copy button for the remaining list (example data). Inspired by [BotTutorialsDaily's post on X](https://x.com/BotTutorials/status/2116610235012157813) ([@BotTutorials](https://x.com/BotTutorials)). Prompt quoted word for word from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/dinners-and-groceries/](https://grokbotpages.com/t/dinners-and-groceries/).
