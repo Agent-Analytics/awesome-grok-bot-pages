@@ -590,5 +590,21 @@
       390,
       4038
     ]
+  },
+  "renewals-and-due-dates": {
+    "url": "https://renewals-and-due-dates-example-yk36.pages.grok.bot/",
+    "captured": "2026-11-09T19:52:27.711Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3033
+    ],
+    "mobile": [
+      390,
+      5406
+    ]
   }
 }

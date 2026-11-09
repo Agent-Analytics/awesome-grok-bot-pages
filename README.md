@@ -46,7 +46,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [Renewals and Due Dates](https://pending.invalid/renewals-and-due-dates/) - Household contracts and subscriptions in one place: a Needs you list for renewals in the next 14 days, missed dates and missing dates with a Copy button for each supplier note, a 12-month renewal timeline, monthly spend split into regular and renewals, and category filters (example data). Inspired by [William Kwan's post on X](https://x.com/williamkwanco/status/2119007766241329521) ([@williamkwanco](https://x.com/williamkwanco)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Renewals and Due Dates](https://renewals-and-due-dates-example-yk36.pages.grok.bot/) - Household contracts and subscriptions in one place: a Needs you list for renewals in the next 14 days, missed dates and missing dates with a Copy button for each supplier note, a 12-month renewal timeline, monthly spend split into regular and renewals, and category filters (example data). Inspired by [William Kwan's post on X](https://x.com/williamkwanco/status/2119007766241329521) ([@williamkwanco](https://x.com/williamkwanco)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/renewals-and-due-dates/](https://grokbotpages.com/t/renewals-and-due-dates/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
@@ -1242,7 +1242,7 @@ Org charts, roles and hand-offs between your bots.
 
 Spending, budgets, crypto and legal.
 
-- [Renewals and Due Dates](https://pending.invalid/renewals-and-due-dates/) - Household contracts and subscriptions in one place: a Needs you list for renewals in the next 14 days, missed dates and missing dates with a Copy button for each supplier note, a 12-month renewal timeline, monthly spend split into regular and renewals, and category filters (example data). Inspired by [William Kwan's post on X](https://x.com/williamkwanco/status/2119007766241329521) ([@williamkwanco](https://x.com/williamkwanco)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Renewals and Due Dates](https://renewals-and-due-dates-example-yk36.pages.grok.bot/) - Household contracts and subscriptions in one place: a Needs you list for renewals in the next 14 days, missed dates and missing dates with a Copy button for each supplier note, a 12-month renewal timeline, monthly spend split into regular and renewals, and category filters (example data). Inspired by [William Kwan's post on X](https://x.com/williamkwanco/status/2119007766241329521) ([@williamkwanco](https://x.com/williamkwanco)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/renewals-and-due-dates/](https://grokbotpages.com/t/renewals-and-due-dates/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
