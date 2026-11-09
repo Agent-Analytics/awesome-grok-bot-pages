@@ -366,5 +366,133 @@
       390,
       6527
     ]
+  },
+  "ship-velocity": {
+    "url": "https://ship-velocity-example-jbus.pages.grok.bot/",
+    "captured": "2026-11-04T19:32:47.972Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2345
+    ],
+    "mobile": [
+      390,
+      4705
+    ]
+  },
+  "mentions-and-app-rank": {
+    "url": "https://mentions-and-app-rank-example-jsfv.pages.grok.bot/",
+    "captured": "2026-11-08T20:36:06.878Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2149
+    ],
+    "mobile": [
+      390,
+      3478
+    ]
+  },
+  "morning-mission-control": {
+    "url": "https://morning-mission-control-example-3x24.pages.grok.bot/",
+    "captured": "2026-11-09T08:19:27.012Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      4020
+    ],
+    "mobile": [
+      390,
+      8661
+    ]
+  },
+  "agent-office": {
+    "url": "https://agent-office-example-h2a2.pages.grok.bot/",
+    "captured": "2026-11-09T08:28:12.621Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3368
+    ],
+    "mobile": [
+      390,
+      6739
+    ]
+  },
+  "bot-team-usage": {
+    "url": "https://bot-team-usage-example-43kl.pages.grok.bot/",
+    "captured": "2026-11-09T08:32:50.582Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3117
+    ],
+    "mobile": [
+      390,
+      5051
+    ]
+  },
+  "jarvis-hud": {
+    "url": "https://jarvis-hud-example-ioid.pages.grok.bot/",
+    "captured": "2026-11-09T08:41:11.740Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2428
+    ],
+    "mobile": [
+      390,
+      4692
+    ]
+  },
+  "cheapest-power-hours": {
+    "url": "https://cheapest-power-hours-example-3fnc.pages.grok.bot/",
+    "captured": "2026-11-09T08:46:26.489Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2385
+    ],
+    "mobile": [
+      390,
+      4098
+    ]
+  },
+  "teach-me-this": {
+    "url": "https://teach-me-this-example-zk3u.pages.grok.bot/",
+    "captured": "2026-11-09T08:54:20.491Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2429
+    ],
+    "mobile": [
+      390,
+      4419
+    ]
   }
 }
