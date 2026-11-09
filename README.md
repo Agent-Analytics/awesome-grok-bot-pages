@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Kris Kindle Draw](https://pending.invalid/kris-kindle-draw/) - A festive Secret Santa draw for a family: names on a Whose turn? board, rules for no self, no partner and no repeat of last year, one-at-a-time reveals with a Copy button for each private message, budget and swap day, redraw and reset (example data). Inspired by [Debbie O'Brien's post on X](https://x.com/debs_obrien/status/2119735724131889485) ([@debs_obrien](https://x.com/debs_obrien)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/kris-kindle-draw/](https://grokbotpages.com/t/kris-kindle-draw/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Kris Kindle Draw" for our family Secret Santa. People: [list the names, and mark who is a couple]. Rules: everyone gives once and receives once, nobody draws themselves or their partner, and nobody draws the same person as last year: [last year's pairs]. Budget [amount], swap day [date]. Make it festive. Show a "Whose turn?" board of names; when someone taps their name, reveal only who they are buying for, with the budget and swap day, and a Copy button for that message so I can send it to them privately. Keep a "Revealed so far" list, and let me redraw or reset. Label clearly that this is a practice draw and nothing is saved.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Kris Kindle Draw" Page: on December 1 at 09:00, rebuild the Page with this year's names and rules, draw fresh pairs that follow the rules, and send me one line saying the draw is ready. On the swap day at 18:00, send me one reminder. Do not message anyone else.
+  ```
+
+  </details>
+
 - [Fight Camp Fuel](https://fight-camp-fuel-example-64la.pages.grok.bot/) - A fight camp nutrition coach: plate photos logged into today against calorie, protein, carb, fat and water targets, a 7-day intake chart with training days that shows under-eating early, the water cut plan to weigh-in, and one fix for tomorrow (example data). Inspired by [Jon Burgess's post on X](https://x.com/JonBurg88715724/status/2116946326034456857) ([@JonBurg88715724](https://x.com/JonBurg88715724)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/fight-camp-fuel/](https://grokbotpages.com/t/fight-camp-fuel/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -799,6 +816,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Kris Kindle Draw](https://pending.invalid/kris-kindle-draw/) - A festive Secret Santa draw for a family: names on a Whose turn? board, rules for no self, no partner and no repeat of last year, one-at-a-time reveals with a Copy button for each private message, budget and swap day, redraw and reset (example data). Inspired by [Debbie O'Brien's post on X](https://x.com/debs_obrien/status/2119735724131889485) ([@debs_obrien](https://x.com/debs_obrien)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/kris-kindle-draw/](https://grokbotpages.com/t/kris-kindle-draw/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Kris Kindle Draw" for our family Secret Santa. People: [list the names, and mark who is a couple]. Rules: everyone gives once and receives once, nobody draws themselves or their partner, and nobody draws the same person as last year: [last year's pairs]. Budget [amount], swap day [date]. Make it festive. Show a "Whose turn?" board of names; when someone taps their name, reveal only who they are buying for, with the budget and swap day, and a Copy button for that message so I can send it to them privately. Keep a "Revealed so far" list, and let me redraw or reset. Label clearly that this is a practice draw and nothing is saved.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Kris Kindle Draw" Page: on December 1 at 09:00, rebuild the Page with this year's names and rules, draw fresh pairs that follow the rules, and send me one line saying the draw is ready. On the swap day at 18:00, send me one reminder. Do not message anyone else.
+  ```
+
+  </details>
 
 - [Fight Camp Fuel](https://fight-camp-fuel-example-64la.pages.grok.bot/) - A fight camp nutrition coach: plate photos logged into today against calorie, protein, carb, fat and water targets, a 7-day intake chart with training days that shows under-eating early, the water cut plan to weigh-in, and one fix for tomorrow (example data). Inspired by [Jon Burgess's post on X](https://x.com/JonBurg88715724/status/2116946326034456857) ([@JonBurg88715724](https://x.com/JonBurg88715724)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/fight-camp-fuel/](https://grokbotpages.com/t/fight-camp-fuel/).
