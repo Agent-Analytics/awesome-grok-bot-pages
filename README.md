@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [F2L Cases](https://f2l-cases-example-lrbn.pages.grok.bot/) - Rubik's Cube F2L cases as cards: a cube diagram per case with only the pair in colour, one checked algorithm with move count and a Copy button, group filters, learning and learned marks, and a random case to drill (example data). Inspired by [Nam's post on X](https://x.com/laivietnam91/status/2119654882382950480) ([@laivietnam91](https://x.com/laivietnam91)). The post's video shows Nam's own F2L Page for beginners. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/f2l-cases/](https://grokbotpages.com/t/f2l-cases/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "F2L Cases" to help me learn the F2L step of solving a Rubik's Cube (CFOP). Start with how to hold the cube (white cross on the bottom, yellow on top, the slot I am filling is front right) and how to read the move letters R, U, F and the ' and 2 marks. Then show the cases as cards in groups: the 4 basic inserts first, then corner on top with white to the side, corner on top with white facing up, and pieces stuck in the slot. Each card gets a cube diagram of the case with only the corner and edge I am pairing in colour, one standard algorithm, the move count and a Copy button for the algorithm. Let me filter by group, mark cases as learning or learned (just for this visit), and pick a random case to drill. Check every algorithm actually solves the case it is drawn with.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "F2L Cases" Page: every Sunday at 10:00, ask me which cases I learned this week, move them to Learned on the Page, add the next 4 cases I have not seen yet, and send me one line with the 4 new algorithms.
+  ```
+
+  </details>
+
 - [Paycheck Planner](https://paycheck-planner-example-lmyd.pages.grok.bot/) - A paycheck planner for hourly and shift workers: wage, regular and overtime hours and take-home percent, an editable list of bills due before the next check, one bar that splits the check into bills and what is left, and calm next moves with Copy scripts when the check falls short (example data). Inspired by [The Come Up's post on X](https://x.com/FreebandGr94644/status/2119855339994529998) ([@FreebandGr94644](https://x.com/FreebandGr94644)). The post shares a public Grok Bot Page, Paycheck Planner, that this example is modelled on. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/paycheck-planner/](https://grokbotpages.com/t/paycheck-planner/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -833,6 +850,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [F2L Cases](https://f2l-cases-example-lrbn.pages.grok.bot/) - Rubik's Cube F2L cases as cards: a cube diagram per case with only the pair in colour, one checked algorithm with move count and a Copy button, group filters, learning and learned marks, and a random case to drill (example data). Inspired by [Nam's post on X](https://x.com/laivietnam91/status/2119654882382950480) ([@laivietnam91](https://x.com/laivietnam91)). The post's video shows Nam's own F2L Page for beginners. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/f2l-cases/](https://grokbotpages.com/t/f2l-cases/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "F2L Cases" to help me learn the F2L step of solving a Rubik's Cube (CFOP). Start with how to hold the cube (white cross on the bottom, yellow on top, the slot I am filling is front right) and how to read the move letters R, U, F and the ' and 2 marks. Then show the cases as cards in groups: the 4 basic inserts first, then corner on top with white to the side, corner on top with white facing up, and pieces stuck in the slot. Each card gets a cube diagram of the case with only the corner and edge I am pairing in colour, one standard algorithm, the move count and a Copy button for the algorithm. Let me filter by group, mark cases as learning or learned (just for this visit), and pick a random case to drill. Check every algorithm actually solves the case it is drawn with.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "F2L Cases" Page: every Sunday at 10:00, ask me which cases I learned this week, move them to Learned on the Page, add the next 4 cases I have not seen yet, and send me one line with the 4 new algorithms.
+  ```
+
+  </details>
 
 - [Fight Camp Fuel](https://fight-camp-fuel-example-64la.pages.grok.bot/) - A fight camp nutrition coach: plate photos logged into today against calorie, protein, carb, fat and water targets, a 7-day intake chart with training days that shows under-eating early, the water cut plan to weigh-in, and one fix for tomorrow (example data). Inspired by [Jon Burgess's post on X](https://x.com/JonBurg88715724/status/2116946326034456857) ([@JonBurg88715724](https://x.com/JonBurg88715724)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/fight-camp-fuel/](https://grokbotpages.com/t/fight-camp-fuel/).
