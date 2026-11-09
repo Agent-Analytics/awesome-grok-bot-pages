@@ -478,5 +478,21 @@
       390,
       4098
     ]
+  },
+  "teach-me-this": {
+    "url": "https://teach-me-this-example-zk3u.pages.grok.bot/",
+    "captured": "2026-11-09T08:54:20.491Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2429
+    ],
+    "mobile": [
+      390,
+      4419
+    ]
   }
 }
