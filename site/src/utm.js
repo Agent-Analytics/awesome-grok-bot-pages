@@ -1,4 +1,6 @@
-// Session UTM for template_opened and prompt_copied. Landing query wins per field;
+// Session UTM is attached only to template_opened and prompt_copied.
+// snippet_copied, entry_snippet_copied, listing_instructions_viewed, and get_listed_clicked
+// do not get explicit utm props. Landing query wins per field;
 // anything already stored for this tab fills the fields the URL does not set.
 export const UTM_STORAGE_KEY = 'gbp_utm';
 export const UTM_FIELDS = ['utm_source', 'utm_campaign'];

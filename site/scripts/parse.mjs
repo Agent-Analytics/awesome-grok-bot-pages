@@ -1,4 +1,4 @@
-// Parses ../README.md into site data: categories, entries, snippet, dashboard note.
+// Parses ../README.md into site data: categories, entries, Grok snippet, README entry, dashboard note.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -70,6 +70,13 @@ function parseEntries(body) {
   return entries;
 }
 
+function entryTemplate(md) {
+  const body = sections(md).find((s) => s.title === 'Entry format')?.body || '';
+  const fence = body.match(/````markdown\n([\s\S]*?)\n````/);
+  if (!fence) throw new Error('Entry format fence missing');
+  return fence[1];
+}
+
 export function parse() {
   const md = fs.readFileSync(README, 'utf8');
   const secs = sections(md);
@@ -100,7 +107,7 @@ export function parse() {
   const notice = create.split('```')[0].split('\n').find((l) => l.startsWith('Before you make'))?.trim();
   const dash = create.match(/### Need data for a dashboard\?\n\n([^\n]+)/)?.[1];
   const intro = md.match(/^> (.+)$/m)?.[1];
-  return { repo: REPO, intro, categories, entries, snippet, steps, notice, dashboardNote: dash };
+  return { repo: REPO, intro, categories, entries, snippet, entry: entryTemplate(md), steps, notice, dashboardNote: dash };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) console.log(JSON.stringify(parse(), null, 2));
