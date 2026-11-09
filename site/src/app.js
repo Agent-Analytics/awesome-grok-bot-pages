@@ -30,7 +30,19 @@ import { captureUtm, withUtm } from './utm.js';
   // window.aa.track is the Agent Analytics snippet API (https://docs.agentanalytics.sh/reference/tracker-js/).
   // The tracker is async, so calls made before it arrives are queued and flushed in order.
   // A missing snippet, a tracker that never loads, and a throwing tracker are all ignored.
-  var TRACK_KEYS = ['page_slug', 'position', 'location', 'category', 'source', 'target', 'target_url', 'target_type', 'target_slug'];
+  var TRACK_KEYS = ['page_slug', 'position', 'location', 'category', 'source', 'target', 'target_url', 'target_type', 'target_slug', 'snippet', 'instructions'];
+  // schema_version is added here for new contributor actions only. Existing events keep their property set.
+  var SCHEMA_VERSION = { entry_snippet_copied: 1, listing_instructions_viewed: 1 };
+  function withSchema(name, props) {
+    var version = SCHEMA_VERSION[name];
+    var body = props || {};
+    if (!version) return body;
+    var next = { schema_version: version };
+    for (var key in body) {
+      if (Object.prototype.hasOwnProperty.call(body, key) && key !== 'schema_version') next[key] = body[key];
+    }
+    return next;
+  }
   var pending = [];
   var PENDING_CAP = 32;
   var watching = false;
@@ -78,7 +90,7 @@ import { captureUtm, withUtm } from './utm.js';
     return props;
   }
   function track(name, props) {
-    var body = withUtm(name, props || {}, utm);
+    var body = withUtm(name, withSchema(name, props), utm);
     try {
       if (aaReady()) { window.aa.track(name, body); return; }
       // window.aa without track is unusable. After the wait, further calls no-op.
@@ -93,13 +105,14 @@ import { captureUtm, withUtm } from './utm.js';
     var btn = ev.target.closest('[data-copy]');
     if (btn) {
       var key = btn.getAttribute('data-copy');
-      var text = key === 'snippet' ? data.snippet : (data.prompts || {})[key];
+      var text = key === 'snippet' ? data.snippet : key === 'entry' ? data.entry : (data.prompts || {})[key];
       if (!text) return;
       var label = btn.getAttribute('data-label') || btn.textContent;
       btn.setAttribute('data-label', label);
+      var copiedName = key === 'snippet' ? 'Snippet' : key === 'entry' ? 'README entry' : 'Prompt';
       copyText(text).then(function () {
         btn.textContent = 'Copied'; btn.classList.add('done');
-        announce((key === 'snippet' ? 'Snippet' : 'Prompt') + ' copied to clipboard');
+        announce(copiedName + ' copied to clipboard');
         return true;
       }, function () {
         btn.textContent = 'Press Ctrl+C'; announce('Copy failed. Select the text and copy it manually.');
@@ -119,6 +132,8 @@ import { captureUtm, withUtm } from './utm.js';
     if (!node) return;
     var name = node.getAttribute('data-track');
     if (!name || node.hasAttribute('data-copy')) return;
+    // The instructions disclosure tracks on toggle, once, so the summary click is not a second event.
+    if (name === 'listing_instructions_viewed') return;
     // source=link is recorded from fromHash after the filter applies (and after a full
     // navigation to /#c=), so a tag click is not also counted here.
     if (name === 'category_filtered' && node.getAttribute('data-source') === 'link') return;
@@ -130,6 +145,15 @@ import { captureUtm, withUtm } from './utm.js';
     }
     track(name, props);
   });
+
+  document.addEventListener('toggle', function (ev) {
+    var node = ev.target;
+    if (!node || node.nodeType !== 1 || node.tagName !== 'DETAILS' || !node.open) return;
+    if (node.getAttribute('data-track') !== 'listing_instructions_viewed') return;
+    if (node.getAttribute('data-tracked') === '1') return;
+    node.setAttribute('data-tracked', '1');
+    track('listing_instructions_viewed', readParams(node));
+  }, true);
 
   document.addEventListener('click', function (ev) {
     var btn = ev.target.closest('[data-expand]');

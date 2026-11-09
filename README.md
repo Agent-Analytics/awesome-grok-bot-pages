@@ -46,7 +46,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [Morning Mission Control](https://pending.invalid/morning-mission-control/) - A morning command center with a live clock, a one-at-a-time headline ticker, ACTION, WATCH and FYI cards with Copy buttons, a 3-week calendar, what is waiting on you, a bot roster, what finished today and per-project status (example data). Inspired by [Wozmatic's post on X](https://x.com/Wozmatics/status/2117272603815502005) ([@Wozmatics](https://x.com/Wozmatics)). By Wozmatic ([@Wozmatics](https://x.com/Wozmatics)), built on [@jameslayne](https://x.com/jameslayne)'s original prompt. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Morning Mission Control](https://morning-mission-control-example-3x24.pages.grok.bot/) - A morning command center with a live clock, a one-at-a-time headline ticker, ACTION, WATCH and FYI cards with Copy buttons, a 3-week calendar, what is waiting on you, a bot roster, what finished today and per-project status (example data). Inspired by [Wozmatic's post on X](https://x.com/Wozmatics/status/2117272603815502005) ([@Wozmatics](https://x.com/Wozmatics)). By Wozmatic ([@Wozmatics](https://x.com/Wozmatics), built on [@jameslayne](https://x.com/jameslayne)'s original prompt). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/morning-mission-control/](https://grokbotpages.com/t/morning-mission-control/).
   <details><summary>Prompt (Wozmatic, from <a href="https://x.com/Wozmatics/status/2117272603815502005">his X Article</a>)</summary>
 
@@ -109,6 +109,40 @@ Newest listings, also shown in their section.
   1. Content: is anything missing, wrong or no longer relevant?
   2. Priority: should any card move up, move down or come off?
   Apply my answers on the next refresh, and keep everything else as it is. If the refresh fails or the Page can't be edited, say so in the check-in.
+  ```
+
+  </details>
+
+- [Mentions and App Rank](https://mentions-and-app-rank-example-jsfv.pages.grok.bot/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page that tracks one app by the numbers (example: Grok Bot). Show the daily count of posts on X that mention it and where it ranked in the App Store each day, for the last 30 days, with a 7, 14 and 30 day switch. Mark the biggest day and the best rank, show the change against the week before, and add a table of the daily numbers. Add a one-line summary of today I can copy. Say where each number comes from.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Mentions and App Rank" Page: every day at 09:00, add yesterday's X post count and App Store rank, update the charts, the week-over-week change and the summary line. Stay quiet unless the rank moves 5 places or posts double.
+  ```
+
+  </details>
+
+- [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Ship Velocity" for [repo or team]. At the top: merged PRs last month, growth since [start month], active contributors, and how many tracked timings got faster. Then a monthly column chart of merged PRs from [start month] to now, with a switch to show contributors and PRs per contributor. Then before and after cards for each performance timing I track ([for example cold launch, relaunch, first paint, typing latency median and p90]): the old value, the new value, the % change, and a dashed budget line (one frame, 16.7 ms, for typing; [my launch budget] for startup). Put any timing that got slower or is over its budget first. Use merged PR counts from GitHub for [repo] and timings from [benchmark source]. Say where each number comes from, and leave a metric out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Ship Velocity" Page: on the 1st of each month at 09:00, add last month's merged PRs and contributors from GitHub, read the latest benchmark results, update the before and after cards, and keep the layout the same. If a timing got slower or went over its budget, put it first and tell me.
   ```
 
   </details>
@@ -502,7 +536,7 @@ Newest listings, also shown in their section.
 
 One screen for what your bots and projects are doing and what waits on you.
 
-- [Morning Mission Control](https://pending.invalid/morning-mission-control/) - A morning command center with a live clock, a one-at-a-time headline ticker, ACTION, WATCH and FYI cards with Copy buttons, a 3-week calendar, what is waiting on you, a bot roster, what finished today and per-project status (example data). Inspired by [Wozmatic's post on X](https://x.com/Wozmatics/status/2117272603815502005) ([@Wozmatics](https://x.com/Wozmatics)). By Wozmatic ([@Wozmatics](https://x.com/Wozmatics)), built on [@jameslayne](https://x.com/jameslayne)'s original prompt. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Morning Mission Control](https://morning-mission-control-example-3x24.pages.grok.bot/) - A morning command center with a live clock, a one-at-a-time headline ticker, ACTION, WATCH and FYI cards with Copy buttons, a 3-week calendar, what is waiting on you, a bot roster, what finished today and per-project status (example data). Inspired by [Wozmatic's post on X](https://x.com/Wozmatics/status/2117272603815502005) ([@Wozmatics](https://x.com/Wozmatics)). By Wozmatic ([@Wozmatics](https://x.com/Wozmatics), built on [@jameslayne](https://x.com/jameslayne)'s original prompt). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/morning-mission-control/](https://grokbotpages.com/t/morning-mission-control/).
   <details><summary>Prompt (Wozmatic, from <a href="https://x.com/Wozmatics/status/2117272603815502005">his X Article</a>)</summary>
 
@@ -751,6 +785,23 @@ Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanal
 
   </details>
 
+- [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Ship Velocity" for [repo or team]. At the top: merged PRs last month, growth since [start month], active contributors, and how many tracked timings got faster. Then a monthly column chart of merged PRs from [start month] to now, with a switch to show contributors and PRs per contributor. Then before and after cards for each performance timing I track ([for example cold launch, relaunch, first paint, typing latency median and p90]): the old value, the new value, the % change, and a dashed budget line (one frame, 16.7 ms, for typing; [my launch budget] for startup). Put any timing that got slower or is over its budget first. Use merged PR counts from GitHub for [repo] and timings from [benchmark source]. Say where each number comes from, and leave a metric out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Ship Velocity" Page: on the 1st of each month at 09:00, add last month's merged PRs and contributors from GitHub, read the latest benchmark results, update the before and after cards, and keep the layout the same. If a timing got slower or went over its budget, put it first and tell me.
+  ```
+
+  </details>
+
 ## Infrastructure
 
 Uptime, deploys and cloud costs.
@@ -952,7 +1003,22 @@ Pipelines and CRM views.
 
 Campaigns and growth reports.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [Mentions and App Rank](https://mentions-and-app-rank-example-jsfv.pages.grok.bot/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page that tracks one app by the numbers (example: Grok Bot). Show the daily count of posts on X that mention it and where it ranked in the App Store each day, for the last 30 days, with a 7, 14 and 30 day switch. Mark the biggest day and the best rank, show the change against the week before, and add a table of the daily numbers. Add a one-line summary of today I can copy. Say where each number comes from.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Mentions and App Rank" Page: every day at 09:00, add yesterday's X post count and App Store rank, update the charts, the week-over-week change and the summary line. Stay quiet unless the rank moves 5 places or posts double.
+  ```
+
+  </details>
 
 ## Inbox and Collaboration
 
