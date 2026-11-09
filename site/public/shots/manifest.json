@@ -462,5 +462,21 @@
       390,
       4692
     ]
+  },
+  "cheapest-power-hours": {
+    "url": "https://cheapest-power-hours-example-3fnc.pages.grok.bot/",
+    "captured": "2026-11-09T08:46:26.489Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2385
+    ],
+    "mobile": [
+      390,
+      4098
+    ]
   }
 }
