@@ -590,5 +590,21 @@
       390,
       4038
     ]
+  },
+  "paycheck-planner": {
+    "url": "https://paycheck-planner-example-lmyd.pages.grok.bot/",
+    "captured": "2026-11-09T19:52:27.332Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2611
+    ],
+    "mobile": [
+      390,
+      4533
+    ]
   }
 }
