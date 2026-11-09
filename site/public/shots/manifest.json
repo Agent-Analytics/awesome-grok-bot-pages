@@ -510,5 +510,21 @@
       390,
       6085
     ]
+  },
+  "job-search-bot-team": {
+    "url": "https://job-search-bot-team-example-zhda.pages.grok.bot/",
+    "captured": "2026-11-09T09:04:49.088Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3913
+    ],
+    "mobile": [
+      390,
+      6948
+    ]
   }
 }

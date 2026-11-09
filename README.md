@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Job Search Bot Team](https://job-search-bot-team-example-zhda.pages.grok.bot/) - A timeline and bot roster for a job search run by a Grok Bot team: KPI strip, waiting-on-you items with Copy reply buttons, one-job-per-bot tips, and offer decision cards with Copy yes and Copy decline (example data). Inspired by [Chase's thread on X](https://x.com/CybertruckATX/status/2117436124243308986) ([@CybertruckATX](https://x.com/CybertruckATX)). No prompt was shared, so the prompt is written from the post and tips. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/job-search-bot-team/](https://grokbotpages.com/t/job-search-bot-team/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post and tips)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Job Search Bot Team" that runs my job search with a small Grok Bot team. At the top: days searching, bots in use, interviews booked, and offers on the table. Then a Waiting on you list: each item is a draft reply, application note or decision, with a Copy reply button. I send everything myself; bots only draft. Then a bot roster with one job per bot (router, career lead, job search, read-only mail, transition, money, portfolio), each with a one-line tip and a Copy tip button. Then a timeline of invented example events, newest first. Then offer decision cards with Copy yes and Copy decline. Use only example data. Credit the X thread that inspired the tips: one router bot, one job per bot, read-only inbox, plan the worst case early, keep watchers quiet, audit your bots.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Job Search Bot Team" Page: every morning at 08:00, refresh Waiting on you from the bots that drafted overnight, update the KPI strip, and keep the roster and timeline layout the same. Stay quiet when nothing changed.
+  ```
+
+  </details>
+
 - [Grok Widgets](https://grok-widgets-example-vqhv.pages.grok.bot/) - A free gallery of drop-in Page widgets (clocks, weather, crypto and stock tickers, charts, KPI cards, to-do boards) plus dark, neon and glass themes, each with a Copy prompt to add that widget to your Page in one sentence (example data). Inspired by [AbundantAlpha's post on X](https://x.com/AbundantAlpha/status/2116570991019135338) ([@AbundantAlpha](https://x.com/AbundantAlpha)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/grok-widgets/](https://grokbotpages.com/t/grok-widgets/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -937,6 +954,24 @@ Decisions your bots are waiting on you for.
   ```
 
   </details>
+
+- [Job Search Bot Team](https://job-search-bot-team-example-zhda.pages.grok.bot/) - A timeline and bot roster for a job search run by a Grok Bot team: KPI strip, waiting-on-you items with Copy reply buttons, one-job-per-bot tips, and offer decision cards with Copy yes and Copy decline (example data). Inspired by [Chase's thread on X](https://x.com/CybertruckATX/status/2117436124243308986) ([@CybertruckATX](https://x.com/CybertruckATX)). No prompt was shared, so the prompt is written from the post and tips. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/job-search-bot-team/](https://grokbotpages.com/t/job-search-bot-team/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post and tips)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Job Search Bot Team" that runs my job search with a small Grok Bot team. At the top: days searching, bots in use, interviews booked, and offers on the table. Then a Waiting on you list: each item is a draft reply, application note or decision, with a Copy reply button. I send everything myself; bots only draft. Then a bot roster with one job per bot (router, career lead, job search, read-only mail, transition, money, portfolio), each with a one-line tip and a Copy tip button. Then a timeline of invented example events, newest first. Then offer decision cards with Copy yes and Copy decline. Use only example data. Credit the X thread that inspired the tips: one router bot, one job per bot, read-only inbox, plan the worst case early, keep watchers quiet, audit your bots.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Job Search Bot Team" Page: every morning at 08:00, refresh Waiting on you from the bots that drafted overnight, update the KPI strip, and keep the roster and timeline layout the same. Stay quiet when nothing changed.
+  ```
+
+  </details>
+
 
 ## Bot Management
 
