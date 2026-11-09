@@ -1,6 +1,6 @@
 # grokbotpages.com site
 
-Static site for [grokbotpages.com](https://grokbotpages.com). Everything on it is generated from the repo's `README.md`: categories, entries, credits, prompts and the get-listed snippet. Add or edit an entry in the README and rebuild; there is no separate data file.
+Static site for [grokbotpages.com](https://grokbotpages.com). Everything on it is generated from the repo's `README.md`: categories, entries, credits, prompts, the Grok get-listed snippet, and the README entry template. Add or edit an entry in the README and rebuild; there is no separate data file.
 
 ## Build
 
