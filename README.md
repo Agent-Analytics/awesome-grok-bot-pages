@@ -46,6 +46,16 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Jarvis HUD](https://jarvis-hud-example-ioid.pages.grok.bot/) - A heads-up display for every bot you run: a Systems panel with status lights and last action, a Waiting on you queue with Approve, Later and Copy on each item, a morning brief with the one thing to do first, and a Focus mode (example data). Inspired by [Julian Goldie's post on X](https://x.com/JulianGoldieSEO/status/2117118176148480310) ([@JulianGoldieSEO](https://x.com/JulianGoldieSEO)). Original thread: [Julian Goldie's Grok Jarvis post](https://x.com/JulianGoldieSEO/status/2116854011827806310). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/jarvis-hud/](https://grokbotpages.com/t/jarvis-hud/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "Jarvis" that works as a heads-up display for all my Grok Bots. Dark screen, a glowing core in the middle that pulses, thin panel outlines. Panels: Systems (every bot I run, a status light, the last thing it did and when, and a count of active bots), Waiting on you (every decision that needs my yes, each with Approve and Later buttons that only tick it off on this screen and send nothing, plus a Copy button that copies the item), Morning brief (what every bot did since yesterday, what is waiting on me, and the one thing to do first), and Quick commands (Morning brief, Status, What's waiting, Focus mode). Focus mode dims the panels and stops the motion. Respect reduced motion. Keep the personality calm, short, precise, a little dry, and call me by my name. Every control must really work on the Page; nothing is sent from it.
+  ```
+
+  </details>
+
 - [Bot Team Usage](https://bot-team-usage-example-43kl.pages.grok.bot/) - Where a 7-bot team's usage goes: share by bot, by week and routines against chat, with period and activity switches and Copy prompt tips to cut waste (example data). Inspired by [Darryl Kay's post on X](https://x.com/SrCaptainThrawn/status/2117049279374065823) ([@SrCaptainThrawn](https://x.com/SrCaptainThrawn)). He shared a screenshot, not a prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-team-usage/](https://grokbotpages.com/t/bot-team-usage/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1005,6 +1015,16 @@ Org charts, roles and hand-offs between your bots.
 
   ```text
   Create a routine that refreshes my "Routine Run Board" Page every morning at 7:30, before I start. Each run, read every routine's recent runs, append them to the run log file, rebuild the timetable and the approval list with the same layout and copy buttons, and drop approvals I already gave. Message me only if a routine failed twice in a row.
+  ```
+
+  </details>
+
+- [Jarvis HUD](https://jarvis-hud-example-ioid.pages.grok.bot/) - A heads-up display for every bot you run: a Systems panel with status lights and last action, a Waiting on you queue with Approve, Later and Copy on each item, a morning brief with the one thing to do first, and a Focus mode (example data). Inspired by [Julian Goldie's post on X](https://x.com/JulianGoldieSEO/status/2117118176148480310) ([@JulianGoldieSEO](https://x.com/JulianGoldieSEO)). Original thread: [Julian Goldie's Grok Jarvis post](https://x.com/JulianGoldieSEO/status/2116854011827806310). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/jarvis-hud/](https://grokbotpages.com/t/jarvis-hud/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "Jarvis" that works as a heads-up display for all my Grok Bots. Dark screen, a glowing core in the middle that pulses, thin panel outlines. Panels: Systems (every bot I run, a status light, the last thing it did and when, and a count of active bots), Waiting on you (every decision that needs my yes, each with Approve and Later buttons that only tick it off on this screen and send nothing, plus a Copy button that copies the item), Morning brief (what every bot did since yesterday, what is waiting on me, and the one thing to do first), and Quick commands (Morning brief, Status, What's waiting, Focus mode). Focus mode dims the panels and stops the motion. Respect reduced motion. Keep the personality calm, short, precise, a little dry, and call me by my name. Every control must really work on the Page; nothing is sent from it.
   ```
 
   </details>

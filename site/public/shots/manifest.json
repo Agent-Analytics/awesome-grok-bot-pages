@@ -446,5 +446,21 @@
       390,
       5051
     ]
+  },
+  "jarvis-hud": {
+    "url": "https://jarvis-hud-example-ioid.pages.grok.bot/",
+    "captured": "2026-11-09T08:41:11.740Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      2428
+    ],
+    "mobile": [
+      390,
+      4692
+    ]
   }
 }
