@@ -558,5 +558,21 @@
       390,
       6393
     ]
+  },
+  "dinners-and-groceries": {
+    "url": "https://dinners-and-groceries-example-ei54.pages.grok.bot/",
+    "captured": "2026-11-09T10:30:49.398Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      1668
+    ],
+    "mobile": [
+      390,
+      3312
+    ]
   }
 }

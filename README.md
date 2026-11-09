@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Dinners and Groceries](https://dinners-and-groceries-example-ei54.pages.grok.bot/) - This week's 5 dinners with a grocery checklist grouped by aisle that you can tick off, with a count of what is left and a Copy button for the remaining list (example data). Inspired by [BotTutorialsDaily's post on X](https://x.com/BotTutorials/status/2116610235012157813) ([@BotTutorials](https://x.com/BotTutorials)). Prompt quoted word for word from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/dinners-and-groceries/](https://grokbotpages.com/t/dinners-and-groceries/).
+  <details><summary>Prompt (BotTutorialsDaily, quoted from <a href="https://x.com/BotTutorials/status/2116610235012157813">their post on X</a>)</summary>
+
+  ```text
+  Make me a Page with this week's 5 dinners and a grocery checklist I can tick off.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my dinners Page: every Sunday at 10:00, plan next week's 5 dinners, rebuild the grocery checklist from them, and keep the layout the same. When I tell you what I bought, tick it off on the Page.
+  ```
+
+  </details>
+
 - [Game Night Scoreboard](https://game-night-scoreboard-example-3n4n.pages.grok.bot/) - A board game group's scores out of the group chat: standings with a game filter, a searchable game log with a Copy proof button per game, disputed results, records by game and a Hall of Shame (example data). Inspired by [BigD's post on X](https://x.com/a3a1z6/status/2117257428697858101) ([@a3a1z6](https://x.com/a3a1z6)). He shared no prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/game-night-scoreboard/](https://grokbotpages.com/t/game-night-scoreboard/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -765,6 +782,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Dinners and Groceries](https://dinners-and-groceries-example-ei54.pages.grok.bot/) - This week's 5 dinners with a grocery checklist grouped by aisle that you can tick off, with a count of what is left and a Copy button for the remaining list (example data). Inspired by [BotTutorialsDaily's post on X](https://x.com/BotTutorials/status/2116610235012157813) ([@BotTutorials](https://x.com/BotTutorials)). Prompt quoted word for word from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/dinners-and-groceries/](https://grokbotpages.com/t/dinners-and-groceries/).
+  <details><summary>Prompt (BotTutorialsDaily, quoted from <a href="https://x.com/BotTutorials/status/2116610235012157813">their post on X</a>)</summary>
+
+  ```text
+  Make me a Page with this week's 5 dinners and a grocery checklist I can tick off.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my dinners Page: every Sunday at 10:00, plan next week's 5 dinners, rebuild the grocery checklist from them, and keep the layout the same. When I tell you what I bought, tick it off on the Page.
+  ```
+
+  </details>
 
 - [Game Night Scoreboard](https://game-night-scoreboard-example-3n4n.pages.grok.bot/) - A board game group's scores out of the group chat: standings with a game filter, a searchable game log with a Copy proof button per game, disputed results, records by game and a Hall of Shame (example data). Inspired by [BigD's post on X](https://x.com/a3a1z6/status/2117257428697858101) ([@a3a1z6](https://x.com/a3a1z6)). He shared no prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/game-night-scoreboard/](https://grokbotpages.com/t/game-night-scoreboard/).
