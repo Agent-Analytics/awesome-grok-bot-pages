@@ -542,5 +542,21 @@
       390,
       6601
     ]
+  },
+  "game-night-scoreboard": {
+    "url": "https://game-night-scoreboard-example-3n4n.pages.grok.bot/",
+    "captured": "2026-11-09T10:17:15.706Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3316
+    ],
+    "mobile": [
+      390,
+      6393
+    ]
   }
 }

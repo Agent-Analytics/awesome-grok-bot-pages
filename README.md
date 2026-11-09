@@ -46,6 +46,16 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Game Night Scoreboard](https://game-night-scoreboard-example-3n4n.pages.grok.bot/) - A board game group's scores out of the group chat: standings with a game filter, a searchable game log with a Copy proof button per game, disputed results, records by game and a Hall of Shame (example data). Inspired by [BigD's post on X](https://x.com/a3a1z6/status/2117257428697858101) ([@a3a1z6](https://x.com/a3a1z6)). He shared no prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/game-night-scoreboard/](https://grokbotpages.com/t/game-night-scoreboard/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Game Night Scoreboard" for my board game group: [list the players and the games you play]. Our scores used to live in the group chat where nobody could find them; this Page is the record. At the top, four numbers: game nights played, the current leader with their wins, the longest win streak, and the last game night with its winner. Then standings: each player's wins, games played, win rate and current streak, with a game filter and a sort by wins or win rate. Then the game log, newest first: date, game, winner, every player's score, and a short note when something was disputed, with a search box (try a name, a game or a date) and a Copy proof button on every game that copies one line with the date, game, scores and winner, so arguments come with proof. Then per-game records: most wins, highest score and when it happened. Then a Hall of Shame with who came last most often. Add a Disputed list for results someone questioned, each with a Copy question button with a ready message for the group. Every control must really work on the Page; no buttons that do nothing. Only show results we actually reported; never guess a score. Then create a routine: after each game night, when I send you the results in chat, add them to the log and update every number, standing and record.
+  ```
+
+  </details>
+
 - [AI Visibility Report](https://ai-visibility-report-example-bfun.pages.grok.bot/) - A weekly AI visibility report: how often your brand is recommended across ChatGPT, Claude, Perplexity and Gemini, competitor share, cited sources, description accuracy flags, week-over-week change, and a to-do list with Copy buttons (example data). Inspired by [Scott Vayner's post on X](https://x.com/scottvayner/status/2118762594148245689) ([@scottvayner](https://x.com/scottvayner)). No prompt was shared and no original pages.grok.bot link was posted, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ai-visibility-report/](https://grokbotpages.com/t/ai-visibility-report/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -755,6 +765,16 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Game Night Scoreboard](https://game-night-scoreboard-example-3n4n.pages.grok.bot/) - A board game group's scores out of the group chat: standings with a game filter, a searchable game log with a Copy proof button per game, disputed results, records by game and a Hall of Shame (example data). Inspired by [BigD's post on X](https://x.com/a3a1z6/status/2117257428697858101) ([@a3a1z6](https://x.com/a3a1z6)). He shared no prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/game-night-scoreboard/](https://grokbotpages.com/t/game-night-scoreboard/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Game Night Scoreboard" for my board game group: [list the players and the games you play]. Our scores used to live in the group chat where nobody could find them; this Page is the record. At the top, four numbers: game nights played, the current leader with their wins, the longest win streak, and the last game night with its winner. Then standings: each player's wins, games played, win rate and current streak, with a game filter and a sort by wins or win rate. Then the game log, newest first: date, game, winner, every player's score, and a short note when something was disputed, with a search box (try a name, a game or a date) and a Copy proof button on every game that copies one line with the date, game, scores and winner, so arguments come with proof. Then per-game records: most wins, highest score and when it happened. Then a Hall of Shame with who came last most often. Add a Disputed list for results someone questioned, each with a Copy question button with a ready message for the group. Every control must really work on the Page; no buttons that do nothing. Only show results we actually reported; never guess a score. Then create a routine: after each game night, when I send you the results in chat, add them to the log and update every number, standing and record.
+  ```
+
+  </details>
 
 - [Morning brief](https://morning-brief-example-x6tk.pages.grok.bot/) - Your day ready by 7:00: meetings, the emails that need you, your focus time and the one thing most likely to slip (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/morning-brief/](https://grokbotpages.com/t/morning-brief/).
