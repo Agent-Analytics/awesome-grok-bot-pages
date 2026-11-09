@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Paycheck Planner](https://paycheck-planner-example-lmyd.pages.grok.bot/) - A paycheck planner for hourly and shift workers: wage, regular and overtime hours and take-home percent, an editable list of bills due before the next check, one bar that splits the check into bills and what is left, and calm next moves with Copy scripts when the check falls short (example data). Inspired by [The Come Up's post on X](https://x.com/FreebandGr94644/status/2119855339994529998) ([@FreebandGr94644](https://x.com/FreebandGr94644)). The post shares a public Grok Bot Page, Paycheck Planner, that this example is modelled on. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/paycheck-planner/](https://grokbotpages.com/t/paycheck-planner/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Paycheck Planner" for hourly and shift work. Inputs: hourly wage, regular hours and overtime hours this pay period (overtime at 1.5x), weekly or every two weeks, and my take-home percent after taxes. Then a list of must-pay bills due before my next check that I can edit, add and remove. Show gross pay, take-home, the bills total and what is left, or how short I am, in plain dollars, with one bar that splits the check into each bill and what is left. If I am short, list calm next moves with a Copy button for what to say (for example asking a biller for a few extra days). Everything stays on the Page, nothing is saved. Say it is an estimate, not tax advice.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Paycheck Planner" Page: every other Friday at 07:00, ask me for this check's hours, update the Page with them and the bills due before the next check, and send me one line with what is left or how short I am.
+  ```
+
+  </details>
+
 - [Renewals and Due Dates](https://renewals-and-due-dates-example-yk36.pages.grok.bot/) - Household contracts and subscriptions in one place: a Needs you list for renewals in the next 14 days, missed dates and missing dates with a Copy button for each supplier note, a 12-month renewal timeline, monthly spend split into regular and renewals, and category filters (example data). Inspired by [William Kwan's post on X](https://x.com/williamkwanco/status/2119007766241329521) ([@williamkwanco](https://x.com/williamkwanco)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/renewals-and-due-dates/](https://grokbotpages.com/t/renewals-and-due-dates/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1241,6 +1258,23 @@ Org charts, roles and hand-offs between your bots.
 ## Payments and Finance
 
 Spending, budgets, crypto and legal.
+
+- [Paycheck Planner](https://paycheck-planner-example-lmyd.pages.grok.bot/) - A paycheck planner for hourly and shift workers: wage, regular and overtime hours and take-home percent, an editable list of bills due before the next check, one bar that splits the check into bills and what is left, and calm next moves with Copy scripts when the check falls short (example data). Inspired by [The Come Up's post on X](https://x.com/FreebandGr94644/status/2119855339994529998) ([@FreebandGr94644](https://x.com/FreebandGr94644)). The post shares a public Grok Bot Page, Paycheck Planner, that this example is modelled on. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/paycheck-planner/](https://grokbotpages.com/t/paycheck-planner/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Paycheck Planner" for hourly and shift work. Inputs: hourly wage, regular hours and overtime hours this pay period (overtime at 1.5x), weekly or every two weeks, and my take-home percent after taxes. Then a list of must-pay bills due before my next check that I can edit, add and remove. Show gross pay, take-home, the bills total and what is left, or how short I am, in plain dollars, with one bar that splits the check into each bill and what is left. If I am short, list calm next moves with a Copy button for what to say (for example asking a biller for a few extra days). Everything stays on the Page, nothing is saved. Say it is an estimate, not tax advice.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Paycheck Planner" Page: every other Friday at 07:00, ask me for this check's hours, update the Page with them and the bills due before the next check, and send me one line with what is left or how short I am.
+  ```
+
+  </details>
 
 - [Renewals and Due Dates](https://renewals-and-due-dates-example-yk36.pages.grok.bot/) - Household contracts and subscriptions in one place: a Needs you list for renewals in the next 14 days, missed dates and missing dates with a Copy button for each supplier note, a 12-month renewal timeline, monthly spend split into regular and renewals, and category filters (example data). Inspired by [William Kwan's post on X](https://x.com/williamkwanco/status/2119007766241329521) ([@williamkwanco](https://x.com/williamkwanco)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/renewals-and-due-dates/](https://grokbotpages.com/t/renewals-and-due-dates/).
