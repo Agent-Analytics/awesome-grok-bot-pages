@@ -504,6 +504,31 @@ check('original grok page stays an outbound page credit',
   mentionsHtml.includes('@CarolinaDill') &&
   mentionsHtml.includes('Awesome Grok Bot Pages') &&
   !mentionsHtml.includes('pending.invalid'));
+const OFFICE_PAGE = 'https://escritorio-das-frutinhas-fix7.pages.grok.bot/';
+const office = entryBySlug['agent-office'];
+const officeHtml = fs.readFileSync(path.join(dist, 't', 'agent-office', 'index.html'), 'utf8');
+const officeOriginal = anchors(officeHtml, OFFICE_PAGE);
+const officeListed = office ? anchors(officeHtml, office.url) : [];
+check('agent office original page stays an outbound page credit',
+  !!office &&
+  office.url === 'https://agent-office-example-h2a2.pages.grok.bot/' &&
+  targetType(OFFICE_PAGE) === 'page' &&
+  targetType(office.url) === 'page' &&
+  seen.pageUrls.has(OFFICE_PAGE) &&
+  !seen.pageUrls.has(office.url) &&
+  office.inspired?.source?.url === 'https://x.com/ofilipeflores/status/2116360547767644433' &&
+  office.inspired.handles.some((h) => h.url === 'https://x.com/ofilipeflores') &&
+  office.inspired.handles.some((h) => h.url === OFFICE_PAGE) &&
+  office.pageBy?.name === 'Awesome Grok Bot Pages' &&
+  officeOriginal.length > 0 &&
+  officeOriginal.every((a) => a.includes('data-track="outbound_clicked"') && a.includes('data-target-type="page"') && a.includes('data-position="credit"')) &&
+  officeListed.length > 0 &&
+  officeListed.every((a) => a.includes('data-track="template_opened"') && !a.includes('outbound_clicked')) &&
+  officeHtml.includes('Filipe Flores') &&
+  officeHtml.includes('@ofilipeflores') &&
+  officeHtml.includes('Escritório das Frutinhas') &&
+  officeHtml.includes('Awesome Grok Bot Pages') &&
+  !officeHtml.includes('pending.invalid'));
 const typeCases = [
   [d.repo, 'repo'],
   [d.repo + '#listing-rules', 'repo'],
@@ -518,6 +543,8 @@ const typeCases = [
   ['https://bot-org-chart-example-ujfc.pages.grok.bot/', 'page'],
   ['https://tidy-meadow-cmmjbf.pages.grok.bot', 'page'],
   ['https://mentions-and-app-rank-example-jsfv.pages.grok.bot/', 'page'],
+  ['https://escritorio-das-frutinhas-fix7.pages.grok.bot/', 'page'],
+  ['https://agent-office-example-h2a2.pages.grok.bot/', 'page'],
 ];
 const typeMiss = typeCases.filter(([url, kind]) => targetType(url) !== kind).map(([url, kind]) => `${url} expected ${kind} got ${targetType(url)}`);
 check('targetType is repo, grok page, or other', typeMiss.length === 0, typeMiss.join(' | '));

@@ -414,5 +414,21 @@
       390,
       8661
     ]
+  },
+  "agent-office": {
+    "url": "https://agent-office-example-h2a2.pages.grok.bot/",
+    "captured": "2026-11-09T08:28:12.621Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3368
+    ],
+    "mobile": [
+      390,
+      6739
+    ]
   }
 }
