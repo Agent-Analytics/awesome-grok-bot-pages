@@ -46,12 +46,143 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [Cheapest Power Hours](https://pending.invalid/cheapest-power-hours/) - A year of half-hourly power prices for one region: when the cheapest four hours start by season, an hourly price chart with a month picker, start times per month, and what one 30 kWh charge costs when timed well or badly (example data). Inspired by [Octomiser's post on X](https://x.com/octomiser/status/2117563839130620225) ([@octomiser](https://x.com/octomiser)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Cheapest Power Hours](https://cheapest-power-hours-example-3fnc.pages.grok.bot/) - A year of half-hourly power prices for one region: when the cheapest four hours start by season, an hourly price chart with a month picker, start times per month, and what one 30 kWh charge costs when timed well or badly (example data). Inspired by [Octomiser's post on X](https://x.com/octomiser/status/2117563839130620225) ([@octomiser](https://x.com/octomiser)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/cheapest-power-hours/](https://grokbotpages.com/t/cheapest-power-hours/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
   ```text
   Build me a wide Grok Bot Page called "Cheapest Power Hours" from a year of half-hourly electricity prices for [your region and tariff, for example London on Octopus Agile], from [start date] to [end date]. For each day, find the cheapest unbroken four-hour run and note when it started. At the top, four numbers with the exact counts: winter days (November to February) whose cheapest 4 hours started overnight, spring and summer days (April to August) whose cheapest 4 hours started late morning to midday, days whose cheapest 4 hours touched 16:00 to 19:00, and negative-price half-hours. Then an hourly bar chart of the average price per clock hour with a month picker, so I can flip between winter and summer. Then a stacked chart of overnight, midday and other start times per month. Then a cost calculator: one 30 kWh load in the cheapest 4 hours against 17:00 to 21:00, per month. Then a short "What to do" list by season with a Copy button on each tip. Use pence per kWh including VAT, label every chart, and say which numbers are measured and which are explanation. Every control must really work on the Page.
+  ```
+
+  </details>
+
+- [Jarvis HUD](https://jarvis-hud-example-ioid.pages.grok.bot/) - A heads-up display for every bot you run: a Systems panel with status lights and last action, a Waiting on you queue with Approve, Later and Copy on each item, a morning brief with the one thing to do first, and a Focus mode (example data). Inspired by [Julian Goldie's post on X](https://x.com/JulianGoldieSEO/status/2117118176148480310) ([@JulianGoldieSEO](https://x.com/JulianGoldieSEO)). Original thread: [Julian Goldie's Grok Jarvis post](https://x.com/JulianGoldieSEO/status/2116854011827806310). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/jarvis-hud/](https://grokbotpages.com/t/jarvis-hud/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "Jarvis" that works as a heads-up display for all my Grok Bots. Dark screen, a glowing core in the middle that pulses, thin panel outlines. Panels: Systems (every bot I run, a status light, the last thing it did and when, and a count of active bots), Waiting on you (every decision that needs my yes, each with Approve and Later buttons that only tick it off on this screen and send nothing, plus a Copy button that copies the item), Morning brief (what every bot did since yesterday, what is waiting on me, and the one thing to do first), and Quick commands (Morning brief, Status, What's waiting, Focus mode). Focus mode dims the panels and stops the motion. Respect reduced motion. Keep the personality calm, short, precise, a little dry, and call me by my name. Every control must really work on the Page; nothing is sent from it.
+  ```
+
+  </details>
+
+- [Bot Team Usage](https://bot-team-usage-example-43kl.pages.grok.bot/) - Where a 7-bot team's usage goes: share by bot, by week and routines against chat, with period and activity switches and Copy prompt tips to cut waste (example data). Inspired by [Darryl Kay's post on X](https://x.com/SrCaptainThrawn/status/2117049279374065823) ([@SrCaptainThrawn](https://x.com/SrCaptainThrawn)). He shared a screenshot, not a prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/bot-team-usage/](https://grokbotpages.com/t/bot-team-usage/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Bot team usage" from my Grok Bot usage report. Show shares of my total usage, never invented totals. At the top, four numbers: how many bots I have, the share used by my busiest bot, the share that came from routines against chat, and how this week compares with my busiest week. Then a By bot chart: one bar per bot with its share of usage, biggest first, and a one-line note on why the top bot uses the most (for example a chief of staff that routes everything). Then a By week chart for the last 4 weeks, with my busiest and lightest week labeled and what happened that week if you know it. Then routines against chat for each bot, and a list of my routines with their share, so I can see which ones barely register. Add a period switch (last 7 days, last 30 days) and an activity switch (All, Chat, Routines) that update every number, chart and list. End with up to 3 suggestions, each with a Copy prompt button I can paste to the right bot; the Page never changes a bot or routine itself. Every control must really work on the Page; no buttons that do nothing. Anything the report does not show stays empty instead of a guess. Then create a routine that rebuilds the Page every Monday at 9:00 AM.
+  ```
+
+  </details>
+
+- [Agent Office](https://agent-office-example-h2a2.pages.grok.bot/) - An office floor of 10 agents making a video series, each desk showing its status and current task with steps, what needs you with Copy reply buttons, a team list with filters, an episode pipeline and an activity feed (example data). Inspired by [Filipe Flores's post on X](https://x.com/ofilipeflores/status/2116360547767644433) ([@ofilipeflores](https://x.com/ofilipeflores)). Based on his Page [Escritório das Frutinhas](https://escritorio-das-frutinhas-fix7.pages.grok.bot/); he shared no prompt, so the prompt is written from the Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/agent-office/](https://grokbotpages.com/t/agent-office/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Agent Office" that shows my team of AI agents as an office, working on my content series [name the series and where it posts, for example a short fruit-character drama on TikTok]. Give each agent a character, a desk on an office floor plan and a role (for example ideas, script, storyboard, voices, editing, captions, thumbnails, scheduling, quality check). At the top, four numbers: agents working, agents that need me, agents free, and episodes in progress. On the floor plan, mark each agent's status with a shape and a word (Exploring, Writing, Creating, Polishing, Thinking, Needs you, Done, Resting) and let me tap a desk to see that agent's current task: the task name, the step it is on out of how many, a timeline of its steps with times, and what it made. Then a Needs you list: each item names the agent, the question in one line, why it needs me, and a Copy reply button with a ready answer; the Page itself never approves or sends anything. Then the episode pipeline from Idea to Script, Storyboard, Voices, Edit, Ready and Posted, with counts per stage and each episode's title, stage and owner. End with an activity feed of what each agent did, newest first, with a filter by agent. Add a status filter with counts and a sort for Needs you first or A to Z. Every control must really work on the Page; no buttons that do nothing. Show only work my agents really did; anything not connected shows as empty instead of a guess. Then create a routine that refreshes the Page every hour while my agents are working.
+  ```
+
+  </details>
+
+- [Morning Mission Control](https://morning-mission-control-example-3x24.pages.grok.bot/) - A morning command center with a live clock, a one-at-a-time headline ticker, ACTION, WATCH and FYI cards with Copy buttons, a 3-week calendar, what is waiting on you, a bot roster, what finished today and per-project status (example data). Inspired by [Wozmatic's post on X](https://x.com/Wozmatics/status/2117272603815502005) ([@Wozmatics](https://x.com/Wozmatics)). By Wozmatic ([@Wozmatics](https://x.com/Wozmatics), built on [@jameslayne](https://x.com/jameslayne)'s original prompt). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/morning-mission-control/](https://grokbotpages.com/t/morning-mission-control/).
+  <details><summary>Prompt (Wozmatic, from <a href="https://x.com/Wozmatics/status/2117272603815502005">his X Article</a>)</summary>
+
+  ```text
+  GOAL
+  Every morning at 7:15, refresh my Dashboard Page so that within a minute I can see what I'm working on: what needs me today, what to watch, and what moved since yesterday. Set this up as a daily routine.
+  ACCESS
+  Make the Page easy to open at any time, without hunting for the link:
+  1. Create a new Grok Bot agent called Dashboard and make it the owner of my Dashboard Page. Set the refresh up as that agent's own routine, so it runs the refresh and makes any changes to the Page that I ask for. Whenever I message it, even "hi", it also replies with one line holding a link to the Page, so I'm always one tap away, including on the mobile app.
+  2. Tell me to pin the dashboard in my Library on desktop. I open the Library, click the three dots on the Page's row and choose Pin. It stays at the top under Pinned.
+  3. As a fallback, tell me to bookmark the Page link in a web browser.
+  Create the Page once, on the first run, and always update that same Page after that so the link never changes. Never create a second Page or a copy, because that would break the Dashboard agent's link, the Library pin and the bookmark. If the link ever changes, tell me and update the Dashboard agent.
+  LAYOUT AND STYLE
+  A full-colour, dark mission-control layout:
+  A header with a large live clock in my time zone and 4 key-number tiles.
+  A scrolling ticker of headline items, which pauses on hover.
+  Coloured pills that jump to each section.
+  Numbered "At a glance" cards colour-coded by type: ACTION (red), WATCH (amber), FYI (blue).
+  Progress rings and bars where there's real data to show.
+  A 3-week calendar strip and timeline, colour-coded by event type.
+  A "Waiting on me" list.
+  A bot roster grid showing when each of my bots was last active.
+  A "Finished today" timeline.
+  One section per active project or area of my life, each with its own "Last updated" stamp.
+  Once it's built, keep the colour palette, card styles, glow and accents, spacing and section order. Change them only when I ask.
+  HARD LIMITS (never break these)
+  1. Edit only my Dashboard Page. Never create a second Page, and never rewrite the layout or change the style unless I ask.
+  2. On each refresh, change only the content and data, never the structure or section ids.
+  3. All sources are read only. Send no emails or messages, create no drafts, post nothing in chat tools, and create, edit, move or delete nothing in my files or any connected app.
+  4. No secrets on the Page (passwords, codes, full account or card numbers; last 4 digits are fine).
+  5. No em dashes anywhere.
+  STEP 0: FIRST RUN ONLY, STYLE QUESTION (ask once, never again)
+  On the very first refresh, before building or saving anything, ask me one question: am I happy with this colour scheme, card colours and visual style, or would I like anything changed (palette, accent colours, contrast, card style, density)? Apply my answer, then save in your memory that the style question has been asked. If there's no answer, use the layout as it is. Never ask this again on any later run. After this, change the style only when I ask for it directly.
+  STEP 1: DECIDE THE SCOPE (my local date)
+  Refresh every section on every run, covering everything since the previous refresh.
+  STEP 2: GATHER (read only, newest first)
+  Use every source I've connected to you, and skip any I haven't. For example:
+  My notes and documents (such as Google Drive, Notion or OneDrive) for each active project or area of my life. These are the main source.
+  My existing Pages.
+  Email (such as Gmail or Outlook) since the last refresh, for replies, deadlines, payment requests and decisions on open items.
+  Chat and messaging (such as Slack or Teams) since the last refresh, for mentions, direct messages and anything waiting on me.
+  Task and project tools (such as Notion, Trello, Asana or Linear) for open tasks, due dates and anything assigned to me.
+  My calendar for the next 3 weeks.
+  Each of my bots' recent chats, for when it was last active and what it finished.
+  STEP 3: WRITE THE CONTENT
+  Every item comes from a source read this run, with a date. Tag anything inferred, stale or unconfirmed as "Unverified", with a one-line reason. Never invent numbers, names or chart data. Leave a chart out rather than fake one.
+  At a glance has at most 9 cards, ranked by urgency:
+  ACTION: I must decide or do something within 7 days.
+  WATCH: a live risk, a date, or a reply that's due, with nothing for me to do yet.
+  FYI: a change worth knowing, with nothing to do.
+  Each card says what changed, why it matters, and the next step or deadline, with a source and date.
+  Waiting on me lists only items blocked on me, oldest first, with how many days each has waited.
+  Recalculate all countdowns against today's date in my time zone.
+  STEP 4: FALLBACKS
+  If a source can't be read, keep the last values, add a "Not refreshed today" note with the reason, and keep going. Never blank out a section. If a bot's chat can't be read, carry over its last-active time and mark it as carried over. If I haven't connected a source, leave it out rather than flag it.
+  STEP 5: CHECK, THEN SAVE
+  Before saving, check that every refreshed section has a "Last updated" stamp, the page-level updated time is set, every jump pill reaches its section, the header counts match the cards, colours match the card types, and there are no em dashes or secrets. Then save.
+  STEP 6: MORNING CHECK-IN
+  After saving, send me one short check-in with a link to the Page and up to 2 questions, asked one at a time in chat, or on voice if I'm on a call with you:
+  1. Content: is anything missing, wrong or no longer relevant?
+  2. Priority: should any card move up, move down or come off?
+  Apply my answers on the next refresh, and keep everything else as it is. If the refresh fails or the Page can't be edited, say so in the check-in.
+  ```
+
+  </details>
+
+- [Mentions and App Rank](https://mentions-and-app-rank-example-jsfv.pages.grok.bot/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page that tracks one app by the numbers (example: Grok Bot). Show the daily count of posts on X that mention it and where it ranked in the App Store each day, for the last 30 days, with a 7, 14 and 30 day switch. Mark the biggest day and the best rank, show the change against the week before, and add a table of the daily numbers. Add a one-line summary of today I can copy. Say where each number comes from.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Mentions and App Rank" Page: every day at 09:00, add yesterday's X post count and App Store rank, update the charts, the week-over-week change and the summary line. Stay quiet unless the rank moves 5 places or posts double.
+  ```
+
+  </details>
+
+- [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Ship Velocity" for [repo or team]. At the top: merged PRs last month, growth since [start month], active contributors, and how many tracked timings got faster. Then a monthly column chart of merged PRs from [start month] to now, with a switch to show contributors and PRs per contributor. Then before and after cards for each performance timing I track ([for example cold launch, relaunch, first paint, typing latency median and p90]): the old value, the new value, the % change, and a dashed budget line (one frame, 16.7 ms, for typing; [my launch budget] for startup). Put any timing that got slower or is over its budget first. Use merged PR counts from GitHub for [repo] and timings from [benchmark source]. Say where each number comes from, and leave a metric out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Ship Velocity" Page: on the 1st of each month at 09:00, add last month's merged PRs and contributors from GitHub, read the latest benchmark results, update the before and after cards, and keep the layout the same. If a timing got slower or went over its budget, put it first and tell me.
   ```
 
   </details>
@@ -445,6 +576,73 @@ Newest listings, also shown in their section.
 
 One screen for what your bots and projects are doing and what waits on you.
 
+- [Morning Mission Control](https://morning-mission-control-example-3x24.pages.grok.bot/) - A morning command center with a live clock, a one-at-a-time headline ticker, ACTION, WATCH and FYI cards with Copy buttons, a 3-week calendar, what is waiting on you, a bot roster, what finished today and per-project status (example data). Inspired by [Wozmatic's post on X](https://x.com/Wozmatics/status/2117272603815502005) ([@Wozmatics](https://x.com/Wozmatics)). By Wozmatic ([@Wozmatics](https://x.com/Wozmatics), built on [@jameslayne](https://x.com/jameslayne)'s original prompt). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/morning-mission-control/](https://grokbotpages.com/t/morning-mission-control/).
+  <details><summary>Prompt (Wozmatic, from <a href="https://x.com/Wozmatics/status/2117272603815502005">his X Article</a>)</summary>
+
+  ```text
+  GOAL
+  Every morning at 7:15, refresh my Dashboard Page so that within a minute I can see what I'm working on: what needs me today, what to watch, and what moved since yesterday. Set this up as a daily routine.
+  ACCESS
+  Make the Page easy to open at any time, without hunting for the link:
+  1. Create a new Grok Bot agent called Dashboard and make it the owner of my Dashboard Page. Set the refresh up as that agent's own routine, so it runs the refresh and makes any changes to the Page that I ask for. Whenever I message it, even "hi", it also replies with one line holding a link to the Page, so I'm always one tap away, including on the mobile app.
+  2. Tell me to pin the dashboard in my Library on desktop. I open the Library, click the three dots on the Page's row and choose Pin. It stays at the top under Pinned.
+  3. As a fallback, tell me to bookmark the Page link in a web browser.
+  Create the Page once, on the first run, and always update that same Page after that so the link never changes. Never create a second Page or a copy, because that would break the Dashboard agent's link, the Library pin and the bookmark. If the link ever changes, tell me and update the Dashboard agent.
+  LAYOUT AND STYLE
+  A full-colour, dark mission-control layout:
+  A header with a large live clock in my time zone and 4 key-number tiles.
+  A scrolling ticker of headline items, which pauses on hover.
+  Coloured pills that jump to each section.
+  Numbered "At a glance" cards colour-coded by type: ACTION (red), WATCH (amber), FYI (blue).
+  Progress rings and bars where there's real data to show.
+  A 3-week calendar strip and timeline, colour-coded by event type.
+  A "Waiting on me" list.
+  A bot roster grid showing when each of my bots was last active.
+  A "Finished today" timeline.
+  One section per active project or area of my life, each with its own "Last updated" stamp.
+  Once it's built, keep the colour palette, card styles, glow and accents, spacing and section order. Change them only when I ask.
+  HARD LIMITS (never break these)
+  1. Edit only my Dashboard Page. Never create a second Page, and never rewrite the layout or change the style unless I ask.
+  2. On each refresh, change only the content and data, never the structure or section ids.
+  3. All sources are read only. Send no emails or messages, create no drafts, post nothing in chat tools, and create, edit, move or delete nothing in my files or any connected app.
+  4. No secrets on the Page (passwords, codes, full account or card numbers; last 4 digits are fine).
+  5. No em dashes anywhere.
+  STEP 0: FIRST RUN ONLY, STYLE QUESTION (ask once, never again)
+  On the very first refresh, before building or saving anything, ask me one question: am I happy with this colour scheme, card colours and visual style, or would I like anything changed (palette, accent colours, contrast, card style, density)? Apply my answer, then save in your memory that the style question has been asked. If there's no answer, use the layout as it is. Never ask this again on any later run. After this, change the style only when I ask for it directly.
+  STEP 1: DECIDE THE SCOPE (my local date)
+  Refresh every section on every run, covering everything since the previous refresh.
+  STEP 2: GATHER (read only, newest first)
+  Use every source I've connected to you, and skip any I haven't. For example:
+  My notes and documents (such as Google Drive, Notion or OneDrive) for each active project or area of my life. These are the main source.
+  My existing Pages.
+  Email (such as Gmail or Outlook) since the last refresh, for replies, deadlines, payment requests and decisions on open items.
+  Chat and messaging (such as Slack or Teams) since the last refresh, for mentions, direct messages and anything waiting on me.
+  Task and project tools (such as Notion, Trello, Asana or Linear) for open tasks, due dates and anything assigned to me.
+  My calendar for the next 3 weeks.
+  Each of my bots' recent chats, for when it was last active and what it finished.
+  STEP 3: WRITE THE CONTENT
+  Every item comes from a source read this run, with a date. Tag anything inferred, stale or unconfirmed as "Unverified", with a one-line reason. Never invent numbers, names or chart data. Leave a chart out rather than fake one.
+  At a glance has at most 9 cards, ranked by urgency:
+  ACTION: I must decide or do something within 7 days.
+  WATCH: a live risk, a date, or a reply that's due, with nothing for me to do yet.
+  FYI: a change worth knowing, with nothing to do.
+  Each card says what changed, why it matters, and the next step or deadline, with a source and date.
+  Waiting on me lists only items blocked on me, oldest first, with how many days each has waited.
+  Recalculate all countdowns against today's date in my time zone.
+  STEP 4: FALLBACKS
+  If a source can't be read, keep the last values, add a "Not refreshed today" note with the reason, and keep going. Never blank out a section. If a bot's chat can't be read, carry over its last-active time and mark it as carried over. If I haven't connected a source, leave it out rather than flag it.
+  STEP 5: CHECK, THEN SAVE
+  Before saving, check that every refreshed section has a "Last updated" stamp, the page-level updated time is set, every jump pill reaches its section, the header counts match the cards, colours match the card types, and there are no em dashes or secrets. Then save.
+  STEP 6: MORNING CHECK-IN
+  After saving, send me one short check-in with a link to the Page and up to 2 questions, asked one at a time in chat, or on voice if I'm on a call with you:
+  1. Content: is anything missing, wrong or no longer relevant?
+  2. Priority: should any card move up, move down or come off?
+  Apply my answers on the next refresh, and keep everything else as it is. If the refresh fails or the Page can't be edited, say so in the check-in.
+  ```
+
+  </details>
+
 - [Mission Control](https://mission-control-example-sgmr.pages.grok.bot/) - A dark, clean night office of your bots: working bots at desks with a speech bubble, idle bots in the lounge, a live clock with stat cards, what waits on you with Copy yes and Copy no buttons and an eye button that blurs each item, an activity timeline, upcoming routines and an activity heatmap (example data). Inspired by [Alex Finn's post on X](https://x.com/AlexFinn/status/2115612249826148795) ([@AlexFinn](https://x.com/AlexFinn)). By Alex Finn ([@AlexFinn](https://x.com/AlexFinn)). Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mission-control/](https://grokbotpages.com/t/mission-control/).
   <details><summary>Prompt (Alex Finn, from <a href="https://x.com/AlexFinn/status/2115612249826148795">his post on X</a>)</summary>
@@ -627,12 +825,29 @@ Maintainers' pick: dashboards pair well with [Agent Analytics](https://agentanal
 
   </details>
 
-- [Cheapest Power Hours](https://pending.invalid/cheapest-power-hours/) - A year of half-hourly power prices for one region: when the cheapest four hours start by season, an hourly price chart with a month picker, start times per month, and what one 30 kWh charge costs when timed well or badly (example data). Inspired by [Octomiser's post on X](https://x.com/octomiser/status/2117563839130620225) ([@octomiser](https://x.com/octomiser)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Cheapest Power Hours](https://cheapest-power-hours-example-3fnc.pages.grok.bot/) - A year of half-hourly power prices for one region: when the cheapest four hours start by season, an hourly price chart with a month picker, start times per month, and what one 30 kWh charge costs when timed well or badly (example data). Inspired by [Octomiser's post on X](https://x.com/octomiser/status/2117563839130620225) ([@octomiser](https://x.com/octomiser)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/cheapest-power-hours/](https://grokbotpages.com/t/cheapest-power-hours/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
   ```text
   Build me a wide Grok Bot Page called "Cheapest Power Hours" from a year of half-hourly electricity prices for [your region and tariff, for example London on Octopus Agile], from [start date] to [end date]. For each day, find the cheapest unbroken four-hour run and note when it started. At the top, four numbers with the exact counts: winter days (November to February) whose cheapest 4 hours started overnight, spring and summer days (April to August) whose cheapest 4 hours started late morning to midday, days whose cheapest 4 hours touched 16:00 to 19:00, and negative-price half-hours. Then an hourly bar chart of the average price per clock hour with a month picker, so I can flip between winter and summer. Then a stacked chart of overnight, midday and other start times per month. Then a cost calculator: one 30 kWh load in the cheapest 4 hours against 17:00 to 21:00, per month. Then a short "What to do" list by season with a Copy button on each tip. Use pence per kWh including VAT, label every chart, and say which numbers are measured and which are explanation. Every control must really work on the Page.
+  ```
+
+  </details>
+
+- [Ship Velocity](https://ship-velocity-example-jbus.pages.grok.bot/) - An engineering ship velocity dashboard: merged PRs per month with a switch to contributors and PRs per contributor, and before and after performance cards with % change and a frame or launch budget line (example data). Inspired by [Lauren Tan's post on X](https://x.com/poteto/status/2118017093677494706) ([@poteto](https://x.com/poteto)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/ship-velocity/](https://grokbotpages.com/t/ship-velocity/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Ship Velocity" for [repo or team]. At the top: merged PRs last month, growth since [start month], active contributors, and how many tracked timings got faster. Then a monthly column chart of merged PRs from [start month] to now, with a switch to show contributors and PRs per contributor. Then before and after cards for each performance timing I track ([for example cold launch, relaunch, first paint, typing latency median and p90]): the old value, the new value, the % change, and a dashed budget line (one frame, 16.7 ms, for typing; [my launch budget] for startup). Put any timing that got slower or is over its budget first. Use merged PR counts from GitHub for [repo] and timings from [benchmark source]. Say where each number comes from, and leave a metric out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Ship Velocity" Page: on the 1st of each month at 09:00, add last month's merged PRs and contributors from GitHub, read the latest benchmark results, update the before and after cards, and keep the layout the same. If a timing got slower or went over its budget, put it first and tell me.
   ```
 
   </details>
@@ -646,6 +861,16 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 ## Agent Orchestration
 
 Decisions your bots are waiting on you for.
+
+- [Agent Office](https://agent-office-example-h2a2.pages.grok.bot/) - An office floor of 10 agents making a video series, each desk showing its status and current task with steps, what needs you with Copy reply buttons, a team list with filters, an episode pipeline and an activity feed (example data). Inspired by [Filipe Flores's post on X](https://x.com/ofilipeflores/status/2116360547767644433) ([@ofilipeflores](https://x.com/ofilipeflores)). Based on his Page [Escritório das Frutinhas](https://escritorio-das-frutinhas-fix7.pages.grok.bot/); he shared no prompt, so the prompt is written from the Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/agent-office/](https://grokbotpages.com/t/agent-office/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Agent Office" that shows my team of AI agents as an office, working on my content series [name the series and where it posts, for example a short fruit-character drama on TikTok]. Give each agent a character, a desk on an office floor plan and a role (for example ideas, script, storyboard, voices, editing, captions, thumbnails, scheduling, quality check). At the top, four numbers: agents working, agents that need me, agents free, and episodes in progress. On the floor plan, mark each agent's status with a shape and a word (Exploring, Writing, Creating, Polishing, Thinking, Needs you, Done, Resting) and let me tap a desk to see that agent's current task: the task name, the step it is on out of how many, a timeline of its steps with times, and what it made. Then a Needs you list: each item names the agent, the question in one line, why it needs me, and a Copy reply button with a ready answer; the Page itself never approves or sends anything. Then the episode pipeline from Idea to Script, Storyboard, Voices, Edit, Ready and Posted, with counts per stage and each episode's title, stage and owner. End with an activity feed of what each agent did, newest first, with a filter by agent. Add a status filter with counts and a sort for Needs you first or A to Z. Every control must really work on the Page; no buttons that do nothing. Show only work my agents really did; anything not connected shows as empty instead of a guess. Then create a routine that refreshes the Page every hour while my agents are working.
+  ```
+
+  </details>
 
 - [Decisions Console](https://decisions-console-example-cblp.pages.grok.bot/) - Only the decisions your bots wait on you for, ranked by due time, money at stake and age, each with Copy yes and Copy no buttons, plus division goal gauges, a bot roster, a 72-hour stale log and what you cleared today (example data). Inspired by [Jordan Rafealov's post on X](https://x.com/JordanRafealov/status/2116152545274147218) ([@JordanRafealov](https://x.com/JordanRafealov)). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/decisions-console/](https://grokbotpages.com/t/decisions-console/).
@@ -684,6 +909,16 @@ Decisions your bots are waiting on you for.
 ## Bot Management
 
 Org charts, roles and hand-offs between your bots.
+
+- [Bot Team Usage](https://bot-team-usage-example-43kl.pages.grok.bot/) - Where a 7-bot team's usage goes: share by bot, by week and routines against chat, with period and activity switches and Copy prompt tips to cut waste (example data). Inspired by [Darryl Kay's post on X](https://x.com/SrCaptainThrawn/status/2117049279374065823) ([@SrCaptainThrawn](https://x.com/SrCaptainThrawn)). He shared a screenshot, not a prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/bot-team-usage/](https://grokbotpages.com/t/bot-team-usage/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Bot team usage" from my Grok Bot usage report. Show shares of my total usage, never invented totals. At the top, four numbers: how many bots I have, the share used by my busiest bot, the share that came from routines against chat, and how this week compares with my busiest week. Then a By bot chart: one bar per bot with its share of usage, biggest first, and a one-line note on why the top bot uses the most (for example a chief of staff that routes everything). Then a By week chart for the last 4 weeks, with my busiest and lightest week labeled and what happened that week if you know it. Then routines against chat for each bot, and a list of my routines with their share, so I can see which ones barely register. Add a period switch (last 7 days, last 30 days) and an activity switch (All, Chat, Routines) that update every number, chart and list. End with up to 3 suggestions, each with a Copy prompt button I can paste to the right bot; the Page never changes a bot or routine itself. Every control must really work on the Page; no buttons that do nothing. Anything the report does not show stays empty instead of a guess. Then create a routine that rebuilds the Page every Monday at 9:00 AM.
+  ```
+
+  </details>
 
 - [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - A blueprint org chart of your bots: you at the top, Grok Bot as the chief of staff, the specialists it delegates to with status dots and dashed hand-offs, clickable bot cards with routines, and what waits on you with Copy yes and Copy no buttons (example data). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-org-chart/](https://grokbotpages.com/t/bot-org-chart/).
@@ -804,6 +1039,16 @@ Org charts, roles and hand-offs between your bots.
 
   </details>
 
+- [Jarvis HUD](https://jarvis-hud-example-ioid.pages.grok.bot/) - A heads-up display for every bot you run: a Systems panel with status lights and last action, a Waiting on you queue with Approve, Later and Copy on each item, a morning brief with the one thing to do first, and a Focus mode (example data). Inspired by [Julian Goldie's post on X](https://x.com/JulianGoldieSEO/status/2117118176148480310) ([@JulianGoldieSEO](https://x.com/JulianGoldieSEO)). Original thread: [Julian Goldie's Grok Jarvis post](https://x.com/JulianGoldieSEO/status/2116854011827806310). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/jarvis-hud/](https://grokbotpages.com/t/jarvis-hud/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a full-width Grok Bot Page called "Jarvis" that works as a heads-up display for all my Grok Bots. Dark screen, a glowing core in the middle that pulses, thin panel outlines. Panels: Systems (every bot I run, a status light, the last thing it did and when, and a count of active bots), Waiting on you (every decision that needs my yes, each with Approve and Later buttons that only tick it off on this screen and send nothing, plus a Copy button that copies the item), Morning brief (what every bot did since yesterday, what is waiting on me, and the one thing to do first), and Quick commands (Morning brief, Status, What's waiting, Focus mode). Focus mode dims the panels and stops the motion. Respect reduced motion. Keep the personality calm, short, precise, a little dry, and call me by my name. Every control must really work on the Page; nothing is sent from it.
+  ```
+
+  </details>
+
 ## Payments and Finance
 
 Spending, budgets, crypto and legal.
@@ -838,7 +1083,22 @@ Pipelines and CRM views.
 
 Campaigns and growth reports.
 
-No Pages yet. [Add yours](#create-your-page-and-get-listed).
+- [Mentions and App Rank](https://mentions-and-app-rank-example-jsfv.pages.grok.bot/) - Daily X post counts and App Store rank for one app on a shared timeline: a 7, 14 or 30 day switch, the biggest day and best rank marked, week-over-week change, a daily table and a copyable summary line (example data). Inspired by [Carolina Dill's post on X](https://x.com/CarolinaDill/status/2118072659632115822) ([@CarolinaDill](https://x.com/CarolinaDill)). Original Page: [Grok Bot by the Numbers](https://tidy-meadow-cmmjbf.pages.grok.bot). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mentions-and-app-rank/](https://grokbotpages.com/t/mentions-and-app-rank/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page that tracks one app by the numbers (example: Grok Bot). Show the daily count of posts on X that mention it and where it ranked in the App Store each day, for the last 30 days, with a 7, 14 and 30 day switch. Mark the biggest day and the best rank, show the change against the week before, and add a table of the daily numbers. Add a one-line summary of today I can copy. Say where each number comes from.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Mentions and App Rank" Page: every day at 09:00, add yesterday's X post count and App Store rank, update the charts, the week-over-week change and the summary line. Stay quiet unless the rank moves 5 places or posts double.
+  ```
+
+  </details>
 
 ## Inbox and Collaboration
 

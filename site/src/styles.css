@@ -96,6 +96,12 @@ h1,h2,h3,p,ol,figure{margin:0}
 .gl ol a,.note a,.dash a{text-decoration:underline;text-underline-offset:3px}
 .note{font-size:14px;color:var(--dim);margin-top:16px}
 .glb{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.pr-help{margin-top:18px;border:1px solid var(--line);border-radius:12px;padding:4px 14px;background:#0d0d0d}
+.pr-help summary{cursor:pointer;font-weight:600;padding:10px 0}
+.pr-help ol{margin:0 0 10px;padding-left:22px;font-size:14.5px;line-height:1.7;color:var(--fg-2)}
+.pr-help li+li{margin-top:6px}
+.gl-codes{display:flex;flex-direction:column;gap:16px;min-width:0;align-self:start}
+.gl-codes .code{align-self:stretch;width:100%;min-width:0}
 .dash{margin-top:28px;border-top:1px solid var(--line);padding-top:22px;font-size:14.5px;color:var(--muted)}
 .dash h3{font-size:15px;color:var(--fg);margin-bottom:6px}
 .dash code{font:13px var(--mono);color:var(--fg-2)}
