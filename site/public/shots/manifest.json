@@ -430,5 +430,21 @@
       390,
       6739
     ]
+  },
+  "bot-team-usage": {
+    "url": "https://bot-team-usage-example-43kl.pages.grok.bot/",
+    "captured": "2026-11-09T08:32:50.582Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3117
+    ],
+    "mobile": [
+      390,
+      5051
+    ]
   }
 }

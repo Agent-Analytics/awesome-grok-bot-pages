@@ -46,6 +46,16 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Bot Team Usage](https://bot-team-usage-example-43kl.pages.grok.bot/) - Where a 7-bot team's usage goes: share by bot, by week and routines against chat, with period and activity switches and Copy prompt tips to cut waste (example data). Inspired by [Darryl Kay's post on X](https://x.com/SrCaptainThrawn/status/2117049279374065823) ([@SrCaptainThrawn](https://x.com/SrCaptainThrawn)). He shared a screenshot, not a prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/bot-team-usage/](https://grokbotpages.com/t/bot-team-usage/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Bot team usage" from my Grok Bot usage report. Show shares of my total usage, never invented totals. At the top, four numbers: how many bots I have, the share used by my busiest bot, the share that came from routines against chat, and how this week compares with my busiest week. Then a By bot chart: one bar per bot with its share of usage, biggest first, and a one-line note on why the top bot uses the most (for example a chief of staff that routes everything). Then a By week chart for the last 4 weeks, with my busiest and lightest week labeled and what happened that week if you know it. Then routines against chat for each bot, and a list of my routines with their share, so I can see which ones barely register. Add a period switch (last 7 days, last 30 days) and an activity switch (All, Chat, Routines) that update every number, chart and list. End with up to 3 suggestions, each with a Copy prompt button I can paste to the right bot; the Page never changes a bot or routine itself. Every control must really work on the Page; no buttons that do nothing. Anything the report does not show stays empty instead of a guess. Then create a routine that rebuilds the Page every Monday at 9:00 AM.
+  ```
+
+  </details>
+
 - [Agent Office](https://agent-office-example-h2a2.pages.grok.bot/) - An office floor of 10 agents making a video series, each desk showing its status and current task with steps, what needs you with Copy reply buttons, a team list with filters, an episode pipeline and an activity feed (example data). Inspired by [Filipe Flores's post on X](https://x.com/ofilipeflores/status/2116360547767644433) ([@ofilipeflores](https://x.com/ofilipeflores)). Based on his Page [Escritório das Frutinhas](https://escritorio-das-frutinhas-fix7.pages.grok.bot/); he shared no prompt, so the prompt is written from the Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/agent-office/](https://grokbotpages.com/t/agent-office/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -869,6 +879,16 @@ Decisions your bots are waiting on you for.
 ## Bot Management
 
 Org charts, roles and hand-offs between your bots.
+
+- [Bot Team Usage](https://bot-team-usage-example-43kl.pages.grok.bot/) - Where a 7-bot team's usage goes: share by bot, by week and routines against chat, with period and activity switches and Copy prompt tips to cut waste (example data). Inspired by [Darryl Kay's post on X](https://x.com/SrCaptainThrawn/status/2117049279374065823) ([@SrCaptainThrawn](https://x.com/SrCaptainThrawn)). He shared a screenshot, not a prompt, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/bot-team-usage/](https://grokbotpages.com/t/bot-team-usage/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Bot team usage" from my Grok Bot usage report. Show shares of my total usage, never invented totals. At the top, four numbers: how many bots I have, the share used by my busiest bot, the share that came from routines against chat, and how this week compares with my busiest week. Then a By bot chart: one bar per bot with its share of usage, biggest first, and a one-line note on why the top bot uses the most (for example a chief of staff that routes everything). Then a By week chart for the last 4 weeks, with my busiest and lightest week labeled and what happened that week if you know it. Then routines against chat for each bot, and a list of my routines with their share, so I can see which ones barely register. Add a period switch (last 7 days, last 30 days) and an activity switch (All, Chat, Routines) that update every number, chart and list. End with up to 3 suggestions, each with a Copy prompt button I can paste to the right bot; the Page never changes a bot or routine itself. Every control must really work on the Page; no buttons that do nothing. Anything the report does not show stays empty instead of a guess. Then create a routine that rebuilds the Page every Monday at 9:00 AM.
+  ```
+
+  </details>
 
 - [Bot Org Chart](https://bot-org-chart-example-ujfc.pages.grok.bot/) - A blueprint org chart of your bots: you at the top, Grok Bot as the chief of staff, the specialists it delegates to with status dots and dashed hand-offs, clickable bot cards with routines, and what waits on you with Copy yes and Copy no buttons (example data). By Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-org-chart/](https://grokbotpages.com/t/bot-org-chart/).
