@@ -63,6 +63,23 @@ Newest listings, also shown in their section.
 
   </details>
 
+- [Renewals and Due Dates](https://renewals-and-due-dates-example-yk36.pages.grok.bot/) - Household contracts and subscriptions in one place: a Needs you list for renewals in the next 14 days, missed dates and missing dates with a Copy button for each supplier note, a 12-month renewal timeline, monthly spend split into regular and renewals, and category filters (example data). Inspired by [William Kwan's post on X](https://x.com/williamkwanco/status/2119007766241329521) ([@williamkwanco](https://x.com/williamkwanco)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/renewals-and-due-dates/](https://grokbotpages.com/t/renewals-and-due-dates/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Renewals and Due Dates" from my household contracts list [paste it, or tell me where it lives, for example a Notion table]. For each contract: name, supplier, start date, end or renewal date, cost and how often, autopay yes or no. At the top, a "Needs you" list: anything renewing in the next 14 days, anything past its date, and anything with no date yet, each with a Copy button for a short note to the supplier (cancel, renegotiate or ask for the date). Then a 12-month timeline with each renewal as a marker, and a bar chart of what goes out each month split into regular and renewals. Let me filter by category. Use only what is in my list; mark missing dates as missing, do not guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Renewals and Due Dates" Page: every Monday at 08:00, re-read my contracts list, rebuild the Page, and message me only if something renews within 7 days, a date has passed, or a new contract has no date. Otherwise stay quiet.
+  ```
+
+  </details>
+
 - [Fight Camp Fuel](https://fight-camp-fuel-example-64la.pages.grok.bot/) - A fight camp nutrition coach: plate photos logged into today against calorie, protein, carb, fat and water targets, a 7-day intake chart with training days that shows under-eating early, the water cut plan to weigh-in, and one fix for tomorrow (example data). Inspired by [Jon Burgess's post on X](https://x.com/JonBurg88715724/status/2116946326034456857) ([@JonBurg88715724](https://x.com/JonBurg88715724)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/fight-camp-fuel/](https://grokbotpages.com/t/fight-camp-fuel/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1255,6 +1272,23 @@ Spending, budgets, crypto and legal.
 
   ```text
   Create a routine for my "Paycheck Planner" Page: every other Friday at 07:00, ask me for this check's hours, update the Page with them and the bills due before the next check, and send me one line with what is left or how short I am.
+  ```
+
+  </details>
+
+- [Renewals and Due Dates](https://renewals-and-due-dates-example-yk36.pages.grok.bot/) - Household contracts and subscriptions in one place: a Needs you list for renewals in the next 14 days, missed dates and missing dates with a Copy button for each supplier note, a 12-month renewal timeline, monthly spend split into regular and renewals, and category filters (example data). Inspired by [William Kwan's post on X](https://x.com/williamkwanco/status/2119007766241329521) ([@williamkwanco](https://x.com/williamkwanco)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/renewals-and-due-dates/](https://grokbotpages.com/t/renewals-and-due-dates/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Renewals and Due Dates" from my household contracts list [paste it, or tell me where it lives, for example a Notion table]. For each contract: name, supplier, start date, end or renewal date, cost and how often, autopay yes or no. At the top, a "Needs you" list: anything renewing in the next 14 days, anything past its date, and anything with no date yet, each with a Copy button for a short note to the supplier (cancel, renegotiate or ask for the date). Then a 12-month timeline with each renewal as a marker, and a bar chart of what goes out each month split into regular and renewals. Let me filter by category. Use only what is in my list; mark missing dates as missing, do not guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Renewals and Due Dates" Page: every Monday at 08:00, re-read my contracts list, rebuild the Page, and message me only if something renews within 7 days, a date has passed, or a new contract has no date. Otherwise stay quiet.
   ```
 
   </details>
