@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Workout Tracker](https://pending.invalid/workout-tracker/) - Today's training session with tick-box sets, target and last-time numbers, a rest timer and a Copy today's log button that turns the ticks into a message for your bot (ticks reset on reload), plus a week strip and an 8-week top-set chart per lift (example data). Inspired by [Johnny G's post on X](https://x.com/johnnygx612/status/2119932123213934709) ([@johnnygx612](https://x.com/johnnygx612)). Johnny uses a workout tracker Page and noted that ticks on a phone do not save, so this example adds a Copy today's log button that turns ticks into a message for the bot. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/workout-tracker/](https://grokbotpages.com/t/workout-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Workout Tracker" for my training plan [paste it, or describe days, lifts, sets and reps]. Show today's session at the top: each exercise with its sets as tick boxes, the target weight and reps, and last time's numbers. Ticking a box only changes the view and resets on reload, so add a "Copy today's log" button that copies what I ticked as a message I paste back to you, and you then save it into the Page. Add a rest timer with 60, 90 and 120 second buttons. Then this week as a strip of days (done, today, planned, rest), and a chart of my top set on each main lift over the last 8 weeks. Use only my real logs; anything I have not logged stays empty.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Workout Tracker" Page: every morning at 06:30 on training days, update the same Page with today's session and target weights from my last logs, and send me one line with the first lift. When I paste a log, save it to the Page.
+  ```
+
+  </details>
+
 - [Decision Timeline](https://decision-timeline-example-a745.pages.grok.bot/) - Every project decision and why it was made: status counts as filters (Waiting on you, Confirmed, Brainstorm, Superseded), a newest-first timeline with reasons and what replaced old calls, Copy yes and Copy no on each decision that waits on you, and an area by week heat map (example data). Inspired by [Theseus Cristian's video on X](https://x.com/Theseus_23/status/2120198019832598694) ([@Theseus_23](https://x.com/Theseus_23)). The post's video shows Theseus's own Decision Timeline Page, and the prompt typed in the video is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/decision-timeline/](https://grokbotpages.com/t/decision-timeline/).
   <details><summary>Prompt (fuller version of the creator's prompt, by Awesome Grok Bot Pages)</summary>
@@ -867,6 +884,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Workout Tracker](https://pending.invalid/workout-tracker/) - Today's training session with tick-box sets, target and last-time numbers, a rest timer and a Copy today's log button that turns the ticks into a message for your bot (ticks reset on reload), plus a week strip and an 8-week top-set chart per lift (example data). Inspired by [Johnny G's post on X](https://x.com/johnnygx612/status/2119932123213934709) ([@johnnygx612](https://x.com/johnnygx612)). Johnny uses a workout tracker Page and noted that ticks on a phone do not save, so this example adds a Copy today's log button that turns ticks into a message for the bot. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/workout-tracker/](https://grokbotpages.com/t/workout-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Workout Tracker" for my training plan [paste it, or describe days, lifts, sets and reps]. Show today's session at the top: each exercise with its sets as tick boxes, the target weight and reps, and last time's numbers. Ticking a box only changes the view and resets on reload, so add a "Copy today's log" button that copies what I ticked as a message I paste back to you, and you then save it into the Page. Add a rest timer with 60, 90 and 120 second buttons. Then this week as a strip of days (done, today, planned, rest), and a chart of my top set on each main lift over the last 8 weeks. Use only my real logs; anything I have not logged stays empty.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Workout Tracker" Page: every morning at 06:30 on training days, update the same Page with today's session and target weights from my last logs, and send me one line with the first lift. When I paste a log, save it to the Page.
+  ```
+
+  </details>
 
 - [Decision Timeline](https://decision-timeline-example-a745.pages.grok.bot/) - Every project decision and why it was made: status counts as filters (Waiting on you, Confirmed, Brainstorm, Superseded), a newest-first timeline with reasons and what replaced old calls, Copy yes and Copy no on each decision that waits on you, and an area by week heat map (example data). Inspired by [Theseus Cristian's video on X](https://x.com/Theseus_23/status/2120198019832598694) ([@Theseus_23](https://x.com/Theseus_23)). The post's video shows Theseus's own Decision Timeline Page, and the prompt typed in the video is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/decision-timeline/](https://grokbotpages.com/t/decision-timeline/).
