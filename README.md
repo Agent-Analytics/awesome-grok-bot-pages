@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Post Ideas Board](https://pending.invalid/post-ideas-board/) - X post ideas in two languages on one Page that keeps updating: tonight's suggestion with English and Japanese side by side, X character counts and Copy buttons for each version, idea cards by status (Idea, Drafted, Ready, Posted) with topic filters, and a 7-evening posting strip (example data). Inspired by [micci's post on X](https://x.com/micci1841/status/2120209277923295734) ([@micci1841](https://x.com/micci1841)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/post-ideas-board/](https://grokbotpages.com/t/post-ideas-board/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Post Ideas Board" for my X post ideas, and keep updating this same Page instead of making a new one. Each idea gets an English draft, a Japanese translation and a status: Idea, Drafted, Ready or Posted. At the top, show tonight's suggested post with both versions side by side, the X character count for each, and Copy English and Copy Japanese buttons. Below, every idea as a card with both versions, its status, a topic tag and the same two Copy buttons, with filters by status and topic. Add a strip of the last 7 evenings showing which ones I posted. When I tell you I posted one, move it to Posted on this same Page. Use only my own ideas; if there is no translation yet, say so instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Post Ideas Board" Page: every evening at 19:00, pick one Ready or Drafted idea I have not posted, polish the English draft and its Japanese translation, make it tonight's suggestion on the same Page, and send me one line with the English draft. If I tell you I posted it, mark it Posted on the Page.
+  ```
+
+  </details>
+
 - [F2L Cases](https://f2l-cases-example-lrbn.pages.grok.bot/) - Rubik's Cube F2L cases as cards: a cube diagram per case with only the pair in colour, one checked algorithm with move count and a Copy button, group filters, learning and learned marks, and a random case to drill (example data). Inspired by [Nam's post on X](https://x.com/laivietnam91/status/2119654882382950480) ([@laivietnam91](https://x.com/laivietnam91)). The post's video shows Nam's own F2L Page for beginners. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/f2l-cases/](https://grokbotpages.com/t/f2l-cases/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1286,6 +1303,23 @@ Pipelines and CRM views.
 ## Marketing
 
 Campaigns and growth reports.
+
+- [Post Ideas Board](https://pending.invalid/post-ideas-board/) - X post ideas in two languages on one Page that keeps updating: tonight's suggestion with English and Japanese side by side, X character counts and Copy buttons for each version, idea cards by status (Idea, Drafted, Ready, Posted) with topic filters, and a 7-evening posting strip (example data). Inspired by [micci's post on X](https://x.com/micci1841/status/2120209277923295734) ([@micci1841](https://x.com/micci1841)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/post-ideas-board/](https://grokbotpages.com/t/post-ideas-board/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Post Ideas Board" for my X post ideas, and keep updating this same Page instead of making a new one. Each idea gets an English draft, a Japanese translation and a status: Idea, Drafted, Ready or Posted. At the top, show tonight's suggested post with both versions side by side, the X character count for each, and Copy English and Copy Japanese buttons. Below, every idea as a card with both versions, its status, a topic tag and the same two Copy buttons, with filters by status and topic. Add a strip of the last 7 evenings showing which ones I posted. When I tell you I posted one, move it to Posted on this same Page. Use only my own ideas; if there is no translation yet, say so instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Post Ideas Board" Page: every evening at 19:00, pick one Ready or Drafted idea I have not posted, polish the English draft and its Japanese translation, make it tonight's suggestion on the same Page, and send me one line with the English draft. If I tell you I posted it, mark it Posted on the Page.
+  ```
+
+  </details>
 
 - [AI Visibility Report](https://ai-visibility-report-example-bfun.pages.grok.bot/) - A weekly AI visibility report: how often your brand is recommended across ChatGPT, Claude, Perplexity and Gemini, competitor share, cited sources, description accuracy flags, week-over-week change, and a to-do list with Copy buttons (example data). Inspired by [Scott Vayner's post on X](https://x.com/scottvayner/status/2118762594148245689) ([@scottvayner](https://x.com/scottvayner)). No prompt was shared and no original pages.grok.bot link was posted, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/ai-visibility-report/](https://grokbotpages.com/t/ai-visibility-report/).
