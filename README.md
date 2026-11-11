@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Decision Timeline](https://decision-timeline-example-a745.pages.grok.bot/) - Every project decision and why it was made: status counts as filters (Waiting on you, Confirmed, Brainstorm, Superseded), a newest-first timeline with reasons and what replaced old calls, Copy yes and Copy no on each decision that waits on you, and an area by week heat map (example data). Inspired by [Theseus Cristian's video on X](https://x.com/Theseus_23/status/2120198019832598694) ([@Theseus_23](https://x.com/Theseus_23)). The post's video shows Theseus's own Decision Timeline Page, and the prompt typed in the video is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/decision-timeline/](https://grokbotpages.com/t/decision-timeline/).
+  <details><summary>Prompt (fuller version of the creator's prompt, by Awesome Grok Bot Pages)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Decision Timeline" that shows every decision on my project [name] and why it was made. Read our chats, my notes and the project files. At the top, counts by status: Waiting on me, Confirmed, Brainstorm and Superseded, as filter buttons. Then a timeline, newest first, of every decision: the date, the decision in one line, the area (for example design, site, packaging, pricing), the reason, and who or what it came from. A superseded decision says what replaced it. Every decision waiting on me gets Copy yes and Copy no buttons with a short reply I can paste back to you. Then a heat map of areas by week so I can see where decisions cluster. Add a newest or oldest sort. Use only real decisions from my project; if the reason is not written down, say "reason not recorded".
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Decision Timeline" Page: every evening at 18:00, add the decisions we made today to the same Page with their reasons, mark replaced ones as Superseded, and message me only if something is waiting on me for more than 2 days.
+  ```
+
+  </details>
+
 - [Mention Scan](https://mention-scan-example-pcrq.pages.grok.bot/) - Every time one creator mentioned a topic in 6 months, on one Page: extra names the bot added, a month by month mention chart, one card per claim with a quote, the sources they shared and a grade (Backed, Mixed, Not backed, No source), grade filters, and a Copy button with a follow-up question for each weak claim (example data). Inspired by [Dave Gambrill's post on X](https://x.com/gambrill/status/2120136983729074408) ([@gambrill](https://x.com/gambrill)). Dave asked his bot to scan one creator's last 6 months for one topic, it widened the search to other names, and he made the resulting Page public; his prompt from the post's screenshot is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mention-scan/](https://grokbotpages.com/t/mention-scan/).
   <details><summary>Prompt (general version of the creator's prompt, by Awesome Grok Bot Pages)</summary>
@@ -850,6 +867,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Decision Timeline](https://decision-timeline-example-a745.pages.grok.bot/) - Every project decision and why it was made: status counts as filters (Waiting on you, Confirmed, Brainstorm, Superseded), a newest-first timeline with reasons and what replaced old calls, Copy yes and Copy no on each decision that waits on you, and an area by week heat map (example data). Inspired by [Theseus Cristian's video on X](https://x.com/Theseus_23/status/2120198019832598694) ([@Theseus_23](https://x.com/Theseus_23)). The post's video shows Theseus's own Decision Timeline Page, and the prompt typed in the video is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/decision-timeline/](https://grokbotpages.com/t/decision-timeline/).
+  <details><summary>Prompt (fuller version of the creator's prompt, by Awesome Grok Bot Pages)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Decision Timeline" that shows every decision on my project [name] and why it was made. Read our chats, my notes and the project files. At the top, counts by status: Waiting on me, Confirmed, Brainstorm and Superseded, as filter buttons. Then a timeline, newest first, of every decision: the date, the decision in one line, the area (for example design, site, packaging, pricing), the reason, and who or what it came from. A superseded decision says what replaced it. Every decision waiting on me gets Copy yes and Copy no buttons with a short reply I can paste back to you. Then a heat map of areas by week so I can see where decisions cluster. Add a newest or oldest sort. Use only real decisions from my project; if the reason is not written down, say "reason not recorded".
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Decision Timeline" Page: every evening at 18:00, add the decisions we made today to the same Page with their reasons, mark replaced ones as Superseded, and message me only if something is waiting on me for more than 2 days.
+  ```
+
+  </details>
 
 - [F2L Cases](https://f2l-cases-example-lrbn.pages.grok.bot/) - Rubik's Cube F2L cases as cards: a cube diagram per case with only the pair in colour, one checked algorithm with move count and a Copy button, group filters, learning and learned marks, and a random case to drill (example data). Inspired by [Nam's post on X](https://x.com/laivietnam91/status/2119654882382950480) ([@laivietnam91](https://x.com/laivietnam91)). The post's video shows Nam's own F2L Page for beginners. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/f2l-cases/](https://grokbotpages.com/t/f2l-cases/).
