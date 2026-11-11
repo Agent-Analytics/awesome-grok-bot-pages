@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Mention Scan](https://mention-scan-example-pcrq.pages.grok.bot/) - Every time one creator mentioned a topic in 6 months, on one Page: extra names the bot added, a month by month mention chart, one card per claim with a quote, the sources they shared and a grade (Backed, Mixed, Not backed, No source), grade filters, and a Copy button with a follow-up question for each weak claim (example data). Inspired by [Dave Gambrill's post on X](https://x.com/gambrill/status/2120136983729074408) ([@gambrill](https://x.com/gambrill)). Dave asked his bot to scan one creator's last 6 months for one topic, it widened the search to other names, and he made the resulting Page public; his prompt from the post's screenshot is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mention-scan/](https://grokbotpages.com/t/mention-scan/).
+  <details><summary>Prompt (general version of the creator's prompt, by Awesome Grok Bot Pages)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Mention Scan". Scan [@handle]'s posts from the last 6 months for every time they mention [topic], and also catch other names for it (spellings, abbreviations, related terms), and list which extra names you added. At the top: how many posts mention it, how many separate claims they make, and how many of those claims their own sources back up. Then a month by month chart of mentions. Then one card per claim: the date, a short quote with a link to the post, the claim in one line, the sources or links they shared, and a grade: Backed, Mixed, Not backed or No source, with one line on why. Let me filter by grade. Each claim that is Mixed, Not backed or No source gets a Copy button with a polite question I could ask them about it. Link every post and source; if you could not open a source, say so. This is a research summary, not advice.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Mention Scan" Page: every Monday at 08:00, scan [@handle]'s posts from the past week for [topic] and its other names, add any new claims to the same Page with their grade and sources, and message me only if there is a new claim.
+  ```
+
+  </details>
+
 - [Post Ideas Board](https://post-ideas-board-example-scze.pages.grok.bot/) - X post ideas in two languages on one Page that keeps updating: tonight's suggestion with English and Japanese side by side, X character counts and Copy buttons for each version, idea cards by status (Idea, Drafted, Ready, Posted) with topic filters, and a 7-evening posting strip (example data). Inspired by [micci's post on X](https://x.com/micci1841/status/2120209277923295734) ([@micci1841](https://x.com/micci1841)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/post-ideas-board/](https://grokbotpages.com/t/post-ideas-board/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1364,6 +1381,23 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 ## Research
 
 Explainers and sourced reports.
+
+- [Mention Scan](https://mention-scan-example-pcrq.pages.grok.bot/) - Every time one creator mentioned a topic in 6 months, on one Page: extra names the bot added, a month by month mention chart, one card per claim with a quote, the sources they shared and a grade (Backed, Mixed, Not backed, No source), grade filters, and a Copy button with a follow-up question for each weak claim (example data). Inspired by [Dave Gambrill's post on X](https://x.com/gambrill/status/2120136983729074408) ([@gambrill](https://x.com/gambrill)). Dave asked his bot to scan one creator's last 6 months for one topic, it widened the search to other names, and he made the resulting Page public; his prompt from the post's screenshot is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/mention-scan/](https://grokbotpages.com/t/mention-scan/).
+  <details><summary>Prompt (general version of the creator's prompt, by Awesome Grok Bot Pages)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Mention Scan". Scan [@handle]'s posts from the last 6 months for every time they mention [topic], and also catch other names for it (spellings, abbreviations, related terms), and list which extra names you added. At the top: how many posts mention it, how many separate claims they make, and how many of those claims their own sources back up. Then a month by month chart of mentions. Then one card per claim: the date, a short quote with a link to the post, the claim in one line, the sources or links they shared, and a grade: Backed, Mixed, Not backed or No source, with one line on why. Let me filter by grade. Each claim that is Mixed, Not backed or No source gets a Copy button with a polite question I could ask them about it. Link every post and source; if you could not open a source, say so. This is a research summary, not advice.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Mention Scan" Page: every Monday at 08:00, scan [@handle]'s posts from the past week for [topic] and its other names, add any new claims to the same Page with their grade and sources, and message me only if there is a new claim.
+  ```
+
+  </details>
 
 - [News Pulse](https://news-pulse-example-rh54.pages.grok.bot/) - A Top 10 right now plus four topic pulses (AI, Robotics, Tesla & EV, World News) built from public X posts, each with a headline, why it matters, engagement and a link to the post, with a time window, sort and topic switch (live X data as of Sun Nov 1, 6:29 PM Asia/Jerusalem). Inspired by [Robert Scoble's News Pulse](https://x.com/Scobleizer/status/2116623281797370154). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/news-pulse/](https://grokbotpages.com/t/news-pulse/).

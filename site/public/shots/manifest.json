@@ -654,5 +654,21 @@
       390,
       8000
     ]
+  },
+  "mention-scan": {
+    "url": "https://mention-scan-example-pcrq.pages.grok.bot/",
+    "captured": "2026-11-11T09:56:49.316Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      4458
+    ],
+    "mobile": [
+      390,
+      8000
+    ]
   }
 }
