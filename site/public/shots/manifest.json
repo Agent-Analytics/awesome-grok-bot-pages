@@ -718,5 +718,21 @@
       390,
       5612
     ]
+  },
+  "follow-up-seeds": {
+    "url": "https://follow-up-seeds-example-sxdr.pages.grok.bot/",
+    "captured": "2026-11-11T19:25:55.818Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3795
+    ],
+    "mobile": [
+      390,
+      8000
+    ]
   }
 }

@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Follow-up Seeds](https://follow-up-seeds-example-sxdr.pages.grok.bot/) - Replies that said they would try something, kept as seeds until they turn into proof: seed and proof counts, every seed with its quote, age and status (Too early, Ready to ask, Asked, Proof, Did not work), status filters, and a Copy follow-up or Copy ask to share button on each (example data). Inspired by [Paul's post on X](https://x.com/0xPaulvibe/status/2120554313369936040) ([@0xPaulvibe](https://x.com/0xPaulvibe)). His bot, Mention Meerkat, saves every "going to give that a try" reply as a seed; his own prompt from the post is quoted on the example Page. Paul's own prompt from the post is quoted on the Page; this prompt turns it into a Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/follow-up-seeds/](https://grokbotpages.com/t/follow-up-seeds/).
+  <details><summary>Prompt (turns Paul's prompt into a Page, by Awesome Grok Bot Pages)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Follow-up Seeds" from the replies to my posts, and keep updating this same Page instead of making a new one. A seed is anyone who said they would try, test or use something of mine but has not shared a result yet. At the top: how many seeds I have and how many turned into proof. Then every seed with the date, their reply in a short quote with a link, how many days ago it was, and a status: Too early (under 3 days), Ready to ask, Asked, Proof or Did not work. Each Ready to ask seed gets a Copy follow-up button with one casual, no-pressure line asking how it went. Each Proof seed gets a Copy ask to share button. Each Did not work seed keeps one line on what got in the way. Let me filter by status. Use only real replies and link each one.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Follow-up Seeds" Page: every morning at 09:00, read new replies to my posts, add anyone who said they would try something of mine as a seed on the same Page, move seeds older than 3 days to Ready to ask with a drafted follow-up line, and send me one line with how many are ready. Never send a follow-up for me.
+  ```
+
+  </details>
+
 - [Done Tracker](https://done-tracker-example-xkpj.pages.grok.bot/) - Tasks finished, week by week: this week's total against a crowned best week, 4 weekly bars with the change from the week before, 14 daily bars with a 14-day total, and open tasks by area with a Copy done button each (example data). Inspired by [多動パンダ's post on X](https://x.com/panda_tado/status/2120440830108618989) ([@panda_tado](https://x.com/panda_tado)). He shared his to-do dashboard after rebuilding his outer loop with Grok Bot. No prompt was shared, so the prompt is written from the post and its dashboard screenshot. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/done-tracker/](https://grokbotpages.com/t/done-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1422,6 +1439,23 @@ Pipelines and CRM views.
 ## Marketing
 
 Campaigns and growth reports.
+
+- [Follow-up Seeds](https://follow-up-seeds-example-sxdr.pages.grok.bot/) - Replies that said they would try something, kept as seeds until they turn into proof: seed and proof counts, every seed with its quote, age and status (Too early, Ready to ask, Asked, Proof, Did not work), status filters, and a Copy follow-up or Copy ask to share button on each (example data). Inspired by [Paul's post on X](https://x.com/0xPaulvibe/status/2120554313369936040) ([@0xPaulvibe](https://x.com/0xPaulvibe)). His bot, Mention Meerkat, saves every "going to give that a try" reply as a seed; his own prompt from the post is quoted on the example Page. Paul's own prompt from the post is quoted on the Page; this prompt turns it into a Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/follow-up-seeds/](https://grokbotpages.com/t/follow-up-seeds/).
+  <details><summary>Prompt (turns Paul's prompt into a Page, by Awesome Grok Bot Pages)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Follow-up Seeds" from the replies to my posts, and keep updating this same Page instead of making a new one. A seed is anyone who said they would try, test or use something of mine but has not shared a result yet. At the top: how many seeds I have and how many turned into proof. Then every seed with the date, their reply in a short quote with a link, how many days ago it was, and a status: Too early (under 3 days), Ready to ask, Asked, Proof or Did not work. Each Ready to ask seed gets a Copy follow-up button with one casual, no-pressure line asking how it went. Each Proof seed gets a Copy ask to share button. Each Did not work seed keeps one line on what got in the way. Let me filter by status. Use only real replies and link each one.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Follow-up Seeds" Page: every morning at 09:00, read new replies to my posts, add anyone who said they would try something of mine as a seed on the same Page, move seeds older than 3 days to Ready to ask with a drafted follow-up line, and send me one line with how many are ready. Never send a follow-up for me.
+  ```
+
+  </details>
 
 - [Post Ideas Board](https://post-ideas-board-example-scze.pages.grok.bot/) - X post ideas in two languages on one Page that keeps updating: tonight's suggestion with English and Japanese side by side, X character counts and Copy buttons for each version, idea cards by status (Idea, Drafted, Ready, Posted) with topic filters, and a 7-evening posting strip (example data). Inspired by [micci's post on X](https://x.com/micci1841/status/2120209277923295734) ([@micci1841](https://x.com/micci1841)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/post-ideas-board/](https://grokbotpages.com/t/post-ideas-board/).
