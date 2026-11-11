@@ -702,5 +702,21 @@
       390,
       5199
     ]
+  },
+  "done-tracker": {
+    "url": "https://done-tracker-example-xkpj.pages.grok.bot/",
+    "captured": "2026-11-11T19:25:55.767Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3372
+    ],
+    "mobile": [
+      390,
+      5612
+    ]
   }
 }
