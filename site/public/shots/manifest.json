@@ -670,5 +670,21 @@
       390,
       8000
     ]
+  },
+  "decision-timeline": {
+    "url": "https://decision-timeline-example-a745.pages.grok.bot/",
+    "captured": "2026-11-11T09:59:11.068Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      5668
+    ],
+    "mobile": [
+      390,
+      8000
+    ]
   }
 }
