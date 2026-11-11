@@ -686,5 +686,21 @@
       390,
       8000
     ]
+  },
+  "workout-tracker": {
+    "url": "https://workout-tracker-example-6fh3.pages.grok.bot/",
+    "captured": "2026-11-11T10:03:00.797Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3122
+    ],
+    "mobile": [
+      390,
+      5199
+    ]
   }
 }
