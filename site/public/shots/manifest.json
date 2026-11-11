@@ -734,5 +734,21 @@
       390,
       8000
     ]
+  },
+  "school-tracker": {
+    "url": "https://school-tracker-example-luej.pages.grok.bot/",
+    "captured": "2026-11-11T19:25:58.661Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3513
+    ],
+    "mobile": [
+      390,
+      6415
+    ]
   }
 }
