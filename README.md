@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Fold It](https://pending.invalid/fold-it/) - Origami for kids one step at a time: a library of picture cards with a type filter and difficulty levels, one big picture per step with a short sentence, Back and Next, a show-all-steps view, a log of the bot's step checks and new models waiting for a Copy yes or Copy no (example data). Inspired by [Teslaconomics's post on X](https://x.com/Teslaconomics/status/2120569527146885407) ([@Teslaconomics](https://x.com/Teslaconomics)). His boys fold origami every morning before school with a Page he made, and his bot researches and checks new models every day. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/fold-it/](https://grokbotpages.com/t/fold-it/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Fold It" so my kids can fold origami one step at a time, and keep updating this same Page instead of making a new one. Show a library of models as picture cards (planes, animals, boats, toys and so on), each with its number of steps and a difficulty (Easy, Medium or Tricky), with a filter by type. When a model is picked, show one big picture of the current step with one short sentence a child can read, Back and Next buttons, a step counter, and a "show all steps" view. Use only models whose steps you have checked from a reliable source, and say which source each one came from. Add a small section for new models waiting for my OK, each with a Copy yes and a Copy no button. Keep the words short and friendly for kids.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Fold It" Page: every morning at 06:30, research one to three new origami models that suit kids, check every step against a reliable source, and add only the ones that pass to the same Page. List anything that did not pass and why. If a model needs my OK, add it to the waiting section and send me one line about it.
+  ```
+
+  </details>
+
 - [Workout Tracker](https://workout-tracker-example-6fh3.pages.grok.bot/) - Today's training session with tick-box sets, target and last-time numbers, a rest timer and a Copy today's log button that turns the ticks into a message for your bot (ticks reset on reload), plus a week strip and an 8-week top-set chart per lift (example data). Inspired by [Johnny G's post on X](https://x.com/johnnygx612/status/2119932123213934709) ([@johnnygx612](https://x.com/johnnygx612)). Johnny uses a workout tracker Page and noted that ticks on a phone do not save, so this example adds a Copy today's log button that turns ticks into a message for the bot. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/workout-tracker/](https://grokbotpages.com/t/workout-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -884,6 +901,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Fold It](https://pending.invalid/fold-it/) - Origami for kids one step at a time: a library of picture cards with a type filter and difficulty levels, one big picture per step with a short sentence, Back and Next, a show-all-steps view, a log of the bot's step checks and new models waiting for a Copy yes or Copy no (example data). Inspired by [Teslaconomics's post on X](https://x.com/Teslaconomics/status/2120569527146885407) ([@Teslaconomics](https://x.com/Teslaconomics)). His boys fold origami every morning before school with a Page he made, and his bot researches and checks new models every day. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/fold-it/](https://grokbotpages.com/t/fold-it/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Fold It" so my kids can fold origami one step at a time, and keep updating this same Page instead of making a new one. Show a library of models as picture cards (planes, animals, boats, toys and so on), each with its number of steps and a difficulty (Easy, Medium or Tricky), with a filter by type. When a model is picked, show one big picture of the current step with one short sentence a child can read, Back and Next buttons, a step counter, and a "show all steps" view. Use only models whose steps you have checked from a reliable source, and say which source each one came from. Add a small section for new models waiting for my OK, each with a Copy yes and a Copy no button. Keep the words short and friendly for kids.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Fold It" Page: every morning at 06:30, research one to three new origami models that suit kids, check every step against a reliable source, and add only the ones that pass to the same Page. List anything that did not pass and why. If a model needs my OK, add it to the waiting section and send me one line about it.
+  ```
+
+  </details>
 
 - [Workout Tracker](https://workout-tracker-example-6fh3.pages.grok.bot/) - Today's training session with tick-box sets, target and last-time numbers, a rest timer and a Copy today's log button that turns the ticks into a message for your bot (ticks reset on reload), plus a week strip and an 8-week top-set chart per lift (example data). Inspired by [Johnny G's post on X](https://x.com/johnnygx612/status/2119932123213934709) ([@johnnygx612](https://x.com/johnnygx612)). Johnny uses a workout tracker Page and noted that ticks on a phone do not save, so this example adds a Copy today's log button that turns ticks into a message for the bot. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/workout-tracker/](https://grokbotpages.com/t/workout-tracker/).
