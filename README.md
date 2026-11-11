@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [School Tracker](https://pending.invalid/school-tracker/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "School Tracker" for my child's school, and keep updating this same Page instead of making a new one. Read the school's portals and the school emails I get, merge items that appear in more than one place into one, and show which sources each item came from. At the top: what needs me this week (forms to sign, payments, things to bring), each with its due date and a Copy reminder button. Then this week day by day: events, trips, early finishes and what to bring. Then this week's dinner menu from the dinner portal. Then everything else as a list I can filter by source. Use only what the portals and emails say, link back to each source, and say when something could not be checked. Leave out other children's names.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "School Tracker" Page: every weekday at 07:00, check the school portals and new school emails, merge duplicates, update the same Page, and send me one line only if something new needs me this week or a due date is tomorrow.
+  ```
+
+  </details>
+
 - [Follow-up Seeds](https://follow-up-seeds-example-sxdr.pages.grok.bot/) - Replies that said they would try something, kept as seeds until they turn into proof: seed and proof counts, every seed with its quote, age and status (Too early, Ready to ask, Asked, Proof, Did not work), status filters, and a Copy follow-up or Copy ask to share button on each (example data). Inspired by [Paul's post on X](https://x.com/0xPaulvibe/status/2120554313369936040) ([@0xPaulvibe](https://x.com/0xPaulvibe)). His bot, Mention Meerkat, saves every "going to give that a try" reply as a seed; his own prompt from the post is quoted on the example Page. Paul's own prompt from the post is quoted on the Page; this prompt turns it into a Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/follow-up-seeds/](https://grokbotpages.com/t/follow-up-seeds/).
   <details><summary>Prompt (turns Paul's prompt into a Page, by Awesome Grok Bot Pages)</summary>
@@ -79,6 +96,7 @@ Newest listings, also shown in their section.
   ```
 
   </details>
+
 
 - [Workout Tracker](https://workout-tracker-example-6fh3.pages.grok.bot/) - Today's training session with tick-box sets, target and last-time numbers, a rest timer and a Copy today's log button that turns the ticks into a message for your bot (ticks reset on reload), plus a week strip and an 8-week top-set chart per lift (example data). Inspired by [Johnny G's post on X](https://x.com/johnnygx612/status/2119932123213934709) ([@johnnygx612](https://x.com/johnnygx612)). Johnny uses a workout tracker Page and noted that ticks on a phone do not save, so this example adds a Copy today's log button that turns ticks into a message for the bot. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/workout-tracker/](https://grokbotpages.com/t/workout-tracker/).
@@ -919,6 +937,23 @@ One screen for what your bots and projects are doing and what waits on you.
 
 Planners, trackers and task boards.
 
+- [School Tracker](https://pending.invalid/school-tracker/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "School Tracker" for my child's school, and keep updating this same Page instead of making a new one. Read the school's portals and the school emails I get, merge items that appear in more than one place into one, and show which sources each item came from. At the top: what needs me this week (forms to sign, payments, things to bring), each with its due date and a Copy reminder button. Then this week day by day: events, trips, early finishes and what to bring. Then this week's dinner menu from the dinner portal. Then everything else as a list I can filter by source. Use only what the portals and emails say, link back to each source, and say when something could not be checked. Leave out other children's names.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "School Tracker" Page: every weekday at 07:00, check the school portals and new school emails, merge duplicates, update the same Page, and send me one line only if something new needs me this week or a due date is tomorrow.
+  ```
+
+  </details>
+
 - [Done Tracker](https://done-tracker-example-xkpj.pages.grok.bot/) - Tasks finished, week by week: this week's total against a crowned best week, 4 weekly bars with the change from the week before, 14 daily bars with a 14-day total, and open tasks by area with a Copy done button each (example data). Inspired by [多動パンダ's post on X](https://x.com/panda_tado/status/2120440830108618989) ([@panda_tado](https://x.com/panda_tado)). He shared his to-do dashboard after rebuilding his outer loop with Grok Bot. No prompt was shared, so the prompt is written from the post and its dashboard screenshot. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/done-tracker/](https://grokbotpages.com/t/done-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -935,6 +970,7 @@ Planners, trackers and task boards.
   ```
 
   </details>
+
 
 - [Workout Tracker](https://workout-tracker-example-6fh3.pages.grok.bot/) - Today's training session with tick-box sets, target and last-time numbers, a rest timer and a Copy today's log button that turns the ticks into a message for your bot (ticks reset on reload), plus a week strip and an 8-week top-set chart per lift (example data). Inspired by [Johnny G's post on X](https://x.com/johnnygx612/status/2119932123213934709) ([@johnnygx612](https://x.com/johnnygx612)). Johnny uses a workout tracker Page and noted that ticks on a phone do not save, so this example adds a Copy today's log button that turns ticks into a message for the bot. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/workout-tracker/](https://grokbotpages.com/t/workout-tracker/).
