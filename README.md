@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Done Tracker](https://pending.invalid/done-tracker/) - Tasks finished, week by week: this week's total against a crowned best week, 4 weekly bars with the change from the week before, 14 daily bars with a 14-day total, and open tasks by area with a Copy done button each (example data). Inspired by [多動パンダ's post on X](https://x.com/panda_tado/status/2120440830108618989) ([@panda_tado](https://x.com/panda_tado)). He shared his to-do dashboard after rebuilding his outer loop with Grok Bot. No prompt was shared, so the prompt is written from the post and its dashboard screenshot. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/done-tracker/](https://grokbotpages.com/t/done-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Done Tracker" from my to-do list, and keep updating this same Page instead of making a new one. At the top: how many tasks I finished this week, my best week so far with a crown on it, and the change from last week. Then the last 4 weeks as bars (weeks start Monday), each with its total and the change from the week before. Then the last 14 days as bars of tasks finished per day, with the 14 day total and the change from the 14 days before. Then my open tasks grouped by area, oldest first, each with a Copy done button that copies a short message I can send you to mark it finished. Use my local time zone and only my real tasks; if a day has no data, show it as empty instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Done Tracker" Page: every night at 23:30, read my to-do list, count what I finished today, update the weekly and 14 day bars and my best week on the same Page, and refresh my open tasks. If I beat my best week, send me one line.
+  ```
+
+  </details>
+
 - [Workout Tracker](https://workout-tracker-example-6fh3.pages.grok.bot/) - Today's training session with tick-box sets, target and last-time numbers, a rest timer and a Copy today's log button that turns the ticks into a message for your bot (ticks reset on reload), plus a week strip and an 8-week top-set chart per lift (example data). Inspired by [Johnny G's post on X](https://x.com/johnnygx612/status/2119932123213934709) ([@johnnygx612](https://x.com/johnnygx612)). Johnny uses a workout tracker Page and noted that ticks on a phone do not save, so this example adds a Copy today's log button that turns ticks into a message for the bot. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/workout-tracker/](https://grokbotpages.com/t/workout-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -884,6 +901,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Done Tracker](https://pending.invalid/done-tracker/) - Tasks finished, week by week: this week's total against a crowned best week, 4 weekly bars with the change from the week before, 14 daily bars with a 14-day total, and open tasks by area with a Copy done button each (example data). Inspired by [多動パンダ's post on X](https://x.com/panda_tado/status/2120440830108618989) ([@panda_tado](https://x.com/panda_tado)). He shared his to-do dashboard after rebuilding his outer loop with Grok Bot. No prompt was shared, so the prompt is written from the post and its dashboard screenshot. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/done-tracker/](https://grokbotpages.com/t/done-tracker/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Done Tracker" from my to-do list, and keep updating this same Page instead of making a new one. At the top: how many tasks I finished this week, my best week so far with a crown on it, and the change from last week. Then the last 4 weeks as bars (weeks start Monday), each with its total and the change from the week before. Then the last 14 days as bars of tasks finished per day, with the 14 day total and the change from the 14 days before. Then my open tasks grouped by area, oldest first, each with a Copy done button that copies a short message I can send you to mark it finished. Use my local time zone and only my real tasks; if a day has no data, show it as empty instead of guessing.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Done Tracker" Page: every night at 23:30, read my to-do list, count what I finished today, update the weekly and 14 day bars and my best week on the same Page, and refresh my open tasks. If I beat my best week, send me one line.
+  ```
+
+  </details>
 
 - [Workout Tracker](https://workout-tracker-example-6fh3.pages.grok.bot/) - Today's training session with tick-box sets, target and last-time numbers, a rest timer and a Copy today's log button that turns the ticks into a message for your bot (ticks reset on reload), plus a week strip and an 8-week top-set chart per lift (example data). Inspired by [Johnny G's post on X](https://x.com/johnnygx612/status/2119932123213934709) ([@johnnygx612](https://x.com/johnnygx612)). Johnny uses a workout tracker Page and noted that ticks on a phone do not save, so this example adds a Copy today's log button that turns ticks into a message for the bot. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/workout-tracker/](https://grokbotpages.com/t/workout-tracker/).
