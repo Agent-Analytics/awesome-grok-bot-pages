@@ -638,5 +638,21 @@
       390,
       8000
     ]
+  },
+  "post-ideas-board": {
+    "url": "https://post-ideas-board-example-scze.pages.grok.bot/",
+    "captured": "2026-11-11T09:53:31.202Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      4308
+    ],
+    "mobile": [
+      390,
+      8000
+    ]
   }
 }

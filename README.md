@@ -46,7 +46,7 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
-- [Post Ideas Board](https://pending.invalid/post-ideas-board/) - X post ideas in two languages on one Page that keeps updating: tonight's suggestion with English and Japanese side by side, X character counts and Copy buttons for each version, idea cards by status (Idea, Drafted, Ready, Posted) with topic filters, and a 7-evening posting strip (example data). Inspired by [micci's post on X](https://x.com/micci1841/status/2120209277923295734) ([@micci1841](https://x.com/micci1841)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Post Ideas Board](https://post-ideas-board-example-scze.pages.grok.bot/) - X post ideas in two languages on one Page that keeps updating: tonight's suggestion with English and Japanese side by side, X character counts and Copy buttons for each version, idea cards by status (Idea, Drafted, Ready, Posted) with topic filters, and a 7-evening posting strip (example data). Inspired by [micci's post on X](https://x.com/micci1841/status/2120209277923295734) ([@micci1841](https://x.com/micci1841)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/post-ideas-board/](https://grokbotpages.com/t/post-ideas-board/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
@@ -1304,7 +1304,7 @@ Pipelines and CRM views.
 
 Campaigns and growth reports.
 
-- [Post Ideas Board](https://pending.invalid/post-ideas-board/) - X post ideas in two languages on one Page that keeps updating: tonight's suggestion with English and Japanese side by side, X character counts and Copy buttons for each version, idea cards by status (Idea, Drafted, Ready, Posted) with topic filters, and a 7-evening posting strip (example data). Inspired by [micci's post on X](https://x.com/micci1841/status/2120209277923295734) ([@micci1841](https://x.com/micci1841)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+- [Post Ideas Board](https://post-ideas-board-example-scze.pages.grok.bot/) - X post ideas in two languages on one Page that keeps updating: tonight's suggestion with English and Japanese side by side, X character counts and Copy buttons for each version, idea cards by status (Idea, Drafted, Ready, Posted) with topic filters, and a 7-evening posting strip (example data). Inspired by [micci's post on X](https://x.com/micci1841/status/2120209277923295734) ([@micci1841](https://x.com/micci1841)). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/post-ideas-board/](https://grokbotpages.com/t/post-ideas-board/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
 
