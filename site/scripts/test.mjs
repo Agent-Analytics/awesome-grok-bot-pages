@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 import { server } from './serve.mjs';
 import { parse, slugify } from './parse.mjs';
 import { launch } from './browser.mjs';
-import { targetType, FEATURED_SLUGS } from './build.mjs';
+import { targetType, FEATURED_SLUGS, HOME_TITLE, homeDescription } from './build.mjs';
 import { captureUtm, withUtm, UTM_STORAGE_KEY } from '../src/utm.js';
 
 const require = createRequire(import.meta.url);
@@ -223,12 +223,27 @@ check('no console or page errors', errors.length === 0, errors.join(' | '));
 // mentions grokpages.com except the Agent Analytics project id in the tracker snippet.
 const SITE = 'https://grokbotpages.com';
 const dist = path.resolve(import.meta.dirname, '..', 'dist');
+const meta = (html, re) => html.match(re)?.[1];
 for (const u of ['/', ...d.entries.map((e) => `/t/${e.slug}/`)]) {
   const html = fs.readFileSync(path.join(dist, u, 'index.html'), 'utf8');
-  const canon = html.match(/<link rel="canonical" href="([^"]+)">/)?.[1];
-  const ogUrl = html.match(/<meta property="og:url" content="([^"]+)">/)?.[1];
-  const ogImg = html.match(/<meta property="og:image" content="([^"]+)">/)?.[1];
+  const canon = meta(html, /<link rel="canonical" href="([^"]+)">/);
+  const ogUrl = meta(html, /<meta property="og:url" content="([^"]+)">/);
+  const ogImg = meta(html, /<meta property="og:image" content="([^"]+)">/);
   check(`canonical and og:url on ${SITE} ${u}`, canon === SITE + u && ogUrl === SITE + u && ogImg === SITE + '/og.png', `${canon} ${ogUrl}`);
+  const title = meta(html, /<title>([^<]*)<\/title>/);
+  const ogTitle = meta(html, /<meta property="og:title" content="([^"]*)">/);
+  const twTitle = meta(html, /<meta name="twitter:title" content="([^"]*)">/);
+  const desc = meta(html, /<meta name="description" content="([^"]*)">/);
+  const ogDesc = meta(html, /<meta property="og:description" content="([^"]*)">/);
+  const twDesc = meta(html, /<meta name="twitter:description" content="([^"]*)">/);
+  check(`title and description tags match ${u}`, !!title && title === ogTitle && title === twTitle && !!desc && desc === ogDesc && desc === twDesc, title);
+  if (u === '/') {
+    const expectedDesc = homeDescription(d.entries.length);
+    const h1 = meta(html, /<h1 id="hero-h">([\s\S]*?)<\/h1>/);
+    check('home title is the Grok Bot Pages brand line', title === HOME_TITLE, title);
+    check('home description length', desc === expectedDesc && desc.length <= 160 && desc.length >= 140 && desc.length <= 155 && !desc.includes('\u2014') && desc.includes(String(d.entries.length)) && desc.includes('Grok Bot Pages'), `${desc.length} chars`);
+    check('home h1 includes Grok Bot Pages', h1 === 'Copy a <em>Grok Bot Pages template.</em>' && h1.includes('Grok Bot Pages') && h1.startsWith('Copy a '), h1);
+  }
   const stray = html.replaceAll('data-project="grokpages.com"', '').match(/grokpages\.com/g);
   check(`no grokpages.com mention ${u}`, !stray, stray ? `${stray.length} found` : '');
 }
@@ -239,6 +254,67 @@ check('sitemap lists every page on grokbotpages.com', JSON.stringify(locs) === J
 check('robots.txt Sitemap line on grokbotpages.com', fs.readFileSync(path.join(dist, 'robots.txt'), 'utf8').includes(`Sitemap: ${SITE}/sitemap.xml`));
 const nf = fs.readFileSync(path.join(dist, '404.html'), 'utf8');
 check('404 title on grokbotpages.com', nf.includes('<title>Page not found | grokbotpages.com</title>'));
+
+function walkFiles(dir) {
+  const out = [];
+  for (const name of fs.readdirSync(dir)) {
+    const p = path.join(dir, name);
+    if (fs.statSync(p).isDirectory()) out.push(...walkFiles(p));
+    else out.push(p);
+  }
+  return out;
+}
+function hrefsOf(text) {
+  return [...text.matchAll(/\bhref\s*=\s*(?:"([^"]*)"|'([^']*)')/g)].map((m) => m[1] ?? m[2]);
+}
+function isSlugPlaceholder(href) {
+  const pathOnly = href.replace(/^https?:\/\/(?:www\.)?grokbotpages\.com/i, '').split(/[?#]/)[0];
+  return pathOnly === '/t/slug' || pathOnly === '/t/slug/';
+}
+const distFiles = walkFiles(dist);
+const slashProblems = [];
+const slugHrefs = [];
+let templateRefs = 0;
+for (const f of distFiles) {
+  const rel = path.relative(dist, f);
+  const text = fs.readFileSync(f, 'utf8');
+  if (rel !== '_redirects' && text.includes('/t/slug')) slashProblems.push(`${rel} contains /t/slug`);
+  for (const href of hrefsOf(text)) {
+    if (isSlugPlaceholder(href)) slugHrefs.push(`${rel} ${href}`);
+    let pathPart = href.split(/[?#]/)[0];
+    if (/^https?:\/\//i.test(href)) {
+      if (!href.startsWith(`${SITE}/`)) {
+        if (/grokbotpages\.com/i.test(href)) slashProblems.push(`${rel} bad origin ${href}`);
+        continue;
+      }
+      pathPart = href.slice(SITE.length).split(/[?#]/)[0];
+    }
+    if (!pathPart.startsWith('/t/')) continue;
+    templateRefs++;
+    const ok = /^\/t\/[a-z0-9-]+\/$/.test(pathPart) || /^\/t\/[a-z0-9-]+\/prompt\.md$/.test(pathPart);
+    if (!ok) slashProblems.push(`${rel} ${href}`);
+  }
+  if (/\.(html|xml|txt|json|md)$/.test(f)) {
+    for (const m of text.matchAll(/https?:\/\/[^\s"'<>]*grokbotpages\.com[^\s"'<>]*/g)) {
+      const url = m[0];
+      if (!url.startsWith(`${SITE}/`) && url !== SITE) slashProblems.push(`${rel} bad url ${url}`);
+      const pathPart = url.slice(SITE.length).split(/[?#]/)[0];
+      if (pathPart.startsWith('/t/') && !/^\/t\/[a-z0-9-]+\/$/.test(pathPart) && !/^\/t\/[a-z0-9-]+\/prompt\.md$/.test(pathPart)) {
+        slashProblems.push(`${rel} template url ${url}`);
+      }
+    }
+  }
+}
+const readmeLinks = [...fs.readFileSync(path.resolve(import.meta.dirname, '../../README.md'), 'utf8').matchAll(/https:\/\/grokbotpages\.com\/t\/([^)\s]+)/g)];
+const readmeBad = readmeLinks.filter((m) => !m[1].endsWith('/') || m[1].startsWith('slug'));
+check('template urls use https://grokbotpages.com and a trailing slash', slashProblems.length === 0 && readmeBad.length === 0 && templateRefs > d.entries.length, `${templateRefs} template refs, ${readmeLinks.length} readme links${slashProblems.length ? ' ' + slashProblems.slice(0, 8).join(' | ') : ''}${readmeBad.length ? ' readme ' + readmeBad.map((m) => m[0]).join(' ') : ''}`);
+check('build output has no href to /t/slug/', slugHrefs.length === 0, slugHrefs.join(' '));
+const redirectLines = fs.readFileSync(path.join(dist, '_redirects'), 'utf8').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
+check('301 from /t/slug and /t/slug/ to the homepage', redirectLines.includes('/t/slug/ https://grokbotpages.com/ 301') && redirectLines.includes('/t/slug https://grokbotpages.com/ 301'), redirectLines.join(' | '));
+for (const doc of ['README.md', 'CONTRIBUTING.md']) {
+  const text = fs.readFileSync(path.resolve(import.meta.dirname, '../../', doc), 'utf8');
+  check(`${doc} does not link /t/slug/`, !text.includes('/t/slug'));
+}
 
 const llms = fs.readFileSync(path.join(dist, 'llms.txt'), 'utf8');
 const llmsMiss = d.entries.filter((e) => {

@@ -42,7 +42,7 @@ Listing contributions only need to update [`README.md`](./README.md).
 
 ````markdown
 - [Title](public page link) - One factual sentence. By Name ([@github](https://github.com/handle), [@x](https://x.com/handle)).
-  Template page: [grokbotpages.com/t/slug/](https://grokbotpages.com/t/slug/).
+  Template page: `/t/<slug>/`.
   <details><summary>Prompt</summary>
 
   ```text
@@ -55,7 +55,7 @@ Listing contributions only need to update [`README.md`](./README.md).
 - A name is required, plus at least one of a GitHub handle or an X handle. Both are fine.
 - The prompt block is required and must contain no private details. The snippet in the README asks Grok Bot to write one.
 - An optional `Inspired by [source](url).` can go before `By`.
-- The `Template page` line links the entry's page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`. The page goes live once the pull request is merged.
+- On a listed entry, the `Template page` line is a markdown link to that page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`, and the path is `/t/<slug>/`. The sample above shows that path as code, not a link. The page goes live once the pull request is merged.
 - Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
 
 Sections: Latest Additions, Mission Control, Productivity, Data Analytics, Infrastructure, Agent Orchestration, Bot Management, Payments and Finance, Sales, Marketing, Inbox and Collaboration, Research, Design, Documents and Files, Scheduling and Support.

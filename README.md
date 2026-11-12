@@ -1701,7 +1701,7 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
 
 ````markdown
 - [Title](public page link) - One factual sentence. By Name ([@github](https://github.com/handle), [@x](https://x.com/handle)).
-  Template page: [grokbotpages.com/t/slug/](https://grokbotpages.com/t/slug/).
+  Template page: `/t/<slug>/`.
   <details><summary>Prompt</summary>
 
   ```text
@@ -1722,7 +1722,7 @@ Build me a wide Page called "Site analytics dashboard". Use the Agent Analytics 
 - The prompt block is required. Keep the blank line after `<summary>` and the two-space indentation so GitHub renders the code block inside it.
 - An optional `Inspired by [source](url).` can go before `By`.
 - An optional `Routine prompt (optional)` block can follow the prompt block, in the same format, with a prompt for a routine that keeps the Page updated.
-- The `Template page` line links the entry's page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`. The page goes live once the pull request is merged.
+- On a listed entry, the `Template page` line is a markdown link to that page on grokbotpages.com. The slug is the title in lowercase with hyphens, for example `side-project-mission-control`, and the path is `/t/<slug>/`. The sample above shows that path as code, not a link. The page goes live once the pull request is merged.
 - Keep the description to one factual sentence about what the Page shows or does.
 
 ## Contributing
