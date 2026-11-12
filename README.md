@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Hours per Brand](https://pending.invalid/hours-per-brand/) - Flat-fee time tracking: hours, effective hourly rate and a floor-rate flag for every brand this month, the running timer, hours by category, session notes, and open timers or unsorted sessions with Copy buttons for the reply (example data). Inspired by [Bryant Garvin's post and article on X](https://x.com/BGtoYou/status/2120620547419832748) ([@BGtoYou](https://x.com/BGtoYou)). He charges brands flat monthly fees and talks to Grok Bot to start, switch and end timers; it logs every session into a sheet with hours per brand, fee divided by hours and a floor-rate flag. His full prompt builds a Google Sheet; the Page prompt here is written from his article, and the routine prompt is quoted from it. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/hours-per-brand/](https://grokbotpages.com/t/hours-per-brand/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from his article)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Hours per Brand" from my Client Time Log sheet, and keep updating this same Page instead of making a new one. I charge brands flat monthly fees, so for this month show each brand with its fee, the hours I logged, the fee divided by the hours, and a clear flag when that is under my floor rate. Show what is running right now and for how long. Break each brand's hours down by category (calls, emails, creative direction, campaign setup, reporting and so on) and list its sessions with their notes. Put anything that needs me in a "needs you" list: a timer open more than 3 hours, a session with no end time, or a session whose category you could not tell, each with Copy buttons for the replies I would send you. Never guess an end time.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional, quoted from his article)</summary>
+
+  ```text
+  Set up a routine that checks my Client Time Log every 30 minutes, 8 AM to 6 PM on weekdays. If a session has been open more than 3 hours, message me and ask if I'm still on it. If nothing is wrong, don't message me.
+  ```
+
+  </details>
+
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -936,6 +953,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Hours per Brand](https://pending.invalid/hours-per-brand/) - Flat-fee time tracking: hours, effective hourly rate and a floor-rate flag for every brand this month, the running timer, hours by category, session notes, and open timers or unsorted sessions with Copy buttons for the reply (example data). Inspired by [Bryant Garvin's post and article on X](https://x.com/BGtoYou/status/2120620547419832748) ([@BGtoYou](https://x.com/BGtoYou)). He charges brands flat monthly fees and talks to Grok Bot to start, switch and end timers; it logs every session into a sheet with hours per brand, fee divided by hours and a floor-rate flag. His full prompt builds a Google Sheet; the Page prompt here is written from his article, and the routine prompt is quoted from it. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/hours-per-brand/](https://grokbotpages.com/t/hours-per-brand/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from his article)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Hours per Brand" from my Client Time Log sheet, and keep updating this same Page instead of making a new one. I charge brands flat monthly fees, so for this month show each brand with its fee, the hours I logged, the fee divided by the hours, and a clear flag when that is under my floor rate. Show what is running right now and for how long. Break each brand's hours down by category (calls, emails, creative direction, campaign setup, reporting and so on) and list its sessions with their notes. Put anything that needs me in a "needs you" list: a timer open more than 3 hours, a session with no end time, or a session whose category you could not tell, each with Copy buttons for the replies I would send you. Never guess an end time.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional, quoted from his article)</summary>
+
+  ```text
+  Set up a routine that checks my Client Time Log every 30 minutes, 8 AM to 6 PM on weekdays. If a session has been open more than 3 hours, message me and ask if I'm still on it. If nothing is wrong, don't message me.
+  ```
+
+  </details>
 
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
