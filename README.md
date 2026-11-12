@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Cruise Director](https://pending.invalid/cruise-director/) - A family cruise plan on one Page: sailing, cabins and countdown, a card for every day with port times and who does what, decisions waiting with deadlines and Copy buttons for the answers, and the budget so far (example data). Inspired by [CRANZILLA's post on X](https://x.com/CranzillaX/status/2120752595312812066) ([@CranzillaX](https://x.com/CranzillaX)). In the first episode of his Dad Game Upgrades series he built an AI cruise director with Grok Bot that plans his family's cruises and big vacations. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/cruise-director/](https://grokbotpages.com/t/cruise-director/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Cruise Director" for our family cruise, and keep updating this same Page instead of making a new one. At the top: the sailing, the ship, the dates, the cabins and a countdown. Then the trip day by day, one card per day with the port, the time ashore and all aboard, and what each of us is doing (kids club, excursion, pool, dinner). Then a "waiting for you" list of decisions with their deadlines (final payment, excursions, dining time, travel documents), oldest deadline first, each with Copy buttons for the answers I could send you. Add the budget: booked, still to pay and the plan. Only use details from my booking and the cruise line; mark anything you could not confirm as not confirmed.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Cruise Director" Page: every evening at 20:00, check my email for anything from the cruise line or travel agent, update the itinerary, deadlines and budget on the same Page, and move anything that needs a decision to the waiting list. Message me only when a deadline is 7 days away or something changed. If nothing changed, do not message me.
+  ```
+
+  </details>
+
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -936,6 +953,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Cruise Director](https://pending.invalid/cruise-director/) - A family cruise plan on one Page: sailing, cabins and countdown, a card for every day with port times and who does what, decisions waiting with deadlines and Copy buttons for the answers, and the budget so far (example data). Inspired by [CRANZILLA's post on X](https://x.com/CranzillaX/status/2120752595312812066) ([@CranzillaX](https://x.com/CranzillaX)). In the first episode of his Dad Game Upgrades series he built an AI cruise director with Grok Bot that plans his family's cruises and big vacations. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/cruise-director/](https://grokbotpages.com/t/cruise-director/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Cruise Director" for our family cruise, and keep updating this same Page instead of making a new one. At the top: the sailing, the ship, the dates, the cabins and a countdown. Then the trip day by day, one card per day with the port, the time ashore and all aboard, and what each of us is doing (kids club, excursion, pool, dinner). Then a "waiting for you" list of decisions with their deadlines (final payment, excursions, dining time, travel documents), oldest deadline first, each with Copy buttons for the answers I could send you. Add the budget: booked, still to pay and the plan. Only use details from my booking and the cruise line; mark anything you could not confirm as not confirmed.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Cruise Director" Page: every evening at 20:00, check my email for anything from the cruise line or travel agent, update the itinerary, deadlines and budget on the same Page, and move anything that needs a decision to the waiting list. Message me only when a deadline is 7 days away or something changed. If nothing changed, do not message me.
+  ```
+
+  </details>
 
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
