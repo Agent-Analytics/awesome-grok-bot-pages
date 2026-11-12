@@ -200,7 +200,8 @@ import { captureUtm, withUtm } from './utm.js';
     vp.insertAdjacentElement('afterend', btn);
   });
 
-  // Category chips
+  // Category chips are home-only. Click tracking for data-track links is already bound
+  // above, so the 404 page still records template_opened, prompt_copied, and outbound clicks.
   var chips = document.querySelectorAll('[data-filter]');
   if (!chips.length) return;
   var cards = document.querySelectorAll('[data-cats]');

@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 import { server } from './serve.mjs';
 import { parse, slugify } from './parse.mjs';
 import { launch } from './browser.mjs';
-import { targetType, FEATURED_SLUGS, HOME_TITLE, HOME_H1_HTML, OG_IMAGE_ALT, homeDescription } from './build.mjs';
+import { targetType, FEATURED_SLUGS, NOT_FOUND_FEATURED, resolveNotFoundFeatured, HOME_TITLE, HOME_H1_HTML, OG_IMAGE_ALT, homeDescription } from './build.mjs';
 import { captureUtm, withUtm, UTM_STORAGE_KEY } from '../src/utm.js';
 
 const require = createRequire(import.meta.url);
@@ -60,6 +60,11 @@ const viewBare = withUtm('listing_instructions_viewed', { schema_version: 1, ins
 const listedBare = withUtm('get_listed_clicked', { target: 'open_pr' }, { utm_source: 'x', utm_campaign: 'test' });
 const snippetBare = withUtm('snippet_copied', { position: 'section_button', success: true }, { utm_source: 'x', utm_campaign: 'test' });
 check('withUtm leaves contributor events free of explicit utm', entryBare.utm_source === undefined && entryBare.utm_campaign === undefined && entryBare.schema_version === 1 && viewBare.utm_source === undefined && viewBare.instructions === 'pull_request_steps' && listedBare.utm_source === undefined && Object.keys(listedBare).join() === 'target' && snippetBare.utm_source === undefined && snippetBare.success === true);
+const notFoundWant = ['mission-control-two-lists', 'mission-control', 'bot-org-chart'];
+check('404 featured slugs are the three most-opened Pages', JSON.stringify(NOT_FOUND_FEATURED) === JSON.stringify(notFoundWant) && NOT_FOUND_FEATURED.every((slug) => d.entries.some((e) => e.slug === slug)));
+let missingSlug = '';
+try { resolveNotFoundFeatured(['mission-control', 'not-a-real-page'], d.entries); } catch (err) { missingSlug = err.message; }
+check('404 featured list fails when a slug is missing from the catalog', missingSlug.includes('not-a-real-page') && missingSlug.includes('catalog'));
 
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, permissions: ['clipboard-read', 'clipboard-write'] });
 const page = await ctx.newPage();
@@ -176,7 +181,7 @@ check('copy fallback uses execCommand when Clipboard API is missing', execCalls 
 await p2.close();
 // links and assets
 const hrefs = new Set();
-for (const u of ['/', ...d.entries.map((e) => `/t/${e.slug}/`)]) {
+for (const u of ['/', '/404.html', ...d.entries.map((e) => `/t/${e.slug}/`)]) {
   await page.goto(base + u, { waitUntil: 'networkidle' });
   (await page.$$eval('a[href], img[src], link[href], script[src], source[srcset]', (els) => els.map((e) => e.getAttribute('href') || e.getAttribute('src') || e.getAttribute('srcset')))).forEach((h) => hrefs.add(h));
   // Lazy images below the fold only load once scrolled into view, so bring each into view first.
@@ -256,7 +261,30 @@ const wantLocs = ['/', '/llms.txt', '/prompts.json', ...d.entries.map((e) => `/t
 check('sitemap lists every page on grokbotpages.com', JSON.stringify(locs) === JSON.stringify(wantLocs), `${locs.length} urls`);
 check('robots.txt Sitemap line on grokbotpages.com', fs.readFileSync(path.join(dist, 'robots.txt'), 'utf8').includes(`Sitemap: ${SITE}/sitemap.xml`));
 const nf = fs.readFileSync(path.join(dist, '404.html'), 'utf8');
-check('404 title on grokbotpages.com', nf.includes('<title>Page not found | grokbotpages.com</title>'));
+const nfTitles = [...nf.matchAll(/<title>([^<]*)<\/title>/g)].map((m) => m[1]);
+const nfOgTitle = nf.match(/<meta property="og:title" content="([^"]*)">/)?.[1];
+const nfTwTitle = nf.match(/<meta name="twitter:title" content="([^"]*)">/)?.[1];
+check('404 title on grokbotpages.com', nfTitles.length === 1 && nfTitles[0] === 'Page not found | grokbotpages.com' && nfOgTitle === nfTitles[0] && nfTwTitle === nfTitles[0] && nf.includes('<title>Page not found | grokbotpages.com</title>'));
+const nfCards = [...nf.matchAll(/<li class="card"[\s\S]*?<\/li>/g)].map((m) => m[0]);
+const nfData = JSON.parse(nf.match(/<script type="application\/json" id="site-data">([\s\S]*?)<\/script>/)[1]);
+const nfCardProblems = [];
+if (!nf.includes("That Page isn't here. Start with one of these.")) nfCardProblems.push('lead');
+if (!nf.includes('<a class="btn pri" href="/">Browse templates</a>')) nfCardProblems.push('home link');
+if (nf.includes('\u2014')) nfCardProblems.push('em dash');
+if (nfCards.length !== NOT_FOUND_FEATURED.length) nfCardProblems.push('count ' + nfCards.length);
+NOT_FOUND_FEATURED.forEach((slug, i) => {
+  const card = nfCards[i] || '';
+  const entry = d.entries.find((e) => e.slug === slug);
+  const open = card.match(/<a href="[^"]+" class="btn pri sm"[^>]*>/)?.[0] || '';
+  const copy = card.match(/<button type="button" class="btn sm"[^>]*>/)?.[0] || '';
+  const view = card.match(/<a class="btn ghost sm"[^>]*>View/)?.[0] || '';
+  if (!card.includes(`data-page-slug="${slug}"`) || !open.includes('data-track="template_opened"') || !open.includes('data-position="404"') || !open.includes('data-source="404"') || !open.includes(`data-page-slug="${slug}"`)) nfCardProblems.push('open ' + slug);
+  if (!copy.includes(`data-copy="${slug}"`) || !copy.includes('data-track="prompt_copied"') || !copy.includes('data-position="404"') || !copy.includes('data-source="404"') || !copy.includes(`data-page-slug="${slug}"`)) nfCardProblems.push('copy ' + slug);
+  if (!view.includes(`href="/t/${slug}/"`)) nfCardProblems.push('view ' + slug);
+  if (!card.includes('Open live Page') || !card.includes('Copy prompt')) nfCardProblems.push('labels ' + slug);
+  if (nfData.prompts?.[slug] !== entry?.prompt) nfCardProblems.push('prompt data ' + slug);
+});
+check('404 renders the three featured cards', nfCardProblems.length === 0, nfCardProblems.join(' | '));
 
 function walkFiles(dir) {
   const out = [];
@@ -393,8 +421,8 @@ check('prompts.json is served', promptsRes.status === 200 && (promptsRes.headers
 // by the localhost dev logger, and so the no-global case stays empty.
 const SNIPPET = '<script async src="https://api.agentanalytics.sh/tracker.js" data-project="grokpages.com" data-token="aat_7a16c5a08900e1aa55e2d7a97f26167b063a0d5d73a4477c"></script>';
 const POS = {
-  template_opened: ['featured', 'grid', 'detail_top', 'caption', 'links_box'],
-  prompt_copied: ['card', 'detail_top', 'prompt_block', 'home_featured'],
+  template_opened: ['featured', 'grid', 'detail_top', 'caption', 'links_box', '404'],
+  prompt_copied: ['card', 'detail_top', 'prompt_block', 'home_featured', '404'],
   snippet_copied: ['section_button', 'code_header'],
   entry_snippet_copied: ['section_button', 'code_header'],
   outbound_clicked: ['header', 'footer', 'credit', 'links_box', 'how_to'],
@@ -443,9 +471,9 @@ const seen = { positions: new Set(), types: new Set(), targets: new Set(), sourc
 for (const pathName of paths) {
   const raw = await (await fetch(base + pathName)).text();
   check(`snippet once ${pathName}`, raw.split(SNIPPET).length - 1 === 1 && !raw.includes('aa.set'));
-  if (pathName === '/') {
+  if (pathName === '/' || pathName === '/404.html') {
     const appAt = raw.indexOf('<script type="module" src="/assets/app.js"></script>');
-    check('app.js is not blocked on the tracker', appAt !== -1 && appAt < raw.indexOf(SNIPPET));
+    check(`app.js is not blocked on the tracker ${pathName}`, appAt !== -1 && appAt < raw.indexOf(SNIPPET));
   }
   await page.goto(base + pathName, { waitUntil: 'domcontentloaded' });
   const tracks = await readTracks(page);
@@ -464,6 +492,8 @@ for (const pathName of paths) {
       const entry = entryBySlug[t.page_slug];
       if (!POS.template_opened.includes(t.position) || !entry || t.href !== entry.url) problems.push('template ' + t.position + ' ' + t.page_slug);
       if (!entry || t.category !== slugify(entry.categories[0])) problems.push('template category ' + t.page_slug + ' ' + t.category);
+      if (t.position === '404' && (pathName !== '/404.html' || t.source !== '404')) problems.push('template 404 source ' + t.page_slug + ' ' + t.source);
+      if (t.position !== '404' && t.source) problems.push('template source ' + t.position + ' ' + t.source);
     } else if (t.event === 'prompt_copied') {
       seen.positions.add('prompt_copied:' + t.position);
       const entry = entryBySlug[t.page_slug];
@@ -471,6 +501,8 @@ for (const pathName of paths) {
       if (!entry || t.category !== slugify(entry.categories[0])) problems.push('prompt category ' + t.page_slug + ' ' + t.category);
       if (t.position === 'home_featured' && t.location !== 'home_featured') problems.push('home featured location');
       if (t.position !== 'home_featured' && t.location) problems.push('unexpected location ' + t.location);
+      if (t.position === '404' && (pathName !== '/404.html' || t.source !== '404')) problems.push('prompt 404 source ' + t.page_slug + ' ' + t.source);
+      if (t.position !== '404' && t.source) problems.push('prompt source ' + t.position + ' ' + t.source);
     } else if (t.event === 'snippet_copied') {
       seen.positions.add('snippet_copied:' + t.position);
       if (!POS.snippet_copied.includes(t.position) || t.copy !== 'snippet' || t.page_slug || t.snippet) problems.push('snippet ' + t.position);
@@ -534,13 +566,21 @@ for (const pathName of paths) {
     const related = tracks.filter((t) => t.event === 'related_clicked');
     if (related.length !== siblingsOf(entryBySlug[detailSlug]).length) problems.push('related count ' + related.length);
     if (tracks.some((t) => t.event === 'snippet_copied' || t.event === 'entry_snippet_copied' || t.event === 'listing_instructions_viewed' || t.position === 'featured' || t.position === 'grid' || t.position === 'card' || t.position === 'home_featured')) problems.push('detail has home-only track');
-  } else if (tracks.some((t) => ['template_opened', 'prompt_copied', 'snippet_copied', 'entry_snippet_copied', 'listing_instructions_viewed', 'category_filtered', 'related_clicked'].includes(t.event))) {
-    problems.push('404 has page-only events');
+  } else {
+    const opened = tracks.filter((t) => t.event === 'template_opened');
+    const copied = tracks.filter((t) => t.event === 'prompt_copied');
+    if (opened.length !== NOT_FOUND_FEATURED.length || copied.length !== NOT_FOUND_FEATURED.length) problems.push(`404 cards ${opened.length}/${copied.length}`);
+    NOT_FOUND_FEATURED.forEach((slug, i) => {
+      if (opened[i]?.page_slug !== slug || opened[i]?.position !== '404' || opened[i]?.source !== '404') problems.push('open ' + slug);
+      if (copied[i]?.page_slug !== slug || copied[i]?.position !== '404' || copied[i]?.source !== '404') problems.push('copy ' + slug);
+    });
+    if (tracks.some((t) => ['snippet_copied', 'entry_snippet_copied', 'listing_instructions_viewed', 'related_clicked'].includes(t.event))) problems.push('404 has home-only events');
+    if (tracks.some((t) => ['featured', 'grid', 'card', 'home_featured'].includes(t.position))) problems.push('404 uses a home position');
   }
   check(`data-track wiring ${pathName}`, problems.length === 0, problems.join(' | '));
 }
 const expectFeat = !FEATURED_SLUGS.includes(d.entries[0].slug);
-const needPos = [expectFeat && 'template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'snippet_copied:section_button', 'snippet_copied:code_header', 'entry_snippet_copied:section_button', 'entry_snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'].filter(Boolean);
+const needPos = [expectFeat && 'template_opened:featured', 'template_opened:grid', 'template_opened:detail_top', 'template_opened:caption', 'template_opened:links_box', 'template_opened:404', 'prompt_copied:card', 'prompt_copied:detail_top', 'prompt_copied:prompt_block', 'prompt_copied:home_featured', 'prompt_copied:404', 'snippet_copied:section_button', 'snippet_copied:code_header', 'entry_snippet_copied:section_button', 'entry_snippet_copied:code_header', 'outbound_clicked:header', 'outbound_clicked:footer', 'outbound_clicked:credit', 'outbound_clicked:links_box', 'outbound_clicked:how_to'].filter(Boolean);
 check('every position is used', needPos.every((p) => seen.positions.has(p)), [...seen.positions].sort().join(' '));
 // A cited original Grok Page is type page. The listed example URL stays template_opened, so it is not an outbound page.
 const allowedOutbound = new Set(['repo', 'page', 'other']);
@@ -765,6 +805,40 @@ if (!detailEntry) {
 }
 await ap.close();
 
+const nfPage = await ctx.newPage();
+await nfPage.route('https://api.agentanalytics.sh/**', (route) => route.abort());
+await nfPage.addInitScript(() => {
+  window.__aaEvents = [];
+  window.aa = { track: (name, props) => { window.__aaEvents.push({ name, props }); } };
+});
+const nfNav = await nfPage.goto(base + '/t/does-not-exist/', { waitUntil: 'domcontentloaded' });
+check('missing path keeps HTTP 404', nfNav.status() === 404);
+check('404 document title is unchanged', (await nfPage.title()) === 'Page not found | grokbotpages.com');
+const nfDom = await nfPage.evaluate(() => ({
+  cards: document.querySelectorAll('.nf .card').length,
+  app: !!document.querySelector('script[src="/assets/app.js"]'),
+  tracker: !!document.querySelector('script[src*="agentanalytics.sh/tracker.js"]'),
+}));
+check('404 shows three cards and loads click tracking', nfDom.cards === NOT_FOUND_FEATURED.length && nfDom.app && nfDom.tracker, JSON.stringify(nfDom));
+await clearAa(nfPage);
+await fire(nfPage, 'header a[data-track="outbound_clicked"]');
+const nfHeaderHref = await nfPage.getAttribute('header a[data-track="outbound_clicked"]', 'href');
+await expectEvents(nfPage, [{ name: 'outbound_clicked', props: { target_url: nfHeaderHref, target_type: targetType(nfHeaderHref), position: 'header' } }], '404 header link fires outbound_clicked');
+for (const slug of NOT_FOUND_FEATURED) {
+  const entry = d.entries.find((e) => e.slug === slug);
+  await clearAa(nfPage);
+  await fire(nfPage, `.nf a[data-track="template_opened"][data-page-slug="${slug}"]`);
+  await expectEvents(nfPage, [{ name: 'template_opened', props: { page_slug: slug, position: '404', category: cat(entry), source: '404' } }], `404 open ${slug} fires template_opened position and source 404`);
+  await clearAa(nfPage);
+  await nfPage.evaluate(() => navigator.clipboard.writeText(''));
+  await nfPage.click(`.nf [data-copy="${slug}"]`);
+  await nfPage.waitForTimeout(150);
+  const nfClip = await nfPage.evaluate(() => navigator.clipboard.readText());
+  check(`404 copy prompt ${slug}`, nfClip === entry.prompt, `${nfClip.length} chars`);
+  await expectEvents(nfPage, [{ name: 'prompt_copied', props: { page_slug: slug, position: '404', category: cat(entry), source: '404', success: true } }], `404 copy ${slug} fires prompt_copied position and source 404`);
+}
+await nfPage.close();
+
 const utmPage = await ctx.newPage();
 await utmPage.route('https://api.agentanalytics.sh/**', (route) => route.abort());
 await utmPage.addInitScript(() => {
@@ -884,6 +958,22 @@ const gl390 = await mNavPage.evaluate(() => {
   };
 });
 check('get listed controls fit at 390px', gl390.overflow === false && gl390.off.length === 0 && gl390.summary.h >= 32 && gl390.summary.left >= 0 && gl390.summary.right <= gl390.vw + 1, JSON.stringify(gl390));
+await mNavPage.goto(base + '/t/does-not-exist/', { waitUntil: 'networkidle' });
+const nf390 = await mNavPage.evaluate(() => {
+  const vw = document.documentElement.clientWidth;
+  const buttons = [...document.querySelectorAll('.nf .act .btn, .nf .act a.btn')].map((a) => {
+    const b = a.getBoundingClientRect();
+    return { t: a.textContent.replace(/\s+/g, ' ').trim(), left: Math.round(b.left), right: Math.round(b.right), h: Math.round(b.height) };
+  });
+  return {
+    title: document.title,
+    cards: document.querySelectorAll('.nf .card').length,
+    overflow: document.documentElement.scrollWidth > vw + 1,
+    off: buttons.filter((b) => b.left < -1 || b.right > vw + 1 || b.h < 32),
+    vw,
+  };
+});
+check('404 cards fit at 390px', nf390.title === 'Page not found | grokbotpages.com' && nf390.cards === 3 && nf390.overflow === false && nf390.off.length === 0, JSON.stringify(nf390));
 await mNavPage.goto(base + '/t/mission-control/', { waitUntil: 'networkidle' });
 const mobileShot = await mNavPage.evaluate(() => {
   const img = document.querySelector('.viewport img');
