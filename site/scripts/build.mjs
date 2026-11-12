@@ -8,6 +8,11 @@ import { parse, slugify } from './parse.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'dist');
 const SITE = 'https://grokbotpages.com';
+export const HOME_TITLE = 'Grok Bot Pages (Grok Pages): templates and the prompts that built them';
+// One sentence, derived from the live template count. Kept in the 140-155 character range at the current count.
+export function homeDescription(count) {
+  return `There are ${count} live public Grok Bot Pages you can open on this site, and each one includes the prompt that built it so you can copy that prompt.`;
+}
 // Default set when the README has no featured flag. Two Lists and News Pulse stay in front.
 export const FEATURED_SLUGS = ['mission-control-two-lists', 'news-pulse', 'morning-brief'];
 const GROK = 'https://x.ai/bot';
@@ -100,6 +105,8 @@ ${head}<meta name="theme-color" content="#0a0a0a">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="grokbotpages.com: Copy a Grok Bot Page, with screenshots of the listed templates">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${SITE}/og.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -248,7 +255,7 @@ function home() {
   const feat = newest ? `<article class="feat" data-cats="${cats(newest)}"><a class="shot" href="/t/${newest.slug}/" tabindex="-1" aria-hidden="true">${shotImg(newest, '', true)}</a><div class="body"><div>${tags(newest)}</div>
 <h3><a href="/t/${newest.slug}/">${esc(newest.title)}</a></h3><p>${esc(newest.short)}</p><p class="cr">${creditLine(newest)}</p>${aaLine(newest)}
 <div class="pv" aria-hidden="true">${esc(newest.prompt)}</div>${actions(newest, '', 'featured')}</div></article>` : '';
-  const body = `<section class="hero" aria-labelledby="hero-h"><h1 id="hero-h">Copy a <em>Grok Bot Page.</em></h1>
+  const body = `<section class="hero" aria-labelledby="hero-h"><h1 id="hero-h">Copy a <em>Grok Bot Pages template.</em></h1>
 <p>Every template is a live public Page plus the exact prompt that built it.</p>
 <div class="cta"><a class="btn pri" href="#templates">Browse templates</a><a class="btn" href="#get-listed">Get your Page listed</a></div></section>
 ${featuredPages()}
@@ -261,9 +268,11 @@ ${feat}
 <div class="empty-state" id="empty" hidden><p>No Pages in <strong data-empty-name></strong> yet.</p><a class="btn pri" href="#get-listed">Add yours</a></div>
 </section>
 ${getListed()}`;
+  const description = homeDescription(d.entries.length);
+  if (description.length > 160) throw new Error(`Home description is ${description.length} characters`);
   return layout({
-    title: 'grokbotpages.com: Grok Bot Pages templates with their prompts',
-    description: `Live public Grok Bot Pages and the exact prompts that built them. ${d.entries.length} templates: ${d.entries.map((e) => e.title).join(', ')}.`,
+    title: HOME_TITLE,
+    description,
     pathName: '/', body,
     data: { snippet: d.snippet, entry: d.entry, prompts: Object.fromEntries(d.entries.map((e) => [e.slug, e.prompt])) },
   });
@@ -345,6 +354,13 @@ for (const e of d.entries) {
   fs.writeFileSync(path.join(dist, 't', e.slug, 'prompt.md'), md);
 }
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
+// Cloudflare Pages reads dist/_redirects. The literal /t/slug placeholder was crawled as a 404.
+fs.writeFileSync(path.join(dist, '_redirects'), [
+  '# Placeholder path crawled as a 404. Both forms go home.',
+  '/t/slug/ https://grokbotpages.com/ 301',
+  '/t/slug https://grokbotpages.com/ 301',
+  '',
+].join('\n'));
 const locs = ['/', '/llms.txt', '/prompts.json', ...d.entries.map((e) => `/t/${e.slug}/`)];
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locs.map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}\n</urlset>\n`);
 console.log(`Built ${Object.keys(pages).length} pages into dist/ (${d.entries.length} templates, ${d.categories.length} categories)`);
