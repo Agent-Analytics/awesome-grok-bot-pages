@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Project Library](https://pending.invalid/project-library/) - A daily library of AI projects collected from X: a dense grid of coded cards filtered by category, tag and keyword, an analysis panel for each project, a compare table per category, and new finds waiting for a Copy keep or Copy skip (example data). Inspired by [HackerLife's post on X](https://x.com/hacker_life2024/status/2120898917584031942) ([@hacker_life2024](https://x.com/hacker_life2024)). His Grok Bot watches good AI projects on X every day, analyses and sorts them, and keeps them in his public Page 项目库 (Project Library), with filters and a compare view. No prompt was shared, so the prompt is written from the post and his public Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/project-library/](https://grokbotpages.com/t/project-library/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Project Library" and keep updating this same Page instead of making a new one. Every day, collect good AI projects from my X bookmarks, my daily picks and the comments under popular posts. Give each project a short code, a one-line summary, a main category (Games, Agent engineering, LLM tools, Other), tags, links to its source code, a preview and the original post, and how deep the analysis is (Full or Light). Show them as a dense grid of small cards I can filter by category, tag and keyword, and open any card to read its analysis: what it does, how it works, who it is for, and what is weak about it. Add a compare view for one category with a short table and a one-line verdict. Put new projects you are not sure about in a "waiting for you" list, each with a Copy keep and a Copy skip button. Say clearly that the picks reflect my taste.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Project Library" Page: every morning at 07:00, read my new X bookmarks and the posts I picked yesterday, add any new AI project with a full or light analysis, and update the counts on the same Page. Never add a project twice. Put anything you are unsure about in the waiting list and send me one line saying how many are waiting. If nothing is new, change nothing and do not message me.
+  ```
+
+  </details>
+
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1553,6 +1570,23 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 ## Research
 
 Explainers and sourced reports.
+
+- [Project Library](https://pending.invalid/project-library/) - A daily library of AI projects collected from X: a dense grid of coded cards filtered by category, tag and keyword, an analysis panel for each project, a compare table per category, and new finds waiting for a Copy keep or Copy skip (example data). Inspired by [HackerLife's post on X](https://x.com/hacker_life2024/status/2120898917584031942) ([@hacker_life2024](https://x.com/hacker_life2024)). His Grok Bot watches good AI projects on X every day, analyses and sorts them, and keeps them in his public Page 项目库 (Project Library), with filters and a compare view. No prompt was shared, so the prompt is written from the post and his public Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/project-library/](https://grokbotpages.com/t/project-library/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Project Library" and keep updating this same Page instead of making a new one. Every day, collect good AI projects from my X bookmarks, my daily picks and the comments under popular posts. Give each project a short code, a one-line summary, a main category (Games, Agent engineering, LLM tools, Other), tags, links to its source code, a preview and the original post, and how deep the analysis is (Full or Light). Show them as a dense grid of small cards I can filter by category, tag and keyword, and open any card to read its analysis: what it does, how it works, who it is for, and what is weak about it. Add a compare view for one category with a short table and a one-line verdict. Put new projects you are not sure about in a "waiting for you" list, each with a Copy keep and a Copy skip button. Say clearly that the picks reflect my taste.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Project Library" Page: every morning at 07:00, read my new X bookmarks and the posts I picked yesterday, add any new AI project with a full or light analysis, and update the counts on the same Page. Never add a project twice. Put anything you are unsure about in the waiting list and send me one line saying how many are waiting. If nothing is new, change nothing and do not message me.
+  ```
+
+  </details>
 
 - [Mention Scan](https://mention-scan-example-pcrq.pages.grok.bot/) - Every time one creator mentioned a topic in 6 months, on one Page: extra names the bot added, a month by month mention chart, one card per claim with a quote, the sources they shared and a grade (Backed, Mixed, Not backed, No source), grade filters, and a Copy button with a follow-up question for each weak claim (example data). Inspired by [Dave Gambrill's post on X](https://x.com/gambrill/status/2120136983729074408) ([@gambrill](https://x.com/gambrill)). Dave asked his bot to scan one creator's last 6 months for one topic, it widened the search to other names, and he made the resulting Page public; his prompt from the post's screenshot is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mention-scan/](https://grokbotpages.com/t/mention-scan/).
