@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Meat Done Right](https://pending.invalid/meat-done-right/) - Cook card for expensive meat: pick a cut, a cooker and a doneness to get the cooker temperature, pull and finish temperatures with carryover, rest time and tips, each number sourced, the USDA safe minimum alongside, and this week's meat specials with a Copy shopping note button (example data). Inspired by [Wendy Bowman's post on X](https://x.com/TeslaTakesOver/status/2120947377809105105) ([@TeslaTakesOver](https://x.com/TeslaTakesOver)). She built a Grok Bot called Meat Done Right that gives a cook card with pull and finish temperatures and rest times for six kinds of cooker, and watches the weekly ads near her zip code for meat specials. Her own public Page is the Premium Meat Playbook. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/meat-done-right/](https://grokbotpages.com/t/meat-done-right/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Meat Done Right" so I stop overcooking expensive meat, and keep updating this same Page instead of making a new one. Let me pick a cut (ribeye, strip, brisket, thick pork chop, pork ribs, chicken thighs and so on), a cooker (pellet smoker, gas grill, charcoal grill, wood fire, sous vide, cast iron) and a doneness where it applies. For that choice show one cook card: cooker temperature, the pull temperature, the finish temperature after carryover, the rest time, about how long it takes, and two or three short tips. Name the source for every number, and show the USDA safe minimum next to it whenever my doneness is below it. Add a section with this week's meat specials near my zip code from the weekly ads, each with store, price, normal price and the dates, plus a Copy shopping note button. Only list a special if it is really worth buying; if nothing is, say so.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Meat Done Right" Page: every Wednesday at 08:00, check the weekly ads for grocery stores and butchers near my zip code for meat specials, keep only the ones at least 20% under the usual price, and update the specials section on the same Page with store, price, usual price and dates. If nothing is worth buying, change nothing and do not message me. If a special matches a cook I have planned, send me one line about it.
+  ```
+
+  </details>
+
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -936,6 +953,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Meat Done Right](https://pending.invalid/meat-done-right/) - Cook card for expensive meat: pick a cut, a cooker and a doneness to get the cooker temperature, pull and finish temperatures with carryover, rest time and tips, each number sourced, the USDA safe minimum alongside, and this week's meat specials with a Copy shopping note button (example data). Inspired by [Wendy Bowman's post on X](https://x.com/TeslaTakesOver/status/2120947377809105105) ([@TeslaTakesOver](https://x.com/TeslaTakesOver)). She built a Grok Bot called Meat Done Right that gives a cook card with pull and finish temperatures and rest times for six kinds of cooker, and watches the weekly ads near her zip code for meat specials. Her own public Page is the Premium Meat Playbook. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/meat-done-right/](https://grokbotpages.com/t/meat-done-right/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Meat Done Right" so I stop overcooking expensive meat, and keep updating this same Page instead of making a new one. Let me pick a cut (ribeye, strip, brisket, thick pork chop, pork ribs, chicken thighs and so on), a cooker (pellet smoker, gas grill, charcoal grill, wood fire, sous vide, cast iron) and a doneness where it applies. For that choice show one cook card: cooker temperature, the pull temperature, the finish temperature after carryover, the rest time, about how long it takes, and two or three short tips. Name the source for every number, and show the USDA safe minimum next to it whenever my doneness is below it. Add a section with this week's meat specials near my zip code from the weekly ads, each with store, price, normal price and the dates, plus a Copy shopping note button. Only list a special if it is really worth buying; if nothing is, say so.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Meat Done Right" Page: every Wednesday at 08:00, check the weekly ads for grocery stores and butchers near my zip code for meat specials, keep only the ones at least 20% under the usual price, and update the specials section on the same Page with store, price, usual price and dates. If nothing is worth buying, change nothing and do not message me. If a special matches a cook I have planned, send me one line about it.
+  ```
+
+  </details>
 
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
