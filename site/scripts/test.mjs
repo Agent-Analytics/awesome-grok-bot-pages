@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 import { server } from './serve.mjs';
 import { parse, slugify } from './parse.mjs';
 import { launch } from './browser.mjs';
-import { targetType, FEATURED_SLUGS, HOME_TITLE, homeDescription } from './build.mjs';
+import { targetType, FEATURED_SLUGS, HOME_TITLE, HOME_H1_HTML, OG_IMAGE_ALT, homeDescription } from './build.mjs';
 import { captureUtm, withUtm, UTM_STORAGE_KEY } from '../src/utm.js';
 
 const require = createRequire(import.meta.url);
@@ -242,7 +242,10 @@ for (const u of ['/', ...d.entries.map((e) => `/t/${e.slug}/`)]) {
     const h1 = meta(html, /<h1 id="hero-h">([\s\S]*?)<\/h1>/);
     check('home title is the Grok Bot Pages brand line', title === HOME_TITLE, title);
     check('home description length', desc === expectedDesc && desc.length <= 160 && desc.length >= 140 && desc.length <= 155 && !desc.includes('\u2014') && desc.includes(String(d.entries.length)) && desc.includes('Grok Bot Pages'), `${desc.length} chars`);
-    check('home h1 includes Grok Bot Pages', h1 === 'Copy a <em>Grok Bot Pages template.</em>' && h1.includes('Grok Bot Pages') && h1.startsWith('Copy a '), h1);
+    const ogAlt = meta(html, /<meta property="og:image:alt" content="([^"]*)">/);
+    const twImg = meta(html, /<meta name="twitter:image" content="([^"]*)">/);
+    check('home h1 includes Grok Bot Pages', h1 === HOME_H1_HTML && h1.includes('Grok Bot Pages') && h1.startsWith('Copy a '), h1);
+    check('home og image alt matches the hero', ogAlt === OG_IMAGE_ALT && !ogAlt.includes('\u2014') && twImg === SITE + '/og.png', ogAlt);
   }
   const stray = html.replaceAll('data-project="grokpages.com"', '').match(/grokpages\.com/g);
   check(`no grokpages.com mention ${u}`, !stray, stray ? `${stray.length} found` : '');

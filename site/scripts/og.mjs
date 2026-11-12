@@ -4,12 +4,14 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { parse } from './parse.mjs';
 import { launch } from './browser.mjs';
+import { HOME_H1_HTML } from './build.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const { entries } = parse();
 const font = (f) => 'data:font/woff2;base64,' + fs.readFileSync(path.join(root, 'node_modules/geist/dist/fonts', f)).toString('base64');
 const img = (slug) => 'data:image/webp;base64,' + fs.readFileSync(path.join(root, 'public/shots', `${slug}.webp`)).toString('base64');
 const shots = entries.slice(0, 4);
+const subtitle = `${entries.length} live Grok Bot Pages you can open, each with the prompt that built it to copy.`;
 const html = `<!doctype html><html><head><style>
 @font-face{font-family:G;src:url(${font('geist-sans/Geist-Variable.woff2')})}@font-face{font-family:GM;src:url(${font('geist-mono/GeistMono-Variable.woff2')})}
 *{margin:0;box-sizing:border-box}body{width:1200px;height:630px;overflow:hidden;background:#0a0a0a;color:#fafafa;font-family:G;position:relative}
@@ -22,8 +24,9 @@ p{font-size:24px;color:#a3a3a3;margin-top:24px;line-height:1.35}
 .r figure{border:1px solid #2a2a2a;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/10;box-shadow:0 20px 40px rgba(0,0,0,.5)}
 .r img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}.r figure:nth-child(2n){transform:translateY(40px)}
 </style></head><body><div class="l"><div class="wm">grokbotpages<span>.com</span></div><div class="pill">Grok Bot Pages templates</div>
-<h1>Copy a <em>Grok Bot Page.</em></h1><p>Live public Pages plus the exact prompts that built them.</p></div>
+<h1>${HOME_H1_HTML}</h1><p>${subtitle}</p></div>
 <div class="r">${shots.map((e) => `<figure><img src="${img(e.slug)}"></figure>`).join('')}</div></body></html>`;
+if (html.includes('\u2014') || subtitle.includes('\u2014')) throw new Error('Em dash in og image');
 const b = await launch();
 const p = await b.newPage({ viewport: { width: 1200, height: 630 } });
 await p.setContent(html, { waitUntil: 'load' });

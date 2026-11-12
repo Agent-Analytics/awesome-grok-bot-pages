@@ -9,6 +9,8 @@ const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'dist');
 const SITE = 'https://grokbotpages.com';
 export const HOME_TITLE = 'Grok Bot Pages (Grok Pages): templates and the prompts that built them';
+export const HOME_H1_HTML = 'Copy a <em>Grok Bot Pages template.</em>';
+export const OG_IMAGE_ALT = 'grokbotpages.com: Copy a Grok Bot Pages template, with screenshots of the listed templates';
 // One sentence, derived from the live template count. Kept in the 140-155 character range at the current count.
 export function homeDescription(count) {
   return `There are ${count} live public Grok Bot Pages you can open on this site, and each one includes the prompt that built it so you can copy that prompt.`;
@@ -103,7 +105,7 @@ ${head}<meta name="theme-color" content="#0a0a0a">
 <meta property="og:image" content="${SITE}/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="grokbotpages.com: Copy a Grok Bot Page, with screenshots of the listed templates">
+<meta property="og:image:alt" content="${esc(OG_IMAGE_ALT)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
@@ -255,7 +257,7 @@ function home() {
   const feat = newest ? `<article class="feat" data-cats="${cats(newest)}"><a class="shot" href="/t/${newest.slug}/" tabindex="-1" aria-hidden="true">${shotImg(newest, '', true)}</a><div class="body"><div>${tags(newest)}</div>
 <h3><a href="/t/${newest.slug}/">${esc(newest.title)}</a></h3><p>${esc(newest.short)}</p><p class="cr">${creditLine(newest)}</p>${aaLine(newest)}
 <div class="pv" aria-hidden="true">${esc(newest.prompt)}</div>${actions(newest, '', 'featured')}</div></article>` : '';
-  const body = `<section class="hero" aria-labelledby="hero-h"><h1 id="hero-h">Copy a <em>Grok Bot Pages template.</em></h1>
+  const body = `<section class="hero" aria-labelledby="hero-h"><h1 id="hero-h">${HOME_H1_HTML}</h1>
 <p>Every template is a live public Page plus the exact prompt that built it.</p>
 <div class="cta"><a class="btn pri" href="#templates">Browse templates</a><a class="btn" href="#get-listed">Get your Page listed</a></div></section>
 ${featuredPages()}
