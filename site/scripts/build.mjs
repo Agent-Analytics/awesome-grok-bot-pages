@@ -17,6 +17,16 @@ export function homeDescription(count) {
 }
 // Default set when the README has no featured flag. Two Lists and News Pulse stay in front.
 export const FEATURED_SLUGS = ['mission-control-two-lists', 'news-pulse', 'morning-brief'];
+// 404 recovery cards, in display order. Update this list only; the not-found layout maps it.
+// template_opened unique users, 30 days ending 2026-11-12: mission-control-two-lists 17,
+// mission-control 13, bot-org-chart 14 users (16 events).
+export const NOT_FOUND_FEATURED = ['mission-control-two-lists', 'mission-control', 'bot-org-chart'];
+export function resolveNotFoundFeatured(slugs, entries) {
+  const known = new Set(entries.map((e) => e.slug));
+  const missing = slugs.filter((slug) => !known.has(slug));
+  if (missing.length) throw new Error(`NOT_FOUND_FEATURED slug not in catalog: ${missing.join(', ')}`);
+  return slugs.map((slug) => entries.find((e) => e.slug === slug));
+}
 const GROK = 'https://x.ai/bot';
 const AA = 'https://agentanalytics.sh';
 const d = parse();
@@ -45,7 +55,7 @@ const ext = (url, text, cls = '', event = '', params = null) => {
   return `<a href="${esc(url)}"${clsAttr}${track} target="_blank" rel="noopener">${text}</a>`;
 };
 const outbound = (url, text, position, cls = '') => ext(url, text, cls, 'outbound_clicked', { target_url: url, target_type: targetType(url), position });
-const liveLink = (e, text, position, cls = '') => ext(e.url, text, cls, 'template_opened', { page_slug: e.slug, position, category: catSlug(e.categories[0]) });
+const liveLink = (e, text, position, cls = '', extra) => ext(e.url, text, cls, 'template_opened', { page_slug: e.slug, position, category: catSlug(e.categories[0]), ...(extra || {}) });
 const copyButton = (slug, position, label, cls, extra) => {
   const event = slug === 'snippet' ? 'snippet_copied' : slug === 'entry' ? 'entry_snippet_copied' : 'prompt_copied';
   const params = { position, ...(extra || {}) };
@@ -82,7 +92,12 @@ function creditLine(e) {
 const tags = (e) => e.categories.map((c) => `<a class="tag" href="/#c=${catSlug(c)}" data-track="category_filtered" data-category="${catSlug(c)}" data-source="link">${esc(c)}</a>`).join(' ') + (e.exampleData ? '<span class="ex">Example data</span>' : '');
 const aaLine = (e) => (isAA(e) ? `<p class="aa">Data from ${outbound(AA, 'Agent Analytics', 'credit')}, recommended for dashboard data.</p>` : '');
 const shotImg = (e, cls = '', eager = false) => `<img src="/shots/${e.slug}.webp" width="960" height="600" alt="Screenshot of the ${esc(e.title)} Page"${eager ? '' : ' loading="lazy"'} decoding="async"${cls ? ` class="${cls}"` : ''}>`;
-const actions = (e, sm, livePosition) => `<div class="act">${liveLink(e, 'Open live Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', livePosition, 'btn pri' + sm)}${copyButton(e.slug, 'card', 'Copy prompt', 'btn' + sm)}<a class="btn ghost${sm}" href="/t/${e.slug}/">View<span class="sr-only"> ${esc(e.title)} template</span></a></div>`;
+const actions = (e, sm, livePosition, copyPosition = 'card', extra) => `<div class="act">${liveLink(e, 'Open live Page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>', livePosition, 'btn pri' + sm, extra)}${copyButton(e.slug, copyPosition, 'Copy prompt', 'btn' + sm, extra)}<a class="btn ghost${sm}" href="/t/${e.slug}/">View<span class="sr-only"> ${esc(e.title)} template</span></a></div>`;
+function entryCard(e, livePosition, copyPosition = 'card', extra) {
+  const cats = e.categories.map(catSlug).join(' ');
+  return `<li class="card" data-cats="${cats}"><a class="shot" href="/t/${e.slug}/" tabindex="-1" aria-hidden="true">${shotImg(e)}</a><div class="body"><div>${tags(e)}</div>
+<h3><a href="/t/${e.slug}/">${esc(e.title)}</a></h3><p>${esc(e.short)}</p><p class="cr">${creditLine(e)}</p>${aaLine(e)}${actions(e, ' sm', livePosition, copyPosition, extra)}</div></li>`;
+}
 const dataBlob = (obj) => `<script type="application/json" id="site-data">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 
 function layout({ title, description, pathName, body, data, head = '' }) {
@@ -252,8 +267,7 @@ function home() {
   const chips = [`<li><button type="button" class="chip" data-filter="all" data-name="All" data-track="category_filtered" data-category="all" data-source="click" aria-pressed="true">All <b>${d.entries.length}</b></button></li>`,
     ...d.categories.map((c) => `<li><button type="button" class="chip${c.count ? '' : ' empty'}" data-filter="${c.slug}" data-name="${esc(c.name)}" data-track="category_filtered" data-category="${c.slug}" data-source="click" aria-pressed="false" title="${esc(c.blurb)}">${esc(c.name)} <b>${c.count}</b><span class="sr-only"> ${c.count === 1 ? 'Page' : 'Pages'}</span></button></li>`)].join('');
   const cats = (e) => e.categories.map(catSlug).join(' ');
-  const card = (e) => `<li class="card" data-cats="${cats(e)}"><a class="shot" href="/t/${e.slug}/" tabindex="-1" aria-hidden="true">${shotImg(e)}</a><div class="body"><div>${tags(e)}</div>
-<h3><a href="/t/${e.slug}/">${esc(e.title)}</a></h3><p>${esc(e.short)}</p><p class="cr">${creditLine(e)}</p>${aaLine(e)}${actions(e, ' sm', 'grid')}</div></li>`;
+  const card = (e) => entryCard(e, 'grid');
   const feat = newest ? `<article class="feat" data-cats="${cats(newest)}"><a class="shot" href="/t/${newest.slug}/" tabindex="-1" aria-hidden="true">${shotImg(newest, '', true)}</a><div class="body"><div>${tags(newest)}</div>
 <h3><a href="/t/${newest.slug}/">${esc(newest.title)}</a></h3><p>${esc(newest.short)}</p><p class="cr">${creditLine(newest)}</p>${aaLine(newest)}
 <div class="pv" aria-hidden="true">${esc(newest.prompt)}</div>${actions(newest, '', 'featured')}</div></article>` : '';
@@ -312,8 +326,12 @@ ${isAA(e) ? `<section class="box"><h2>Data source</h2><p>${md(d.dashboardNote, '
 }
 
 function notFound() {
+  const pages = resolveNotFoundFeatured(NOT_FOUND_FEATURED, d.entries);
+  const cards = pages.map((e) => entryCard(e, '404', '404', { source: '404' })).join('');
   return layout({ title: 'Page not found | grokbotpages.com', description: 'This page does not exist.', pathName: '/404.html',
-    body: `<section class="hero"><h1>Not found.</h1><p>That page is not on grokbotpages.com.</p><div class="cta"><a class="btn pri" href="/">Browse templates</a></div></section>`, data: {} });
+    body: `<section class="hero"><h1>Not found.</h1><p>That Page isn't here. Start with one of these.</p><div class="cta"><a class="btn pri" href="/">Browse templates</a></div></section>
+<section class="wrap nf" aria-labelledby="nf-h"><h2 id="nf-h" class="sr-only">Pages to start with</h2><ul class="grid">${cards}</ul></section>`,
+    data: { prompts: Object.fromEntries(pages.map((e) => [e.slug, e.prompt])) } });
 }
 
 // ---- write
