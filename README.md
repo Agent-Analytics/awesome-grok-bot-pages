@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Rollout Map](https://pending.invalid/rollout-map/) - A country by country release tracker: a map marked Released, Announced or Nothing confirmed with a region switch, a searchable list of release dates, the source for every country, and open questions with a Copy answer each (example data). Inspired by [cybergigafactory's post on X](https://x.com/cybergigafacto1/status/2121204324810240087) ([@cybergigafacto1](https://x.com/cybergigafacto1)). He built a tracker with his Grok Bot team that shows, region by region on a map, where Tesla's driver assistance is released, with a searchable list of dates and only official sources. This example tracks an invented feature. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/rollout-map/](https://grokbotpages.com/t/rollout-map/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Rollout Map" that tracks where [the feature or product I follow, for example a car software feature] is released, country by country, and keep updating this same Page instead of making a new one. Show a map with each country marked Released, Announced or Nothing confirmed, with a region switch (World, Europe, Americas, Asia-Pacific). Next to it, a searchable list of released countries with the release date, newest first. When I pick a country, show its status, date and the exact source. Use only official government sources and the company's own announcements; never count a rumor or a news report without a source. Put anything that needs me, like an announcement with no date or two sources that disagree, in a "needs you" list with a Copy button for my answer. Show the date of the last check.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Rollout Map" Page: every Monday at 09:00, check official government sources and the company's own announcements for [the feature] in every country, update the statuses, dates and sources on the same Page and the date of the last check. Put anything uncertain in the needs-you list instead of changing a status. If a country changed status, send me one line saying which. If nothing changed, update only the last check date and do not message me.
+  ```
+
+  </details>
+
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1553,6 +1570,23 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 ## Research
 
 Explainers and sourced reports.
+
+- [Rollout Map](https://pending.invalid/rollout-map/) - A country by country release tracker: a map marked Released, Announced or Nothing confirmed with a region switch, a searchable list of release dates, the source for every country, and open questions with a Copy answer each (example data). Inspired by [cybergigafactory's post on X](https://x.com/cybergigafacto1/status/2121204324810240087) ([@cybergigafacto1](https://x.com/cybergigafacto1)). He built a tracker with his Grok Bot team that shows, region by region on a map, where Tesla's driver assistance is released, with a searchable list of dates and only official sources. This example tracks an invented feature. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/rollout-map/](https://grokbotpages.com/t/rollout-map/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Rollout Map" that tracks where [the feature or product I follow, for example a car software feature] is released, country by country, and keep updating this same Page instead of making a new one. Show a map with each country marked Released, Announced or Nothing confirmed, with a region switch (World, Europe, Americas, Asia-Pacific). Next to it, a searchable list of released countries with the release date, newest first. When I pick a country, show its status, date and the exact source. Use only official government sources and the company's own announcements; never count a rumor or a news report without a source. Put anything that needs me, like an announcement with no date or two sources that disagree, in a "needs you" list with a Copy button for my answer. Show the date of the last check.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Rollout Map" Page: every Monday at 09:00, check official government sources and the company's own announcements for [the feature] in every country, update the statuses, dates and sources on the same Page and the date of the last check. Put anything uncertain in the needs-you list instead of changing a status. If a country changed status, send me one line saying which. If nothing changed, update only the last check date and do not message me.
+  ```
+
+  </details>
 
 - [Mention Scan](https://mention-scan-example-pcrq.pages.grok.bot/) - Every time one creator mentioned a topic in 6 months, on one Page: extra names the bot added, a month by month mention chart, one card per claim with a quote, the sources they shared and a grade (Backed, Mixed, Not backed, No source), grade filters, and a Copy button with a follow-up question for each weak claim (example data). Inspired by [Dave Gambrill's post on X](https://x.com/gambrill/status/2120136983729074408) ([@gambrill](https://x.com/gambrill)). Dave asked his bot to scan one creator's last 6 months for one topic, it widened the search to other names, and he made the resulting Page public; his prompt from the post's screenshot is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mention-scan/](https://grokbotpages.com/t/mention-scan/).
