@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Body Scan Trends](https://pending.invalid/body-scan-trends/) - Body composition scans over time: the latest weight, muscle mass, body fat mass and body fat percent with change since the last scan, a trend chart per metric with real gaps between scans and a range switch, every scan listed, and odd or missing scans with a Copy answer each (example data). Inspired by [MJ Kang's post on X](https://x.com/mj_kang/status/2121005807257137470) ([@mj_kang](https://x.com/mj_kang)). One of his Grok bots handles health topics and built a clickable dashboard with graphs of his InBody scans, with gaps where he did not scan, and keeps it updated. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/body-scan-trends/](https://grokbotpages.com/t/body-scan-trends/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Body Scan Trends" from my body composition scans (InBody or similar, [where my scan results are: email, app export or photos]), and keep updating this same Page instead of making a new one. At the top, my latest scan: weight, skeletal muscle mass, body fat mass and percent body fat, each with the change since the scan before. Then a trend chart for each one over all my scans, with gaps where I did not scan instead of a line drawn through them, and a switch for 1 year, 3 years and all time. List every scan with its date and device. Put anything that needs me in a short list with a Copy button for my answer: a scan I have not logged yet, a number that looks like a typo, or a scan that is due. Show only numbers from real scans; never estimate a missing one. This is a log, not medical advice.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Body Scan Trends" Page: every Monday at 07:30, look for new body composition scan results in [my email or app export], add any new scan to the same Page and update the latest numbers, changes and charts. If a value is more than 3 kg or 3 points away from the scan before, put it in the needs-you list instead of trusting it. If my last scan is more than 3 weeks old, add a reminder there. If nothing is new, change nothing and do not message me.
+  ```
+
+  </details>
+
 - [Bot Team Kanban](https://bot-team-kanban-example-2ncd.pages.grok.bot/) - A kanban board that your bots keep up to date: Backlog, In progress, Blocked, Review and Done columns with each card's owner bot, progress bar, latest note and age, a tile per bot that filters the board, a Waiting on me switch with a Copy reply each, quiet cards with a Copy nudge, a feed of the latest posts and a Play an update button that replays six example posts (example data). Inspired by [@melvindvivas's post on X](https://x.com/melvindvivas/status/2121809130751176736) ([@melvindvivas](https://x.com/melvindvivas)). He shared a screenshot of his Grok Bot kanban dashboard, with task cards owned by each bot and a request to his bots to update their progress. This example shows an invented team; the layout, colours and prompt are our own. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-team-kanban/](https://grokbotpages.com/t/bot-team-kanban/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -957,6 +974,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Body Scan Trends](https://pending.invalid/body-scan-trends/) - Body composition scans over time: the latest weight, muscle mass, body fat mass and body fat percent with change since the last scan, a trend chart per metric with real gaps between scans and a range switch, every scan listed, and odd or missing scans with a Copy answer each (example data). Inspired by [MJ Kang's post on X](https://x.com/mj_kang/status/2121005807257137470) ([@mj_kang](https://x.com/mj_kang)). One of his Grok bots handles health topics and built a clickable dashboard with graphs of his InBody scans, with gaps where he did not scan, and keeps it updated. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/body-scan-trends/](https://grokbotpages.com/t/body-scan-trends/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Body Scan Trends" from my body composition scans (InBody or similar, [where my scan results are: email, app export or photos]), and keep updating this same Page instead of making a new one. At the top, my latest scan: weight, skeletal muscle mass, body fat mass and percent body fat, each with the change since the scan before. Then a trend chart for each one over all my scans, with gaps where I did not scan instead of a line drawn through them, and a switch for 1 year, 3 years and all time. List every scan with its date and device. Put anything that needs me in a short list with a Copy button for my answer: a scan I have not logged yet, a number that looks like a typo, or a scan that is due. Show only numbers from real scans; never estimate a missing one. This is a log, not medical advice.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Body Scan Trends" Page: every Monday at 07:30, look for new body composition scan results in [my email or app export], add any new scan to the same Page and update the latest numbers, changes and charts. If a value is more than 3 kg or 3 points away from the scan before, put it in the needs-you list instead of trusting it. If my last scan is more than 3 weeks old, add a reminder there. If nothing is new, change nothing and do not message me.
+  ```
+
+  </details>
 
 - [Bot Team Kanban](https://bot-team-kanban-example-2ncd.pages.grok.bot/) - A kanban board that your bots keep up to date: Backlog, In progress, Blocked, Review and Done columns with each card's owner bot, progress bar, latest note and age, a tile per bot that filters the board, a Waiting on me switch with a Copy reply each, quiet cards with a Copy nudge, a feed of the latest posts and a Play an update button that replays six example posts (example data). Inspired by [@melvindvivas's post on X](https://x.com/melvindvivas/status/2121809130751176736) ([@melvindvivas](https://x.com/melvindvivas)). He shared a screenshot of his Grok Bot kanban dashboard, with task cards owned by each bot and a request to his bots to update their progress. This example shows an invented team; the layout, colours and prompt are our own. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/bot-team-kanban/](https://grokbotpages.com/t/bot-team-kanban/).
