@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Unfollow Watch](https://pending.invalid/unfollow-watch/) - A weekly follower check: accounts over a threshold that unfollowed you since the last snapshot, largest first, renamed and suspended accounts kept apart with a Copy question each, and the top 200 followers by follower count as a click-through list with search (example data). Inspired by [greb's post on X](https://x.com/grebby/status/2120956693282504856) ([@grebby](https://x.com/grebby)). Every Monday his Grok Bot compares a snapshot of his top 200 followers and reports the accounts over a size threshold that unfollowed him, largest first, keeping renamed and suspended accounts apart. The prompt is quoted from his post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/unfollow-watch/](https://grokbotpages.com/t/unfollow-watch/).
+  <details><summary>Prompt (quoted from his post)</summary>
+
+  ```text
+  Go through every account that follows me, ordered by follower count. Build me a page with each account's handle, profile link, plus a click-through list, the top 200 only. take a snapshot of these followers and every monday, check and report back with a list of accounts over 1000 followers that unfollowed me
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Unfollow Watch" Page: every Monday at 08:00, take a fresh snapshot of my followers and compare it with last week's. Update the same Page: the top 200 followers by follower count, and a list of accounts over 1,000 followers that unfollowed me since the last snapshot, largest first, with their handle, follower count and profile link. If an account was renamed, show the new handle and do not count it as an unfollow. If an account looks suspended or deactivated, list it apart instead of calling it an unfollow. Send me one line with how many left. If nobody over 1,000 left, change nothing else and do not message me.
+  ```
+
+  </details>
+
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1475,6 +1492,23 @@ Pipelines and CRM views.
 ## Marketing
 
 Campaigns and growth reports.
+
+- [Unfollow Watch](https://pending.invalid/unfollow-watch/) - A weekly follower check: accounts over a threshold that unfollowed you since the last snapshot, largest first, renamed and suspended accounts kept apart with a Copy question each, and the top 200 followers by follower count as a click-through list with search (example data). Inspired by [greb's post on X](https://x.com/grebby/status/2120956693282504856) ([@grebby](https://x.com/grebby)). Every Monday his Grok Bot compares a snapshot of his top 200 followers and reports the accounts over a size threshold that unfollowed him, largest first, keeping renamed and suspended accounts apart. The prompt is quoted from his post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/unfollow-watch/](https://grokbotpages.com/t/unfollow-watch/).
+  <details><summary>Prompt (quoted from his post)</summary>
+
+  ```text
+  Go through every account that follows me, ordered by follower count. Build me a page with each account's handle, profile link, plus a click-through list, the top 200 only. take a snapshot of these followers and every monday, check and report back with a list of accounts over 1000 followers that unfollowed me
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Unfollow Watch" Page: every Monday at 08:00, take a fresh snapshot of my followers and compare it with last week's. Update the same Page: the top 200 followers by follower count, and a list of accounts over 1,000 followers that unfollowed me since the last snapshot, largest first, with their handle, follower count and profile link. If an account was renamed, show the new handle and do not count it as an unfollow. If an account looks suspended or deactivated, list it apart instead of calling it an unfollow. Send me one line with how many left. If nobody over 1,000 left, change nothing else and do not message me.
+  ```
+
+  </details>
 
 - [Follow-up Seeds](https://follow-up-seeds-example-sxdr.pages.grok.bot/) - Replies that said they would try something, kept as seeds until they turn into proof: seed and proof counts, every seed with its quote, age and status (Too early, Ready to ask, Asked, Proof, Did not work), status filters, and a Copy follow-up or Copy ask to share button on each (example data). Inspired by [Paul's post on X](https://x.com/0xPaulvibe/status/2120554313369936040) ([@0xPaulvibe](https://x.com/0xPaulvibe)). His bot, Mention Meerkat, saves every "going to give that a try" reply as a seed; his own prompt from the post is quoted on the example Page. Paul's own prompt from the post is quoted on the Page; this prompt turns it into a Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/follow-up-seeds/](https://grokbotpages.com/t/follow-up-seeds/).
