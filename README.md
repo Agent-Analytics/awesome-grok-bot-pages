@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Launch Mission Control](https://pending.invalid/launch-mission-control/) - A launch day screen: a live countdown to the official T-0 with holds, the launch window, every timeline event from propellant load to catch, the vehicle's position, a stream switcher, and launch questions with a Copy answer each (example data). Inspired by [sunrise on saturn's post on X](https://x.com/sunriseonsaturn/status/2121342686565368082) ([@sunriseonsaturn](https://x.com/sunriseonsaturn)). He built his own mission control for a Starship flight with Grok Bot: a ground track from real GPS, a countdown synced to the official T-0 so holds show up on their own, six live cams to switch between and every timeline event from propellant load to ship catch. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/launch-mission-control/](https://grokbotpages.com/t/launch-mission-control/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Launch Mission Control" for [the launch I want to watch, for example the next Starship flight], and keep updating this same Page instead of making a new one. At the top, a big countdown to the official T-0 from the launch provider, and show any hold or new T-0 as soon as they announce it. Add the launch window, the vehicle and the pad. List every official timeline event from propellant load to landing or catch with its planned T- or T+ time, and mark which ones already happened. Show where the vehicle is: on the pad, then the ground track during flight, from public tracking data only. List the live streams I can watch (official and community) with links, so I can switch between them. Put anything that needs me, like a scrub, a new date or a watch party time, in a "needs you" list with a Copy button for each answer. Say where every time comes from and never guess one.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Launch Mission Control" Page: from 24 hours before T-0, every 15 minutes, check the launch provider's official timeline and posts for holds, scrubs or a new T-0, and update the countdown, the timeline and the stream list on the same Page. Message me once if T-0 moves by more than 10 minutes or the launch is scrubbed. Otherwise change only the Page and do not message me. Stop after the flight ends.
+  ```
+
+  </details>
+
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -936,6 +953,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Launch Mission Control](https://pending.invalid/launch-mission-control/) - A launch day screen: a live countdown to the official T-0 with holds, the launch window, every timeline event from propellant load to catch, the vehicle's position, a stream switcher, and launch questions with a Copy answer each (example data). Inspired by [sunrise on saturn's post on X](https://x.com/sunriseonsaturn/status/2121342686565368082) ([@sunriseonsaturn](https://x.com/sunriseonsaturn)). He built his own mission control for a Starship flight with Grok Bot: a ground track from real GPS, a countdown synced to the official T-0 so holds show up on their own, six live cams to switch between and every timeline event from propellant load to ship catch. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/launch-mission-control/](https://grokbotpages.com/t/launch-mission-control/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Launch Mission Control" for [the launch I want to watch, for example the next Starship flight], and keep updating this same Page instead of making a new one. At the top, a big countdown to the official T-0 from the launch provider, and show any hold or new T-0 as soon as they announce it. Add the launch window, the vehicle and the pad. List every official timeline event from propellant load to landing or catch with its planned T- or T+ time, and mark which ones already happened. Show where the vehicle is: on the pad, then the ground track during flight, from public tracking data only. List the live streams I can watch (official and community) with links, so I can switch between them. Put anything that needs me, like a scrub, a new date or a watch party time, in a "needs you" list with a Copy button for each answer. Say where every time comes from and never guess one.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Launch Mission Control" Page: from 24 hours before T-0, every 15 minutes, check the launch provider's official timeline and posts for holds, scrubs or a new T-0, and update the countdown, the timeline and the stream list on the same Page. Message me once if T-0 moves by more than 10 minutes or the launch is scrubbed. Otherwise change only the Page and do not message me. Stop after the flight ends.
+  ```
+
+  </details>
 
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
