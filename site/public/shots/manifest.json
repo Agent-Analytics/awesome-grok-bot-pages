@@ -766,5 +766,21 @@
       390,
       7950
     ]
+  },
+  "body-scan-trends": {
+    "url": "https://body-scan-trends-example-ppgl.pages.grok.bot/",
+    "captured": "2026-11-15T20:14:08.394Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3619
+    ],
+    "mobile": [
+      390,
+      6207
+    ]
   }
 }
