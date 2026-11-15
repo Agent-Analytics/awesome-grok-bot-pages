@@ -46,6 +46,27 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Bot Team Kanban](https://bot-team-kanban-example-2ncd.pages.grok.bot/) - A kanban board that your bots keep up to date: Backlog, In progress, Blocked, Review and Done columns with each card's owner bot, progress bar, latest note and age, a tile per bot that filters the board, a Waiting on me switch with a Copy reply each, quiet cards with a Copy nudge, a feed of the latest posts and a Play an update button that replays six example posts (example data). Inspired by [@melvindvivas's post on X](https://x.com/melvindvivas/status/2121809130751176736) ([@melvindvivas](https://x.com/melvindvivas)). He shared a screenshot of his Grok Bot kanban dashboard, with task cards owned by each bot and a request to his bots to update their progress. This example shows an invented team; the layout, colours and prompt are our own. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/bot-team-kanban/](https://grokbotpages.com/t/bot-team-kanban/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Bot Team Kanban" that shows what all my bots are working on as a kanban board, and keep updating this same Page instead of making a new one.
+
+  First set up the board itself. Create one shared board file, board.json, in a folder that all my bots can read and write. Each card has an id, a title, the owner bot, a column (Backlog, In progress, Blocked, Review or Done), a progress percent, a one-line progress note, a waiting-on-me note if it needs me, and a last-updated time. Then message every one of my bots: "When you start, move or finish a piece of work, add or update your own card in the shared board file: set the column and the progress percent, write one line on where it stands and what is next, and stamp the time. If you are stuck, move the card to Blocked and say what you need from me. Only touch your own cards." Other bots cannot edit a Page, so you rebuild this Page from the file.
+
+  On the Page: one headline with the number of open cards and when the board was last updated; a count per column; one tile per bot with its state (Working, Blocked, Quiet or Idle), its open cards and when it last posted, where tapping a tile filters the board to that bot; the five columns Backlog, In progress, Blocked, Review and Done, newest update first; each card shows its title, owner bot, a progress bar with the percent, the latest progress note and how long ago it was written, with the older updates behind a "Show updates" control. Add a "Waiting on me" switch that shows only the cards that need me, each with a Copy reply button that copies a short answer I can paste into that bot's chat. Mark a card Quiet when it has had no update for 3 hours and give it a Copy nudge button that copies "Post a progress update on your card [title]". Finish with a feed of the latest posts from all bots, newest first. Use only what my bots wrote in the board file, show "unknown" instead of guessing, and say that the controls on the Page only change the view.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Bot Team Kanban" Page: every 30 minutes from 8 AM to 8 PM, read the shared board file and rebuild the board, the bot tiles, the Waiting on me list and the feed on the same Page with the same layout and Copy buttons. Mark cards with no update for 3 hours as Quiet. Message me only when a card moves to Blocked or has waited on me for more than a day.
+  ```
+
+  </details>
+
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -936,6 +957,27 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Bot Team Kanban](https://bot-team-kanban-example-2ncd.pages.grok.bot/) - A kanban board that your bots keep up to date: Backlog, In progress, Blocked, Review and Done columns with each card's owner bot, progress bar, latest note and age, a tile per bot that filters the board, a Waiting on me switch with a Copy reply each, quiet cards with a Copy nudge, a feed of the latest posts and a Play an update button that replays six example posts (example data). Inspired by [@melvindvivas's post on X](https://x.com/melvindvivas/status/2121809130751176736) ([@melvindvivas](https://x.com/melvindvivas)). He shared a screenshot of his Grok Bot kanban dashboard, with task cards owned by each bot and a request to his bots to update their progress. This example shows an invented team; the layout, colours and prompt are our own. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/bot-team-kanban/](https://grokbotpages.com/t/bot-team-kanban/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Build me a wide Grok Bot Page called "Bot Team Kanban" that shows what all my bots are working on as a kanban board, and keep updating this same Page instead of making a new one.
+
+  First set up the board itself. Create one shared board file, board.json, in a folder that all my bots can read and write. Each card has an id, a title, the owner bot, a column (Backlog, In progress, Blocked, Review or Done), a progress percent, a one-line progress note, a waiting-on-me note if it needs me, and a last-updated time. Then message every one of my bots: "When you start, move or finish a piece of work, add or update your own card in the shared board file: set the column and the progress percent, write one line on where it stands and what is next, and stamp the time. If you are stuck, move the card to Blocked and say what you need from me. Only touch your own cards." Other bots cannot edit a Page, so you rebuild this Page from the file.
+
+  On the Page: one headline with the number of open cards and when the board was last updated; a count per column; one tile per bot with its state (Working, Blocked, Quiet or Idle), its open cards and when it last posted, where tapping a tile filters the board to that bot; the five columns Backlog, In progress, Blocked, Review and Done, newest update first; each card shows its title, owner bot, a progress bar with the percent, the latest progress note and how long ago it was written, with the older updates behind a "Show updates" control. Add a "Waiting on me" switch that shows only the cards that need me, each with a Copy reply button that copies a short answer I can paste into that bot's chat. Mark a card Quiet when it has had no update for 3 hours and give it a Copy nudge button that copies "Post a progress update on your card [title]". Finish with a feed of the latest posts from all bots, newest first. Use only what my bots wrote in the board file, show "unknown" instead of guessing, and say that the controls on the Page only change the view.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Bot Team Kanban" Page: every 30 minutes from 8 AM to 8 PM, read the shared board file and rebuild the board, the bot tiles, the Waiting on me list and the feed on the same Page with the same layout and Copy buttons. Mark cards with no update for 3 hours as Quiet. Message me only when a card moves to Blocked or has waited on me for more than a day.
+  ```
+
+  </details>
 
 - [School Tracker](https://school-tracker-example-luej.pages.grok.bot/) - Two school portals, a dinner portal and school emails merged into one week: what needs you with due dates and a Copy reminder each, the week day by day, this week's dinner menu, and every item with its sources and a source filter (example data). Inspired by [Manoj Mahalingam's post on X](https://x.com/manojlds/status/2119723455398416472) ([@manojlds](https://x.com/manojlds)). His school bot tracks his daughter's two school portals, the dinner portal and the school emails in one place. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/school-tracker/](https://grokbotpages.com/t/school-tracker/).
