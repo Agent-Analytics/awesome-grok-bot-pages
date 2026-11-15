@@ -750,5 +750,21 @@
       390,
       6415
     ]
+  },
+  "bot-team-kanban": {
+    "url": "https://bot-team-kanban-example-2ncd.pages.grok.bot/",
+    "captured": "2026-11-15T14:30:29.505Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      4375
+    ],
+    "mobile": [
+      390,
+      7950
+    ]
   }
 }
