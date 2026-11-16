@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Outage Check](https://pending.invalid/outage-check/) - Is it down or is it just you: a status card per service with a stamped verdict (Confirmed Outage, Not Confirmed, Now Resolved), the evidence from the official status page, X and the news with times, what to do now, a 15 minute watch list and the calls that need you with a Copy answer each (example data). Inspired by [John P Creates' post on X](https://x.com/johnp_creates/status/2122399972809167194) ([@johnp_creates](https://x.com/johnp_creates)). He built OutageCheck on Grok Bot: name a service or send a screenshot of the error, and it checks the official status page, posts on X and the news, then gives a status card (Confirmed Outage, Not Confirmed or Now Resolved) and checks again every 15 minutes. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/outage-check/](https://grokbotpages.com/t/outage-check/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Outage Check" and keep updating this same Page instead of making a new one. When I name a service or send a screenshot of an error, check its official status page, what people are posting on X in the last hour and the news, and add a status card with one verdict: Confirmed Outage (the company or a wave of real reports says it is down), Not Confirmed (no sign of an outage, probably on my end) or Now Resolved (it broke in the last 7 days and the company says it is fixed). On each card show the evidence with links and times, what to do now, and when it was last checked. Keep a watch list of the services I care about. Never log in to anything, and never call it confirmed on X posts alone unless there are many independent reports. Put anything that needs me in a "Needs you" list with a Copy button for each answer.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Outage Check" Page: every 15 minutes, recheck each service on my watch list with an open card (official status page, X posts from the last hour, news), and update its card on the same Page. Message me only when a verdict changes, for example Confirmed Outage to Now Resolved, with the service and the source. Otherwise change only the Page. Drop a card from the watch after 24 hours of Now Resolved.
+  ```
+
+  </details>
+
 - [Body Scan Trends](https://body-scan-trends-example-ppgl.pages.grok.bot/) - Body composition scans over time: the latest weight, muscle mass, body fat mass and body fat percent with change since the last scan, a trend chart per metric with real gaps between scans and a range switch, every scan listed, and odd or missing scans with a Copy answer each (example data). Inspired by [MJ Kang's post on X](https://x.com/mj_kang/status/2121005807257137470) ([@mj_kang](https://x.com/mj_kang)). One of his Grok bots handles health topics and built a clickable dashboard with graphs of his InBody scans, with gaps where he did not scan, and keeps it updated. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/body-scan-trends/](https://grokbotpages.com/t/body-scan-trends/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1629,6 +1646,23 @@ No Pages yet. [Add yours](#create-your-page-and-get-listed).
 ## Research
 
 Explainers and sourced reports.
+
+- [Outage Check](https://pending.invalid/outage-check/) - Is it down or is it just you: a status card per service with a stamped verdict (Confirmed Outage, Not Confirmed, Now Resolved), the evidence from the official status page, X and the news with times, what to do now, a 15 minute watch list and the calls that need you with a Copy answer each (example data). Inspired by [John P Creates' post on X](https://x.com/johnp_creates/status/2122399972809167194) ([@johnp_creates](https://x.com/johnp_creates)). He built OutageCheck on Grok Bot: name a service or send a screenshot of the error, and it checks the official status page, posts on X and the news, then gives a status card (Confirmed Outage, Not Confirmed or Now Resolved) and checks again every 15 minutes. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/outage-check/](https://grokbotpages.com/t/outage-check/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Outage Check" and keep updating this same Page instead of making a new one. When I name a service or send a screenshot of an error, check its official status page, what people are posting on X in the last hour and the news, and add a status card with one verdict: Confirmed Outage (the company or a wave of real reports says it is down), Not Confirmed (no sign of an outage, probably on my end) or Now Resolved (it broke in the last 7 days and the company says it is fixed). On each card show the evidence with links and times, what to do now, and when it was last checked. Keep a watch list of the services I care about. Never log in to anything, and never call it confirmed on X posts alone unless there are many independent reports. Put anything that needs me in a "Needs you" list with a Copy button for each answer.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Outage Check" Page: every 15 minutes, recheck each service on my watch list with an open card (official status page, X posts from the last hour, news), and update its card on the same Page. Message me only when a verdict changes, for example Confirmed Outage to Now Resolved, with the service and the source. Otherwise change only the Page. Drop a card from the watch after 24 hours of Now Resolved.
+  ```
+
+  </details>
 
 - [Mention Scan](https://mention-scan-example-pcrq.pages.grok.bot/) - Every time one creator mentioned a topic in 6 months, on one Page: extra names the bot added, a month by month mention chart, one card per claim with a quote, the sources they shared and a grade (Backed, Mixed, Not backed, No source), grade filters, and a Copy button with a follow-up question for each weak claim (example data). Inspired by [Dave Gambrill's post on X](https://x.com/gambrill/status/2120136983729074408) ([@gambrill](https://x.com/gambrill)). Dave asked his bot to scan one creator's last 6 months for one topic, it widened the search to other names, and he made the resulting Page public; his prompt from the post's screenshot is quoted on the example Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/mention-scan/](https://grokbotpages.com/t/mention-scan/).
