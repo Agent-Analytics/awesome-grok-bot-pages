@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Field Jobs Board](https://pending.invalid/field-jobs-board/) - An office TV board for a field crew: every job on a map, this and next week's field days with a weather rating per site, work waiting on processing, deliveries, quotes sent vs accepted, automation health and the calls that need you with a Copy answer each (example data). Inspired by [The Mapping Network's post on X](https://x.com/MappingNetwork/status/2122348711023943763) ([@MappingNetwork](https://x.com/MappingNetwork)). Their office TV dashboard, made with Grok Bot, pins every completed and upcoming lake and pond mapping job on a radar map, rates each field day from the weather, and tracks work waiting on processing, deliveries, quotes sent vs accepted and the automations behind them. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/field-jobs-board/](https://grokbotpages.com/t/field-jobs-board/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Field Jobs Board" for my field crew, built to sit full screen on the office TV, and keep updating this same Page instead of making a new one. Show every completed and upcoming job from [my job sheet or project tracker] pinned on a map, colored by status. List this week's and next week's field jobs with date, site and crew, and give each field day a weather rating (Great, OK or Poor) from the forecast for that site, with the reason, like wind or rain. Add the work waiting on processing or delivery, the recent deliveries, and quotes sent vs accepted for the last 30 days. Add a health card for each automation behind our quotes, job sheets and deliveries, with its last run and result. Put anything that needs me, like a field day rated Poor or a failed automation, in a "Needs you" list with a Copy button for each answer. Never show customer contact details. Say where every number comes from.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Field Jobs Board" Page: every weekday at 06:30 and 13:00, read the job sheet, the weather forecast for each scheduled site and the run history of our automations, and update the same Page. If a field day in the next 5 days drops to Poor, or an automation fails twice in a row, message me once with the job and the reason. Otherwise change only the Page and do not message me.
+  ```
+
+  </details>
+
 - [Body Scan Trends](https://body-scan-trends-example-ppgl.pages.grok.bot/) - Body composition scans over time: the latest weight, muscle mass, body fat mass and body fat percent with change since the last scan, a trend chart per metric with real gaps between scans and a range switch, every scan listed, and odd or missing scans with a Copy answer each (example data). Inspired by [MJ Kang's post on X](https://x.com/mj_kang/status/2121005807257137470) ([@mj_kang](https://x.com/mj_kang)). One of his Grok bots handles health topics and built a clickable dashboard with graphs of his InBody scans, with gaps where he did not scan, and keeps it updated. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/body-scan-trends/](https://grokbotpages.com/t/body-scan-trends/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -974,6 +991,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Field Jobs Board](https://pending.invalid/field-jobs-board/) - An office TV board for a field crew: every job on a map, this and next week's field days with a weather rating per site, work waiting on processing, deliveries, quotes sent vs accepted, automation health and the calls that need you with a Copy answer each (example data). Inspired by [The Mapping Network's post on X](https://x.com/MappingNetwork/status/2122348711023943763) ([@MappingNetwork](https://x.com/MappingNetwork)). Their office TV dashboard, made with Grok Bot, pins every completed and upcoming lake and pond mapping job on a radar map, rates each field day from the weather, and tracks work waiting on processing, deliveries, quotes sent vs accepted and the automations behind them. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/field-jobs-board/](https://grokbotpages.com/t/field-jobs-board/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Field Jobs Board" for my field crew, built to sit full screen on the office TV, and keep updating this same Page instead of making a new one. Show every completed and upcoming job from [my job sheet or project tracker] pinned on a map, colored by status. List this week's and next week's field jobs with date, site and crew, and give each field day a weather rating (Great, OK or Poor) from the forecast for that site, with the reason, like wind or rain. Add the work waiting on processing or delivery, the recent deliveries, and quotes sent vs accepted for the last 30 days. Add a health card for each automation behind our quotes, job sheets and deliveries, with its last run and result. Put anything that needs me, like a field day rated Poor or a failed automation, in a "Needs you" list with a Copy button for each answer. Never show customer contact details. Say where every number comes from.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Field Jobs Board" Page: every weekday at 06:30 and 13:00, read the job sheet, the weather forecast for each scheduled site and the run history of our automations, and update the same Page. If a field day in the next 5 days drops to Poor, or an automation fails twice in a row, message me once with the job and the reason. Otherwise change only the Page and do not message me.
+  ```
+
+  </details>
 
 - [Body Scan Trends](https://body-scan-trends-example-ppgl.pages.grok.bot/) - Body composition scans over time: the latest weight, muscle mass, body fat mass and body fat percent with change since the last scan, a trend chart per metric with real gaps between scans and a range switch, every scan listed, and odd or missing scans with a Copy answer each (example data). Inspired by [MJ Kang's post on X](https://x.com/mj_kang/status/2121005807257137470) ([@mj_kang](https://x.com/mj_kang)). One of his Grok bots handles health topics and built a clickable dashboard with graphs of his InBody scans, with gaps where he did not scan, and keeps it updated. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/body-scan-trends/](https://grokbotpages.com/t/body-scan-trends/).
