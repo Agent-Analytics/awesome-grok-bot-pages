@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Burndown and Gantt](https://pending.invalid/burndown-gantt/) - A GitHub week at a glance: a tab per repo, the sprint burndown of open issues and PRs against the ideal line, a weekly Gantt of milestones with a lightning progress line that bends left when work is behind, what is due this week and the calls that need you with a Copy answer each (example data). Inspired by [JJ's post on X](https://x.com/9mkI8MC1eP38339/status/2122379118792896835) ([@9mkI8MC1eP38339](https://x.com/9mkI8MC1eP38339)). His Grok Bot rebuilt his GitHub progress dashboard while he was at dinner: a tab per product, an issue burndown curve, and a Gantt by week with a lightning progress line (inazuma line). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/burndown-gantt/](https://grokbotpages.com/t/burndown-gantt/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Burndown and Gantt" for my GitHub repos [list them], and keep updating this same Page instead of making a new one. Add a tab per repo plus an "All" tab. For the current sprint (or this week if I have no sprints), draw a burndown curve of open issues and open PRs against an ideal line, with today marked. Under it, a Gantt chart by week of each repo's milestones from start to due date, with a lightning progress line (inazuma line) that bends left for work behind schedule and right for work ahead. Add a table of what each repo must finish this week, with the due date. Put anything that needs me, like a milestone behind schedule or a PR waiting on my review, in a "Needs you" list with a Copy button for each answer. Use GitHub data only and show the time of the last update in my timezone.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Burndown and Gantt" Page: every day at 08:00 and 20:00, read open issues, PRs and milestones from my repos on GitHub and update the burndown, the Gantt with its progress line and the table on the same Page. Message me only when a milestone falls more than 2 days behind or a PR has waited on my review for more than a day. Otherwise change only the Page and do not message me.
+  ```
+
+  </details>
+
 - [Body Scan Trends](https://body-scan-trends-example-ppgl.pages.grok.bot/) - Body composition scans over time: the latest weight, muscle mass, body fat mass and body fat percent with change since the last scan, a trend chart per metric with real gaps between scans and a range switch, every scan listed, and odd or missing scans with a Copy answer each (example data). Inspired by [MJ Kang's post on X](https://x.com/mj_kang/status/2121005807257137470) ([@mj_kang](https://x.com/mj_kang)). One of his Grok bots handles health topics and built a clickable dashboard with graphs of his InBody scans, with gaps where he did not scan, and keeps it updated. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/body-scan-trends/](https://grokbotpages.com/t/body-scan-trends/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -974,6 +991,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Burndown and Gantt](https://pending.invalid/burndown-gantt/) - A GitHub week at a glance: a tab per repo, the sprint burndown of open issues and PRs against the ideal line, a weekly Gantt of milestones with a lightning progress line that bends left when work is behind, what is due this week and the calls that need you with a Copy answer each (example data). Inspired by [JJ's post on X](https://x.com/9mkI8MC1eP38339/status/2122379118792896835) ([@9mkI8MC1eP38339](https://x.com/9mkI8MC1eP38339)). His Grok Bot rebuilt his GitHub progress dashboard while he was at dinner: a tab per product, an issue burndown curve, and a Gantt by week with a lightning progress line (inazuma line). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/burndown-gantt/](https://grokbotpages.com/t/burndown-gantt/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Burndown and Gantt" for my GitHub repos [list them], and keep updating this same Page instead of making a new one. Add a tab per repo plus an "All" tab. For the current sprint (or this week if I have no sprints), draw a burndown curve of open issues and open PRs against an ideal line, with today marked. Under it, a Gantt chart by week of each repo's milestones from start to due date, with a lightning progress line (inazuma line) that bends left for work behind schedule and right for work ahead. Add a table of what each repo must finish this week, with the due date. Put anything that needs me, like a milestone behind schedule or a PR waiting on my review, in a "Needs you" list with a Copy button for each answer. Use GitHub data only and show the time of the last update in my timezone.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Burndown and Gantt" Page: every day at 08:00 and 20:00, read open issues, PRs and milestones from my repos on GitHub and update the burndown, the Gantt with its progress line and the table on the same Page. Message me only when a milestone falls more than 2 days behind or a PR has waited on my review for more than a day. Otherwise change only the Page and do not message me.
+  ```
+
+  </details>
 
 - [Body Scan Trends](https://body-scan-trends-example-ppgl.pages.grok.bot/) - Body composition scans over time: the latest weight, muscle mass, body fat mass and body fat percent with change since the last scan, a trend chart per metric with real gaps between scans and a range switch, every scan listed, and odd or missing scans with a Copy answer each (example data). Inspired by [MJ Kang's post on X](https://x.com/mj_kang/status/2121005807257137470) ([@mj_kang](https://x.com/mj_kang)). One of his Grok bots handles health topics and built a clickable dashboard with graphs of his InBody scans, with gaps where he did not scan, and keeps it updated. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/body-scan-trends/](https://grokbotpages.com/t/body-scan-trends/).
