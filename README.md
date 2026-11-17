@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Follow Street](https://pending.invalid/follow-street/) - Saves time: shows who talked to you today and who still waits on a reply, biggest accounts first, without scrolling notifications. The people you follow drawn as a little town: you live in the middle, today's repliers are your neighbors, plot size grows with follower count, tap any house for who they are and what they did today, with a sortable list and reply ideas to copy (example data). Inspired by [Tiandi zhang's post on X](https://x.com/tiandi_zhang/status/2122219183698051240) ([@tiandi_zhang](https://x.com/tiandi_zhang)). His X Following Street started as a Grok Bot that draws the people you follow as a town seen from above: you live in the middle, bigger accounts get bigger plots, and today's repliers are your neighbors. Every account here is invented. No prompt was shared, so the prompt is written from his posts. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/follow-street/](https://grokbotpages.com/t/follow-street/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Follow Street" and keep updating this same Page instead of making a new one. Draw the people I follow on X as a small town seen from above. I live in the house in the middle. My neighbors on the street are the people who interacted with me today (replies, mentions, quotes); if there are fewer than [20], fill the street with people from my following timeline who posted recently, without repeats. Size each plot by follower count, from a small shed to a big estate, and label it with the handle and follower count. Let me tap a house to see the name, handle, follower count, how many times bigger or smaller than me, and what they did today, with a link to their profile. Add a list view of the same people I can sort by size or by today's interaction. Put anyone I have not replied to yet in a "Needs you" list with a Copy button for a reply idea. Use public X data only.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Follow Street" Page: every day at 21:00, rebuild the street from today's interactions and my following timeline, keep the same layout for people already on the street, and update the same Page. Do not message me unless someone with more than 10 times my followers replied to me today; then send one line with their handle and the post.
+  ```
+
+  </details>
+
 - [Body Scan Trends](https://body-scan-trends-example-ppgl.pages.grok.bot/) - Body composition scans over time: the latest weight, muscle mass, body fat mass and body fat percent with change since the last scan, a trend chart per metric with real gaps between scans and a range switch, every scan listed, and odd or missing scans with a Copy answer each (example data). Inspired by [MJ Kang's post on X](https://x.com/mj_kang/status/2121005807257137470) ([@mj_kang](https://x.com/mj_kang)). One of his Grok bots handles health topics and built a clickable dashboard with graphs of his InBody scans, with gaps where he did not scan, and keeps it updated. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/body-scan-trends/](https://grokbotpages.com/t/body-scan-trends/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1551,6 +1568,23 @@ Pipelines and CRM views.
 ## Marketing
 
 Campaigns and growth reports.
+
+- [Follow Street](https://pending.invalid/follow-street/) - Saves time: shows who talked to you today and who still waits on a reply, biggest accounts first, without scrolling notifications. The people you follow drawn as a little town: you live in the middle, today's repliers are your neighbors, plot size grows with follower count, tap any house for who they are and what they did today, with a sortable list and reply ideas to copy (example data). Inspired by [Tiandi zhang's post on X](https://x.com/tiandi_zhang/status/2122219183698051240) ([@tiandi_zhang](https://x.com/tiandi_zhang)). His X Following Street started as a Grok Bot that draws the people you follow as a town seen from above: you live in the middle, bigger accounts get bigger plots, and today's repliers are your neighbors. Every account here is invented. No prompt was shared, so the prompt is written from his posts. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/follow-street/](https://grokbotpages.com/t/follow-street/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Follow Street" and keep updating this same Page instead of making a new one. Draw the people I follow on X as a small town seen from above. I live in the house in the middle. My neighbors on the street are the people who interacted with me today (replies, mentions, quotes); if there are fewer than [20], fill the street with people from my following timeline who posted recently, without repeats. Size each plot by follower count, from a small shed to a big estate, and label it with the handle and follower count. Let me tap a house to see the name, handle, follower count, how many times bigger or smaller than me, and what they did today, with a link to their profile. Add a list view of the same people I can sort by size or by today's interaction. Put anyone I have not replied to yet in a "Needs you" list with a Copy button for a reply idea. Use public X data only.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Follow Street" Page: every day at 21:00, rebuild the street from today's interactions and my following timeline, keep the same layout for people already on the street, and update the same Page. Do not message me unless someone with more than 10 times my followers replied to me today; then send one line with their handle and the post.
+  ```
+
+  </details>
 
 - [Follow-up Seeds](https://follow-up-seeds-example-sxdr.pages.grok.bot/) - Replies that said they would try something, kept as seeds until they turn into proof: seed and proof counts, every seed with its quote, age and status (Too early, Ready to ask, Asked, Proof, Did not work), status filters, and a Copy follow-up or Copy ask to share button on each (example data). Inspired by [Paul's post on X](https://x.com/0xPaulvibe/status/2120554313369936040) ([@0xPaulvibe](https://x.com/0xPaulvibe)). His bot, Mention Meerkat, saves every "going to give that a try" reply as a seed; his own prompt from the post is quoted on the example Page. Paul's own prompt from the post is quoted on the Page; this prompt turns it into a Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/follow-up-seeds/](https://grokbotpages.com/t/follow-up-seeds/).
