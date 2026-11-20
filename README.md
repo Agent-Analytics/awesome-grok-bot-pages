@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Fence Quote](https://pending.invalid/fence-quote/) - Your Grok Bot prices every fence job from your own costs with the margin in plain sight, so you stop underbidding and win jobs at a price that pays. A drawn yard plan with every run, post and gate, a run by run takeoff of posts, panels, rails, concrete and labor, your own unit prices and line totals, one bar that splits the price into materials, labor, extras and margin, a style switch to compare prices, and the questions the layout leaves open with a Copy answer each (example data). Inspired by [JD Davenport's post on X](https://x.com/HouseDavenport/status/2122777626611683533) ([@HouseDavenport](https://x.com/HouseDavenport)). JD Davenport's Company Framework shared two free estimating bots, Fence Estimator and Flooring Estimator, that use the contractor's own prices and show the working; the Fence Estimator measures, draws and prices a fence quote. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/fence-quote/](https://grokbotpages.com/t/fence-quote/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Fence Quote" for [customer and address] and update this same Page when the layout or my prices change. Use only my prices: [material prices per unit, crew labor rate per hour, disposal, permit fee, my target margin]. From my layout [runs with lengths, height, style, gates, corners, slope notes], draw the yard as a simple plan with each run labeled with its length, every post and every gate. Then build the estimate run by run: posts, panels or pickets, rails, concrete and labor hours per run. Show the materials takeoff with my unit price and the line total, the labor, the extras, my cost, my margin and the price to the customer, and one bar that splits the price into materials, labor, extras and margin. Let me switch between [two or three fence styles] to compare the price. List anything you could not price from my layout as a question with two answers I can copy. Do not send anything to the customer, and leave a line out rather than guess a price.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Fence Quote" Pages: when I send a new layout or a customer change, rebuild that job's Page with my current prices and tell me in one line the new price and margin. On the 1st of every month, ask me for any price changes from my suppliers and update the price list every quote uses. Otherwise change only the Pages.
+  ```
+
+  </details>
+
 - [Burndown and Gantt](https://burndown-and-gantt-example-r5ux.pages.grok.bot/) - Your Grok Bot team builds you a live Gantt chart and sprint burndown and keeps them current, so you never hand-update a project chart again. A tab per repo, open issues and PRs against the ideal line, milestones with a progress line that bends left when work slips, and the calls that need you this week (example data). Inspired by [JJ's post on X](https://x.com/9mkI8MC1eP38339/status/2122379118792896835) ([@9mkI8MC1eP38339](https://x.com/9mkI8MC1eP38339)). His Grok Bot rebuilt his GitHub progress dashboard about an hour after he got back from dinner: a tab per product, an issue burndown curve, and a Gantt by week with a lightning progress line (inazuma line). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/burndown-and-gantt/](https://grokbotpages.com/t/burndown-and-gantt/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1561,6 +1578,23 @@ Spending, budgets, crypto and legal.
 ## Sales
 
 Pipelines and CRM views.
+
+- [Fence Quote](https://pending.invalid/fence-quote/) - Your Grok Bot prices every fence job from your own costs with the margin in plain sight, so you stop underbidding and win jobs at a price that pays. A drawn yard plan with every run, post and gate, a run by run takeoff of posts, panels, rails, concrete and labor, your own unit prices and line totals, one bar that splits the price into materials, labor, extras and margin, a style switch to compare prices, and the questions the layout leaves open with a Copy answer each (example data). Inspired by [JD Davenport's post on X](https://x.com/HouseDavenport/status/2122777626611683533) ([@HouseDavenport](https://x.com/HouseDavenport)). JD Davenport's Company Framework shared two free estimating bots, Fence Estimator and Flooring Estimator, that use the contractor's own prices and show the working; the Fence Estimator measures, draws and prices a fence quote. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/fence-quote/](https://grokbotpages.com/t/fence-quote/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Fence Quote" for [customer and address] and update this same Page when the layout or my prices change. Use only my prices: [material prices per unit, crew labor rate per hour, disposal, permit fee, my target margin]. From my layout [runs with lengths, height, style, gates, corners, slope notes], draw the yard as a simple plan with each run labeled with its length, every post and every gate. Then build the estimate run by run: posts, panels or pickets, rails, concrete and labor hours per run. Show the materials takeoff with my unit price and the line total, the labor, the extras, my cost, my margin and the price to the customer, and one bar that splits the price into materials, labor, extras and margin. Let me switch between [two or three fence styles] to compare the price. List anything you could not price from my layout as a question with two answers I can copy. Do not send anything to the customer, and leave a line out rather than guess a price.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Fence Quote" Pages: when I send a new layout or a customer change, rebuild that job's Page with my current prices and tell me in one line the new price and margin. On the 1st of every month, ask me for any price changes from my suppliers and update the price list every quote uses. Otherwise change only the Pages.
+  ```
+
+  </details>
 
 - [Revenue, last week](https://revenue-last-week-example-4v3c.pages.grok.bot/) - Booked revenue against plan by segment for last week, with the deals that slipped and why (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/revenue-last-week/](https://grokbotpages.com/t/revenue-last-week/).
