@@ -46,6 +46,29 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Search Console Weekly](https://pending.invalid/search-console-weekly/) - Your Grok Bot puts the searches closest to page one and the titles that waste impressions in front of you every Monday, so pages you already have win more search clicks. Clicks for the last 28 days against the 28 days before, the 10 items to fix first with a filter by list, before and after clicks for pages that lost them, searches in positions 5 to 15 on a position scale with page one marked, current titles next to suggested ones, and a fix to copy for every item (example data). Inspired by [Tanuj Sharma's post on X](https://x.com/tanuj_xyz/status/2123425235890524336) ([@tanuj_xyz](https://x.com/tanuj_xyz)). Tanuj's X article shares six free SEO bots with every prompt; Bot 1, the Search Console Analyst, compares the last 28 days with the 28 days before every Monday and returns three lists with a reason and a fix for each item. The prompt is Tanuj's Search Console Analyst prompt, quoted word for word from his article, plus a last paragraph by Awesome Grok Bot Pages that puts the three lists on a Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/search-console-weekly/](https://grokbotpages.com/t/search-console-weekly/).
+  <details><summary>Prompt (Tanuj Sharma's Search Console Analyst, quoted from <a href="https://x.com/tanuj_xyz/status/2123425235890524336">his article on X</a>, last paragraph by Awesome Grok Bot Pages)</summary>
+
+  ```text
+  Sign into my Google Search Console. Every Monday at 7am, compare the last 28 days with the 28 days before. Send me three lists:
+  1. Pages that lost the most clicks, and the searches they lost them on.
+  2. Searches where we rank in positions 5 to 15. These are the closest to page one wins.
+  3. Pages with lots of impressions but very few clicks. These need a better title.
+  For each item, tell me why you think it happened and what you'd fix. Keep it to the 10 most important.
+
+  Put the three lists on a Grok Bot Page called "Search Console Weekly" and update this same Page every Monday instead of making a new one. At the top show clicks for the last 28 days against the 28 days before, and the 10 items to fix first with a filter by list. For lost clicks show each page's clicks before and after. For positions 5 to 15 show each search on a position scale with page one marked. For better titles show the current title next to a suggested one. Give every item a fix I can copy.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Search Console Weekly" Page: every Monday at 07:00, sign into Google Search Console, rebuild the three lists for the last 28 days against the 28 days before, and update the same Page. Mark any item that was on last week's Page and is fixed now. Message me one line with the clicks change and the top item to fix. Otherwise change only the Page.
+  ```
+
+  </details>
+
 - [Christmas Gift List](https://christmas-gift-list-example-3xed.pages.grok.bot/) - Your Grok Bot keeps every gift inside its person's budget and catches price drops on the gifts you saved, so you pay less for the same Christmas list. Every person's budget bar, top pick and status, the days left to Christmas, two or three ideas per person with price, store, rating and why it fits, and a price drops list for saved gifts with buy it or keep watching answers to copy (example data). Inspired by [TimDOES's post on X](https://x.com/TimDOES/status/2122905716000485722) ([@TimDOES](https://x.com/TimDOES)). TimDOES's free Elfie: The Christmas Helper bot builds a gift list per person with real, top-rated products and current prices from each person's name, age, interests and budget, and sends daily price drop alerts on saved gifts. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/christmas-gift-list/](https://grokbotpages.com/t/christmas-gift-list/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1619,6 +1642,29 @@ Pipelines and CRM views.
 ## Marketing
 
 Campaigns and growth reports.
+
+- [Search Console Weekly](https://pending.invalid/search-console-weekly/) - Your Grok Bot puts the searches closest to page one and the titles that waste impressions in front of you every Monday, so pages you already have win more search clicks. Clicks for the last 28 days against the 28 days before, the 10 items to fix first with a filter by list, before and after clicks for pages that lost them, searches in positions 5 to 15 on a position scale with page one marked, current titles next to suggested ones, and a fix to copy for every item (example data). Inspired by [Tanuj Sharma's post on X](https://x.com/tanuj_xyz/status/2123425235890524336) ([@tanuj_xyz](https://x.com/tanuj_xyz)). Tanuj's X article shares six free SEO bots with every prompt; Bot 1, the Search Console Analyst, compares the last 28 days with the 28 days before every Monday and returns three lists with a reason and a fix for each item. The prompt is Tanuj's Search Console Analyst prompt, quoted word for word from his article, plus a last paragraph by Awesome Grok Bot Pages that puts the three lists on a Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/search-console-weekly/](https://grokbotpages.com/t/search-console-weekly/).
+  <details><summary>Prompt (Tanuj Sharma's Search Console Analyst, quoted from <a href="https://x.com/tanuj_xyz/status/2123425235890524336">his article on X</a>, last paragraph by Awesome Grok Bot Pages)</summary>
+
+  ```text
+  Sign into my Google Search Console. Every Monday at 7am, compare the last 28 days with the 28 days before. Send me three lists:
+  1. Pages that lost the most clicks, and the searches they lost them on.
+  2. Searches where we rank in positions 5 to 15. These are the closest to page one wins.
+  3. Pages with lots of impressions but very few clicks. These need a better title.
+  For each item, tell me why you think it happened and what you'd fix. Keep it to the 10 most important.
+
+  Put the three lists on a Grok Bot Page called "Search Console Weekly" and update this same Page every Monday instead of making a new one. At the top show clicks for the last 28 days against the 28 days before, and the 10 items to fix first with a filter by list. For lost clicks show each page's clicks before and after. For positions 5 to 15 show each search on a position scale with page one marked. For better titles show the current title next to a suggested one. Give every item a fix I can copy.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Search Console Weekly" Page: every Monday at 07:00, sign into Google Search Console, rebuild the three lists for the last 28 days against the 28 days before, and update the same Page. Mark any item that was on last week's Page and is fixed now. Message me one line with the clicks change and the top item to fix. Otherwise change only the Page.
+  ```
+
+  </details>
 
 - [Follow-up Seeds](https://follow-up-seeds-example-sxdr.pages.grok.bot/) - Replies that said they would try something, kept as seeds until they turn into proof: seed and proof counts, every seed with its quote, age and status (Too early, Ready to ask, Asked, Proof, Did not work), status filters, and a Copy follow-up or Copy ask to share button on each (example data). Inspired by [Paul's post on X](https://x.com/0xPaulvibe/status/2120554313369936040) ([@0xPaulvibe](https://x.com/0xPaulvibe)). His bot, Mention Meerkat, saves every "going to give that a try" reply as a seed; his own prompt from the post is quoted on the example Page. Paul's own prompt from the post is quoted on the Page; this prompt turns it into a Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/follow-up-seeds/](https://grokbotpages.com/t/follow-up-seeds/).
