@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Black Friday Scout](https://pending.invalid/black-friday-scout/) - Your Grok Bot vets every Black Friday deal against 90 days of real prices, so you only pay for real drops and skip deals whose list price went up before the sale. A watchlist with target prices, 90 day price lines and buy now or wait answers to copy, every deal marked real drop, fake markup or wait against its usual price, category filters, a biggest saving sort and a morning and afternoon refresh (example data). Inspired by [nahjuin's post on X](https://x.com/nahjuin/status/2123835263449481323) ([@nahjuin](https://x.com/nahjuin)). nahjuin's seasonal Black Friday Scout bot refreshes a free public Page of vetted deals every morning and afternoon; it passed 100 vetted deals within a week. No prompt was shared, so the prompt is written from the posts and the public Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/black-friday-scout/](https://grokbotpages.com/t/black-friday-scout/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the posts)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Black Friday Scout" and keep updating this same Page instead of making a new one. Find this year's Black Friday and Cyber Monday deals in [electronics, home, software, the stores I use] and vet each one before it goes on the Page: compare today's price with the usual price over the last 90 days, and mark it a real drop, a fake markup (the list price went up before the sale) or wait (it usually gets cheaper on Friday). For each deal show the price, the usual price, the saving in dollars and percent, the store, when it was checked and the source. Let me filter by category and sort by biggest saving. At the top keep my watchlist of [items, each with my target price]: today's best price, a small 90 day price line with the all time low, and whether it hit my target, with buy now or wait answers I can copy. Show how much I save on my watchlist at today's prices. Drop any deal that has expired, and leave a price out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Black Friday Scout" Page: every day at 08:00 and 14:00 until Cyber Monday, recheck every deal and watchlist price, drop expired deals, add new vetted ones and update the same Page with the time of the refresh. Message me only when a watchlist item drops to my target price or below, with the store and the price. Otherwise change only the Page.
+  ```
+
+  </details>
+
 - [Burndown and Gantt](https://burndown-and-gantt-example-r5ux.pages.grok.bot/) - Your Grok Bot team builds you a live Gantt chart and sprint burndown and keeps them current, so you never hand-update a project chart again. A tab per repo, open issues and PRs against the ideal line, milestones with a progress line that bends left when work slips, and the calls that need you this week (example data). Inspired by [JJ's post on X](https://x.com/9mkI8MC1eP38339/status/2122379118792896835) ([@9mkI8MC1eP38339](https://x.com/9mkI8MC1eP38339)). His Grok Bot rebuilt his GitHub progress dashboard about an hour after he got back from dinner: a tab per product, an issue burndown curve, and a Gantt by week with a lightning progress line (inazuma line). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/burndown-and-gantt/](https://grokbotpages.com/t/burndown-and-gantt/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1523,6 +1540,23 @@ Org charts, roles and hand-offs between your bots.
 ## Payments and Finance
 
 Spending, budgets, crypto and legal.
+
+- [Black Friday Scout](https://pending.invalid/black-friday-scout/) - Your Grok Bot vets every Black Friday deal against 90 days of real prices, so you only pay for real drops and skip deals whose list price went up before the sale. A watchlist with target prices, 90 day price lines and buy now or wait answers to copy, every deal marked real drop, fake markup or wait against its usual price, category filters, a biggest saving sort and a morning and afternoon refresh (example data). Inspired by [nahjuin's post on X](https://x.com/nahjuin/status/2123835263449481323) ([@nahjuin](https://x.com/nahjuin)). nahjuin's seasonal Black Friday Scout bot refreshes a free public Page of vetted deals every morning and afternoon; it passed 100 vetted deals within a week. No prompt was shared, so the prompt is written from the posts and the public Page. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/black-friday-scout/](https://grokbotpages.com/t/black-friday-scout/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the posts)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Black Friday Scout" and keep updating this same Page instead of making a new one. Find this year's Black Friday and Cyber Monday deals in [electronics, home, software, the stores I use] and vet each one before it goes on the Page: compare today's price with the usual price over the last 90 days, and mark it a real drop, a fake markup (the list price went up before the sale) or wait (it usually gets cheaper on Friday). For each deal show the price, the usual price, the saving in dollars and percent, the store, when it was checked and the source. Let me filter by category and sort by biggest saving. At the top keep my watchlist of [items, each with my target price]: today's best price, a small 90 day price line with the all time low, and whether it hit my target, with buy now or wait answers I can copy. Show how much I save on my watchlist at today's prices. Drop any deal that has expired, and leave a price out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Black Friday Scout" Page: every day at 08:00 and 14:00 until Cyber Monday, recheck every deal and watchlist price, drop expired deals, add new vetted ones and update the same Page with the time of the refresh. Message me only when a watchlist item drops to my target price or below, with the store and the price. Otherwise change only the Page.
+  ```
+
+  </details>
 
 - [Paycheck Planner](https://paycheck-planner-example-lmyd.pages.grok.bot/) - A paycheck planner for hourly and shift workers: wage, regular and overtime hours and take-home percent, an editable list of bills due before the next check, one bar that splits the check into bills and what is left, and calm next moves with Copy scripts when the check falls short (example data). Inspired by [The Come Up's post on X](https://x.com/TheComeupHq_/status/2119855339994529998) ([@TheComeupHq_](https://x.com/TheComeupHq_)). The post shares a public Grok Bot Page, Paycheck Planner, that this example is modelled on. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/paycheck-planner/](https://grokbotpages.com/t/paycheck-planner/).
