@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Christmas Gift List](https://pending.invalid/christmas-gift-list/) - Your Grok Bot keeps every gift inside its person's budget and catches price drops on the gifts you saved, so you pay less for the same Christmas list. Every person's budget bar, top pick and status, the days left to Christmas, two or three ideas per person with price, store, rating and why it fits, and a price drops list for saved gifts with buy it or keep watching answers to copy (example data). Inspired by [TimDOES's post on X](https://x.com/TimDOES/status/2122905716000485722) ([@TimDOES](https://x.com/TimDOES)). TimDOES's free Elfie: The Christmas Helper bot builds a gift list per person with real, top-rated products and current prices from each person's name, age, interests and budget, and sends daily price drop alerts on saved gifts. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/christmas-gift-list/](https://grokbotpages.com/t/christmas-gift-list/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Christmas Gift List" and keep updating this same Page instead of making a new one. I am shopping for [each person: name, age, what they are into, and my budget for them]. For each person, find two or three gift ideas that fit their age, interests and budget: real, well reviewed products with the current price, the store, the rating and one line on why it fits. At the top show the days left to Christmas, my total budget, what my picks cost, what I have already bought and how much I have saved from price drops. Give every person a card with their budget bar, their top pick and a status: bought, picked or still looking. Keep a price drops list for the gifts I saved: the price when I saved it, the price today and the saving, with buy it or keep watching answers I can copy. Let me filter the ideas by person. Never buy anything, and leave a price out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Christmas Gift List" Page: every morning at 08:00 until Christmas, recheck the price of every saved gift and every idea, update the days left and the totals on the same Page, and swap out any idea that went out of stock. Message me only when a saved gift drops in price, with the store and the new price. Otherwise change only the Page.
+  ```
+
+  </details>
+
 - [Burndown and Gantt](https://burndown-and-gantt-example-r5ux.pages.grok.bot/) - Your Grok Bot team builds you a live Gantt chart and sprint burndown and keeps them current, so you never hand-update a project chart again. A tab per repo, open issues and PRs against the ideal line, milestones with a progress line that bends left when work slips, and the calls that need you this week (example data). Inspired by [JJ's post on X](https://x.com/9mkI8MC1eP38339/status/2122379118792896835) ([@9mkI8MC1eP38339](https://x.com/9mkI8MC1eP38339)). His Grok Bot rebuilt his GitHub progress dashboard about an hour after he got back from dinner: a tab per product, an issue burndown curve, and a Gantt by week with a lightning progress line (inazuma line). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/burndown-and-gantt/](https://grokbotpages.com/t/burndown-and-gantt/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1523,6 +1540,23 @@ Org charts, roles and hand-offs between your bots.
 ## Payments and Finance
 
 Spending, budgets, crypto and legal.
+
+- [Christmas Gift List](https://pending.invalid/christmas-gift-list/) - Your Grok Bot keeps every gift inside its person's budget and catches price drops on the gifts you saved, so you pay less for the same Christmas list. Every person's budget bar, top pick and status, the days left to Christmas, two or three ideas per person with price, store, rating and why it fits, and a price drops list for saved gifts with buy it or keep watching answers to copy (example data). Inspired by [TimDOES's post on X](https://x.com/TimDOES/status/2122905716000485722) ([@TimDOES](https://x.com/TimDOES)). TimDOES's free Elfie: The Christmas Helper bot builds a gift list per person with real, top-rated products and current prices from each person's name, age, interests and budget, and sends daily price drop alerts on saved gifts. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/christmas-gift-list/](https://grokbotpages.com/t/christmas-gift-list/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Christmas Gift List" and keep updating this same Page instead of making a new one. I am shopping for [each person: name, age, what they are into, and my budget for them]. For each person, find two or three gift ideas that fit their age, interests and budget: real, well reviewed products with the current price, the store, the rating and one line on why it fits. At the top show the days left to Christmas, my total budget, what my picks cost, what I have already bought and how much I have saved from price drops. Give every person a card with their budget bar, their top pick and a status: bought, picked or still looking. Keep a price drops list for the gifts I saved: the price when I saved it, the price today and the saving, with buy it or keep watching answers I can copy. Let me filter the ideas by person. Never buy anything, and leave a price out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Christmas Gift List" Page: every morning at 08:00 until Christmas, recheck the price of every saved gift and every idea, update the days left and the totals on the same Page, and swap out any idea that went out of stock. Message me only when a saved gift drops in price, with the store and the new price. Otherwise change only the Page.
+  ```
+
+  </details>
 
 - [Paycheck Planner](https://paycheck-planner-example-lmyd.pages.grok.bot/) - A paycheck planner for hourly and shift workers: wage, regular and overtime hours and take-home percent, an editable list of bills due before the next check, one bar that splits the check into bills and what is left, and calm next moves with Copy scripts when the check falls short (example data). Inspired by [The Come Up's post on X](https://x.com/TheComeupHq_/status/2119855339994529998) ([@TheComeupHq_](https://x.com/TheComeupHq_)). The post shares a public Grok Bot Page, Paycheck Planner, that this example is modelled on. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/paycheck-planner/](https://grokbotpages.com/t/paycheck-planner/).
