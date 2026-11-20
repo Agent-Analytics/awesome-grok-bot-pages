@@ -782,5 +782,21 @@
       390,
       6207
     ]
+  },
+  "burndown-and-gantt": {
+    "url": "https://burndown-and-gantt-example-r5ux.pages.grok.bot/",
+    "captured": "2026-11-20T08:20:56.221Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      3526
+    ],
+    "mobile": [
+      390,
+      5629
+    ]
   }
 }
