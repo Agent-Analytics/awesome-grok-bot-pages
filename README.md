@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [CMA Prep](https://pending.invalid/cma-prep/) - Your Grok Bot builds the list price range for a listing appointment from your own comps and adjustments, so you walk in ready to win the listing and price it to sell. The subject home, a map of the comps around it, a comps table with your adjustments and adjusted prices, a sold, pending and active switch, every adjusted comp on one price scale with the suggested list range, private talking points and open questions with a Copy line each (example data). Inspired by [Ashley Schendel's post on X](https://x.com/ashleyschendel/status/2123113528663961639) ([@ashleyschendel](https://x.com/ashleyschendel)). Ashley put seven of the Grok Bots she uses on the Grok Bot Directory, among them My CMA Assistant, which learns how an agent picks comps and prices a listing, then preps CMAs and listing appointment notes. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/cma-prep/](https://grokbotpages.com/t/cma-prep/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "CMA Prep" for my listing appointment at [address] on [date] and keep updating this same Page until the appointment. Use my method: [how I pick comps: radius, months back, size range, same school zone] and [my adjustments: per square foot, garage, pool, condition, lot]. Pull the sold, pending and active comps from [my MLS or CMA tool]. Show the subject home, a simple map of the comps around it, and a comps table with sold price, date, size, price per square foot, my adjustments and the adjusted price. Let me switch between sold, pending and active. Put every adjusted comp on one price scale with my suggested list price range marked. Add private talking points for the seller, each with a line I can copy, and list any comp you are unsure about as a question with two answers I can copy. Show nothing to the seller, and leave a comp out rather than guess a number.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "CMA Prep" Page: every morning at 07:30 until the appointment, check for new sold, pending or active comps that fit my method, update the comps, adjustments and price range on the same Page, and mark what changed. Message me one line only if the suggested range moves. Otherwise change only the Page.
+  ```
+
+  </details>
+
 - [Burndown and Gantt](https://burndown-and-gantt-example-r5ux.pages.grok.bot/) - Your Grok Bot team builds you a live Gantt chart and sprint burndown and keeps them current, so you never hand-update a project chart again. A tab per repo, open issues and PRs against the ideal line, milestones with a progress line that bends left when work slips, and the calls that need you this week (example data). Inspired by [JJ's post on X](https://x.com/9mkI8MC1eP38339/status/2122379118792896835) ([@9mkI8MC1eP38339](https://x.com/9mkI8MC1eP38339)). His Grok Bot rebuilt his GitHub progress dashboard about an hour after he got back from dinner: a tab per product, an issue burndown curve, and a Gantt by week with a lightning progress line (inazuma line). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/burndown-and-gantt/](https://grokbotpages.com/t/burndown-and-gantt/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -1561,6 +1578,23 @@ Spending, budgets, crypto and legal.
 ## Sales
 
 Pipelines and CRM views.
+
+- [CMA Prep](https://pending.invalid/cma-prep/) - Your Grok Bot builds the list price range for a listing appointment from your own comps and adjustments, so you walk in ready to win the listing and price it to sell. The subject home, a map of the comps around it, a comps table with your adjustments and adjusted prices, a sold, pending and active switch, every adjusted comp on one price scale with the suggested list range, private talking points and open questions with a Copy line each (example data). Inspired by [Ashley Schendel's post on X](https://x.com/ashleyschendel/status/2123113528663961639) ([@ashleyschendel](https://x.com/ashleyschendel)). Ashley put seven of the Grok Bots she uses on the Grok Bot Directory, among them My CMA Assistant, which learns how an agent picks comps and prices a listing, then preps CMAs and listing appointment notes. No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/cma-prep/](https://grokbotpages.com/t/cma-prep/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "CMA Prep" for my listing appointment at [address] on [date] and keep updating this same Page until the appointment. Use my method: [how I pick comps: radius, months back, size range, same school zone] and [my adjustments: per square foot, garage, pool, condition, lot]. Pull the sold, pending and active comps from [my MLS or CMA tool]. Show the subject home, a simple map of the comps around it, and a comps table with sold price, date, size, price per square foot, my adjustments and the adjusted price. Let me switch between sold, pending and active. Put every adjusted comp on one price scale with my suggested list price range marked. Add private talking points for the seller, each with a line I can copy, and list any comp you are unsure about as a question with two answers I can copy. Show nothing to the seller, and leave a comp out rather than guess a number.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "CMA Prep" Page: every morning at 07:30 until the appointment, check for new sold, pending or active comps that fit my method, update the comps, adjustments and price range on the same Page, and mark what changed. Message me one line only if the suggested range moves. Otherwise change only the Page.
+  ```
+
+  </details>
 
 - [Revenue, last week](https://revenue-last-week-example-4v3c.pages.grok.bot/) - Booked revenue against plan by segment for last week, with the deals that slipped and why (example data). Inspired by [@maestrooth's post](https://x.com/maestrooth/status/2116619589140578691). Example Page by Awesome Grok Bot Pages.
   Template page: [grokbotpages.com/t/revenue-last-week/](https://grokbotpages.com/t/revenue-last-week/).
