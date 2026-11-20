@@ -46,6 +46,23 @@ Grok Bot Pages are interactive pages that Grok Bot builds and hosts. This list c
 
 Newest listings, also shown in their section.
 
+- [Timesheet Review](https://pending.invalid/timesheet-review/) - Your Grok Bot rebuilds your work week from AI chats, commits, email and calendar, so billable hours you never logged get billed and the Friday timesheet takes minutes instead of an hour. Hours found vs hours already logged per client, the billable hours never logged and what they are worth, strict, rule and generous rounding, a day timeline with the source of every block, and the blocks that need your call with a Copy answer each (example data). Inspired by [Mad Scientist's post on X](https://x.com/pipinglabs/status/2122767097981727202) ([@pipinglabs](https://x.com/pipinglabs)). Mad Scientist's Time Lord bot reads coding agent and chat history, calendar and project tools, applies the billing rules, and builds a review Page for checking each day, client and source before the hours go into the timesheet system. No prompt was shared, so the prompt is written from the article. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/timesheet-review/](https://grokbotpages.com/t/timesheet-review/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the article)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Timesheet Review" and keep updating this same Page instead of making a new one. Rebuild my working week from evidence: my AI chat and coding agent history, code commits, sent email, team chat, calendar meetings and call recordings, and trip notes. My clients and projects are [list them, with the people and repos that belong to each]. My rules: working hours [8:00 to 18:00], bill in [15] minute steps, [what counts as billable], internal work is not billable, travel bills at [half rate]. At the top: hours found this week, hours already in my timesheet system, the hours I worked but have not logged, and what those are worth at my rate of [rate]. Then a day by day chart split by client with the logged hours marked, a per client table (found, logged, not logged, value), and a timeline for any day I pick that shows each block, its client and the sources it came from. Let me switch between strict, my rules and generous rounding. List every block you could not place with a clear question and two answers I can copy. Do not write anything into my timesheet system until I approve it, and leave a block out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Timesheet Review" Page: every weekday at 17:30, read today's AI chats, commits, sent email, team chat and calendar, rebuild the day on the same Page and update the week totals. On Friday at 16:00, message me one line with the hours not yet logged and their value, plus the number of blocks that need my answer. After I approve, write only the approved entries into my timesheet system and mark them logged. Otherwise change only the Page.
+  ```
+
+  </details>
+
 - [Burndown and Gantt](https://burndown-and-gantt-example-r5ux.pages.grok.bot/) - Your Grok Bot team builds you a live Gantt chart and sprint burndown and keeps them current, so you never hand-update a project chart again. A tab per repo, open issues and PRs against the ideal line, milestones with a progress line that bends left when work slips, and the calls that need you this week (example data). Inspired by [JJ's post on X](https://x.com/9mkI8MC1eP38339/status/2122379118792896835) ([@9mkI8MC1eP38339](https://x.com/9mkI8MC1eP38339)). His Grok Bot rebuilt his GitHub progress dashboard about an hour after he got back from dinner: a tab per product, an issue burndown curve, and a Gantt by week with a lightning progress line (inazuma line). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/burndown-and-gantt/](https://grokbotpages.com/t/burndown-and-gantt/).
   <details><summary>Prompt (written by Awesome Grok Bot Pages from the post)</summary>
@@ -991,6 +1008,23 @@ One screen for what your bots and projects are doing and what waits on you.
 ## Productivity
 
 Planners, trackers and task boards.
+
+- [Timesheet Review](https://pending.invalid/timesheet-review/) - Your Grok Bot rebuilds your work week from AI chats, commits, email and calendar, so billable hours you never logged get billed and the Friday timesheet takes minutes instead of an hour. Hours found vs hours already logged per client, the billable hours never logged and what they are worth, strict, rule and generous rounding, a day timeline with the source of every block, and the blocks that need your call with a Copy answer each (example data). Inspired by [Mad Scientist's post on X](https://x.com/pipinglabs/status/2122767097981727202) ([@pipinglabs](https://x.com/pipinglabs)). Mad Scientist's Time Lord bot reads coding agent and chat history, calendar and project tools, applies the billing rules, and builds a review Page for checking each day, client and source before the hours go into the timesheet system. No prompt was shared, so the prompt is written from the article. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
+  Template page: [grokbotpages.com/t/timesheet-review/](https://grokbotpages.com/t/timesheet-review/).
+  <details><summary>Prompt (written by Awesome Grok Bot Pages from the article)</summary>
+
+  ```text
+  Make me a Grok Bot Page called "Timesheet Review" and keep updating this same Page instead of making a new one. Rebuild my working week from evidence: my AI chat and coding agent history, code commits, sent email, team chat, calendar meetings and call recordings, and trip notes. My clients and projects are [list them, with the people and repos that belong to each]. My rules: working hours [8:00 to 18:00], bill in [15] minute steps, [what counts as billable], internal work is not billable, travel bills at [half rate]. At the top: hours found this week, hours already in my timesheet system, the hours I worked but have not logged, and what those are worth at my rate of [rate]. Then a day by day chart split by client with the logged hours marked, a per client table (found, logged, not logged, value), and a timeline for any day I pick that shows each block, its client and the sources it came from. Let me switch between strict, my rules and generous rounding. List every block you could not place with a clear question and two answers I can copy. Do not write anything into my timesheet system until I approve it, and leave a block out rather than guess.
+  ```
+
+  </details>
+  <details><summary>Routine prompt (optional)</summary>
+
+  ```text
+  Create a routine for my "Timesheet Review" Page: every weekday at 17:30, read today's AI chats, commits, sent email, team chat and calendar, rebuild the day on the same Page and update the week totals. On Friday at 16:00, message me one line with the hours not yet logged and their value, plus the number of blocks that need my answer. After I approve, write only the approved entries into my timesheet system and mark them logged. Otherwise change only the Page.
+  ```
+
+  </details>
 
 - [Burndown and Gantt](https://burndown-and-gantt-example-r5ux.pages.grok.bot/) - Your Grok Bot team builds you a live Gantt chart and sprint burndown and keeps them current, so you never hand-update a project chart again. A tab per repo, open issues and PRs against the ideal line, milestones with a progress line that bends left when work slips, and the calls that need you this week (example data). Inspired by [JJ's post on X](https://x.com/9mkI8MC1eP38339/status/2122379118792896835) ([@9mkI8MC1eP38339](https://x.com/9mkI8MC1eP38339)). His Grok Bot rebuilt his GitHub progress dashboard about an hour after he got back from dinner: a tab per product, an issue burndown curve, and a Gantt by week with a lightning progress line (inazuma line). No prompt was shared, so the prompt is written from the post. Example Page by Awesome Grok Bot Pages ([@Agent-Analytics](https://github.com/Agent-Analytics/awesome-grok-bot-pages)).
   Template page: [grokbotpages.com/t/burndown-and-gantt/](https://grokbotpages.com/t/burndown-and-gantt/).
