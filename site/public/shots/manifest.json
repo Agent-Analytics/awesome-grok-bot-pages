@@ -814,5 +814,21 @@
       390,
       8000
     ]
+  },
+  "search-console-weekly": {
+    "url": "https://search-console-weekly-example-hfnj.pages.grok.bot/",
+    "captured": "2026-11-21T10:39:13.298Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      5298
+    ],
+    "mobile": [
+      390,
+      8000
+    ]
   }
 }
