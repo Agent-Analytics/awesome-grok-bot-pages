@@ -798,5 +798,21 @@
       390,
       5629
     ]
+  },
+  "christmas-gift-list": {
+    "url": "https://christmas-gift-list-example-3xed.pages.grok.bot/",
+    "captured": "2026-11-21T10:39:13.279Z",
+    "thumb": [
+      960,
+      600
+    ],
+    "full": [
+      1200,
+      5281
+    ],
+    "mobile": [
+      390,
+      8000
+    ]
   }
 }
